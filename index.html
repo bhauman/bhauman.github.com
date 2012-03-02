@@ -1,0 +1,12 @@
+---
+layout: page
+title: Hello World!
+tagline: Supporting tagline
+---
+
+{% include JB/setup %}
+
+{% capture latest_post %}{{ site.posts | first }}{% endcapture %}
+
+{{ latest_post }}
+
