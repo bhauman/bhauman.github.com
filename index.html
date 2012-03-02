@@ -1,12 +1,11 @@
 ---
+title: My best article
+date: 2012-03-02
 layout: page
-title: Hello World!
 tagline: Supporting tagline
 ---
 
 {% include JB/setup %}
+{{ site.posts | first }}
 
-{% capture latest_post %}{{ site.posts | first }}{% endcapture %}
-
-{{ latest_post }}
 

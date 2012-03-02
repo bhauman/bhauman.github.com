@@ -1,5 +1,9 @@
 <div class="row">
   <div class="span8">
+    <div class="post_header">
+      <div class="title">{{ page.title }}</div>
+      <div class="author">{{ site.author.name }} <span class="date">{{ page.date | date_to_long_string }}</span> </div>
+    </div> 
     {{ content }}
   </div>
 </div>
