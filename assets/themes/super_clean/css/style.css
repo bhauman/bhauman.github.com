@@ -2,7 +2,10 @@
   width: 620px;
 }
 
-body, p { font-size:100%; line-height:1.75;
+body, p { 
+ font-family: "Droid Serif", "Georgia", "Times New Roman", "Palatino", "Hoefler Text", "Baskerville", serif;
+ font-size:100%; line-height:1.75;
+ font-size: 0.912em; 
 /* font-family: "Minion Pro",Gentium,"Gentium Basic","Hoefler Text",Constantia,"Palatino Linotype",Georgia,serif;*/
  }
 h1, h2, h3 { margin-top:0; margin-bottom:0; }
@@ -11,9 +14,10 @@ h2 { font-size:1.33333em; margin:1.75em 0; }
 h3 { font-size:1.16667em; margin:2.125em 0; }
 
 h1, h2, h3, h4 {
-  font-weight: normal;
+  font-weight: bold;
   text-transform: uppercase;
   color: #333;
+  font-family: "CartoGothic Std", "Verdana", "Lucida Grande", "Gill Sans", "Arial", "Helvetica", sans-serif;
 }
 
 p {
@@ -27,6 +31,7 @@ p {
 }
 
 .post_header .title {
+  font-family: "CartoGothic Std", "Verdana", "Lucida Grande", "Gill Sans", "Arial", "Helvetica", sans-serif;
   font-weight: bold;
   font-size: 3.0em;
 }
@@ -41,6 +46,10 @@ p {
 .post_header .date {
   color: #aaa;
   font-style: italic;
+}
+
+code, pre {
+  font-family: "TeX Gyre Cursor", Menlo, Courier New, Courier, Mono, monospace; 
 }
 
 /* tag_box ======================================================== */
