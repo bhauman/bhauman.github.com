@@ -1,0 +1,6 @@
+--- 
+layout: post
+title: "Emacs: Interactively Find and Replace String Patterns on Multiple \tFiles"
+published: true
+---
+This is such an invaluable tutorial!   I posted it before on twitter but here it is again:<ul> <li>Call “dired” or “find-dired” to list files in dir and all subdirs.</li> <li>Mark the files you want. You can mark by regex by typing “%m”</li> <li>Type “Q” to call dired-do-query-replace-regexp.</li> <li>Type your find regex and replace string.</li> <li>For each occurance, type “y” to replace, “n” to skip, “!” for replacing all occurances in current file. Type “<span class="kbd"><span class="key">Ctrl</span>+<span class="key">g</span></span>” to abort the whole operation.</li> <li>To do the replacement on all files without further asking, type “Y”. To skip all possible replacement on the rest of the current file, type “N”. (These are Emacs 23 only)</li> <li>Call “ibuffer” to list all opened files.</li> <li>Type “*u” to mark all unsaved files, type “S” to save all marked files, type “D” to close them all.</li></ul><div>There is a much more detailed guide on the page where I got these instructions here:</div><p /> <div><a href="http://xahlee.org/emacs/find_replace_inter.html">http://xahlee.org/emacs/find_replace_inter.html</a></div>
