@@ -3,4 +3,18 @@ layout: post
 title: The elegant way to make square images in Ruby (avatar style)
 published: true
 ---
-The problem: we have an image and you want to make a smaller square <br />version of it. We want the smaller version to cropped so that the <br />image fills the square. <p /> For example you have this: <br />[[posterous-content:tvvudEzcbbAeqBnBCAcp]]<p /> And you want to square it and crop off the sides: <p /> [[posterous-content:taJDaimllqCpzcquocxk]]<p /> And then end up with a resulting square image: <br />[[posterous-content:qbzhBrjCBJtwHwqAhdll]]<p /> This is a problem that I have solved over and over again. But this is <br />my favorite solution: <p /> Using mini_magick (<a href="http://github.com/probablycorey/mini_magick)">http://github.com/probablycorey/mini_magick)</a> <p /> <script src="https://gist.github.com/319731.js"></script><p /> Dont' miss the '^' in the resize geometry. That resizes to the <br />closest dimension while maintaining the aspect ratio. <p /> Note that this works when you want to "magically" crop rectangular <br />images as well.
+The problem: we have an image and you want to make a smaller square
+<br />version of it. We want the smaller version to cropped so that
+the <br />image fills the square. <p /> For example you have this:
+<br />
+<img src="/assets/images/great_shoes.jpeg"/>
+<p /> And you want to square it and crop off the sides: <p /> 
+
+<img src="/assets/images/great_shoes_crop.jpeg"/>
+
+<p /> And then end up with a resulting square image: <br />
+
+<img src="/assets/images/great_shoes_avatar.jpeg"/>
+
+
+<p /> This is a problem that I have solved over and over again. But this is <br />my favorite solution: <p /> Using mini_magick (<a href="http://github.com/probablycorey/mini_magick)">http://github.com/probablycorey/mini_magick)</a> <p /> <script src="https://gist.github.com/319731.js"></script><p /> Dont' miss the '^' in the resize geometry. That resizes to the <br />closest dimension while maintaining the aspect ratio. <p /> Note that this works when you want to "magically" crop rectangular <br />images as well.
