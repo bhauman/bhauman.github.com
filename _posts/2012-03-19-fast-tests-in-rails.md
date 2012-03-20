@@ -49,7 +49,7 @@ If you are test driving a large Rails project this is something you
 have to experience for yourself.  You just have to try one test.
 
 Don't hesitate.  Don't try and do it perfectly. Don't engage in internal
-debates about the fast testing best practices.  Don't read 5 blog
+debates about fast testing best practices.  Don't read 5 blog
 articles on how to do it.  Don't consider how to integrate it with
 your continuous testing environment. Don't figure out how to integrate
 it with your IDE.
@@ -72,6 +72,7 @@ Don't try to be artful.  Don't try and be clever. This is about
 experiencing how fast you can develop when you don't have to load
 Rails for every tiny little test run.
 
+Watch Corey Haines' talk about this [here.](http://www.youtube.com/watch?v=bNn6M2vqxHE)
 
 
 
