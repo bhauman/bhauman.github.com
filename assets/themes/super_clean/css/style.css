@@ -83,3 +83,25 @@ code, pre {
 	color:#FFF;
 }
 	
+.posts_collation, .contact {
+  font-size: 0.8em;
+}
+
+.posts_collation h4, .contact h4 {
+  padding-bottom: 1em;
+}
+
+.posts_collation a {
+  display: block;
+  padding-bottom: 1em;
+}
+
+.content {
+  margin-bottom: 4em;
+}
+
+footer { 
+  font-size: 0.5em;
+  color: #666;
+  margin-top: 8em;
+}

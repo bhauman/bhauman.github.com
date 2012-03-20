@@ -34,17 +34,23 @@
       </div>
       <hr/>
       <div class="footer_content row">
-        <div class="posts_collation span3 first">
-          <h4>Archives</h4>
+        <div class="posts_collation span2 first">
+          <h4><i class="icon-book"></i> Archives</h4>
           {% for post in site.posts %}
-            <a href="{{ BASE_PATH }}{{ post.url }}">{{ post.title }}</a><br/>
+            <a href="{{ BASE_PATH }}{{ post.url }}">{{ post.title }}</a>
           {% endfor %}
+        </div>
+        <div class="contact span2">
+          <h4><i class="icon-user"></i> Contact</h4>
+          <a href="mailto:bhauman@gmail.com">bhauman@gmail.com</a>
+          <a href="http://twitter.com/bhauman">twitter</a>
+
+
         </div>
       </div>
 
       <footer>
-        <p>&copy; {{ site.author.name }} 2012 
-        </p>
+        <p>&copy; {{ site.author.name }} 2012 </p>
       </footer>
 
     </div> <!-- /container -->
