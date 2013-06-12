@@ -20,7 +20,7 @@ make data operations both accessible and available to clients such as
 web and phone apps. These services have many forms but developers
 often roll their own for their particular use case. More general forms
 of these services are available. Both Parse.com and Firebase.io are
-both examples of a web based data service.
+examples of a web based data service.
 
 The default operational paradigm of these services is the CRUD
 paradigm (Create, Read, Update, Delete). If we store data in a service
