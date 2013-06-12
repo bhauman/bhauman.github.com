@@ -8,11 +8,11 @@ tags: []
 
 ## An Immutable Data Service
 
-<script src="http://localhost:3000/js/vendor/underscore-min.js">
+<script src="http://scratch.leaves.io/js/vendor/underscore-min.js">
 </script>
-<script src="http://localhost:3000/js/json_renderer.js">
+<script src="http://scratch.leaves.io/js/json_renderer.js">
 </script>
-<link rel="stylesheet" href="http://localhost:3000/css/json_renderer.css" />
+<link rel="stylesheet" href="http://scratch.leaves.io/css/json_renderer.css" />
 
 Web based data services provide a means of storing and reading data
 over HTTP. The main advantage offered by these services is that they
