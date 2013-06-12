@@ -1,10 +1,13 @@
 ---
-title: Fast tests in Rails make programming fun again
-date: 2012-03-19
-layout: post
-tagline: Supporting tagline
+layout: default
+title: Your New Jekyll Site
 ---
-{% include JB/setup %}
-{{ site.posts | first }}
 
-
+<div id="home">
+  <h1>Blog Posts</h1>
+  <ul class="posts unstyled">
+    {% for post in site.posts %}
+      <li><span style="color: #bbb; width: 100px">{{ post.date | date_to_string }}</span>  <span><a href="{{ post.url }}">{{ post.title }}</a></span></li>
+    {% endfor %}
+  </ul>
+</div>
