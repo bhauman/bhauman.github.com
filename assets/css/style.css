@@ -114,8 +114,30 @@ footer {
   margin-top: 4em;
 }
 
+.posts li span.post_date {
+  color: #bbb;
+  width: 100px
+}
+
 .posts li span {
   display: inline-block;
   max-width: 463px;
   vertical-align: top;
+}
+
+
+@media (max-width: 480px){
+    .container { 
+        padding-right: 1em;
+        padding-left: 1em;
+        max-width: 330px;
+        font-size: 1.1em;
+    }
+    .posts li span {
+      display: block;
+    }
+   .posts li span.post_date {
+      text-align: center;
+      width: 100%;
+   }
 }
