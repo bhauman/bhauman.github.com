@@ -89,7 +89,7 @@ guarantees that the data referred to by this identifier will not change.
 </div> 
 
 <script>
-    var service_root = "http://localhost:3000";
+    var service_root = "http://scratch.leaves.io";
     var run_request = function(ex, excludes, path) {
        var request = $.ajax(service_root + $('.request .url', ex).text(), 
                   { type: $('.request .type', ex).text(), 
@@ -396,7 +396,6 @@ Below is an interactive example:
     <option value="add:get_milk">Add "get milk" to the</option>
     <option value="add:rent_movie">Add "rent movie" to the</option>
     <option value="delete:0">Remove first item from the</option>
-    <option value="delete:-1">Remove last item from the</option>
   </select>
 
   <select name="list">
