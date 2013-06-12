@@ -128,10 +128,7 @@ footer {
 
 @media (max-width: 480px){
     .container { 
-        padding-right: 20px;
-        padding-left: 20px;
-        max-width: 440px;
-        font-size: 1.1em;
+        width: auto;
     }
     .posts li span {
       display: block;
@@ -139,5 +136,8 @@ footer {
    .posts li span.post_date {
       text-align: center;
       width: 100%;
+   }
+   .http_request, .node_tree {
+     font-size: 0.7em;
    }
 }
