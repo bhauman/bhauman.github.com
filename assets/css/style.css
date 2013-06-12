@@ -128,9 +128,9 @@ footer {
 
 @media (max-width: 480px){
     .container { 
-        padding-right: 1em;
-        padding-left: 1em;
-        max-width: 480px;
+        padding-right: 20px;
+        padding-left: 20px;
+        max-width: 440px;
         font-size: 1.1em;
     }
     .posts li span {
