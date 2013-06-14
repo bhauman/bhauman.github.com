@@ -123,14 +123,14 @@ There is no operation in the API of this service that will allow you
 to alter this data. This stored item can now be cached forever as the
 data at the this url will never change.
 
-This is an immutable data service in it's most basic form. I believe
-this simple form has value on it's own. 
+This is an immutable data service in its most basic form. I believe
+this simple form has value on its own. 
 
 A key advantage of an immutable data service is that **authority is
 not a necessity** for this service to operate. Clients do not have to
 log in.  You simply can not overwrite a document that soemone else is
 relying on. Authority may be needed for the tangential concerns of
-running such a service, but it is simply not necessary for it's
+running such a service, but it is simply not necessary for its
 function.
 
 This is a big deal. Clients can store data without an authorization
@@ -145,7 +145,7 @@ information.
 ## What about change?
 
 In our experience of the world things change over time. When you get
-a coffee a at a cafe you have an experience of the flow of events
+a coffee at a cafe you have an experience of the flow of events
 that bring that coffee to you. Our minds have the ability to hold onto
 this series of changes and turn it into something meaningful for us.
 We are built to make decisions based on how things change over time.
@@ -288,7 +288,7 @@ Let's look at the state of things after this operation.
 
 We now have a versioning system. It's important to note how easily
 available the previous versions of the document are. We can now chain
-through the history of the JSON document from it's inception.
+through the history of the JSON document from its inception.
 
 It is important to note here that this provides an important contract
 to the consumer of this API.  This provides an **operational guarantee**
@@ -299,7 +299,7 @@ know with great confidence the value of the resulting document. Hence, we don't
 have to constantly fetch the value of the document we are working
 with. The client library can easily perform the operation locally and
 as long as the operation is successful we now know the absolute value
-of the new stored document without fetching it's value.
+of the new stored document without fetching its value.
 
 In other words, it is possible to know the absolute value of the
 current state of the document.
@@ -346,7 +346,7 @@ The primary advantages are:
 * Operational guarantees.
 * Sharable and operable by default.
 
-I have tried to focus on what the service is and it's intrinsic
+I have tried to focus on what the service is and its intrinsic
 advantages.  I have stayed away from implementation details as I feel
 these problems are solved or solvable.  What's more interesting to me
 is what this implies for openly sharing data and application
@@ -381,13 +381,12 @@ URI.
 
 <h2>Postscript: What about storage?</h2>
 
-<p>
-The first and primary objection to this type of service is the idea
-that it's wasteful. That the servers will fill up with rotting bits in
-a smouldering heap. We have to keep in mind that this is precisely
-what Github does.  It stores every useless bit and poor coding choice
-perpetually and makes it all available for us to peruse at any
-moment.
+<p> 
+The first and primary objection to this type of service is the
+idea that it's wasteful. That the servers will fill up with bits in a
+rotting heap. We have to keep in mind that this is precisely what
+Github does.  It stores every useless bit and poor coding choice
+perpetually and makes it all available for us to peruse at any moment.
 </p>
 
 <p>
