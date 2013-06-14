@@ -67,9 +67,13 @@ guarantees that the document referred to by this identifier will not change.
   .highlight_id {
     color: #468847;
   }
+  code {
+    font-size: inherit;
+  }
 </style>
 
-<div id="example-1" class="http_request">
+
+<div id="exampler-1" class="http_request">
     <div class="example">example</div>
     <div class="alert alert-info">
       <div class="request">
@@ -85,74 +89,34 @@ guarantees that the document referred to by this identifier will not change.
     <div class="alert alert-success">
       <div class="response-body">
         <span class="head">Response:</span>
-        <div class="code">{ todo_list: [] }</div>
+        <div class="code render-my-json">
+          { "_id": 10001 }
+        </div>
       </div>    
     </div>
-</div> 
-
-<script>
-    var service_root = "http://scratch.leaves.io";
-    var id_map = {};
-
-    var get_url = function(example) {
-      var id = $(".highlight_id", example).text();
-      var path = $(".highlight_path", example).text() || "";
-      return id ? "/web-map/" + id + "/" + path : "/web-map"; 
-    };
-
-    var run_request = function(ex, excludes, path) {
-       var request = $.ajax(service_root + $('.request .url', ex).text(),
-                  { type: $('.request .type', ex).text(), 
-                    contentType: "text/plain",       
-                    data: $('.body code', ex).text()});
-       request.done(function(res) {
-           _(excludes).each(function(exclude) { delete res[exclude] });
-           if(path) { res = res[path]; }
-           $('.response-body .code', ex).html(
-              JSONRenderer.render_json(res)
-            );
-       });
-       return request;
-    };
-    var example_1 = $.Deferred();
-    run_request($('#example-1'), 
-                ["action","parent-id", "data"]).done(function(res) {
-      example_1.resolve(res);
-    });
-    
-</script>
+</div>
 
 The response includes an <code>_id</code> which we can use in a GET
 request to obtain the data that we stored there.
 
-<div id="example-2" class="http_request">
+<div id="exampler-2" class="http_request">
     <div class="example">example</div>
     <div class="alert alert-info">
       <div class="request">
         <span class="head">Request</span>
         <span class="type">GET</span>
-        <span class="url"></span> 
+        <span class="url">/web-map/<span class="highlight_path">10001</span></span> 
       </div>
     </div>
     <div class="alert alert-success">
       <div class="response-body">
         <span class="head">Response:</span>
-        <div class="code">{}</div>
+        <div class="code render-my-json">
+          { "todo_list": [] }
+        </div>
       </div>    
     </div>
 </div>
-
-<script>
-  var example_2 = $.Deferred();
-  example_1.done(function(res) {
-    
-    $("#example-2 .url").html( "/web-map/<span class='highlight_id'>" + res._id + "</span>");
-    run_request($('#example-2'), [], "data").done(function(res) {
-      example_2.resolve(res);
-    });
-  
-  });
-</script>
 
 This url is unique and will will always refer to this particular data.
 There is no operation in the API of this service that will allow you
@@ -218,11 +182,11 @@ one.
 <style>
   .node_tree .node .node-url {
     display: inline-block;
-    font-size: 0.3em;
+    font-size: 0.7em;
     width: 125px;
     height: 125px;
     padding: 0px;
-    border-radius: 60px;
+    border-radius: 15px;
     line-height: 125px;
     text-align: center;
    }
@@ -275,38 +239,29 @@ Let's introduce a <code>set</code> operation that will allow us to set
 the value of a key in the stored JSON document. The following example
 adds a new list to our document.
 
-<div id="example-5" class="http_request">
+<div id="exampler-3" class="http_request">
     <div class="example">example</div>
     <div class="alert alert-info">
       <div class="request">
         <span class="head">Request</span>
         <span class="type">POST</span>
-        <span class="url">/web-map/</span> 
+        <span class="url">/web-map/<span class="highlight_id">10001</span>/<span class="highlight_path">important_todos</span>
+        </span> 
       </div>
       <div class="body">
         <span class="head">Body</span>
-        <code>
-        </code>
+        <code>[]</code>
       </div>
     </div>
     <div class="alert alert-success">
       <div class="response-body">
         <span class="head">Response:</span>
-        <div class="code">{}</div>
+        <div class="code render-my-json">
+          { "_id": 10002, "parent_id": 10001 }
+        </div>
       </div>    
     </div>
-</div> 
-
-<script>
-  var example_5 = $.Deferred();
-  example_2.done(function(res) {
-    $("#example-5 .url").html( "/web-map/<span class='highlight_id'>" + res._id + "</span>/<span class='highlight_path'>todo_important</span>");
-    $("#example-5 .body code").html( '[]' );
-    run_request($('#example-5'), ["action", "data"]).done(function(res) { 
-       example_5.resolve(res);
-    });        
-  });
-</script>
+</div>
 
 Here we have executed an **operation** on the original document we
 created in the first [example](#example-1). Our return value consists
@@ -321,13 +276,15 @@ information about who was the parent of this new document.
 Let's look at the state of things after this operation.
 
 <div id="example-6" class="node_tree">
+  <div class="node">
+    <span class="node-url alert alert-warning">GET /json-doc/10002</span>
+    <span class="node-data render-my-json">{ "todos_list" : [], "todo_important": [] }</span>
+  </div>
+  <div class="node">
+    <span class="node-url alert alert-warning">GET /json-doc/10001</span>
+    <span class="node-data render-my-json">{ "todos_list" : [] }</span>
+  </div>
 </div>
-
-<script>
-  example_5.done(function(res) {
-    display_nodes(res._id, $("#example-6"));
-  });
-</script>
 
 We now have a versioning system. It's important to note how easy and
 available the previous versions of the document are. We can now chain
@@ -453,3 +410,9 @@ record.
 </p>
 
 </div>
+
+<script>
+  _($('.render-my-json')).each(function(el) {
+   $(el).html(JSONRenderer.render_json(JSON.parse($(el).text())));
+  });
+</script>
