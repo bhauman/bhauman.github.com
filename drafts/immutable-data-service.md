@@ -83,7 +83,7 @@ guarantees that the document referred to by this identifier will not change.
       </div>
       <div class="body">
         <span class="head">Body</span>
-        <code>{ "todo_list": [] }</code>
+        <code>{ "first_name": "James" }</code>
       </div>
     </div>
     <div class="alert alert-success">
@@ -112,7 +112,7 @@ request to obtain the data that we stored there.
       <div class="response-body">
         <span class="head">Response:</span>
         <div class="code render-my-json">
-          { "todo_list": [] }
+          { "first_name": "James" }
         </div>
       </div>    
     </div>
@@ -245,12 +245,12 @@ adds a new list to our document.
       <div class="request">
         <span class="head">Request</span>
         <span class="type">POST</span>
-        <span class="url">/json-doc/<span class="highlight_id">10001</span>/<span class="highlight_path">important_todos</span>
+        <span class="url">/json-doc/<span class="highlight_id">10001</span>/<span class="highlight_path">license_to_kill</span>
         </span> 
       </div>
       <div class="body">
         <span class="head">Body</span>
-        <code>[]</code>
+        <code>true</code>
       </div>
     </div>
     <div class="alert alert-success">
@@ -278,11 +278,11 @@ Let's look at the state of things after this operation.
 <div id="example-6" class="node_tree">
   <div class="node">
     <span class="node-url alert alert-warning">GET /json-doc/10002</span>
-    <span class="node-data render-my-json">{ "todos_list" : [], "todo_important": [] }</span>
+    <span class="node-data render-my-json">{ "first_name" : "James", "license_to_kill": true }</span>
   </div>
   <div class="node">
     <span class="node-url alert alert-warning">GET /json-doc/10001</span>
-    <span class="node-data render-my-json">{ "todos_list" : [] }</span>
+    <span class="node-data render-my-json">{ "first_name" : "James" }</span>
   </div>
 </div>
 
