@@ -15,32 +15,34 @@ tags: []
 <link rel="stylesheet" href="http://scratch.leaves.io/css/json_renderer.css" />
 
 Web based data services provide a means of storing and reading data
-over HTTP. The main advantage offered by these services is that they
-make data operations both accessible and available to clients such as
-web and phone apps. These services have many forms but developers
-often roll their own for their particular use case. More general forms
-of these services are available. Both Parse.com and Firebase.io are
-examples of a web based data service.
+over HTTP. The core value of these services is that they make data
+operations both accessible and available to clients such as web and
+phone applications. These services can exist as application specific
+RESTful resources or general data storage services. [Parse.com](http://parse.com) and
+[Firebase.io](http://firebase.io) are both examples of a web based
+data services intended for client application data storage.
 
-The default operational paradigm of these services is the CRUD
-paradigm (Create, Read, Update, Delete). If we store data in a service
-it is assumed that we can update it in place. Watch this 
-[this video](http://www.infoq.com/presentations/Value-Values) for a
-explanation of why this may not be such a great way to do things.
+The default operational paradigm of these services is one that implies
+**mutation**. If we store data in a service it is assumed that we can
+update it in place. A web resource with a given URI can be changed and
+future references to that URI will yield the new mutated value. Watch
+this [this video](http://www.infoq.com/presentations/Value-Values) for
+a explanation of why this may not be such a great way to do things.
 
 Let's consider a web based data service which is **immutable**.  This
 service would allow you to _store_ data and _read_ data but does not
-let you _update_ data once it is stored. We would truncate CRUD to CR.
+let you _update_ data once it is stored.
 
 In this post I explore an example of an immutable service for JSON
-documents. This example is not an advocacy for a certain API it's
-simply a scaffold for explaining the concept.
+documents. This example is not advocating an API. It's simply a
+scaffold for looking at couple of the interesting properties of
+immutable data services.
 
 ## Creating and reading
 
-The example service allows you to post data to an endpoint. The response will
-include an identifier which refers to the stored data. The service
-guarantees that the data referred to by this identifier will not change.
+The example service allows you to post JSON data to an endpoint. The response will
+include an identifier which refers to the newly stored document. The service
+guarantees that the document referred to by this identifier will not change.
 
 <style>
   .http_request { 
@@ -90,8 +92,16 @@ guarantees that the data referred to by this identifier will not change.
 
 <script>
     var service_root = "http://scratch.leaves.io";
+    var id_map = {};
+
+    var get_url = function(example) {
+      var id = $(".highlight_id", example).text();
+      var path = $(".highlight_path", example).text() || "";
+      return id ? "/web-map/" + id + "/" + path : "/web-map"; 
+    };
+
     var run_request = function(ex, excludes, path) {
-       var request = $.ajax(service_root + $('.request .url', ex).text(), 
+       var request = $.ajax(service_root + $('.request .url', ex).text(),
                   { type: $('.request .type', ex).text(), 
                     contentType: "text/plain",       
                     data: $('.body code', ex).text()});
@@ -106,14 +116,14 @@ guarantees that the data referred to by this identifier will not change.
     };
     var example_1 = $.Deferred();
     run_request($('#example-1'), 
-                ["data", "action","parent-id"]).done(function(res) {
+                ["action","parent-id", "data"]).done(function(res) {
       example_1.resolve(res);
     });
     
 </script>
 
-The response includes an <code>_id</code> and now we can use this id in
-a GET request to obtain the data that we stored there.
+The response includes an <code>_id</code> which we can use in a GET
+request to obtain the data that we stored there.
 
 <div id="example-2" class="http_request">
     <div class="example">example</div>
@@ -136,7 +146,7 @@ a GET request to obtain the data that we stored there.
   var example_2 = $.Deferred();
   example_1.done(function(res) {
     
-    $("#example-2 .url").html( "/web-map/<span class='highlight_path'>" + res._id + "</span>");
+    $("#example-2 .url").html( "/web-map/<span class='highlight_id'>" + res._id + "</span>");
     run_request($('#example-2'), [], "data").done(function(res) {
       example_2.resolve(res);
     });
@@ -195,49 +205,15 @@ relationship as well.
 
 ## Implementing change on top of immutability
 
-So when thinking about change and immutable data we have two
-requirements so far.  We need to store new data and a pointer to the
-previous version of this data. In order to add an item to our todo
-list we will create a new todo list based on the old list and record
-the id of the old list as well.
+Change _can_ be implemented by making clients of this service
+responsible for changing the data and then creating a new JSON
+document on the service with the modified data. This manual approach
+is possible but change is such an essential feature of data use it
+should also be a feature of the service. 
 
-<div id="example-3" class="http_request">
-    <div class="example">example</div>
-    <div class="alert alert-info">
-      <div class="request">
-        <span class="head">Request</span>
-        <span class="type">POST</span>
-        <span class="url">/web-map/</span> 
-      </div>
-      <div class="body">
-        <span class="head">Body</span>
-        <code>
-        </code>
-      </div>
-    </div>
-    <div class="alert alert-success">
-      <div class="response-body">
-        <span class="head">Response:</span>
-        <div class="code">{}</div>
-      </div>    
-    </div>
-</div> 
-
-<script>
-  var example_3 = $.Deferred();
-  example_2.done(function(res) {
-    $("#example-3 .url").html( "/web-map/<span class='highlight_path'>" + res._id + "</span>");
-    $("#example-3 .body code").html( '{ "parent-id": "' + res._id + '",  "todo_list": ["buy bacon"] }');
-    run_request($('#example-3'), ["data", "parent-id", "action"]).done(function(res) { 
-       example_3.resolve(res);
-    });
-  });
-
-
-</script>
-
-If we perform a get on this new id, the data in the new list will be
-returned. As always the old list will be unmodified.
+We need an operational interface that will allow us to specify changes
+to a stored document and return to us a pointer to the new modified
+one.
 
 <style>
   .node_tree .node .node-url {
@@ -266,10 +242,6 @@ returned. As always the old list will be unmodified.
    }
 </style>
 
-<div id="example-4" class="node_tree">
-
-</div>
-
 <script>
   var node_template = function (item) { 
      return "<div id='" + item._id + "' class='node' style='" + item._style + "'><span class='node-url alert alert-warning'>" + item._id + 
@@ -297,27 +269,11 @@ returned. As always the old list will be unmodified.
     $("#" + $(e.target).text()).removeClass("focus");                             
    });
 
-   example_3.done(function(res) {
-     display_nodes(res._id, $('#example-4'));    
-   });  
-
 </script>
 
-We now have a versioning system. It's important to note how easy and
-available the previous versions of the document are. We can now chain
-through the history of the JSON document from it's inception.
-
-Making change the responsibility of the client is possible and would
-work for many tasks. However, change is such an essential feature of
-data use it should also be a feature of the service. We need an
-operational interface that will allow us to specify changes to a
-stored document and return to us a pointer to the new modified one.
-
 Let's introduce a <code>set</code> operation that will allow us to set
-the value of a key in the stored JSON document.
-
-The following example adds a new list empty list of important things
-to do to our document.
+the value of a key in the stored JSON document. The following example
+adds a new list to our document.
 
 <div id="example-5" class="http_request">
     <div class="example">example</div>
@@ -346,20 +302,23 @@ to do to our document.
   example_2.done(function(res) {
     $("#example-5 .url").html( "/web-map/<span class='highlight_id'>" + res._id + "</span>/<span class='highlight_path'>todo_important</span>");
     $("#example-5 .body code").html( '[]' );
-    run_request($('#example-5'), ["data", "action"]).done(function(res) { 
+    run_request($('#example-5'), ["action", "data"]).done(function(res) { 
        example_5.resolve(res);
     });        
   });
 </script>
 
-Here we have executed an **operation** on the original document
-we created in the first [example](#example-1). Our return value
-consists of two things. An <code>_id</code> which is an indicator
-that we have created a new thing.  There is also a
-<code>parent-id</code> which points to the item that this new thing
-was created from. 
+Here we have executed an **operation** on the original document we
+created in the first [example](#example-1). Our return value consists
+of two things. An <code>_id</code> which identifies the new document.
+There is also a <code>parent-id</code> which points to the parent document that
+this new document was created from.
 
-Let's look at results of this operation.  
+We now have an operation that "changes" the document and returns a
+pointer to the new one. This operation also keeps track of the meta
+information about who was the parent of this new document.
+
+Let's look at the state of things after this operation.
 
 <div id="example-6" class="node_tree">
 </div>
@@ -370,140 +329,25 @@ Let's look at results of this operation.
   });
 </script>
 
-So here we have an operation that "changes" the data and returns a
-pointer to the new thing. This operation keeps track of the meta
-information regarding who was the parent of this current operation
-result.
+We now have a versioning system. It's important to note how easy and
+available the previous versions of the document are. We can now chain
+through the history of the JSON document from it's inception.
 
 It is important to note here that this provides an important contract
-to the consumer of this API.  This provides an operational guarantee
-of the operation was performed and what data it was performed
-against. In other words, we have a reference to a specific datum and
-when we make a specific operation against that particular datum we
-know with great confidence the value of the new datum.  Thus we don't
+to the consumer of this API.  This provides an **operational guarantee**
+that the operation was performed and which document it was performed
+against. In other words, we have a reference to a specific document and
+when we make a specific operation against that particular document we
+know with great confidence the value of the resulting document. Hence, we don't
 have to constantly fetch the new value of the datum we are working
 with. The client library can easily perform the operation locally and
 as long as the operation is successful we now know the absolute value
 of the new stored document without fetching it's value.
 
-This is simply not possible with mutable data.
+In other words, it is possible to know the absolute value of the
+current state of the document.
 
-Below is an interactive example:
-
-<form id="todo_playground">
-  <select name="action">
-    <option value="add:get_bacon">Add "get bacon" to the</option>
-    <option value="add:get_milk">Add "get milk" to the</option>
-    <option value="add:rent_movie">Add "rent movie" to the</option>
-    <option value="delete:0">Remove first item from the</option>
-  </select>
-
-  <select name="list">
-    <option value="todo_list">todo_list</option>
-    <option value="todo_important">todo_important</option>
-  </select>
-  <div>
-    <input class="btn" type="submit" value="Run">
-    </input>
-  </div>
-</form>
-
-<div id="example-7" class="http_request">
-  <div class="example">example</div>
-  <div class="alert alert-info">
-    <div class="request">
-      <span class="head">Request</span>
-      <span class="type">
-      </span>
-      <span class='url'>
-      </span> 
-      </div>
-      <div class="body">
-        <span class="head">Body</span>
-        <code>
-        </code>
-      </div>
-    </div>
-    <div class="alert alert-success">
-      <div class="response-body">
-        <span class="head">Response</span>
-        <div class="code">
-        </div>
-      </div>    
-    </div>
-</div> 
-
-<div id="example-8" class="node_tree">
-  
-</div>
-
-<script>
-  var action_http_verb = { add: "POST", delete: "DELETE" };
-  var action_query_op = { add: "add" };
- 
-  var parse_action = function(id, action, list) {
-     var res = {};
-     var parts = action.split(":");
-     var verb = action_http_verb[parts[0]];
-     var op = action_query_op[parts[0]];
-     var query = op ? "?op=" + op : "";
-     var action_query = list;
-     var body = "";
-     if(parts[0] == "delete") {
-        action_query = action_query + '/' + parts[1];
-     } else if (op == "add") {
-        action_query = list + '/-1'+ query;
-        body = "\"" + parts[1].split("_").join(" ") + "\"";
-     }
-     
-     var path = "/web-map/<span class='highlight_id'>" + id + "</span>/<span class='highlight_path'>" + action_query+ "</span>"; 
-     return { path: path, verb: verb, body: body};
-  };
-
-  var playground_form = $('#todo_playground');
-  var set_request_from_action = function(ex, action_obj) {
-    $(".type", ex).html(action_obj.verb);
-    $(".url", ex).html(action_obj.path);
-    $(".body code", ex).html(action_obj.body);
-  };
-
-  example_5.done(function(res) {
-    var current_id = [res._id];
-    var promote_selected_action = function() {
-      var action = $("select[name=action]", playground_form).val();
-      var list = $("select[name=list]", playground_form).val();
-      var action_obj = parse_action(current_id[0], action, list);
-      set_request_from_action($("#example-7"), action_obj);
-    }; 
-    promote_selected_action();
-
-    playground_form.on('submit', '', {}, function(e) {
-      e.preventDefault();
-      run_request($("#example-7"), ["data","action"]).done(function(res) {
-        console.log("done", res);
-        current_id[0] = res._id;
-        $('#example-8').html("");
-        display_nodes(res._id, $('#example-8'));
-        $('input[type=submit]', playground_form).attr("disabled", true);
-      });
-    });
-
-    playground_form.on('change', 'select', {}, function (e) {
-      promote_selected_action();
-      $('input[type=submit]', playground_form).attr("disabled", null);
-     $("#example-7 .response-body .code").html("");
-    });
-  });
-
-</script>
-
-## Forking Amazing
-
-Versioning is a great and it enables forking because you can go back
-in time and "alter" and work on earlier version of the data simply
-because it still exists. As a result a client can maintain many
-simultaneous versions of the same document. This would be a tree of
-data which simply begs for a merging operation.
+This is simply not possible with a mutable data service.
 
 ## Sharing
 
@@ -512,25 +356,31 @@ service makes sharing easy. Simply pass off a url to the party you
 want to share the data with.  But you aren't just passing off a url to
 inoperable data. The person you shared the data with has the same
 operational interface that the originator of the document has. Thus
-data is sharable and operable by default. We have witnessed the power
-of this before.  Think about Github and how it has enabled the
-creation of great things.
+data is sharable and operable by default.
+
+If you have a list of recipes is a recipe service and it's stored in
+an immutable data service. You can share it as easily as emailing a
+URL to friend.  Upon receipt they can edit and change the document with
+no ramifications for you.
+
+## Merging
+
+There is no reason that such a service can not implement a merge
+operation given to urls with a common ancestor.
 
 ## The official version
 
 Authority is needed to know which version of a document is
 important to a certain client but this is a simple matter as we fall
 back to the dominant paradigm of data storage and store this pointer
-in an authorized place. An immutable data service like this may reduce
-our dependence on them tremendously.
+in an authorized place.
 
 ## Conclusion
 
 I have explored a basic immutable data service. 
 
 By layering immutability on top of the availability of a web service
-it seems that we have created something profoundly different and
-interesting.  
+it seems that we have created something different and interesting.
 
 The primary advantages are:
 
@@ -539,23 +389,23 @@ The primary advantages are:
 * Operational guarantees.
 * Sharable and operable by default.
 
-
 I have tried to focus on what the service is and it's intrinsic
 advantages.  I have stayed away from implementation details as I feel
 these problems are solved or solvable.  What's more interesting to me
-is what this implies for app development and the general service
+is what this implies for application development and the general service
 ecosystem.  Can this lead to the development of more reliable feature
-rich programs and services?  
+rich programs and services?
 
 With the rise in the consumption of these services I think
 immutability is important characteristic to consider.
 
 Note: It is also important to consider that immutability and
 durability are not the same thing. I have conflated them in this post.
-The reason I have done this is that immutability in the environment of
-a program benefits from garbage collection when there are no more
-pointers to an immutable object. In the web at large it is very hard
-to tell who is still relying on the data at a URI.
+The reason I have done this is that immutability in a memory based
+programming environment like Clojure benefits from garbage collection
+when there are no more pointers to an immutable object. In the web at
+large it is very hard to tell who is still relying on the data at a
+URI.
 
 <div>
   <h4>Stuck on how wasteful this sounds? <a
