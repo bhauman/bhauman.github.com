@@ -20,7 +20,7 @@ operations both accessible and available to clients such as web and
 phone applications. These services can exist as application specific
 RESTful resources or general data storage services. [Parse.com](http://parse.com) and
 [Firebase.io](http://firebase.io) are both examples of a web based
-data services intended for client application data storage.
+data services intended for general application data storage.
 
 The default operational paradigm of these services is one that implies
 **mutation**. If we store data in a service it is assumed that we can
@@ -79,7 +79,7 @@ guarantees that the document referred to by this identifier will not change.
       <div class="request">
         <span class="head">Request</span>
         <span class="type">POST</span>
-        <span class="url">/web-map</span> 
+        <span class="url">/json-doc</span> 
       </div>
       <div class="body">
         <span class="head">Body</span>
@@ -90,13 +90,13 @@ guarantees that the document referred to by this identifier will not change.
       <div class="response-body">
         <span class="head">Response:</span>
         <div class="code render-my-json">
-          { "_id": 10001 }
+          { "id": 10001 }
         </div>
       </div>    
     </div>
 </div>
 
-The response includes an <code>_id</code> which we can use in a GET
+The response includes an <code>id</code> which we can use in a GET
 request to obtain the data that we stored there.
 
 <div id="exampler-2" class="http_request">
@@ -105,7 +105,7 @@ request to obtain the data that we stored there.
       <div class="request">
         <span class="head">Request</span>
         <span class="type">GET</span>
-        <span class="url">/web-map/<span class="highlight_path">10001</span></span> 
+        <span class="url">/json-doc/<span class="highlight_path">10001</span></span> 
       </div>
     </div>
     <div class="alert alert-success">
@@ -215,7 +215,7 @@ one.
   var display_nodes = function(last_child_id, element, count) {
     var count = count || 0;
     if(last_child_id) {
-      $.ajax(service_root + '/web-map/' + last_child_id, {type: 'GET'}).done(function(res) {
+      $.ajax(service_root + '/json-doc/' + last_child_id, {type: 'GET'}).done(function(res) {
         var scale = 1 - (count * 0.05);
         var opacity = 1 - (count * 0.1);
         res["_style"] = "-webkit-transform: scale("+scale + ","+scale +"); opacity: "+ opacity +";";
@@ -245,7 +245,7 @@ adds a new list to our document.
       <div class="request">
         <span class="head">Request</span>
         <span class="type">POST</span>
-        <span class="url">/web-map/<span class="highlight_id">10001</span>/<span class="highlight_path">important_todos</span>
+        <span class="url">/json-doc/<span class="highlight_id">10001</span>/<span class="highlight_path">important_todos</span>
         </span> 
       </div>
       <div class="body">
@@ -257,7 +257,7 @@ adds a new list to our document.
       <div class="response-body">
         <span class="head">Response:</span>
         <div class="code render-my-json">
-          { "_id": 10002, "parent_id": 10001 }
+          { "id": 10002, "parent_id": 10001 }
         </div>
       </div>    
     </div>
@@ -265,7 +265,7 @@ adds a new list to our document.
 
 Here we have executed an **operation** on the original document we
 created in the first [example](#example-1). Our return value consists
-of two things. An <code>_id</code> which identifies the new document.
+of two things. An <code>id</code> which identifies the new document.
 There is also a <code>parent-id</code> which points to the parent document that
 this new document was created from.
 
@@ -286,7 +286,7 @@ Let's look at the state of things after this operation.
   </div>
 </div>
 
-We now have a versioning system. It's important to note how easy and
+We now have a versioning system. It's important to note how easily
 available the previous versions of the document are. We can now chain
 through the history of the JSON document from it's inception.
 
@@ -296,7 +296,7 @@ that the operation was performed and which document it was performed
 against. In other words, we have a reference to a specific document and
 when we make a specific operation against that particular document we
 know with great confidence the value of the resulting document. Hence, we don't
-have to constantly fetch the new value of the datum we are working
+have to constantly fetch the value of the document we are working
 with. The client library can easily perform the operation locally and
 as long as the operation is successful we now know the absolute value
 of the new stored document without fetching it's value.
@@ -349,9 +349,17 @@ The primary advantages are:
 I have tried to focus on what the service is and it's intrinsic
 advantages.  I have stayed away from implementation details as I feel
 these problems are solved or solvable.  What's more interesting to me
-is what this implies for application development and the general service
-ecosystem.  Can this lead to the development of more reliable feature
-rich programs and services?
+is what this implies for openly sharing data and application
+development. 
+
+* What would a federation of open immutable data services
+  enable for users and developers?
+* Would we be able to create applications that robustly recover from
+  errors and that can be scrolled back in time to see the absolute
+  state of the application at the time of the error?
+* Would "taking your data with you" finally be a simple reality?
+* Could we stop the creation of yet another API to get at data that
+  should just simply be available?
 
 With the rise in the consumption of these services I think
 immutability is important characteristic to consider.
