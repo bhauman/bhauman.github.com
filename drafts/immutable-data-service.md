@@ -393,7 +393,7 @@ perpetually and makes it all available for us to peruse at any moment.
 We seem to take offense at storing apparently meaningless
 data. However, as programmers we are very familiar with the desire to
 look back in time and see the state of this one peice of transient
-data as it reeked havoc on our systems.  The data that was of little
+data as it wreaked havoc on our systems.  The data that was of little
 importance becomes momentarily very very important. We go to great
 length to reproduce a crime scene.  But the reproduction has little
 value compared to the actual state of system at that time.
@@ -423,3 +423,4 @@ record.
    $(el).html(JSONRenderer.render_json(JSON.parse($(el).text())));
   });
 </script>
+
