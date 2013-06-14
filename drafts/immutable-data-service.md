@@ -373,8 +373,8 @@ large it is very hard to tell who is still relying on the data at a
 URI.
 
 <div>
-  <h4>Stuck on how wasteful this sounds? <a
-  href="javascript:$('.wasteful').show()">click here.</a></h4>
+  <h4>Stuck on how wasteful this sounds? <a class="click_here" href="javascript:;">click here.</a></h4>
+  <script>$('.click_here').click(function() { $('.wasteful').toggle(); });</script>
 </div>
 
 <div class="wasteful" style="display:none;">
