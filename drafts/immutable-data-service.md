@@ -128,7 +128,7 @@ this simple form has value on its own.
 
 A key advantage of an immutable data service is that **authority is
 not a necessity** for this service to operate. Clients do not have to
-log in.  You simply can not overwrite a document that soemone else is
+log in.  You simply can not overwrite a document that someone else is
 relying on. Authority may be needed for the tangential concerns of
 running such a service, but it is simply not necessary for its
 function.
@@ -144,7 +144,7 @@ information.
 
 ## What about change?
 
-In our experience of the world things change over time. When you get
+In our experience of the world, things change over time. When you get
 a coffee at a cafe you have an experience of the flow of events
 that bring that coffee to you. Our minds have the ability to hold onto
 this series of changes and turn it into something meaningful for us.
@@ -237,7 +237,7 @@ one.
 
 Let's introduce a <code>set</code> operation that will allow us to set
 the value of a key in the stored JSON document. The following example
-adds a new list to our document.
+adds a new field to our document.
 
 <div id="exampler-3" class="http_request">
     <div class="example">example</div>
@@ -323,7 +323,7 @@ no ramifications for you.
 ## Merging
 
 There is no reason that such a service can not implement a merge
-operation given to urls with a common ancestor.
+operation given two URLs with a common ancestor.
 
 ## The official version
 
@@ -423,4 +423,3 @@ record.
    $(el).html(JSONRenderer.render_json(JSON.parse($(el).text())));
   });
 </script>
-
