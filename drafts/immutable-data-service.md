@@ -158,7 +158,7 @@ now. The history of how x got there is gone. So our programs have a
 very flat view of most of the objects in their world. It's like having
 an intense version of amnesia where all you know is the current state
 of the world and you don't know what has come before.  Is this coffee
-in from of me mine? Did I order it? Did I walk here?
+in front of me mine? Did I order it? Did I walk here?
 
 Things change and it can add a new dimension to our data if we
 record how our data changes over time.
@@ -175,7 +175,7 @@ document on the service with the modified data. This manual approach
 is possible but change is such an essential feature of data use it
 should also be a feature of the service. 
 
-We need an operational interface that will allow us to specify changes
+We need an **operational interface** that will allow us to specify changes
 to a stored document and return to us a pointer to the new modified
 one.
 
