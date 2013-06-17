@@ -1,7 +1,7 @@
 ---
 layout: default
 title: "An Immutable Data Service"
-published: false
+published: true
 category: 
 tags: []
 ---
