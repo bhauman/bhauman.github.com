@@ -278,7 +278,8 @@ Let's look at the state of things after this operation.
 <div id="example-6" class="node_tree">
   <div class="node">
     <span class="node-url alert alert-warning">GET /json-doc/10002</span>
-    <span class="node-data render-my-json">{ "first_name" : "James", "license_to_kill": true }</span>
+    <span class="node-data render-my-json">{ "first_name" : "James",
+  "license_to_kill": true, "__meta_data": {"parent_id": 10001} }</span>
   </div>
   <div class="node">
     <span class="node-url alert alert-warning">GET /json-doc/10001</span>
@@ -286,9 +287,9 @@ Let's look at the state of things after this operation.
   </div>
 </div>
 
-We now have a versioning system. It's important to note how easily
-available the previous versions of the document are. We can now chain
-through the history of the JSON document from its inception.
+We now have a versioning system. Note how available the previous
+versions of the document are. We can now chain through the history of
+the JSON document from its inception.
 
 It is important to note here that this provides an important contract
 to the consumer of this API.  This provides an **operational guarantee**
@@ -309,16 +310,16 @@ This is simply not possible with a mutable data service.
 ## Sharing
 
 The same characteristics that make authority unnecessary for this
-service makes sharing easy. Simply pass off a url to the party you
+service makes sharing easy. Simply pass off a URL to the party you
 want to share the data with.  But you aren't just passing off a url to
 inoperable data. The person you shared the data with has the same
 operational interface that the originator of the document has. Thus
 data is sharable and operable by default.
 
-If you have a list of recipes is a recipe service and it's stored in
+If you have a list of recipes in a recipe service and it's stored in
 an immutable data service. You can share it as easily as emailing a
 URL to friend.  Upon receipt they can edit and change the document with
-no ramifications for you.
+no ramifications to you.
 
 ## Merging
 
@@ -350,7 +351,7 @@ I have tried to focus on what the service is and its intrinsic
 advantages.  I have stayed away from implementation details as I feel
 these problems are solved or solvable.  What's more interesting to me
 is what this implies for openly sharing data and application
-development. 
+development.
 
 * What would a federation of open immutable data services
   enable for users and developers?
@@ -395,14 +396,14 @@ data. However, as programmers we are very familiar with the desire to
 look back in time and see the state of this one peice of transient
 data as it wreaked havoc on our systems.  The data that was of little
 importance becomes momentarily very very important. We go to great
-length to reproduce a crime scene.  But the reproduction has little
+lengths to reproduce a crime scene but the reproduction has little
 value compared to the actual state of system at that time.
 </p>
 
 <p>
 So let us not judge the value of saving data permanently. Data and how
 it changes over time tells a story. A single frame that represents the
-latest state of a thing is an empty pretentender in comparison.
+latest state of a thing is an empty pretender in comparison.
 </p>
 
 <p>
