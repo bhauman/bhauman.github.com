@@ -391,7 +391,7 @@ perpetually and makes it all available for us to peruse at any moment.
 <p>
 We seem to take offense at storing apparently meaningless
 data. However, as programmers we are very familiar with the desire to
-look back in time and see the state of this one peice of transient
+look back in time and see the state of this one piece of transient
 data as it wreaked havoc on our systems.  The data that was of little
 importance becomes momentarily very very important. We go to great
 lengths to reproduce a crime scene but the reproduction has little
@@ -411,7 +411,7 @@ at the moment you need it that you wish you had it.
 
 <p>
 For the purpose of this exploration let's drop concerns of storage
-limits and try to consider the potential value and power of a having
+limits and try to consider the potential value and power of having a
 record.
 </p>
 
