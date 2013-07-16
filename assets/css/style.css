@@ -141,3 +141,11 @@ footer {
      font-size: 0.7em;
    }
 }
+
+code {
+   font-size: 16px;
+}
+
+.clojure {
+  font-size: 14px;
+}
