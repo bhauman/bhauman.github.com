@@ -1,1 +1,5 @@
 _site
+target
+.DS_Store
+\.\#*
+\#*
