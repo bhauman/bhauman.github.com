@@ -1,28 +1,29 @@
 ---
 layout: default
-title: "Clojurescript Core.Async Todos"
+title: "ClojureScript Core.Async Todos"
 published: true
 category: 
 tags: []
 ---
 
-## Clojurescript Core.Async and Todos
+## ClojureScript Core.Async and Todos
 
-Clojurescript was already a tool which brings a great deal of power
-and expressiveness to the browser. Now with the introduction of
-Go-like channels and blocks to Clojurescript we are now able to
-fundamentally change our approach to how we program in the browser.
+ClojureScript was already an incredible platform for experimenting
+with different approaches for writing browser based applications.
+However, things have changed dramaticly for the better. The new
+[core.async](http://clojure.com/blog/2013/06/28/clojure-core-async-channels.html)
+library introduces Go-like channels and blocks to ClojureScript. With
+this new library we can write blocking code and control the flow of
+state in a program with a great deal of precision.
 
-In fact, we can pretty much wrestle the state of web based app
-into complete docility. 
-
-This is not a tutorial on how to program in Clojurescript. It is an
+This is not a tutorial on how to program in ClojureScript. It is an
 exploration of different programming patterns that are made possible
 by core.async.
 
 ## Initial channel and go block usage
 
-First create a function that directs click events into a channel.
+First we'll create a function that captures click events and directs
+them into a channel.
 
 {% highlight clojure %}
 (defn click-chan [selector msg-name]
@@ -34,21 +35,19 @@ First create a function that directs click events into a channel.
     rc))
 {% endhighlight %}
 
-This function turns a css selector into a channel of click
+This function turns a CSS selector into a channel of click
 messages. The <code>chan</code> function creates a channel.  When an
 element with the provided selector get's clicked we use the async
-<code>put!</code> function to put a message into the channel. 
+<code>put!</code> function to put a message value into the
+channel. After wiring it up we return the newly created channel.
 
-You can put any value you want into a channel. We are just using a
-vector as an expedient format for a message and it's attached
-data.
+You can put any value you want into a channel. We are using a vector
+as an expedient format for a message and it's attached data.
 
-After wiring it up we return the newly created channel.
-
-Now let's use this function to create a couple of channels:
+Let's use this function to create some click channels:
 
 {% highlight clojure %}
-(defn example1-loop [start-state]
+(defn app-loop [start-state]
   (let [ new-todo-click         (click-chan "a.new-todo" :new-todo)
          cancel-new-form-click  (click-chan "a.cancel-new-todo" 
                                             :cancel-new-form)]
@@ -61,19 +60,21 @@ Now let's use this function to create a couple of channels:
        (recur (dissoc state :mode))))))
 {% endhighlight %}
 
-Above both the <code>new-todo-click</code> and the
-<code>cancel-new-form-click</code> channels contain the signals that
-will be fired when a user clicks on the respective elements.
+Both <code>new-todo-click</code> and the
+<code>cancel-new-form-click</code> are channels which will produce
+message values when a user clicks on their respective elements.
 
-The <code>go</code> block creates a context in which we can make blocking
-calls.  In this case we are going to use <code>&lt;!</code> which blocks
-the execution from continuing until we receive a value from that channel.
+The <code>go</code> block creates a context in which we can make
+blocking calls.  In this case, we are going to use the <code>&lt;!</code>
+function which blocks execution from continuing until a value is
+available on the provided channel.
 
 The loop renders the current state and then blocks and waits for a
-click on the **a.new-todo** element.  When it recieves a click on that
-element we then render a new state in where a todo form is showing. It
-then blocks again waiting for the **a.cancel-new-todo** element to get
-clicked.
+click on the **a.new-todo** element.  When the element is clicked the
+<code>(&lt;! new-todo-click)</code> call unblocks returning a value
+(which we ignore). We then render a new state where a todo form modal
+is displayed by the template renderer. The loop then blocks again
+waiting for the **a.cancel-new-todo** element to get clicked.
 
 The code is written sequentially and captures the behavior of the
 program explicitly without callbacks.
@@ -145,23 +146,24 @@ the form as many times as you want.
 
 <div id="example1" class="example">
 </div>
+[full source for example](https://github.com/bhauman/bhauman.github.com/blob/master/assets/cljs/todos-async/ex1.cljs)
 
-Now if you played with it a bit you may have noticed a serious bug. To
-see the bug click the **add task** button to open the modal form and then
-continue clicking it 5 more times.  Now **cancel** the form and you will
-notice that you have to cancel it 6 times before the form goes
-away.
+There is a serious bug in this code. To see the bug, click the **add
+task** button to open the modal form and then continue clicking it 5
+more times.  Now **cancel** the form and you will notice that you have
+to cancel it 6 times before the form goes away.
 
 Take a moment to reflect on this and the code that caused it.
 
 While this is a disconcerting bug it demonstrates further how channels
-behave. Messages stack up in a queue like buffer. Note that once we
-have recieved a **new-todo-click** signal another one doesn't get
-executed until there is a **cancel-new-form-click** signal.
+behave. Channels stack up the signals in a queue like buffer. Note
+that once we have received a value from the **new-todo-click** channel another one
+doesn't get pulled out of the channel until there is a value is
+received from the **cancel-new-form-click**.
 
 To me it is amazing that you can express this level of control over
-execution order and program state so effortlessly. It is basically an
-implicit state machine.
+execution order and program state in such a straight forward
+manner. It is basically an implicit state machine.
 
 ## Semantics of the modal
 
@@ -173,10 +175,11 @@ A modal window is commonly implemented using a screen to cover all the
 event bound elements below it. This reveals how common Javascript
 practices ignore complexity with ... well ... hacks. 
 
-The event's below the dom screen are still live and if the dom screen
-doesn't resize because of a browser bug or the modal code didn't keep
-pace with the current crop of mobile browsers then users are going to
-be able to operate on those event bound elements.
+The event producing element's below the dom screen are still
+operable. If the dom screen doesn't size properly because of a CSS
+conflict or the modal code didn't keep pace with the current crop of
+mobile browsers then users are going to be able to operate on those
+event bound elements. That's not what we are intending.
 
 If modal means 'I will respond to no other events except the ones that
 are explicitely defined in the modal itself', well then ... shouldn't we
@@ -203,19 +206,25 @@ We will create a couple of channel operations to help us:
     rc))
 {% endhighlight %}
 
-The <code>merge-chans</code> function merges the signal values from
-all the channel args passed to it into a single channel. The
-<code>filter-chan</code> creates a channel that only passes on signals
-that meet the condition of a predicate.
+The <code>merge-chans</code> function merges the values from all the
+channel args passed to it into a single channel. It does this by using
+the <code>alts!</code> function which blocks on a group of channels
+waiting for a value to become available on one of them. (If there is a
+tie it picks one randomly.)
+
+The <code>filter-chan</code> creates a channel that only passes on values
+that meet the condition of a predicate. All other values are discarded.
 
 With these tools we can easily filter out all the message values that
-we don't want to respond to. Essentially eating any unwanted signals.
+we don't want to respond to. Essentially eating any unwanted user actions.
 
 {% highlight clojure %}
 (defn example2-loop [start-state]
   (let [ new-todo-click         (click-chan "a.new-todo" :new-task)
-         cancel-new-form-click  (click-chan "a.cancel-new-todo" :cancel-new-form)
-         input-chan             (merge-chans new-todo-click cancel-new-form-click)]
+         cancel-new-form-click  (click-chan "a.cancel-new-todo" 
+                                            :cancel-new-form)
+         input-chan             (merge-chans new-todo-click 
+                                             cancel-new-form-click)]
     (go
      (loop [state start-state]
        (render-templates state)
@@ -230,17 +239,18 @@ Now things should work as we would would expect.
 
 <div id="example2" class="example">
 </div>
+[full source for example](https://github.com/bhauman/bhauman.github.com/blob/master/assets/cljs/todos-async/ex2.cljs)
 
-To test this, click on the **add task** button as many tims as you want
-and then click the cancel button. All those extra add task events are
+To test this, click on the **add task** button as many times as you want
+and then click the cancel button. All those extra add task clicks are
 ignored.
 
-Now think about your Javascript programs and ask yourself what you
+Now think about your JavaScript programs and ask yourself what you
 would have to do to disable all the events except for the one's you
 are interested in? Not trivial? One of the things that make this
 difficult is that we don't have control over the implicit event queue
-in the Javascript environment.  Here we have our own queue in the form
-of a channel and which allows us to maniputate it.
+in the JavaScript environment. Here we have our own queue and we
+control over how we respond to messages in a given context.
 
 Now that we have accurate modal semantics let's finally add a task.
 
@@ -275,9 +285,9 @@ submit events.
                                              task-form-submit)]
     (go
      (loop [state start-state]
-       (ex3-render-page state)
+       (render-templates state)
        (<! new-todo-click)
-       (ex3-render-page (assoc state :mode :add-todo-form))
+       (render-templates (assoc state :mode :add-todo-form))
        (let [[msg-name msg-data] 
              (<! (filter-chan (comp #{:cancel-new-form
                                       :task-form-submit}
@@ -301,6 +311,8 @@ Again try the example.
 
 <div id="example3" class="example">
 </div>
+[full source for example](https://github.com/bhauman/bhauman.github.com/blob/master/assets/cljs/todos-async/ex3.cljs)
+
 
 ## Completing todos
 
@@ -367,6 +379,7 @@ been or where they ar going.
 
 <div id="example4" class="example">
 </div>
+[full source for example](https://github.com/bhauman/bhauman.github.com/blob/master/assets/cljs/todos-async/ex4.cljs)
 
 ## State 
 
@@ -387,7 +400,7 @@ have currently made to it.
 
 ## Conclusion
 
-The core.async library in Clojurescript literally turns development in
+The core.async library in ClojureScript literally turns development in
 Javascript land on it's head. The possibilty for absolute control over
 the state of an app is mindblowing!
 
