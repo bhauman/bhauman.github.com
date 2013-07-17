@@ -426,15 +426,14 @@ new ways of thinking about developing where you have much more
 certainty about the state of your program at any given moment. Kind of
 ambitious.
 
-If you like this post or if you want me to continue on with
-this example refining it further to include form validation and
-multiple lists, let me know.  
+If you liked this post **or** you would like me to continue on with
+this example refining it further, let me know.  
 
 Resources:
 
-[core.async docs](http://clojure.github.io/core.async/)
-[Introduction to ClojureScript programming](https://github.com/magomimmo/modern-cljs)
-[ClojureScript Up and Running book](http://shop.oreilly.com/product/0636920025139.do)
+* [core.async docs](http://clojure.github.io/core.async/)
+* [Introduction to ClojureScript programming](https://github.com/magomimmo/modern-cljs)
+* [ClojureScript Up and Running book](http://shop.oreilly.com/product/0636920025139.do)
 
 
 <script src="/assets/js/todos-async.js"></script>
