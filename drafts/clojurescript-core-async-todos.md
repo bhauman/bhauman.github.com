@@ -172,7 +172,7 @@ manner. It is basically an implicit state machine.
 > - wikipedia
 
 A modal window is commonly implemented using a screen to cover all the
-event bound elements below it. This reveals how common Javascript
+event bound elements below it. This reveals how common JavaScript
 practices ignore complexity with ... well ... hacks. 
 
 The event producing element's below the dom screen are still
@@ -185,7 +185,7 @@ If modal means 'I will respond to no other events except the ones that
 are explicitely defined in the modal itself', well then ... shouldn't we
 code it that way?
 
-We will create a couple of channel operations to help us:
+Let's create a couple of channel operations to help:
 
 {% highlight clojure %}
 (defn merge-chans [& chans]
@@ -249,8 +249,8 @@ Now think about your JavaScript programs and ask yourself what you
 would have to do to disable all the events except for the one's you
 are interested in? Not trivial? One of the things that make this
 difficult is that we don't have control over the implicit event queue
-in the JavaScript environment. Here we have our own queue and we
-control over how we respond to messages in a given context.
+in the JavaScript environment. Here we have our own queue, thus we
+have control over how we respond to messages in a given context.
 
 Now that we have accurate modal semantics let's finally add a task.
 
@@ -302,10 +302,11 @@ submit events.
            )))))))
 {% endhighlight %}
 
-Here we add a new <code>task-form-submit</code> channel and merge it into
-<code>input-chan</code>.  We also add it to the filter so that when
-the modal is open we only get *submit* and *cancel* messages.  We then
-switch on the message name and operate on the state depending on which message we get.
+Here we add a new <code>task-form-submit</code> channel and merge it
+into <code>input-chan</code>.  We also add it to the filter so that
+when the modal is open we only get *submit* and *cancel* messages.  We
+then switch on the message name and operate on the state depending on
+which message we get.
 
 Again try the example.
 
@@ -313,12 +314,11 @@ Again try the example.
 </div>
 [full source for example](https://github.com/bhauman/bhauman.github.com/blob/master/assets/cljs/todos-async/ex3.cljs)
 
-
 ## Completing todos
 
 Now we are adding the feature to complete individual todos.  This
 gives us a good opportunity to break out the modal functionality into
-a separate function.
+a separate function and refactor a little.
 
 {% highlight clojure %}
 (defn filter-msg [msg-names input-chan]
@@ -368,14 +368,13 @@ represent two contexts for user interaction. The <code>main-app</code>
 and the <code>add-task-modal</code> functions both take the current
 state and a channel of input messages.
 
-This is an extremely interesting discovery. The input-chan is passed
-from context to context.  Each context defines the meaning and
-availablility of a user action.  Imagine a more complex set of user
-interactions where you dive from one context down into another and
-then coming back up through them. You could move from subcontext into
-subcontext and back out with precise control over the users
-exprerience and with no record and keep a trail of where your user has
-been or where they ar going.
+This is an extremely interesting discovery. The
+<code>input-chan</code> is passed from context to context.  Each
+context defines the meaning and availablility of a user action.
+Imagine a more complex set of user interactions where you dive from
+one context down into another and then coming back up through
+them. This gives you precise control over the users experience and
+with no need to manually record a trail of where your user has been.
 
 <div id="example4" class="example">
 </div>
@@ -383,26 +382,60 @@ been or where they ar going.
 
 ## State 
 
-In these examples you will notice I am not using global mutable state
-anywhere. There is no central data object or set of objects that is
-globally mutated. In each example as actions are taken a new version
-of state is created from the current state and then that state is
-passed on to the next part of the program that needs to operate on it.
+In these examples you will notice that the program state is neither
+global or mutable. There is no set of central objects that we access
+and change from various callbacks. In each example as actions are
+taken a new version of state is created from the current state and
+then that state is passed on to the next part of the program that
+needs to operate on it. State is completely contained and local to
+it's particular process.
 
 This is a departure from the seeming neccesity in callback based
-javascript land to have our set of central data objects. The callbacks
-themselves require us to have a handle on something that we can mutate.
+JavaScript land to have our set of central data objects. The callbacks
+themselves require us to have a handle on something that we can
+mutate. This makes it expedient for us to create mutable objects that
+have "globalish" accessibility. In JavaScript, an alternative is to
+create a message queue and state machine so that we can pass forward
+the current state.  Not really a common pattern.
 
-You might notice that the cancel action merely returns the state that
+You might notice that the **cancel** action merely returns the state that
 was passed into the <code>add-task-modal</code> function. Reseting
-merely means returning to the state we were in before the changes we
-have currently made to it.
+merely means returning to the state we were in before any changes were
+made.
+
+Being able to handle state like this is in JavaScript land is a
+welcome change.
 
 ## Conclusion
 
 The core.async library in ClojureScript literally turns development in
-Javascript land on it's head. The possibilty for absolute control over
+JavaScript land on it's head. The possibilty for absolute control over
 the state of an app is mindblowing!
+
+With core.async you can take what would have previously been very
+complex and turn it into something easily managed. Parallax? No
+problem no library neccessary. Drawing progam? So much
+simpler. Story telling animations become absolutely
+straight forward. Did someone say Tetris? 
+
+If you are new to Clojure/ClojureScript keep in mind that core.async
+is simply icing on a pretty sweet cake.
+
+I have tried to peek your interest in ClojureScript, core.async and
+new ways of thinking about developing where you have much more
+certainty about the state of your program at any given moment. Kind of
+ambitious.
+
+If you like this post or if you want me to continue on with
+this example refining it further to include form validation and
+multiple lists, let me know.  
+
+Resources:
+
+[core.async docs](http://clojure.github.io/core.async/)
+[Introduction to ClojureScript programming](https://github.com/magomimmo/modern-cljs)
+[ClojureScript Up and Running book](http://shop.oreilly.com/product/0636920025139.do)
+
 
 <script src="/assets/js/todos-async.js"></script>
 
