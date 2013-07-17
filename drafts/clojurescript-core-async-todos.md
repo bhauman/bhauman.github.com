@@ -431,10 +431,16 @@ this example refining it further, let me know.
 
 Resources:
 
-* [core.async docs](http://clojure.github.io/core.async/)
+* [Core.async announcement post](http://clojure.com/blog/2013/06/28/clojure-core-async-channels.html)
+* [Core.async documentation](http://clojure.github.io/core.async/)
+* [Concurrent Sequential Processes](http://swannodette.github.io/2013/07/12/communicating-sequential-processes/)
 * [Introduction to ClojureScript programming](https://github.com/magomimmo/modern-cljs)
 * [ClojureScript Up and Running book](http://shop.oreilly.com/product/0636920025139.do)
+* [Rich Hickey's recent core.async talk (podcast)](http://thinkrelevance.com/blog/2013/07/10/rich-hickey-and-core-async-podcast-episode-035)
 
+Special thanks to reviewers:
+
+* [Brandon Bloom](http://www.brandonbloom.name/)
 
 <script src="/assets/js/todos-async.js"></script>
 
