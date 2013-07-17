@@ -414,9 +414,9 @@ the state of an app is mindblowing!
 
 With core.async you can take what would have previously been very
 complex and turn it into something easily managed. Parallax? No
-problem no library neccessary. Drawing progam? So much
-simpler. Story telling animations become absolutely
-straight forward. Did someone say Tetris? 
+problem and no library neccessary. Drawing progam? So much
+simpler. Story telling animations become absolutely straight
+forward. Did someone say Tetris?
 
 If you are new to Clojure/ClojureScript keep in mind that core.async
 is simply icing on a pretty sweet cake.
