@@ -439,10 +439,11 @@ Resources:
 * [Rich Hickey's recent core.async talk (podcast)](http://thinkrelevance.com/blog/2013/07/10/rich-hickey-and-core-async-podcast-episode-035)
 * [David Nolen's core.async examples](https://github.com/swannodette/async-tests)
 * [Core.async git repository examples](https://github.com/clojure/core.async/tree/master/examples)
+* [A more fully featured todo list](https://github.com/bhauman/async-explore/blob/master/src/todos_first/core.cljs)
 
 Special thanks to reviewers:
 
 * [Brandon Bloom](http://www.brandonbloom.name/)
-
+* [David Nolen](http://swannodette.github.io/)
 <script src="/assets/js/todos-async.js"></script>
 
