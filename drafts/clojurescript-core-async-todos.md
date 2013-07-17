@@ -437,6 +437,8 @@ Resources:
 * [Introduction to ClojureScript programming](https://github.com/magomimmo/modern-cljs)
 * [ClojureScript Up and Running book](http://shop.oreilly.com/product/0636920025139.do)
 * [Rich Hickey's recent core.async talk (podcast)](http://thinkrelevance.com/blog/2013/07/10/rich-hickey-and-core-async-podcast-episode-035)
+* [David Nolen's core.async examples](https://github.com/swannodette/async-tests)
+* [Core.async git repository examples](https://github.com/clojure/core.async/tree/master/examples)
 
 Special thanks to reviewers:
 
