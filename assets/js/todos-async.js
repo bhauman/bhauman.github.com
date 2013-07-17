@@ -18187,6 +18187,7 @@ todos_async.ex1.render_templates = function(a) {
   return jayq.core.inner.call(null, jayq.core.$.call(null, "#example1"), crate.core.html.call(null, todos_async.ex1.todo_list.call(null, a)))
 };
 todos_async.ex1.app_loop = function(a) {
+  todos_async.chan_utils.form_submit_chan.call(null, "#example1 .new-task-form", "\ufdd0:ignore", cljs.core.PersistentVector.EMPTY);
   var b = todos_async.chan_utils.click_chan.call(null, "#example1 a.new-todo", "\ufdd0:new-todo"), c = todos_async.chan_utils.click_chan.call(null, "#example1 a.cancel-new-todo", "\ufdd0:cancel-new-form"), d = cljs.core.async.chan.call(null, 1);
   cljs.core.async.impl.dispatch.run.call(null, function() {
     var e = null, f = function() {
@@ -18216,7 +18217,7 @@ todos_async.ex1.app_loop = function(a) {
             return f = d[5], e = d[2], f = cljs.core.assoc.call(null, f, "\ufdd0:mode", "\ufdd0:add-todo-form"), f = todos_async.ex1.render_templates.call(null, f), d[7] = e, d[8] = f, e = d, cljs.core.async.impl.ioc_helpers.take_BANG_.call(null, e, 5, c)
           }
           if(cljs.core._EQ_.call(null, 5, e)) {
-            return f = d[5], e = d[2], f = cljs.core.dissoc.call(null, f, "\ufdd0:mode"), d[5] = f, d[6] = e, e = d, e[2] = null, e[1] = 2, "\ufdd0:recur"
+            return f = d[5], e = d[2], f = cljs.core.dissoc.call(null, f, "\ufdd0:mode"), d[6] = e, d[5] = f, e = d, e[2] = null, e[1] = 2, "\ufdd0:recur"
           }
           throw Error([cljs.core.str("No matching clause: "), cljs.core.str(d[1] | 0)].join(""));
         }();
@@ -18246,6 +18247,7 @@ todos_async.ex2.render_templates = function(a) {
   return jayq.core.inner.call(null, jayq.core.$.call(null, "#example2"), crate.core.html.call(null, todos_async.ex1.todo_list.call(null, a)))
 };
 todos_async.ex2.app_loop = function(a) {
+  todos_async.chan_utils.form_submit_chan.call(null, "#example2 .new-task-form", "\ufdd0:ignore", cljs.core.PersistentVector.EMPTY);
   var b = todos_async.chan_utils.click_chan.call(null, "#example2 a.new-todo", "\ufdd0:new-task"), c = todos_async.chan_utils.click_chan.call(null, "#example2 a.cancel-new-todo", "\ufdd0:cancel-new-form"), d = todos_async.chan_utils.merge_chans.call(null, b, c), e = cljs.core.async.chan.call(null, 1);
   cljs.core.async.impl.dispatch.run.call(null, function() {
     var c = null, g = function() {

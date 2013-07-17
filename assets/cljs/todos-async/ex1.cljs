@@ -6,7 +6,7 @@
    [jayq.util :refer [log]]
    [crate.core :as crate]
    [clojure.string :refer [join blank?]]
-   [todos-async.chan-utils :refer [click-chan]])
+   [todos-async.chan-utils :refer [click-chan form-submit-chan]])
   (:require-macros [cljs.core.async.macros :as m :refer [go alt!]]))
 
 (defn modal-form [{:keys [mode task-form] :as state}]
@@ -37,6 +37,7 @@
       (inner (crate/html (todo-list state)))))
 
 (defn app-loop [start-state]
+  (form-submit-chan "#example1 .new-task-form" :ignore [])
   (let [ new-todo-click         (click-chan "#example1 a.new-todo"        :new-todo)
          cancel-new-form-click  (click-chan "#example1 a.cancel-new-todo" :cancel-new-form)]
     (go
