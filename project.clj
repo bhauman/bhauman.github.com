@@ -1,4 +1,4 @@
-(defproject async-explore "0.1.0-SNAPSHOT"
+(defproject bhauman-blog "0.1.0-SNAPSHOT"
   :description "Exploring dev models for async.core"
   :url ""
   :license {:name "Eclipse Public License"

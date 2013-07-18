@@ -463,6 +463,7 @@ Special thanks to reviewers:
 
 * [Brandon Bloom](http://www.brandonbloom.name/)
 * [David Nolen](http://swannodette.github.io/)
+* [Sean Grove](https://github.com/sgrove)
 
 <script src="/assets/js/todos-async.js">
 </script>

@@ -22,3 +22,4 @@
                             {:content "buy chocolate"}]})
 
 (ex4/app-loop { :todo-list [{:content "buy a new car"}]})
+
