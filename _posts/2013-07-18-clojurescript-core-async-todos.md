@@ -121,7 +121,9 @@ the form as many times as you want.
 
 @media (max-width: 480px) {
   .example .modal-form {
-    left: 50px;
+    left: 10px;
+    width: 266px;
+
   }
   .clojure {
     font-size: 12px;
