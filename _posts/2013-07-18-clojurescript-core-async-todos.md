@@ -38,12 +38,12 @@ them into a channel.
 
 This function turns a CSS selector into a channel of click
 messages. The <code>chan</code> function creates a channel.  When an
-element with the provided selector get's clicked we use the async
+element with the provided selector gets clicked we use the async
 <code>put!</code> function to put a message value into the
 channel. After wiring it up we return the newly created channel.
 
 You can put any value you want into a channel. We are using a vector
-as an expedient format for a message and it's attached data.
+as an expedient format for a message and its attached data.
 
 Let's use this function to create some click channels:
 
@@ -192,7 +192,7 @@ A modal window is commonly implemented using a screen to cover all the
 event bound elements below it. This reveals how common JavaScript
 practices ignore complexity with ... well ... hacks. 
 
-The event producing element's below the dom screen are still
+The event producing elements below the dom screen are still
 operable. If the dom screen doesn't size properly because of a CSS
 conflict or the modal code didn't keep pace with the current crop of
 mobile browsers then users are going to be able to operate on those
@@ -263,7 +263,7 @@ and then click the cancel button. All those extra add task clicks are
 ignored.
 
 Now think about your JavaScript programs and ask yourself what you
-would have to do to disable all the events except for the one's you
+would have to do to disable all the events except for the ones you
 are interested in? Not trivial? One of the things that make this
 difficult is that we don't have control over the implicit event queue
 in the JavaScript environment. Here we have our own queue, thus we
@@ -405,7 +405,7 @@ and change from various callbacks. In each example as actions are
 taken a new version of state is created from the current state and
 then that state is passed on to the next part of the program that
 needs to operate on it. State is completely contained and local to
-it's particular process.
+its particular process.
 
 This is a departure from the seeming neccesity in callback based
 JavaScript land to have our set of central data objects. The callbacks
@@ -426,7 +426,7 @@ welcome change.
 ## Conclusion
 
 The core.async library in ClojureScript literally turns development in
-JavaScript land on it's head. The possibilty for absolute control over
+JavaScript land on its head. The possibilty for absolute control over
 the state of an app is mind blowing!
 
 With core.async you can take what would have previously been very
@@ -438,7 +438,7 @@ forward. Did someone say Tetris?
 If you are new to Clojure/ClojureScript keep in mind that core.async
 is simply icing on a pretty sweet cake.
 
-I have tried to peek your interest in ClojureScript, core.async and
+I have tried to pique your interest in ClojureScript, core.async and
 new ways of thinking about developing where you have much more
 certainty about the state of your program at any given moment.
 
