@@ -8,7 +8,7 @@ tags: []
 
 ClojureScript was already an incredible platform for experimenting
 with different approaches to writing browser based applications.
-However, things have changed dramaticly for the better. The new
+However, things have changed dramatically for the better. The new
 [core.async](http://clojure.com/blog/2013/06/28/clojure-core-async-channels.html)
 library introduces Go-like channels and blocks to ClojureScript. With
 this new library we can write blocking code and control the flow of
