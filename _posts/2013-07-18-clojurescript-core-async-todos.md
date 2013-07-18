@@ -458,4 +458,6 @@ Special thanks to reviewers:
 
 * [Brandon Bloom](http://www.brandonbloom.name/)
 * [David Nolen](http://swannodette.github.io/)
-<script src="/assets/js/todos-async.js"></script>
+
+<script src="/assets/js/todos-async.js">
+</script>
