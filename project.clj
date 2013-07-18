@@ -12,5 +12,6 @@
               :builds [{:id "todos-async"
                         :source-paths ["assets/cljs/todos-async"]
                         :compiler {:output-to "assets/js/todos-async.js"
-                                   :optimizations :simple
-                                   :pretty-print true}}]})
+                                   :externs ["assets/js/externs/jquery-1.9.js"]
+                                   :optimizations :advanced
+                                   :pretty-print false}}]})
