@@ -20,6 +20,9 @@ This is not a tutorial on how to program in ClojureScript. It is an
 exploration of different programming patterns that are made possible
 by core.async.
 
+If you are new to Clojure this
+[cheetsheet](http://clojure.org/cheatsheet) may help.
+
 ## Initial channel and go block usage
 
 First we'll create a function that captures click events and directs
@@ -116,7 +119,23 @@ the form as many times as you want.
   min-width: 220px;
   border-radius: 5px;
   box-shadow: 0px 0px 10px #000;
-    
+}
+
+@media (max-width: 480px) {
+  .example .modal-form {
+    left: 50px;
+  }
+  .clojure {
+    font-size: 12px;
+  }
+  .highlight pre {
+    word-break: normal;
+    word-wrap: normal;
+    overflow-x: scroll;
+  }
+  .highlight pre code {
+    white-space: pre;
+  }
 }
 
 .example a.btn {
@@ -423,11 +442,7 @@ is simply icing on a pretty sweet cake.
 
 I have tried to peek your interest in ClojureScript, core.async and
 new ways of thinking about developing where you have much more
-certainty about the state of your program at any given moment. Kind of
-ambitious.
-
-If you liked this post **or** you would like me to continue on with
-this example refining it further, let me know.  
+certainty about the state of your program at any given moment.
 
 Resources:
 

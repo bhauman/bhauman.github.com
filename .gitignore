@@ -1,5 +1,6 @@
+.DS_Store
+/.lein-repl-history
+\#*
+\.\#*
 _site
 target
-.DS_Store
-\.\#*
-\#*
