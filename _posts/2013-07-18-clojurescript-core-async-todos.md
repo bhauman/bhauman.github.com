@@ -125,7 +125,7 @@ the form as many times as you want.
     width: 192px;
     min-width: 192px;
   }
-  .example .modal-form input {
+  .example .modal-form input[type=text] {
     width: 180px;
   }
   .clojure {
