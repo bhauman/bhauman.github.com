@@ -429,7 +429,7 @@ welcome change.
 
 The core.async library in ClojureScript literally turns development in
 JavaScript land on it's head. The possibilty for absolute control over
-the state of an app is mindblowing!
+the state of an app is mind blowing!
 
 With core.async you can take what would have previously been very
 complex and turn it into something easily managed. Parallax? No
@@ -461,4 +461,3 @@ Special thanks to reviewers:
 * [Brandon Bloom](http://www.brandonbloom.name/)
 * [David Nolen](http://swannodette.github.io/)
 <script src="/assets/js/todos-async.js"></script>
-
