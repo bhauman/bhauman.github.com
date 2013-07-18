@@ -122,8 +122,8 @@ the form as many times as you want.
 @media (max-width: 480px) {
   .example .modal-form {
     left: 10px;
-    width: 216px;
-
+    width: 192px;
+    min-width: 192px;
   }
   .example .modal-form input {
     width: 180px;
