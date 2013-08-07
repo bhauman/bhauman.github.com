@@ -14,4 +14,10 @@
                         :compiler {:output-to "assets/js/todos-async.js"
                                    :externs ["assets/js/externs/jquery-1.9.js"]
                                    :optimizations :advanced
-                                   :pretty-print false}}]})
+                                   :pretty-print false}}
+                       {:id "dots-game"
+                        :source-paths ["assets/cljs/dots-game"]
+                        :compiler {:output-to "assets/js/dots-game.js"
+                                   :externs ["assets/js/externs/jquery-1.9.js"]
+                                   :optimizations :simple
+                                   :pretty-print true}}]})
