@@ -13,20 +13,19 @@
    [dots-game.ex4 :refer [example-4]]
    [dots-game.ex5 :refer [example-5]]
    [dots-game.ex6 :refer [example-6]]
-   [dots-game.ex7 :refer [example-7]]      )
+   [dots-game.ex7 :refer [example-7]]
+   #_[dots-game.ex8 :refer [example-8]])
   (:require-macros [cljs.core.async.macros :as m :refer [go]]))
 
-(go
- (<! (timeout 2000))
  ($ (fn []
-      (example-1 "#example-1")
-      (example-2 "#example-2")
-      (log-loop "#example-3")
-      (example-4 "#example-4")
-      (example-5 "#example-5")      
-      (example-6 "#example-6")
-      (example-7 "#example-7")      
-     )))
-
-
-
+      (go
+       (<! (timeout 2000))
+       (example-1 "#example-1")
+       (example-2 "#example-2")
+       (log-loop "#example-3")
+       (example-4 "#example-4")
+       (example-5 "#example-5")      
+       (example-6 "#example-6")
+       (example-7 "#example-7")
+       #_(example-8 "#example-8"))
+     ))
