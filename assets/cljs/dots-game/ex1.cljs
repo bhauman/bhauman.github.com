@@ -17,7 +17,9 @@
               (aget (.-touches (.-originalEvent xy-obj)) 0)))
 
 (defn mousemove-handler [in-chan jqevent]
-  (if (pos? (.-which jqevent))
+  (if (pos? (if (nil? (.-buttons jqevent))
+              (.-which jqevent)
+              (.-buttons jqevent)))
     (xy-message in-chan :draw jqevent)
     (put! in-chan [:drawend])))
 

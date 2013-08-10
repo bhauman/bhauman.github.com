@@ -17,6 +17,11 @@
    #_[dots-game.ex8 :refer [example-8]])
   (:require-macros [cljs.core.async.macros :as m :refer [go]]))
 
+(defn no-scroll-on-touch [selector]
+  (bind ($ selector) "touchstart" (fn [e] (jq/prevent e)))
+  (bind ($ selector) "dragstart" (fn [e] (jq/prevent e)))
+  (bind ($ selector) "drop" (fn [e] (jq/prevent e))))
+
  ($ (fn []
       (go
        (<! (timeout 2000))
@@ -27,5 +32,6 @@
        (example-5 "#example-5")      
        (example-6 "#example-6")
        (example-7 "#example-7")
+       (no-scroll-on-touch ".no-scroll")
        #_(example-8 "#example-8"))
      ))

@@ -6,28 +6,49 @@ category:
 tags: []
 ---
 
-<link rel="stylesheet" href="/assets/css/dots.css">
+<link rel="stylesheet" href="/assets/css/dots2.css">
 </link>
-<link rel="stylesheet" href="/assets/css/anim.css">
+<link rel="stylesheet" href="/assets/css/anim2.css">
 </link>
 
 ## ClojureScript Core.Async Dots Game
 
 First go ahead and play the game by connecting dots of the same color
-to each other:
+to each other. (best played in Chrome or in Safari on the iPhone)
 
 <style>
 .dots-game-container {
   overflow: hidden;
   border: 1px solid #f6f6f6;
-  width: 320px;>   
+  width: 320px;
 }
+.dots-game .marq {
+  line-height: 20px;
+}
+
+@media (max-width: 480px) {
+  .clojure {
+    font-size: 12px;
+  }
+  .highlight pre {
+    word-break: normal;
+    word-wrap: normal;
+    overflow-x: scroll;
+  }
+  .highlight pre code {
+    white-space: pre;
+  }
+  .dots-game-container {
+    margin-left: -21px;
+  }
+}
+
 </style>
 
-<div class="dots-game-container">
+<div class="dots-game-container no-scroll" ondragstart="return false;" ondrop="return false;">
 </div>
 
-<script src="/assets/js/dots.js">
+<script src="/assets/js/dots2.js">
 </script>
 
 To play the game in a separate window click [here](http://rigsomelight.com/dotsters).
@@ -35,16 +56,15 @@ To play the game in a separate window click [here](http://rigsomelight.com/dotst
 The code for the game can be found [here](https://github.com/bhauman/dotsters/blob/master/src/dots/core.cljs).
 
 
-This game was developed in Chrome on OSX and on an IPhone
-4Gs. If your phone doesn't have hardware acceleration for CSS 3d
-transforms, it is probably not going to perform very well.
+This game was developed in Chrome on OSX and on an IPhone 4Gs. If your
+browser doesn't support hardware acceleration for CSS 3d transforms,
+the game isn't going to perform very well.
 
 The game is derived from the iPhone game
 [Dots](https://itunes.apple.com/us/app/dots-a-game-about-connecting/id632285588?mt=8).
-The game isn't a complete copy of the original but it is enough to be
-play well on the iPhone and in Chrome.  This version is written in
-ClojureScript using the Core.async library and weighs in around 390
-lines of code.
+The game isn't a complete copy of the original but it is enough to
+play well.  This version is written in ClojureScript using the
+**core.async** library and weighs in around 390 lines of code.
 
 The game is drawn with DOM elements and uses CSS 3d transforms for
 animation.
@@ -53,9 +73,9 @@ animation.
 
 "Out of book" is a term used in Chess.  It refers to the point in the
 game where the players leave the well documented opening moves and
-enter into new territory. No longer playing by route memory, but
-addressing a new board position that more than likely has never
-existed before.
+enter into new territory. The players are no longer playing by route
+memory, but addressing a new board position that more than likely has
+never existed before.
 
 In the process of programming applications this point occurs when we
 move out of our tried and true patterns for accomplishing the task at
@@ -65,29 +85,27 @@ help us evaluate and improve our tools and process.
 
 Personally, I am finding that the "out of book" experience is helping
 me rediscover my childhood fascination with programming.  Something
-dearly missed.
+I almost forgot I had.
 
 ## Building the Game
 
 Using Core.async I was able to build the game in a fairly straight
 forward manner. Addressing each part of the game sequentially as it
-came up.  I made no real effort to be clever or use some new pattern.
-There are lot's side effects everywhere. There are very
-few pure functions.
+came up.  I made no real effort to be clever.  There are side effects
+everywhere. There are very few pure functions.
 
-Please keep in mind that I am still new to
-Clojure/ClojureScript. Writing this game is another exercise to help
-me learn more about the language, so take my Clojure idioms with a
-grain of salt.
+Writing this game is another exercise to help me learn more about
+Clojure and core.async, so take my Clojure idioms with a grain of salt.
 
-That being said I think this is a very reasonable way to write the
+That being said, I think this is a very reasonable way to write the
 game and as a bonus it works.
 
-This post is supposed to be a follow on to my [last
+This post is intended follow my [last
 post](http://rigsomelight.com/2013/07/18/clojurescript-core-async-todos.html). The
-game uses the same channel manipulation pattern as that post.  The
-last post also introduces the core.async library and provides helpful
-links for learning Clojure/ClojureScript.
+code in this post uses the same channel manipulation pattern
+introduced in that post. The last post also introduces the
+core.async library and provides helpful links for learning
+Clojure/ClojureScript.
 
 ## Composing events
 
@@ -97,9 +115,10 @@ commences after an initiating event like a click or a touch. A
 button is down or not. A gesture is over once the mouse button is
 released or your finger leaves the touch screen.  
 
-What we would like to do, is bottle all of these input events up and
-emit a stream of messages that capture drawing correctly so that we
-aren't handling the lower level details in our main application loop.
+What we would like to do, is bottle all of these raw input events up
+and emit a stream of messages that capture drawing actions at a higher
+level. Thus keeping the lower level details out of our main
+application loop.
 
 Here are some functions to help us gather the events we need into
 a channel.
@@ -131,9 +150,10 @@ If you are new to Clojure this
 
 {% endhighlight %}
 
-The <code>draw-event-capture</code> method directs the different events into the
-supplied input channel. We are capturing both mouse events and touch
-events so the resulting draw channel will work on both platforms.
+The <code>draw-event-capture</code> method directs the different touch
+and mouse events into the supplied input channel. We are capturing
+both mouse events and touch events so the resulting draw channel will
+work on both platforms.
 
 Let's take these helpers and compose a stream of events that capture
 the act of drawing.
@@ -173,7 +193,7 @@ messages while a draw action is occurring and ends a complete drawing
 action with one <code>[:drawend]</code> message.
 
 When the loop in <code>draw-chan</code> receives a **:draw** message
-it passes the composite <code>input-chan</code> to the
+it passes the composed <code>input-chan</code> to the
 <code>get-drawing</code> loop. <code>get-drawing</code> will only emit
 **:draw** messages until it receives a message that isn't a **:draw**
 message and then control flow returns to the context of the
@@ -211,29 +231,30 @@ Go ahead and draw in the window below:
 
 </style>
 
-<div id="example-1">
+<div id="example-1" class="no-scroll">
 </div>
 [full source for example](https://github.com/bhauman/bhauman.github.com/blob/master/assets/cljs/dots-game/ex1.cljs)
 
-As you can see each act of drawing is separate and has it's own
+As you can see, each act of drawing is distinct and has its own
 color.
 
  
 
-## A single column game
+## A single column
 
-Let's create a dots game that is just one column. To start we
-will work on rendering a list of dots. Below we have a set of
-functions that will help us render a board of random dots.
+The animations and actions are more easily explored using one column
+of the game. To start we will work on rendering a list of dots. Below
+we have a set of functions that will help us render a board of random
+colored dots.
 
 {% highlight clojure %}
 
 (def grid-unit 45)
 (def dot-size  20)
 (def board-size 6)
-(def peice-colors [:blue :green :yellow :purple :red])
+(def dot-colors [:blue :green :yellow :purple :red])
 
-(let [number-colors (count peice-colors)]
+(let [number-colors (count dot-colors)]
   (defn rand-color []
     (get peice-colors (rand-int number-colors))))
 
@@ -288,7 +309,7 @@ And the resulting board is here:
 }
 </style>
 
-<div id="example-2" class="boardy">
+<div id="example-2" class="boardy no-scroll" ondragstart="return false;" ondrop="return false;">
 </div>
 [full source for example](https://github.com/bhauman/bhauman.github.com/blob/master/assets/cljs/dots-game/ex2.cljs)
 
@@ -334,8 +355,19 @@ turning draw gestures into dot positions.
 
 {% endhighlight %}
 
-You can see this code in action if you use your mouse to swipe over
-the dots below.
+This code follows the same pattern used above to create the draw
+channel. It maps the mouse position coordinated to dot positions and
+prevents duplicate messages for individual dots. We will probably
+receive several messages for each dot as we swipe over them. It is
+better to eliminate these extra messages and provide as nice clean
+stream of draw actions to the channels consumers.
+
+By the way, I keep using this pattern repeatedly and thus its starting
+to ask for a higher level abstraction. This case probably calls for a
+macro, but that's for another time.
+
+You can see this code in action if you use your mouse to
+swipe over the dots below.
 
 <style>
 .logger {
@@ -344,13 +376,13 @@ the dots below.
 #example-3-log {
   position: absolute;
   left: 90px;
-  width: 300px;
+  width: 100px;
   height: 295px;
   overflow: auto;
 }
 </style>
 
-<div id="example-3" class="boardy">
+<div id="example-3" class="boardy no-scroll">
 <div id="example-3-log" class="logger">
 </div>
 </div>
@@ -368,26 +400,27 @@ ending the gesture with an **:end-dots** message.
 > - [David Nolen](http://swannodette.github.io/2013/07/31/extracting-processes/)
 
 It's important to call out this pattern of decoupling event sources
-and main application actors.  The common practice in JavaScript land is to
-put actions into event callbacks. The approach that we have taken so
-far here is to have callbacks insert messages into a message queue.
+and main application actors.  The common practice in JavaScript land
+is to put actions directly into event callbacks. The approach that we
+have taken here is to have callbacks insert messages into a message
+queue.
 
 This effectively decouples the events from the actions being taken.
 Following this pattern we can easily create new event sources without
 rewriting our application code. For instance, we can simply write a
-input channel for testing purposes.
+separate input channel for testing purposes or an automated player.
 
 Having a message queue also allows us to filter, repeat and otherwise
-morph the queue as we are above. We took a series of draw messages and
-turned it into a series of dot messages.
+morph the queue as we are above. We took a series of drawing messages
+and turned it into a series of dot messages.
 
-This is a powerful pattern that should be considered when writing
-JavaScript programs.
+The queue of messages is a powerful pattern that should be included in
+our considerations when writing JavaScript programs.
 
 ## Putting together a game loop
 
 Now that we've turned low level events into a high level game
-information stream let's consume that stream.
+information stream, it is time to consume that stream.
 
 {% highlight clojure %}
 
@@ -437,7 +470,7 @@ queue. They collect a vector of **dot** messages until we get to the
 
 ## Removing dots and using timeout
 
-So now let's look at rendering the removal of the dots.
+Now let's look at rendering the removal of the dots.
 
 {% highlight clojure %}
 
@@ -490,7 +523,8 @@ dot-chain in our state and if so calls <code>remove-dots</code>.
 the dots that are to be kept and removed.
 
 The <code>remove-dots-from-dom</code> function deserves some attention
-because of its sequential use of the blocking call <code>(&lt;! (timeout 150))</code> . The <code>timeout</code> function produces a
+because of its sequential use of the blocking call <code>(&lt;!
+(timeout 150))</code> . The <code>timeout</code> function produces a
 channel that sends a message at the end of the timeout.  This allows
 us to do a scale out animation on an dot and then remove the dot from
 the DOM after the animation has run.
@@ -505,23 +539,23 @@ all the selected dots shrink and disappear at the same time.
 Here the use of a blocking timeout is a small win over doing a
 callback based timeout.  It's simply less typing. As the things that
 occur after the timeout become more complex it becomes a much bigger
-win. Things such as timeout -> action -> timeout -> action become more
-easy to understand and adjust. When a timeout is a blocking call
-it's easy to change it's position in a chain of actions.
+win. Sequences such as timeout -> action -> timeout -> action become
+more easy to understand and adjust. When a timeout is a blocking call
+it's easy to change its position in a chain of actions.
 
-You can see a subtler use of timeout in the
-<code>move-dots-to-new-positions</code> function.  This function alters the
-absolute positions of the dots to bring them in line with their actual
-position in the board. The loop that iterates over the dots in the
-board is inside the *go* block.  This means that the blocking 100ms
-timeouts that are called after moving a dot will happen
-sequentially. The result is that each dot falls down to position one
-after the other. This is a bigger win for timeout and IMHO is a very
-straight forward expression of the desired action.
+You can see a sequential use of timeout in the
+<code>move-dots-to-new-positions</code> function.  This function
+alters the absolute positions of the dots to bring them in line with
+their actual position in the board. The loop that iterates over the
+dots in the board is inside the *go* block.  This means that the
+blocking 100ms timeouts will happen sequentially. The result is that
+each dot falls down to position one after the other. This is a bigger
+win for a blocking timeout and IMHO is a very straight forward
+expression of the desired action.
 
 Go ahead and swipe over the dots below. Swipe over the dots on the
 bottom of the column to see the animation of the dots falling downward
-one at a time.
+one at a time. To reset it reload the page ;-).
 
 <style>
 .boardy .dot {
@@ -532,11 +566,13 @@ one at a time.
 }
 .boardy .scale-out {
   -webkit-transform: scale3d(0.1,0.1,0.1);
+  -moz-transform: scale(0.1,0.1);
+  transform: scale3d(0.1,0.1,0.1);
 }
 </style>
 
 
-<div id="example-4" class="boardy">
+<div id="example-4" class="boardy no-scroll" ondragstart="return false;" ondrop="return false;">
 </div>
 [full source for example](https://github.com/bhauman/bhauman.github.com/blob/master/assets/cljs/dots-game/ex4.cljs)
 
@@ -582,14 +618,14 @@ Here is the code working below.
 }
 </style>
 
-<div id="example-5" class="boardy hide-overflow">
+<div id="example-5" class="boardy hide-overflow no-scroll" ondragstart="return false;" ondrop="return false;">
 </div>
 [full source for example](https://github.com/bhauman/bhauman.github.com/blob/master/assets/cljs/dots-game/ex5.cljs)
 
 ## Selecting dots of the same color
 
-For the game to work we need to only be able to select chains of dots
-where they are all the same color.
+For the game to work we to restrict the selection of dots to a single
+color that matches the first selected dot.
 
 {% highlight clojure %}
 
@@ -622,14 +658,14 @@ be at least two dots long later.
 
 Give it a try:
 
-<div id="example-6" class="boardy hide-overflow">
+<div id="example-6" class="boardy hide-overflow no-scroll" ondragstart="return false;" ondrop="return false;">
 </div>
 [full source for example](https://github.com/bhauman/bhauman.github.com/blob/master/assets/cljs/dots-game/ex6.cljs)
 
 ## Drawing feedback
 
-We are going to finally give some feedback to our players so they now
-what dot's they are selecting.
+We are going to finally give some feedback to our players so they know
+which dots they are selecting.
 
 {% highlight clojure %}
 
@@ -682,14 +718,14 @@ what dot's they are selecting.
 
 {% endhighlight %}
 
-Here we simply insert and <code>render-dot-chain</code> and
+Here we simply insert <code>render-dot-chain</code> and
 <code>erase-dot-chain</code> calls into our previously defined
 <code>get-dot-chain</code> function.
 
 The code is pretty straight forward and if you have followed along up
 until now you should be able to parse it. 
 
-Again try out the hightlighting below.
+Again try out the highlighting below.
 
 <style>
 .dot-chain-holder {
@@ -710,6 +746,10 @@ Again try out the hightlighting below.
    -webkit-animation-duration: 0.7s;
    -webkit-animation-iteration-count: 1;
    -webkit-transform: translate3d(0,0,0) scale3d(2.8,2.8,0);
+   -moz-animation-name: expander-moz;
+   -moz-animation-duration: 0.7s;
+   -moz-animation-iteration-count: 1;
+   -moz-transform: scale(2.8,2.8);
 }
 
 @-webkit-keyframes expander {
@@ -723,9 +763,20 @@ Again try out the hightlighting below.
   }
 }
 
+@-moz-keyframes expander-moz {
+  0% {
+     -moz-transform: scale(1.0,1.0);
+     opacity: 0.8;
+  }
+  100% {
+     -moz-transform: scale(2.8,2.8);
+     opacity: 0.0;
+  }
+}
+
 </style>
 
-<div id="example-7" class="boardy hide-overflow">
+<div id="example-7" class="boardy hide-overflow no-scroll" ondragstart="return false;" ondrop="return false;">
 <div class="dot-chain-holder">
 </div>
 <div class="dot-highlights">
@@ -748,10 +799,18 @@ ClojureScript core.async code is concise and expresses intent with
 very little noise that is normally introduced by the constant
 necessity for callbacks.
 
-While the code is very side effecty it seems to be the result of
+While the code is side effect ridden it seems to be the result of
 necessity (i.e. the phrasing of the animations) and is always directed
 towards the DOM. I treat the application state purely and never mutate
 it.
+
+There are many directions to explore from here.  Decoupling the
+renderer would be very interesting.
+
+Features to explore:
+* make the game more accessible for color blind people
+* add a multi player element with cooperative scoring
+* solve performance problems on other platforms
 
 Resources:
 
