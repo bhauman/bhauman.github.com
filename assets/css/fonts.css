@@ -42,45 +42,6 @@
   font-style: italic;
 }
 
-
-
-@font-face {
-  font-family: 'Droid Serif';
-  src: url('../fonts/DroidSerif-Bold-webfont.eot');
-  src: local('☺'), url('../fonts/DroidSerif-Bold-webfont.woff') format('woff'), url('../fonts/DroidSerif-Bold-webfont.ttf') format('truetype'), url('../fonts/DroidSerif-Bold-webfont.svg#webfontX4pGz9fc') format('svg');
-  font-weight: 700;
-  font-style: normal;
-}
-
-
-@font-face {
-  font-family: 'Droid Serif';
-  src: url('../fonts/DroidSerif-BoldItalic-webfont.eot');
-  src: local('☺'), url('../fonts/DroidSerif-BoldItalic-webfont.woff') format('woff'), url('../fonts/DroidSerif-BoldItalic-webfont.ttf') format('truetype'), url('../fonts/DroidSerif-BoldItalic-webfont.svg#webfontX4pGz9fc') format('svg');
-  font-weight: 700;
-  font-style: italic;
-}
-
-
-@font-face {
-  font-family: 'Droid Serif';
-  src: url('../fonts/DroidSerif-Italic-webfont.eot');
-  src: local('☺'), url('../fonts/DroidSerif-Italic-webfont.woff') format('woff'), url('../fonts/DroidSerif-Italic-webfont.ttf') format('truetype'), url('../fonts/DroidSerif-Italic-webfont.svg#webfontX4pGz9fc') format('svg');
-  font-weight: 400;
-  font-style: italic;
-}
-
-
-@font-face {
-  font-family: 'Droid Serif';
-  src: url('../fonts/DroidSerif-Regular-webfont.eot');
-  src: local('☺'), url('../fonts/DroidSerif-Regular-webfont.woff') format('woff'), url('../fonts/DroidSerif-Regular-webfont.ttf') format('truetype'), url('../fonts/DroidSerif-Regular-webfont.svg#webfontX4pGz9fc') format('svg');
-  font-weight: 400;
-  font-style: normal;
-}
-
-
-
 @font-face {
   font-family: 'Kontrapunkt';
   src: url('../fonts/Kontrapunkt-Bold-webfont.eot');

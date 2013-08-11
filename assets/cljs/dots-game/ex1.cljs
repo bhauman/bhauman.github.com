@@ -9,6 +9,11 @@
    [crate.core :as crate])
   (:require-macros [cljs.core.async.macros :as m :refer [go]]))
 
+(defn is-bad-ie? []
+  (let [browser (.-browser js/$)]
+    (and (.-msie browser)
+         (> 10 (.-version browser)))))
+
 (defn xy-message [ch msg-name xy-obj]
   (put! ch [msg-name {:x (.-pageX xy-obj) :y (.-pageY xy-obj)}]))
 
@@ -23,11 +28,21 @@
     (xy-message in-chan :draw jqevent)
     (put! in-chan [:drawend])))
 
+(defn nice-mouse-event-capture [in-chan selector end-handler]
+  (bind ($ selector) "mousemove" #(mousemove-handler in-chan %))
+  (bind ($ selector) "mousedown" #(xy-message in-chan :draw %))
+  (bind ($ selector) "mouseup"   end-handler))
+
+(defn ie-mouse-event-capture [in-chan selector end-handler]
+  (bind ($ selector) "mousemove" #(xy-message in-chan :draw %))
+  (bind ($ "body") "mousedown" #(xy-message in-chan :drawstart %))
+  (bind ($ "body") "mouseup"   end-handler))
+
 (defn draw-event-capture [in-chan selector]
   (let [end-handler (fn [_] (put! in-chan [:drawend]))]
-    (bind ($ selector) "mousemove" #(mousemove-handler in-chan %))
-    (bind ($ selector) "mousedown" #(xy-message in-chan :draw %))
-    (bind ($ selector) "mouseup"   end-handler)
+    (if (is-bad-ie?)
+      (ie-mouse-event-capture in-chan selector end-handler)
+      (nice-mouse-event-capture in-chan selector end-handler))
     (bind ($ selector) "touchmove" #(touch-xy-message in-chan :draw %))
     (bind ($ selector) "touchend"  end-handler)))
 
@@ -39,11 +54,12 @@
 
 (defn draw-chan [selector]
   (let [input-chan (chan)
-        out-chan   (chan)]
+        out-chan   (chan)
+        start-message (if (is-bad-ie?) :drawstart :draw)]
     (draw-event-capture    input-chan selector)
-    (go (loop [[msg-name _ :as msg] (<! input-chan)]
-          (when (= msg-name :draw)
-            (put! out-chan msg)
+    (go (loop [[msg-name msg-data :as msg] (<! input-chan)]
+          (when (= msg-name start-message)
+            (put! out-chan [:draw msg-data])
             (<! (get-drawing input-chan out-chan)))
           (recur (<! input-chan))))
     out-chan))
@@ -79,4 +95,5 @@
        (recur (<! drawing-chan) (inc color-i))))))
 
 (defn example-1 [selector]
+  (log (prn-str ["bad-ie" (is-bad-ie?)]))
   (drawing-loop selector))

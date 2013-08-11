@@ -559,12 +559,14 @@ one at a time. To reset it reload the page ;-).
 
 <style>
 .boardy .dot {
+  -ms-transition: all 0.2s;
   -webkit-transition: all 0.2s;
   -moz-transition: all 0.2s;
   transition: all 0.2s;  
   -webkit-transform: translate3d(0,0,0);
 }
 .boardy .scale-out {
+  -ms-transform: scale(0.1,0.1);
   -webkit-transform: scale3d(0.1,0.1,0.1);
   -moz-transform: scale(0.1,0.1);
   transform: scale3d(0.1,0.1,0.1);

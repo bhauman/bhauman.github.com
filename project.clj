@@ -4,9 +4,10 @@
   :license {:name "Eclipse Public License"
             :url "http://www.eclipse.org/legal/epl-v10.html"}
   :dependencies [[org.clojure/clojure "1.5.1"]
-                 [core.async "0.1.0-SNAPSHOT"]
+                 [org.clojure/core.async "0.1.0-SNAPSHOT"]
                  [crate "0.2.4"]
                  [jayq "2.4.0"]]
+  :repositories {"sonatype-oss-public" "https://oss.sonatype.org/content/groups/public/"}
   :plugins [[lein-cljsbuild "0.3.2"]]
   :cljsbuild {
               :builds [{:id "todos-async"
