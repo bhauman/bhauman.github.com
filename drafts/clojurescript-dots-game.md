@@ -84,15 +84,14 @@ games however takes us "out of book" pretty darn quickly, and this can
 help us evaluate and improve our tools and process.
 
 Personally, I am finding that the "out of book" experience is helping
-me rediscover my childhood fascination with programming.  Something
-I almost forgot I had.
+me rediscover my childhood fascination with programming.
 
 ## Building the Game
 
-Using Core.async I was able to build the game in a fairly straight
-forward manner. Addressing each part of the game sequentially as it
-came up.  I made no real effort to be clever.  There are side effects
-everywhere. There are very few pure functions.
+Using ClojureScript and core.async I was able to build the game in a
+fairly straight forward manner by addressing each part of the game
+sequentially as it came up. I made no real effort to be clever.
+There are very few pure functions.
 
 Writing this game is another exercise to help me learn more about
 Clojure and core.async, so take my Clojure idioms with a grain of salt.
@@ -149,6 +148,9 @@ If you are new to Clojure this
     (bind ($ selector) "touchend"  end-handler)))
 
 {% endhighlight %}
+
+The code above works great for Webkit browsers. [See the full example
+source](https://github.com/bhauman/bhauman.github.com/blob/master/assets/cljs/dots-game/ex1.cljs) for a more complete example.
 
 The <code>draw-event-capture</code> method directs the different touch
 and mouse events into the supplied input channel. We are capturing
@@ -356,15 +358,11 @@ turning draw gestures into dot positions.
 {% endhighlight %}
 
 This code follows the same pattern used above to create the draw
-channel. It maps the mouse position coordinated to dot positions and
+channel. It maps the mouse position coordinates to dot positions and
 prevents duplicate messages for individual dots. We will probably
 receive several messages for each dot as we swipe over them. It is
 better to eliminate these extra messages and provide as nice clean
 stream of draw actions to the channels consumers.
-
-By the way, I keep using this pattern repeatedly and thus its starting
-to ask for a higher level abstraction. This case probably calls for a
-macro, but that's for another time.
 
 You can see this code in action if you use your mouse to
 swipe over the dots below.
@@ -405,17 +403,17 @@ is to put actions directly into event callbacks. The approach that we
 have taken here is to have callbacks insert messages into a message
 queue.
 
-This effectively decouples the events from the actions being taken.
-Following this pattern we can easily create new event sources without
-rewriting our application code. For instance, we can simply write a
-separate input channel for testing purposes or an automated player.
+A message queue effectively decouples the events from the actions
+being taken. With a message queue in place, we can easily create new
+event sources without rewriting our application code. For instance, we
+can easily create a separate input channel for testing purposes or
+even an automated player.
 
 Having a message queue also allows us to filter, repeat and otherwise
-morph the queue as we are above. We took a series of drawing messages
-and turned it into a series of dot messages.
+morph the queue as we are above
 
-The queue of messages is a powerful pattern that should be included in
-our considerations when writing JavaScript programs.
+This is a powerful pattern that I am going to take with me when I
+write JavaScript from now on.
 
 ## Putting together a game loop
 
@@ -466,7 +464,7 @@ then rendered.
 The <code>dot-chain-getter</code> and <code>get-dot-chains</code>
 functions follow the established pattern for filtering a message
 queue. They collect a vector of **dot** messages until we get to the
-**:end-dots** message returning the vector of dot positions.
+**:end-dots** message and then return a vector of dot positions.
 
 ## Removing dots and using timeout
 
@@ -537,19 +535,20 @@ really running in parallel but conceptually it is.  The effect is that
 all the selected dots shrink and disappear at the same time.
 
 Here the use of a blocking timeout is a small win over doing a
-callback based timeout.  It's simply less typing. As the things that
-occur after the timeout become more complex it becomes a much bigger
-win. Sequences such as timeout -> action -> timeout -> action become
-more easy to understand and adjust. When a timeout is a blocking call
-it's easy to change its position in a chain of actions.
+callback based timeout.  It's simply less typing. The blocking timeout
+becomes a much bigger win when the things that occur after the timeout
+become more complex. Sequences such as timeout -> action -> timeout ->
+action become much more easy to understand and adjust as sequential
+instructions. When a timeout is a blocking call it's easy to change
+its position in a chain of actions.
 
 You can see a sequential use of timeout in the
 <code>move-dots-to-new-positions</code> function.  This function
 alters the absolute positions of the dots to bring them in line with
 their actual position in the board. The loop that iterates over the
-dots in the board is inside the *go* block.  This means that the
+dots in the board is inside the **go** block.  This means that the
 blocking 100ms timeouts will happen sequentially. The result is that
-each dot falls down to position one after the other. This is a bigger
+each dot falls down to position one *after* the other. This is a bigger
 win for a blocking timeout and IMHO is a very straight forward
 expression of the desired action.
 
@@ -791,7 +790,8 @@ Again try out the highlighting below.
 Well, that was a walk through of the major parts of the Dots game.  Go
 ahead and browse the actual code for the game
 [here](https://github.com/bhauman/dotsters)
-especially this [file](https://github.com/bhauman/dotsters/blob/master/src/dots/core.cljs).
+especially this
+[file](https://github.com/bhauman/dotsters/blob/master/src/dots/core.cljs).
 
 You can write a pretty responsive game using ClojureScript, Core.Async
 and very basic DOM manipulation.  This was a surprise to
@@ -799,20 +799,21 @@ me. JavaScript engines are freaking fast.
 
 ClojureScript core.async code is concise and expresses intent with
 very little noise that is normally introduced by the constant
-necessity for callbacks.
+necessity for callbacks. As you can see, there is not a whole bunch of
+code on this page.
 
 While the code is side effect ridden it seems to be the result of
 necessity (i.e. the phrasing of the animations) and is always directed
 towards the DOM. I treat the application state purely and never mutate
 it.
 
-There are many directions to explore from here.  Decoupling the
-renderer would be very interesting.
-
 Features to explore:
 * make the game more accessible for color blind people
-* add a multi player element with cooperative scoring
+* add a real time multi player element with cooperative scoring
 * solve performance problems on other platforms
+* decouple rendering and communicate with it over a channel
+* create a canvas renderer
+
 
 Resources:
 
