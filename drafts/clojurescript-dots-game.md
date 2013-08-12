@@ -59,9 +59,9 @@ $(function() { if(!($.browser.chrome || $.browser.safari)) {
 <script src="/assets/js/dots3.js">
 </script>
 
-To play the game in a separate window click [here](http://rigsomelight.com/dotsters).
+[Play the game in a window by itself](http://rigsomelight.com/dotsters).
 
-The code for the game can be found [here](https://github.com/bhauman/dotsters/blob/master/src/dots/core.cljs).
+[Here is the full source of the game](https://github.com/bhauman/dotsters/blob/master/src/dots/core.cljs).
 
 
 This game was developed in Chrome on OSX and on an IPhone 4Gs. If your
@@ -256,14 +256,14 @@ colored dots.
 (defn dot-pos-to-corner-position [dot-pos]
   [(+ 25 (* grid-unit (- (dec board-size) dot-pos))) 25])
 
-(defn dot [i color]
+(defn dot-templ [i color]
   (let [[top left] (dot-pos-to-corner-position i)
         class (str "dot " (name color))
         style (str "top:" top "px; left: " left "px;")]
     [:div {:class class :style style}]))
 
 (defn create-dot [i color]
-  {:color color :elem (crate/html (dot i color))})
+  {:color color :pos i :elem (crate/html (dot-templ i color))})
 
 (defn render-state [selector board]
   (mapv #(append ($ selector) (:elem %)) board))
@@ -316,7 +316,7 @@ turning draw gestures into dot positions.
 (def reverse-board-position (partial - (dec board-size)))
 
 (defn coord->dot-pos [offset {:keys [x y]}]
-  (let [[x y] (map - [x y] offset [13 86])]
+  (let [[x y] (map - [x y] offset [13 13])]
     (when (and (< 12 x (+ 12 grid-unit))
                (< 12 y (* board-size grid-unit)))
       (reverse-board-position (int (/ y grid-unit))))))

@@ -14,7 +14,7 @@
    [dots-game.ex5 :refer [example-5]]
    [dots-game.ex6 :refer [example-6]]
    [dots-game.ex7 :refer [example-7]]
-   #_[dots-game.ex8 :refer [example-8]])
+   )
   (:require-macros [cljs.core.async.macros :as m :refer [go]]))
 
 (defn no-scroll-on-touch [selector]
@@ -32,6 +32,5 @@
        (example-5 "#example-5")      
        (example-6 "#example-6")
        (example-7 "#example-7")
-       (no-scroll-on-touch ".no-scroll")
-       #_(example-8 "#example-8"))
+       (no-scroll-on-touch ".no-scroll"))
      ))

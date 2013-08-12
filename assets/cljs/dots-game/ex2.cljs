@@ -24,14 +24,14 @@
 (defn dot-pos-to-corner-position [dot-pos]
   [(+ 25 (* grid-unit (- (dec board-size) dot-pos))) 25])
 
-(defn dot [i color]
+(defn dot-templ [i color]
   (let [[top left] (dot-pos-to-corner-position i)
         class (str "dot " (name color))
         style (str "top:" top "px; left: " left "px;")]
     [:div {:class class :style style}]))
 
 (defn create-dot [i color]
-  {:color color :pos i :elem (crate/html (dot i color))})
+  {:color color :pos i :elem (crate/html (dot-templ i color))})
 
 (defn render-state [selector board]
   (mapv #(append ($ selector) (:elem %)) board))
