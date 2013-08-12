@@ -95,5 +95,4 @@
        (recur (<! drawing-chan) (inc color-i))))))
 
 (defn example-1 [selector]
-  (log (prn-str ["bad-ie" (is-bad-ie?)]))
   (drawing-loop selector))

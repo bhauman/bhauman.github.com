@@ -95,7 +95,6 @@
                    (butlast dot-chain)
                    (rest dot-chain)
                    (repeat color))]
-    (log (prn-str [dot-chain color (state :board)]))
     (when (pos? (count dot-chain))
       (inner ($ (str (state :selector) " .dot-chain-holder"))
              (crate/html (concat [:div] rends)))

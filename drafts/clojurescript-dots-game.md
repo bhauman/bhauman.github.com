@@ -13,8 +13,9 @@ tags: []
 
 ## ClojureScript Core.Async Dots Game
 
-First go ahead and play the game by connecting dots of the same color
-to each other. (best played in Chrome or in Safari on the iPhone)
+First go ahead and play the current game below. You play by connecting
+dots of the same color. When you make a cycle of dots all the dots of
+that color are erased from the board.
 
 <style>
 .dots-game-container {
@@ -25,7 +26,6 @@ to each other. (best played in Chrome or in Safari on the iPhone)
 .dots-game .marq {
   line-height: 20px;
 }
-
 @media (max-width: 480px) {
   .clojure {
     font-size: 12px;
@@ -42,13 +42,21 @@ to each other. (best played in Chrome or in Safari on the iPhone)
     margin-left: -21px;
   }
 }
-
+.alert { font-size:0.8em; }
 </style>
+
+<div class="browser-message">
+</div>
+<script>
+$(function() { if(!($.browser.chrome || $.browser.safari)) {
+  $(".browser-message").html("<p class='alert'>You are not using Chrome or Safari so this game is going to be pretty crappy.</p>")
+} })
+</script>
 
 <div class="dots-game-container no-scroll" ondragstart="return false;" ondrop="return false;">
 </div>
 
-<script src="/assets/js/dots2.js">
+<script src="/assets/js/dots3.js">
 </script>
 
 To play the game in a separate window click [here](http://rigsomelight.com/dotsters).
@@ -69,42 +77,24 @@ play well.  This version is written in ClojureScript using the
 The game is drawn with DOM elements and uses CSS 3d transforms for
 animation.
 
-## Why? ... "Out of Book"
-
-"Out of book" is a term used in Chess.  It refers to the point in the
-game where the players leave the well documented opening moves and
-enter into new territory. The players are no longer playing by route
-memory, but addressing a new board position that more than likely has
-never existed before.
-
-In the process of programming applications this point occurs when we
-move out of our tried and true patterns for accomplishing the task at
-hand. Todos programs are often composed of "book moves".  Writing
-games however takes us "out of book" pretty darn quickly, and this can
-help us evaluate and improve our tools and process.
-
-Personally, I am finding that the "out of book" experience is helping
-me rediscover my childhood fascination with programming.
-
 ## Building the Game
 
 Using ClojureScript and core.async I was able to build the game in a
-fairly straight forward manner by addressing each part of the game
-sequentially as it came up. I made no real effort to be clever.
-There are very few pure functions.
+straight forward manner addressing each part of the game sequentially
+as it came up. I made no real effort to be clever.  There are very few
+pure functions.
 
 Writing this game is another exercise to help me learn more about
 Clojure and core.async, so take my Clojure idioms with a grain of salt.
 
-That being said, I think this is a very reasonable way to write the
-game and as a bonus it works.
+That being said, I think this is seems like a reasonable way to write
+the game and as a bonus it works.
 
-This post is intended follow my [last
-post](http://rigsomelight.com/2013/07/18/clojurescript-core-async-todos.html). The
+This post is intended follow my [last post on
+core.async](http://rigsomelight.com/2013/07/18/clojurescript-core-async-todos.html). The
 code in this post uses the same channel manipulation pattern
-introduced in that post. The last post also introduces the
-core.async library and provides helpful links for learning
-Clojure/ClojureScript.
+introduced in that last post. The last post also provides helpful
+links for learning Clojure/ClojureScript.
 
 ## Composing events
 
@@ -157,7 +147,7 @@ and mouse events into the supplied input channel. We are capturing
 both mouse events and touch events so the resulting draw channel will
 work on both platforms.
 
-Let's take these helpers and compose a stream of events that capture
+Let's take these helpers and compose a stream of messages that capture
 the act of drawing.
 
 {% highlight clojure %}
