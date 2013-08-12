@@ -111,7 +111,7 @@ Here are some functions to help us gather the events we need into
 a channel.
 
 If you are new to Clojure this
-[cheetsheet](http://clojure.org/cheatsheet) may help.
+[cheatsheet](http://clojure.org/cheatsheet) may help.
 
 {% highlight clojure %}
 

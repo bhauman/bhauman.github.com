@@ -19,7 +19,7 @@ exploration of different programming patterns that are made possible
 by core.async.
 
 If you are new to Clojure this
-[cheetsheet](http://clojure.org/cheatsheet) may help.
+[cheatsheet](http://clojure.org/cheatsheet) may help.
 
 ## Initial channel and go block usage
 
