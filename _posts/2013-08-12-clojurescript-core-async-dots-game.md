@@ -12,7 +12,7 @@ tags: []
 </link>
 
 First go ahead and play the current game below. You play by connecting
-dots of the same color. When you make a cycle of dots all the dots of
+dots of the same color. When you make a cycle of dots, all the dots of
 that color are erased from the board.
 
 <style>
@@ -246,7 +246,7 @@ colored dots.
 
 (let [number-colors (count dot-colors)]
   (defn rand-color []
-    (get peice-colors (rand-int number-colors))))
+    (get dot-colors (rand-int number-colors))))
 
 (defn get-rand-colors [number]
   (map (fn [x] (rand-color)) (range number)))
