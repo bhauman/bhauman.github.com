@@ -1,29 +1,12 @@
 ---
-layout: post
-title: "ClojureScript Core.Async Dots Game"
+layout: default
+title: "Channel of Channels: Dots Game Refactor"
 published: true
 category: 
 tags: []
 ---
-
-<link rel="stylesheet" href="/assets/css/dots2.css">
-</link>
-<link rel="stylesheet" href="/assets/css/anim2.css">
-</link>
-
-First go ahead and play the current game below. You play by connecting
-dots of the same color. When you make a cycle of dots, all the dots of
-that color are erased from the board.
-
 <style>
-.dots-game-container {
-  overflow: hidden;
-  border: 1px solid #f6f6f6;
-  width: 320px;
-}
-.dots-game .marq {
-  line-height: 20px;
-}
+
 @media (max-width: 480px) {
   .clojure {
     font-size: 12px;
@@ -43,75 +26,16 @@ that color are erased from the board.
 .alert { font-size:0.8em; }
 </style>
 
-<div class="browser-message">
-</div>
-<script>
-$(function() { if(!($.browser.chrome || $.browser.safari)) {
-  $(".browser-message").html("<p class='alert'>You are not using
-  Chrome or Safari so this game may render a bit slower.</p>")
-} })
-</script>
+## Refactoring the Dots Game
 
-<div class="dots-game-container no-scroll" ondragstart="return false;" ondrop="return false;">
-</div>
+In my last post I went for a straight forward implementation of the
+Dots game.  My intention was not to get to meta or respond the
+endless array of shoulds that come into my head while I'm programming.
 
-<script src="/assets/js/dots3.js">
-</script>
+Now it's time to re-evaluate.
 
-[Play the game in a window by itself](http://rigsomelight.com/dotsters).
-
-[Here is the full source of the game](https://github.com/bhauman/dotsters/blob/dots_game_blog_v1/src/dots/core.cljs).
-
-This game was developed in Chrome on OSX and on an IPhone 4Gs. If your
-browser doesn't support hardware acceleration for CSS 3d transforms,
-the game isn't going to perform very well.
-
-The game is derived from the iPhone game
-[Dots](https://itunes.apple.com/us/app/dots-a-game-about-connecting/id632285588?mt=8).
-The game isn't a complete copy of the original but it is enough to
-play well.  This version is written in ClojureScript using the
-**core.async** library and weighs in around 390 lines of code.
-
-The game is drawn with DOM elements and uses CSS 3d transforms for
-animation.
-
-## Building the Game
-
-Using ClojureScript and core.async I was able to build the game in a
-straight forward manner addressing each part of the game sequentially
-as it came up. I made no real effort to be clever.  There are very few
-pure functions.
-
-Writing this game is another exercise to help me learn more about
-Clojure and core.async, so take my Clojure idioms with a grain of salt.
-
-That being said, I think this is seems like a reasonable way to write
-the game and as a bonus it works.
-
-This post is intended follow my [last post on
-core.async](http://rigsomelight.com/2013/07/18/clojurescript-core-async-todos.html). The
-code in this post uses the same channel manipulation pattern
-introduced in that last post. The last post also provides helpful
-links for learning Clojure/ClojureScript.
-
-## Composing events
-
-Gestures are a composition of events. Drawing on a screen normally
-commences after an initiating event like a click or a touch. A
-**mousemove** event means something different depending if the mouse
-button is down or not. A gesture is over once the mouse button is
-released or your finger leaves the touch screen.  
-
-What we would like to do, is bottle all of these raw input events up
-and emit a stream of messages that capture drawing actions at a higher
-level. Thus keeping the lower level details out of our main
-application loop.
-
-Here are some functions to help us gather the events we need into
-a channel.
-
-If you are new to Clojure this
-[cheatsheet](http://clojure.org/cheatsheet) may help.
+I am going to display drawing code similar to the last post because
+this is going to be the event source for this post.
 
 {% highlight clojure %}
 
@@ -122,31 +46,74 @@ If you are new to Clojure this
   (xy-message ch msg-name
               (aget (.-touches (.-originalEvent xy-obj)) 0)))
 
-(defn mousemove-handler [in-chan jqevent]
+(defn mousemove-handler [out-chan jqevent]
   (if (pos? (.-which jqevent))
-    (xy-message in-chan :draw jqevent)
-    (put! in-chan [:drawend])))
+    (xy-message out-chan :draw jqevent)
+    (put! out-chan [:drawend])))
 
-(defn draw-event-capture [in-chan selector]
-  (let [end-handler (fn [_] (put! in-chan [:drawend]))]
-    (bind ($ selector) "mousemove" #(mousemove-handler in-chan %))
-    (bind ($ selector) "mousedown" #(xy-message in-chan :draw %))
+(defn draw-event-capture [selector]
+  (let [out-chan (chan)
+        end-handler (fn [_] (put! out-chan [:drawend]))]
+    (bind ($ selector) "mousemove" #(mousemove-handler out-chan %))
+    (bind ($ selector) "mousedown" #(xy-message out-chan :draw %))
     (bind ($ selector) "mouseup"   end-handler)
-    (bind ($ selector) "touchmove" #(touch-xy-message in-chan :draw %))
-    (bind ($ selector) "touchend"  end-handler)))
+    (bind ($ selector) "touchmove" #(touch-xy-message out-chan :draw %))
+    (bind ($ selector) "touchend"  end-handler)
+    out))
 
 {% endhighlight %}
 
-The code above works great for Webkit browsers. [See the full example
-source](https://github.com/bhauman/bhauman.github.com/blob/master/assets/cljs/dots-game/ex1.cljs) for a more complete example.
+This simply gathers the low level event sources into a channel of
+messages that capture the act of drawing with the mouse or on a touch
+screen.
 
-The <code>draw-event-capture</code> method directs the different touch
-and mouse events into the supplied input channel. We are capturing
-both mouse events and touch events so the resulting draw channel will
-work on both platforms.
+This does not account for the full complexity of drawing across
+different browsers. [See the full example
+source](https://github.com/bhauman/bhauman.github.com/blob/master/assets/cljs/dots-game-2/ex1.cljs) for a more complete example.
 
-Let's take these helpers and compose a stream of messages that capture
-the act of drawing.
+## A channel of channels
+
+Points
+* implicit action start event
+* keeps composed events out of higher level streams
+* makes it easier for consumers. They can rely on a univeral nil
+* valueto end processing. 
+
+When I first heard the idea of a channel of channels, my initial
+response was a bit incredulous. I thought going meta with channels
+would only be of value as mental exercise.  It turns out channels of
+channels have a very practical use.
+
+To be clear in my last couple of posts I have been using channels as
+message queues. For example if we evaluate
+<code>(draw-event-capture "body")</code> it will produce a single
+channel of messages.  The stream of messages from the channel never
+terminates and the messages look like this:
+
+{% highlight clojure %}
+
+[:drawend]
+[:drawend]
+[:drawend]
+[:drawend]
+[:draw {:x 105 :y 150}]
+[:draw {:x 106 :y 150}]
+[:draw {:x 107 :y 150}]
+[:draw {:x 108 :y 150}]
+[:drawend]
+[:drawend]
+[:drawend]
+[:drawend]
+[:draw {:x 113 :y 150}]
+[:draw {:x 114 :y 150}]
+[:draw {:x 115 :y 150}]
+[:drawend]
+
+{% endhighlight %}
+
+This stream is still pretty raw and we'd like to eliminate all of
+those extra **:drawend** events. So we to filter the stream we do the
+following.
 
 {% highlight clojure %}
 
@@ -157,9 +124,8 @@ the act of drawing.
           (recur (<! input-chan))))))
 
 (defn draw-chan [selector]
-  (let [input-chan (chan)
+  (let [input-chan (draw-event-capture selector)
         out-chan   (chan)]
-    (draw-event-capture input-chan selector)
     (go (loop [[msg-name _ :as msg] (<! input-chan)]
           (when (= msg-name :draw)
             (put! out-chan msg)
@@ -169,35 +135,27 @@ the act of drawing.
 
 {% endhighlight %}
 
-We are using the **core.async** library here to build a channel which
-will behave as a blocking message queue.  We can create a channel with
-the <code>chan</code> function and we can block on input from the
-channel inside of a **go** block with the <code>&lt;!</code>
-function. You can use the <code>put!</code> function to asynchronously
-put messages into a channel.
+This code above is a state machine.  It has two states "drawing" and
+"not drawing". Both states have different behavior. The loop in
+draw-chan represents the bleeds off all the unneeded **:drawend**
+messages and waits for the first **:draw** message at which time it
+switches into the "drawing" state by calling get drawing. The loop in
+get-drawing pushes all **:draw** messages onto the output channel
+until there is a message that isn't a **:draw** message and we switch
+back to the "not drawing" behavior/state.
 
-Given a CSS selector the <code>draw-chan</code> function will compose
-and return a channel that emits drawing events relevant to the
-selected DOM elements. It emits <code>[:draw {:x - :y -}]</code>
-messages while a draw action is occurring and ends a complete drawing
-action with one <code>[:drawend]</code> message.
+This does a great job of cleaning up the message stream we now get
+a stream of messages where there is only one **:drawend** terminating
+each series of **:draw** messages. Much better.
 
-When the loop in <code>draw-chan</code> receives a **:draw** message
-it passes the composed <code>input-chan</code> to the
-<code>get-drawing</code> loop. <code>get-drawing</code> will only emit
-**:draw** messages until it receives a message that isn't a **:draw**
-message and then control flow returns to the context of the
-<code>draw-chan</code> loop and waits for the next drawing action to
-start.
+This approach works and is very flexible. It's very easy to expand
+this state machine to handle more complex event streams.
 
-An interesting thing to notice is that I'm not setting a flag to
-indicate when we are in "drawing mode".  We flow into and out of a
-drawing context.
-
-This cleans up the act of drawing from a set of separate events into a
-single act.
-
-Go ahead and draw in the window below:
+However, there is are some problems with this approach. The first
+being that consumers of the draw-chan message channel are more than
+likely going to have to implement their own state machine to mirror
+the one above.  You see this over and over again in my previous post
+[here](http://google.com) and [here](http://google.com).
 
 <style>
 .blue {   background-color: rgb(118,172,255);  }
@@ -779,7 +737,7 @@ Well, that was a walk through of the major parts of the Dots game.  Go
 ahead and browse the actual code for the game
 [here](https://github.com/bhauman/dotsters)
 especially this
-[file](https://github.com/bhauman/dotsters/blob/dots_game_blog_v1/src/dots/core.cljs).
+[file](https://github.com/bhauman/dotsters/blob/master/src/dots/core.cljs).
 
 You can write a pretty responsive game using ClojureScript, Core.Async
 and very basic DOM manipulation.  This was a surprise to
@@ -810,7 +768,8 @@ Resources:
 * [ClojureScript Up and Running book](http://shop.oreilly.com/product/0636920025139.do)
 * [David Nolen's core.async examples](https://github.com/swannodette/async-tests)
 * [Core.async git repository examples](https://github.com/clojure/core.async/tree/master/examples)
-* [Full game source](https://github.com/bhauman/dotsters/tree/dots_game_blog_v1).
+* [Full game source](https://github.com/bhauman/dotsters).
 
-<script src="/assets/js/dots-game.js">
+<script src="/assets/js/dots-game-2.js">
 </script>
+

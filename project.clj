@@ -21,4 +21,10 @@
                         :compiler {:output-to "assets/js/dots-game.js"
                                    :externs ["assets/js/externs/jquery-1.9.js"]
                                    :optimizations :simple
+                                   :pretty-print true}}
+                       {:id "dots-game-2"
+                        :source-paths ["assets/cljs/dots-game-2"]
+                        :compiler {:output-to "assets/js/dots-game-2.js"
+                                   :externs ["assets/js/externs/jquery-1.9.js"]
+                                   :optimizations :simple
                                    :pretty-print true}}]})
