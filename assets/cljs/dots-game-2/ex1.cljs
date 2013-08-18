@@ -42,13 +42,16 @@
   (bind ($ "body") "mousedown" #(xy-message in-chan :drawstart %))
   (bind ($ "body") "mouseup"   end-handler))
 
-(defn draw-event-capture [in-chan selector]
-  (let [end-handler (fn [_] (put! in-chan [:drawend]))]
-    (if (is-bad-ie?)
-      (ie-mouse-event-capture in-chan selector end-handler)
-      (nice-mouse-event-capture in-chan selector end-handler))
-    (bind ($ selector) "touchmove" #(touch-xy-message in-chan :draw %))
-    (bind ($ selector) "touchend"  end-handler)))
+(defn draw-event-capture
+  ([selector] (draw-event-capture (chan) selector))
+  ([in-chan selector]
+     (let [end-handler (fn [_] (put! in-chan [:drawend]))]
+       (if (is-bad-ie?)
+         (ie-mouse-event-capture in-chan selector end-handler)
+         (nice-mouse-event-capture in-chan selector end-handler))
+       (bind ($ selector) "touchmove" #(touch-xy-message in-chan :draw %))
+       (bind ($ selector) "touchend"  end-handler)
+       in-chan)))
 
 (defn partition-chan
   ([start-pred in] (partition-chan start-pred (complement start-pred) in))
@@ -68,12 +71,37 @@
        out)))
 
 (defn draw-chan [selector]
-  (let [input-chan (chan)
+  (let [input-chan (draw-event-capture selector)
         start-message (if (is-bad-ie?) :drawstart :draw)]
-    (draw-event-capture input-chan selector)
     (partition-chan #(= start-message (first %))
                     #(not= :draw (first %))
                     input-chan)))
+
+(defn put-all-draw-messages [input-chan out-chan]
+  (go (loop []
+        (if-let [msg (<! input-chan)]
+          (do
+            (put! out-chan msg)
+            (if (= :draw (first msg))
+              (recur)
+              msg))))))
+
+(defn draw-chan2 [selector]
+  (let [input-chan (draw-event-capture selector)
+        out (chan)]
+    (go
+     (loop []
+       (if-let [msg (<! input-chan)]
+         (if (= :draw (first msg))
+           (let [draw-action-chan (chan)]
+             (>! out draw-action-chan)
+             (>! draw-action-chan msg)
+             (<! (tap-until #(not= :draw (first %)) input-chan draw-action-chan))
+             (close! draw-action-chan)))
+         (close! out))
+       (recur)))
+    out))
+
 
 (defn draw-point [selector color coord {:keys [top left]}]
   (append ($ selector)
@@ -94,7 +122,7 @@
   (let [in-range-pred (within-element-predicate selector)
         offset   (offset ($ selector))
         get-color #(get [:red :green :blue] (mod % 3))
-        drawing-chan (draw-chan selector)]
+        drawing-chan (draw-chan2 selector)]
     (go
      (loop [color-i 0]
        (let [draw-action-chan (<! drawing-chan)]

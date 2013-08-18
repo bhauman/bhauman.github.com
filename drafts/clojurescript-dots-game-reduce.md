@@ -30,9 +30,9 @@ tags: []
 
 In my last post I went for a straight forward implementation of the
 Dots game.  My intention was not to get to meta or respond the
-endless array of shoulds that come into my head while I'm programming.
+endless array of *shoulds* that come into my head while I'm programming.
 
-Now it's time to re-evaluate.
+Now it's time to reevaluate.
 
 I am going to display drawing code similar to the last post because
 this is going to be the event source for this post.
@@ -71,7 +71,7 @@ This does not account for the full complexity of drawing across
 different browsers. [See the full example
 source](https://github.com/bhauman/bhauman.github.com/blob/master/assets/cljs/dots-game-2/ex1.cljs) for a more complete example.
 
-## A channel of channels
+## What isn't working
 
 Points
 * implicit action start event
@@ -79,16 +79,11 @@ Points
 * makes it easier for consumers. They can rely on a univeral nil
 * valueto end processing. 
 
-When I first heard the idea of a channel of channels, my initial
-response was a bit incredulous. I thought going meta with channels
-would only be of value as mental exercise.  It turns out channels of
-channels have a very practical use.
-
 To be clear in my last couple of posts I have been using channels as
 message queues. For example if we evaluate
 <code>(draw-event-capture "body")</code> it will produce a single
 channel of messages.  The stream of messages from the channel never
-terminates and the messages look like this:
+terminates and the message stream looks like this:
 
 {% highlight clojure %}
 
@@ -144,18 +139,46 @@ get-drawing pushes all **:draw** messages onto the output channel
 until there is a message that isn't a **:draw** message and we switch
 back to the "not drawing" behavior/state.
 
-This does a great job of cleaning up the message stream we now get
+This does a great job of cleaning up the message stream. We now get
 a stream of messages where there is only one **:drawend** terminating
 each series of **:draw** messages. Much better.
 
 This approach works and is very flexible. It's very easy to expand
-this state machine to handle more complex event streams.
+this state machine to handle more complex state progressions.
 
 However, there is are some problems with this approach. The first
 being that consumers of the draw-chan message channel are more than
 likely going to have to implement their own state machine to mirror
-the one above.  You see this over and over again in my previous post
-[here](http://google.com) and [here](http://google.com).
+the one above.  You see this over and over again in my previous post.
+You can see it in the <code>dot-chan</code> and
+<code>collect-dots</code> functions 
+[here](http://rigsomelight.com/2013/08/12/clojurescript-core-async-dots-game.html#code-example-4)
+and the <code>dot-chain-getter</code> and <code>get-dot-chain</code>
+functions
+[here](http://rigsomelight.com/2013/08/12/clojurescript-core-async-dots-game.html#code-example-4).
+
+The second problem is that the starting **:draw** message contains data
+that we want to use so I found myself mucking around with the first
+message. You could introduce a **:drawstart** message into the stream
+but that leads down a more complex road ...
+
+The third and most difficult problem to handle is that if you are
+working with this single stream of drawing events and you transition
+into a drawing state and you need to discontinue drawing before
+consuming the final **:drawend** message. You will leave the last parts of
+the drawing events in the channel.  Leaving a drawing context early
+and leaving those messages in the stream will only initiate a new
+drawing action unless you bleed off the rest of the **:draw** messages
+including the final **:drawend** message.
+
+Look at the following example which only you draw a max of 10 dots at a time.
+
+{% highlight clojure %}
+
+
+
+
+{% endhighlight %}
 
 <style>
 .blue {   background-color: rgb(118,172,255);  }
@@ -164,7 +187,7 @@ the one above.  You see this over and over again in my previous post
 .yellow { background-color: rgb(226,214,  0);  }
 .red {    background-color: rgb(227, 73, 50);  }
 
-#example-1 {
+#example-1, #example-1-1 {
  position: relative;
  height: 200px;
 
@@ -183,10 +206,344 @@ the one above.  You see this over and over again in my previous post
 </div>
 [full source for example](https://github.com/bhauman/bhauman.github.com/blob/master/assets/cljs/dots-game/ex1.cljs)
 
-As you can see, each act of drawing is distinct and has its own
-color.
+Reflection on the example.
 
- 
+
+## A channel of channels!
+
+When I first heard the idea of a channel of channels, my initial
+response was a bit incredulous. I thought going meta with channels
+would only be of value as mental exercise.  It turns out channels of
+channels have a very practical use.
+
+Consider a channel with the following messages in it.
+
+{% highlight clojure %}
+
+;; Where channel-of-draw-messages looks like [:draw xy] [:draw xy] etc. 
+
+[:draw-action channel-of-draw-messages]
+[:draw-action channel-of-draw-messages]
+[:draw-action channel-of-draw-messages]
+[:draw-action channel-of-draw-messages]
+[:draw-action channel-of-draw-messages]
+
+{% endhighlight %}
+
+
+This pattern solves all the problems above and fits the semantics of
+the situation better.  A drawing action has a clear start and a stream
+of events that always comes to an end.  Well so does a channel.
+
+The consumers of this stream don't have to do as much work. They
+can simply hand off the channel of draw messages to a handler. The
+handler itself doesn't have to handle some custom end event.  A
+channel emits a **nil** value when it closes.
+
+The **:draw-action** gets rid of the ambiguity of a data message
+signaling the start of an action and also containing data needed for
+the action.
+
+If the handler needs to terminate before the end of the draw messages
+this does not leave unconsumed messages in the parent channel that
+need to be bled off.
+
+So we are going to refactor the above <code>draw-chan</code> to return
+a channel of draw-action messages.
+
+{% highlight clojure %}
+
+(defn put-all-draw-messages [input-chan out-chan]
+  (go (loop []
+        (if-let [msg (<! input-chan)]
+          (do
+            (put! out-chan msg)
+            (if (= :draw (first msg))
+              (recur)
+              msg))))))
+
+(defn draw-chan [selector]
+  (let [input-chan (draw-event-capture selector)
+        out (chan)]
+    (go
+     (loop []
+       (if-let [msg (<! input-chan)]
+         (if (= :draw (first msg))
+           (let [draw-action-chan (chan)]
+             (>! out [:draw-action draw-action-chan])
+             (>! draw-action-chan msg)
+             (<! (put-all-draw-messages input-chan draw-action-chan))
+             (close! draw-action-chan)))
+         (close! out))
+       (recur)))
+    out))
+
+{% endhighlight %}
+
+The code above handles does what we want it to.  It creates and
+returns a channel of **:draw-action** messages.  Each message having
+it's own channel of messages.  The code is appears a tad more complex
+but I would argue that this is because we are handling complexity that
+would otherwise have to be handled downstream.
+
+If you look at the <code>put-all-draw-messages</code> it's simply
+putting all the messages from one channel into another until a certain
+condition is met. This seems like a generic utility that we can reuse.
+Let's extract it.
+
+{% highlight clojure %}
+
+(defn tap-until [end-pred in out]
+    (go (loop []
+          (if-let [v (<! in)]
+            (do
+              (put! out v)
+              (if (end-pred v)
+                v
+                (recur)))))))
+
+
+{% endhighlight %}
+
+The <code>tap-until</code> utility function does just what we
+need. Moving messages from one channel to another while a certain
+as long as the end predicate is not met. It also returns a channel
+created by the <code>go</code> expression.  We can now block on it and
+wait for it to consume all the messages until the end predicate is
+met.
+
+The we will change the <code>draw-chan</code> function to use
+<code>tap-until</code> utility below.
+
+
+{% highlight clojure %}
+
+(defn draw-chan [selector]
+  (let [input-chan (draw-event-capture selector)
+        out (chan)]
+    (go
+     (loop []
+       (if-let [msg (<! input-chan)]
+         (if (= :draw (first msg))
+           (let [draw-action-chan (chan)]
+             (>! out [:draw-action draw-action-chan])
+             (>! draw-action-chan msg)
+             (<! (tap-until #(not= :draw (first %)) input-chan draw-action-chan))
+             (close! draw-action-chan)))
+         (close! out))
+       (recur)))
+    out))
+
+{% endhighlight %}
+
+That works but looking at <code>draw-chan</code> I am seeing another
+familiar pattern that looks vaguely similar to Clojure's
+[partition-by](http://clojuredocs.org/clojure_core/clojure.core/partition-by). 
+
+I am going to factor out this pattern of a splitting a channel into a
+channel of channels.
+
+{% highlight clojure %}
+
+(defn partition-chan
+  ([start-pred in] (partition-chan start-pred (complement start-pred) in))
+  ([start-pred end-pred in]
+     (let [out (chan)]
+       (go
+        (loop []
+          (if-let [val (<! in)]
+            (if (start-pred val)
+              (let [next-chan (chan)]
+                (>! out next-chan)
+                (>! next-chan val) ;; capture the first message
+                (<! (tap-until end-pred in next-chan))
+                (close! next-chan)))
+            (close! out))
+          (recur)))
+       out)))
+
+{% endhighlight %}
+
+That does it. It might be better named <code>channel-splitter</code>
+but it works. These leaves us with a <code>draw-chan</code> function
+that looks like this:
+
+{% highlight clojure %}
+
+(defn draw-chan [selector]
+   (partition-chan #(= draw (first %)) (draw-event-capture selector)))
+
+{% endhighlight %}
+
+This looks pretty good.  This refactored <code>draw-chan</code>
+function does one major difference from the previous one though. It
+emits a channel of raw channels and omits containing each message with
+the **:draw-action** message.
+
+It's debatable wether the **:draw-action** part is needed but let's
+add it back to demonstrate that we haven't lost anything in
+translation. 
+
+To add it back we will use a workhorse of functional reactive
+programming <code>map-chan</code>. 
+
+{% highlight clojure %}
+
+(defn map-chan [func in]
+  (let [out (chan)]
+    (go (loop []
+          (if-let [v (<! in)]
+            (do
+              (if-let [out-v (func v)] (>! out out-v)) ;; no nils in channel
+              (recur))
+            (close! out))
+          ))
+    out))
+
+(defn draw-chan [selector]
+   (map-chan (fn [ch] [:draw-action ch])
+     (partition-chan #(= draw (first %)) (draw-event-capture selector))))
+
+{% endhighlight %}
+
+The <code>map-chan</code> function like **map** is the Swiss Army knife
+of working with channels. It simply maps the function over each value
+emitted by a channel.
+
+The resulting <code>draw-chan</code> represents a much higher level of
+expression and thinking about channels. The <code>draw-chan</code>
+function does not have any core.async functions in it. Channels are
+now values that we are manipulating with a generic set of
+functions. In addition, channels are also being used as values in
+channels and it all seems to make sense and not break my mind.
+
+## Consuming a channel of channels
+
+Now that we have straightened out our event source let's revisit some
+of the code examples from the last post.
+
+In the last post we took a channel draw messages and converted it to a
+channel of dot position messages because we wanted our main
+application loop to react to the dots that have been drawn over and
+not the raw draw events.
+
+The code looked like this:
+
+{% highlight clojure %}
+
+;; this is the code from the last post
+
+(defn collect-dots [draw-input out-chan board-offset init-msg]
+  (go
+   (loop [last-pos nil
+          msg init-msg]
+     (when (= :draw (first msg))
+       (let [cur-pos (coord->dot-pos board-offset (last msg))]
+         (if (and (not (nil? cur-pos)) (not= cur-pos last-pos))
+           (put! out-chan [:dot-pos cur-pos]))
+         (recur (or cur-pos last-pos) (<! draw-input)))))))
+
+(defn dot-chan [selector]
+  (let [draw-input (draw-chan selector)
+        board-offset ((juxt :left :top) (offset ($ selector)))
+        out-chan (chan)
+        dot-collector (partial collect-dots 
+                               draw-input out-chan board-offset)]
+    (go
+     (loop [msg (<! draw-input)]
+       (when (= (first msg) :draw)
+         (<! (dot-collector msg))
+         (put! out-chan [:end-dots]))
+       (recur (<! draw-input))))
+    out-chan))
+
+{% endhighlight %}
+
+Again, this code suffers from having to do it's own channel
+partitioning. This code again follows the familiar pattern of waiting
+for an initiating **:draw** message in the <code>dot-chan</code>
+function and then changes context to the <code>dot-collector</code>
+loop. It again futzes with the initial message forwarding it into the
+<code>dot-collector</code>.
+
+This code also forwards this channel partitioning responsibility onto
+the consumer. 
+
+The <code>dot-collector</code> is providing the service of removing
+duplicate messages from the channel by simply comparing the previous
+dot position with the current one. This seems like something that is a
+generic operation that we can extract into a new channel processing
+utility function.
+
+{% highlight clojure %}
+
+(defn remove-sequential-duplicates [in]
+  (let [out (chan)]
+    (go
+     (loop [last-v nil]
+       (if-let [v (<! in)]
+         (do
+           (if (not= v last-v) (>! out v))
+           (recur v))
+         (close! out))))
+    out))
+
+{% endhighlight %}
+
+With this new utility the <code>dot-chan</code> code above refactors
+into this:
+
+{% highlight clojure %}
+
+(defn dots-action [board-offset draw-action-chan]
+  (remove-sequential-duplicates
+   (map-chan #(coord->dot-pos board-offset (last %))
+    draw-action-chan)))
+
+(defn dot-chan [selector]
+  (let [board-offset ((juxt :left :top) (offset ($ selector)))]
+    (map-chan #(dots-action board-offset %) (draw-chan selector))))
+
+{% endhighlight %}
+
+I don't know about you, but I highly prefer the code above to the
+previous version. The new <code>dot-chan</code> function and it's
+<code>dots-action</code> helper represent the familiar pattern of
+nested iteration.  
+
+This calls out another nice property of channels of channels in this
+case.  They are very easy to conceptualize and process as two
+dimensional structures. Which in turn implies that three dimensional
+structures should work as well. Yes I'm talking about channels of
+channels of channels.
+
+You can see the above refactored code in action if you use your mouse
+to swipe over the dots below.
+
+<style>
+.logger {
+  font-size: 10px;
+}
+#example-3-log {
+  position: absolute;
+  left: 90px;
+  width: 100px;
+  height: 295px;
+  overflow: auto;
+}
+</style>
+
+<div id="example-3" class="boardy no-scroll">
+<div id="example-3-log" class="logger">
+</div>
+</div>
+[full source for example](https://github.com/bhauman/bhauman.github.com/blob/master/assets/cljs/dots-game/ex3.cljs)
+
+
+
+
+
+
 
 ## A single column
 

@@ -6,15 +6,14 @@
   
   (:require-macros [cljs.core.async.macros :as m :refer [go]]))
 
-(defn tap-until
-  ([pred-sentinel in out]
+(defn tap-until [end-pred in out]
     (go (loop []
           (if-let [v (<! in)]
             (do
               (put! out v)
-              (if-not (pred-sentinel v)
-                (recur)
-                v)))))))
+              (if (end-pred v)
+                v
+                (recur)))))))
 
 (defn take-until
   ([pred-sentinel in] (take-until pred-sentinel in (chan)))

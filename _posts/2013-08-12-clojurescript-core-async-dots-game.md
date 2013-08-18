@@ -113,6 +113,9 @@ a channel.
 If you are new to Clojure this
 [cheatsheet](http://clojure.org/cheatsheet) may help.
 
+<a name="code-example-1">
+</a>
+
 {% highlight clojure %}
 
 (defn xy-message [ch msg-name xy-obj]
@@ -147,6 +150,9 @@ work on both platforms.
 
 Let's take these helpers and compose a stream of messages that capture
 the act of drawing.
+
+<a name="code-example-2">
+</a>
 
 {% highlight clojure %}
 
@@ -237,6 +243,9 @@ of the game. To start we will work on rendering a list of dots. Below
 we have a set of functions that will help us render a board of random
 colored dots.
 
+<a name="code-example-3">
+</a>
+
 {% highlight clojure %}
 
 (def grid-unit 45)
@@ -308,6 +317,9 @@ And the resulting board is here:
 The main action of the game is to remove dots from the board by
 connecting them.  Let's make it easier on our main game loop by
 turning draw gestures into dot positions.
+
+<a name="code-example-4">
+</a>
 
 {% highlight clojure %}
 
@@ -408,6 +420,8 @@ write JavaScript from now on.
 Now that we've turned low level events into a high level game
 information stream, it is time to consume that stream.
 
+<a name="code-example-5">
+</a>
 {% highlight clojure %}
 
 (def create-dots #(map-indexed create-dot (get-rand-colors %)))
@@ -458,6 +472,8 @@ queue. They collect a vector of **dot** messages until we get to the
 
 Now let's look at rendering the removal of the dots.
 
+<a name="code-example-6">
+</a>
 {% highlight clojure %}
 
 (defn add-dots-to-board [selector dots]
@@ -570,6 +586,8 @@ one at a time. To reset it reload the page ;-).
 Now that we have removed the dots, we need to add some back.  This is
 relatively easy given the functions that we have created already.
 
+<a name="code-example-7">
+</a>
 {% highlight clojure %}
 
 (defn add-dots [state]
@@ -616,6 +634,8 @@ Here is the code working below.
 For the game to work we to restrict the selection of dots to a single
 color that matches the first selected dot.
 
+<a name="code-example-8">
+</a>
 {% highlight clojure %}
 
 (defn dot-follows? [{:keys [board]} prev-dot cur-dot]
