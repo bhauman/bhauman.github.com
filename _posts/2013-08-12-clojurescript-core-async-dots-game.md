@@ -196,11 +196,26 @@ single act.
 Go ahead and draw in the window below:
 
 <style>
-.point.blue {   background-color: rgb(118,172,255);  }
-.point.green {  background-color: rgb(128,230,121);  }
-.point.purple { background-color: rgb(131, 70,169); }
-.point.yellow { background-color: rgb(226,214,  0);  }
-.point.red {    background-color: rgb(227, 73, 50);  }
+.point.blue {  
+background-image: none; 
+background-color: rgb(118,172,255);  
+}
+.point.green {  
+background-image: none; 
+background-color: rgb(128,230,121);  
+}
+.point.purple { 
+background-image: none; 
+background-color: rgb(131, 70,169); 
+}
+.point.yellow { 
+background-image: none; 
+background-color: rgb(226,214,  0);  
+}
+.point.red {    
+background-image: none; 
+background-color: rgb(227, 73, 50);  
+}
 
 #example-1 {
  position: relative;
