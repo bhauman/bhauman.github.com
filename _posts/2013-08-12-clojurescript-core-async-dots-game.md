@@ -196,17 +196,17 @@ single act.
 Go ahead and draw in the window below:
 
 <style>
-.blue {   background-color: rgb(118,172,255);  }
-.green {  background-color: rgb(128,230,121);  }
-.purple { background-color: rgb(131, 70,169); }
-.yellow { background-color: rgb(226,214,  0);  }
-.red {    background-color: rgb(227, 73, 50);  }
+.point.blue {   background-color: rgb(118,172,255);  }
+.point.green {  background-color: rgb(128,230,121);  }
+.point.purple { background-color: rgb(131, 70,169); }
+.point.yellow { background-color: rgb(226,214,  0);  }
+.point.red {    background-color: rgb(227, 73, 50);  }
 
 #example-1 {
  position: relative;
  height: 200px;
 
- background-color: #333;
+ background-color: #001227;
 }
 .point {
   position: absolute;
