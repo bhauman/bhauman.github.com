@@ -300,6 +300,33 @@ And the resulting board is here:
    background: transparent url(/assets/images/geo_sprite.png) no-repeat -72px -1px;
 }
 
+@media only screen and (-webkit-min-device-pixel-ratio: 2) {
+.blue {
+   background: transparent url(/assets/images/geo_sprite@2x.png) no-repeat -48px -1px;
+   background-size: 118px;
+}
+
+.green {
+   background: transparent url(/assets/images/geo_sprite@2x.png) no-repeat -24px -1px;
+   background-size: 118px;
+}
+
+.purple {
+   background: transparent url(/assets/images/geo_sprite@2x.png) no-repeat -96px -1px;
+   background-size: 118px;
+}
+
+.yellow {
+   background: transparent url(/assets/images/geo_sprite@2x.png) no-repeat 0px -1px;
+   background-size: 118px;
+}
+
+.red {
+   background: transparent url(/assets/images/geo_sprite@2x.png) no-repeat -72px -1px;
+   background-size: 118px;
+}
+}
+
 .boardy { 
   position: relative; 
   height: 295px;
