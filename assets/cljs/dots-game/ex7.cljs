@@ -78,8 +78,8 @@
 (defn render-chain-element [last-pos pos color]
   (let [[top1 left] (dot-pos-to-center-position last-pos)
         [top2 _] (dot-pos-to-center-position pos)
-        style (str "width: 5px; height: 50px; top:"
-                   (if (< top1 top2) top1 top2) "px; left: " ( - left 2) "px;")]
+        style (str "width: 4px; height: 24px; top:"
+                   (+ (min top1 top2) 11) "px; left: " ( - left 2) "px;")]
     [:div {:style style :class (str "line " (name (or color :blue)))}]))
 
 (defn dot-highlight-templ [pos color]

@@ -10,7 +10,6 @@
   (:require-macros [cljs.core.async.macros :as m :refer [go]]))
 
 (def grid-unit 45)
-(def dot-size  20)
 (def board-size 6)
 (def peice-colors [:blue :green :yellow :purple :red])
 
@@ -22,7 +21,7 @@
   (map (fn [x] (rand-color)) (range number)))
 
 (defn dot-pos-to-corner-position [dot-pos]
-  [(+ 25 (* grid-unit (- (dec board-size) dot-pos))) 25])
+  [(+ 23 (* grid-unit (- (dec board-size) dot-pos))) 23])
 
 (defn dot-templ [i color]
   (let [[top left] (dot-pos-to-corner-position i)

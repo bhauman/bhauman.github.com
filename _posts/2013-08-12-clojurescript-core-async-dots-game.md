@@ -40,17 +40,7 @@ that color are erased from the board.
     margin-left: -21px;
   }
 }
-.alert { font-size:0.8em; }
 </style>
-
-<div class="browser-message">
-</div>
-<script>
-$(function() { if(!($.browser.chrome || $.browser.safari)) {
-  $(".browser-message").html("<p class='alert'>You are not using
-  Chrome or Safari so this game may render a bit slower.</p>")
-} })
-</script>
 
 <div class="dots-game-container no-scroll" ondragstart="return false;" ondrop="return false;">
 </div>
@@ -249,7 +239,6 @@ colored dots.
 {% highlight clojure %}
 
 (def grid-unit 45)
-(def dot-size  20)
 (def board-size 6)
 (def dot-colors [:blue :green :yellow :purple :red])
 
@@ -261,7 +250,7 @@ colored dots.
   (map (fn [x] (rand-color)) (range number)))
 
 (defn dot-pos-to-corner-position [dot-pos]
-  [(+ 25 (* grid-unit (- (dec board-size) dot-pos))) 25])
+  [(+ 23 (* grid-unit (- (dec board-size) dot-pos))) 23])
 
 (defn dot-templ [i color]
   (let [[top left] (dot-pos-to-corner-position i)
@@ -286,15 +275,31 @@ And the resulting board is here:
 <style>
 .boardy .dot {
    position: absolute;
-   width: 20px;
-   height: 20px;
-   border-radius: 10px;
+   width: 22px;
+   height: 22px;
+ 
 }
-.blue {   background-color: rgb(118,172,255); }
-.green {  background-color: rgb(128,230,121); }
-.purple { background-color: rgb(131, 70, 169); }
-.yellow { background-color: rgb(226, 214, 0); }
-.red { background-color: rgb(227, 73, 50); }
+
+.blue {
+   background: transparent url(/assets/images/geo_sprite.png) no-repeat -48px -1px;
+}
+
+.green {
+   background: transparent url(/assets/images/geo_sprite.png) no-repeat -24px -1px;
+}
+
+.purple {
+   background: transparent url(/assets/images/geo_sprite.png) no-repeat -96px -1px;
+}
+
+.yellow {
+   background: transparent url(/assets/images/geo_sprite.png) no-repeat 0px -1px;
+}
+
+.red {
+   background: transparent url(/assets/images/geo_sprite.png) no-repeat -72px -1px;
+}
+
 .boardy { 
   position: relative; 
   height: 295px;
@@ -305,6 +310,7 @@ And the resulting board is here:
   -khtml-user-select: none;
   -moz-user-select: moz-none;
   -ms-user-select: none; 
+  background-color: #001227;
 }
 </style>
 
@@ -684,9 +690,8 @@ which dots they are selecting.
 (defn render-chain-element [last-pos pos color]
   (let [[top1 left] (dot-pos-to-center-position last-pos)
         [top2 _] (dot-pos-to-center-position pos)
-        style (str "width: 5px; height: 50px; top:"
-                   (if (< top1 top2) top1 top2) 
-                   "px; left: " ( - left 2) "px;")]
+        style (str "width: 4px; height: 24px; top:"
+                   (+ (min top1 top2) 11) "px; left: " ( - left 2) "px;")]
     [:div {:style style :class (str "line " (name (or color :blue)))}]))
 
 (defn dot-highlight-templ [pos color]
@@ -745,10 +750,47 @@ Again try out the highlighting below.
   position: absolute;
 }
 
+.dot-chain-holder .line.blue {
+   border-color: rgb(118,172,255);
+   background-image: none;
+   background-color: rgba(118,172,255,0.37);
+}
+
+.dot-chain-holder .line.green {
+   border-color: rgb(128,230,121);
+   background-image: none;
+   background-color: rgba(128,230,121, 0.37);
+}
+
+.dot-chain-holder .line.purple {
+   border-color: rgb(164, 155, 169);
+   background-image: none;
+   background-color: rgba(164, 155, 169, 0.37);
+}
+
+.dot-chain-holder .line.yellow {
+   border-color: rgb(226, 214, 0);
+   background-image: none;
+   background-color: rgba(226, 214, 0, 0.37);
+}
+
+.dot-chain-holder .line.red {
+   border-color: rgb(227, 73, 50);
+   background-image: none;
+   background-color: rgba(227, 73, 50, 0.37);
+}
+
+.dot-chain-holder .line {
+   border-left-style: solid;
+   border-right-style: solid;
+   border-left-width: 1px;
+   border-right-width: 1px;
+}
+
 .dot-highlight {
    position: absolute;
-   width: 20px;
-   height: 20px;
+   width: 22px;
+   height: 22px;
    opacity: 0.0;
    border-radius: 10px;
    -webkit-animation-name: expander;
