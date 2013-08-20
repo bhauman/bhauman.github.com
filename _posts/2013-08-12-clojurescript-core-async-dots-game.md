@@ -206,7 +206,7 @@ Go ahead and draw in the window below:
  position: relative;
  height: 200px;
 
- background-color: #001227;
+ background-color: #444;
 }
 .point {
   position: absolute;
@@ -310,7 +310,7 @@ And the resulting board is here:
   -khtml-user-select: none;
   -moz-user-select: moz-none;
   -ms-user-select: none; 
-  background-color: #001227;
+  background-color: #444;
 }
 </style>
 
