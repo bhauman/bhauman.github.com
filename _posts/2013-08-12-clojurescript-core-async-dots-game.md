@@ -900,7 +900,7 @@ towards the DOM. I treat the application state purely and never mutate
 it.
 
 Features to explore:
-* make the game more accessible for color blind people
+* DONE:: --make the game more accessible for color blind people--
 * add a real time multi player element with cooperative scoring
 * solve performance problems on other platforms
 * decouple rendering and communicate with it over a channel

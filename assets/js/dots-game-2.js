@@ -19180,7 +19180,7 @@ dots_game_2.ex1.partition_chan = function() {
           return"\ufdd0:recur"
         }
         return 5 === i ? (j = h[5], i = a.call(null, j), h[1] = cljs.core.truth_(i) ? 8 : 9, "\ufdd0:recur") : 6 === i ? (i = cljs.core.async.close_BANG_.call(null, g), h[2] = i, h[1] = 7, "\ufdd0:recur") : 7 === i ? (h[6] = h[2], h[2] = null, h[1] = 2, "\ufdd0:recur") : 8 === i ? (i = h[7], i = cljs.core.async.chan.call(null), h[7] = i, cljs.core.async.impl.ioc_helpers.put_BANG_.call(null, h, 11, g, i)) : 9 === i ? (h[2] = null, h[1] = 10, "\ufdd0:recur") : 10 === i ? (i = h[2], h[2] = i, h[1] = 
-        7, "\ufdd0:recur") : 11 === i ? (j = h[5], i = h[7], h[8] = h[2], cljs.core.async.impl.ioc_helpers.put_BANG_.call(null, h, 12, i, j)) : 12 === i ? (i = h[7], j = h[2], i = dots_game_2.utils.tap_until.call(null, b, c, i), h[9] = j, cljs.core.async.impl.ioc_helpers.take_BANG_.call(null, h, 13, i)) : 13 === i ? (i = h[7], j = h[2], i = cljs.core.async.close_BANG_.call(null, i), h[10] = j, h[2] = i, h[1] = 10, "\ufdd0:recur") : null
+        7, "\ufdd0:recur") : 11 === i ? (i = h[7], j = h[5], h[8] = h[2], cljs.core.async.impl.ioc_helpers.put_BANG_.call(null, h, 12, i, j)) : 12 === i ? (i = h[7], j = h[2], i = dots_game_2.utils.tap_until.call(null, b, c, i), h[9] = j, cljs.core.async.impl.ioc_helpers.take_BANG_.call(null, h, 13, i)) : 13 === i ? (i = h[7], j = h[2], i = cljs.core.async.close_BANG_.call(null, i), h[10] = j, h[2] = i, h[1] = 10, "\ufdd0:recur") : null
       }, j = null, k = function() {
         var a = Array(11);
         a[0] = j;
@@ -19359,16 +19359,11 @@ dots_game_2.ex1.drawing_loop = function(a) {
     var g = function(f) {
       var g = f[1];
       if(5 === g) {
-        var g = f[5], h = f[2];
-        f[5] = g + 1;
-        f[6] = h;
-        f[2] = null;
-        f[1] = 2;
-        return"\ufdd0:recur"
+        return g = f[5], f[6] = f[2], f[5] = g + 1, f[2] = null, f[1] = 2, "\ufdd0:recur"
       }
       if(4 === g) {
-        var i = g = f[5], g = dots_game_2.utils.apply_to_chan.call(null, function(e) {
-          return cljs.core.truth_(b.call(null, e)) ? dots_game_2.ex1.draw_point.call(null, a, d.call(null, i), cljs.core.last.call(null, e), c) : null
+        var h = g = f[5], g = dots_game_2.utils.apply_to_chan.call(null, function(e) {
+          return cljs.core.truth_(b.call(null, e)) ? dots_game_2.ex1.draw_point.call(null, a, d.call(null, h), cljs.core.last.call(null, e), c) : null
         }, f[2]);
         return cljs.core.async.impl.ioc_helpers.take_BANG_.call(null, f, 5, g)
       }
