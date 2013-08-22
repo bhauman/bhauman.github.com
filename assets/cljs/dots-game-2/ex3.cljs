@@ -41,5 +41,5 @@
     (go
      (loop [dot-input-ch (<! dot-ch)]
        (<! (log-it selector (map-chan (fn [msg] [:div (prn-str msg)]) dot-input-ch)))
-       (<! (log-it selector (go [:div.red { :style "color: white;"} " end of messages"])))
+       (<! (log-it selector (go [:div.log-msg " end of channel "])))
        (recur (<! dot-ch))))))

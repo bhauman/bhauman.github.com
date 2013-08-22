@@ -77,32 +77,6 @@
                     #(not= :draw (first %))
                     input-chan)))
 
-(defn put-all-draw-messages [input-chan out-chan]
-  (go (loop []
-        (if-let [msg (<! input-chan)]
-          (do
-            (put! out-chan msg)
-            (if (= :draw (first msg))
-              (recur)
-              msg))))))
-
-(defn draw-chan2 [selector]
-  (let [input-chan (draw-event-capture selector)
-        out (chan)]
-    (go
-     (loop []
-       (if-let [msg (<! input-chan)]
-         (if (= :draw (first msg))
-           (let [draw-action-chan (chan)]
-             (>! out draw-action-chan)
-             (>! draw-action-chan msg)
-             (<! (tap-until #(not= :draw (first %)) input-chan draw-action-chan))
-             (close! draw-action-chan)))
-         (close! out))
-       (recur)))
-    out))
-
-
 (defn draw-point [selector color coord {:keys [top left]}]
   (append ($ selector)
           (crate/html [:div {:class (str "point " (name color))
@@ -122,7 +96,7 @@
   (let [in-range-pred (within-element-predicate selector)
         offset   (offset ($ selector))
         get-color #(get [:red :green :blue] (mod % 3))
-        drawing-chan (draw-chan2 selector)]
+        drawing-chan (draw-chan selector)]
     (go
      (loop [color-i 0]
        (let [draw-action-chan (<! drawing-chan)]

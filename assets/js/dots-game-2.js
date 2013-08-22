@@ -19477,7 +19477,7 @@ dots_game_2.ex3.log_loop = function(a) {
         var d = c[5], d = c[2], e = cljs.core.async.chan.call(null, 1), f = cljs.core.async.impl.dispatch.run.call(null, function() {
           var a = function(a) {
             if(1 === a[1]) {
-              var b = cljs.core.hash_map.call(null, "\ufdd0:style", "color: white;"), b = cljs.core.vector.call(null, "\ufdd0:div.red", b, " end of messages");
+              var b = cljs.core.vector.call(null, "\ufdd0:div.log-msg", " end of channel ");
               return cljs.core.async.impl.ioc_helpers.return_chan.call(null, a, b)
             }
             return null
@@ -20830,17 +20830,15 @@ jayq.core.$.call(null, function() {
     var b = function(a) {
       var b = a[1];
       if(2 === b) {
-        var b = a[2], c = dots_game_2.ex1.example_1.call(null, "#example-1"), d = dots_game_2.ex3.log_loop.call(null, "#example-3"), e = dots_game_2.ex4.example_4.call(null, "#example-4"), f = dots_game_2.ex5.example_5.call(null, "#example-5"), l = dots_game_2.core.no_scroll_on_touch.call(null, ".no-scroll");
+        var b = a[2], c = dots_game_2.ex1.example_1.call(null, "#example-1"), d = dots_game_2.ex3.log_loop.call(null, "#example-3"), e = dots_game_2.core.no_scroll_on_touch.call(null, ".no-scroll");
         a[5] = d;
-        a[6] = e;
+        a[6] = c;
         a[7] = b;
-        a[8] = c;
-        a[9] = f;
-        return cljs.core.async.impl.ioc_helpers.return_chan.call(null, a, l)
+        return cljs.core.async.impl.ioc_helpers.return_chan.call(null, a, e)
       }
       return 1 === b ? (b = cljs.core.async.timeout.call(null, 2E3), cljs.core.async.impl.ioc_helpers.take_BANG_.call(null, a, 2, b)) : null
     }, c = null, d = function() {
-      var a = Array(10);
+      var a = Array(8);
       a[0] = c;
       a[1] = 1;
       return a

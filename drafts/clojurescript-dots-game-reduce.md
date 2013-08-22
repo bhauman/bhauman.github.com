@@ -187,7 +187,7 @@ Consider a channel with the following messages in it.
 
 {% endhighlight %}
 
-This is a channel of channels let's look at it with and expanded view.
+This is a channel of channels. Let's look at it with and expanded view:
 
 {% highlight clojure %}
 
@@ -530,18 +530,18 @@ into this:
 I don't know about you, but I really prefer the code above to the
 previous version. The new <code>dot-chan</code> function and it's
 <code>dots-action</code> helper represent the familiar pattern of
-nested iteration.
+nested iteration. 
 
 This calls out another nice property of channels of channels.  They
 are very easy to conceptualize and process as two dimensional
-structures. Which in turn implies that three dimensional structures
-should work as well. Yes, I'm talking about channels of channels of
-channels.
+structures.
+
+It's important to remember that the channel that <code>dot-chan</code>
+is creating is a yet another channel of channels.
 
 This new <code>dot-chan</code> function again represents a higher
 order of expression. We are treating streams of messages (channels) as
-values and apply general operations to them.  This smells a lot like
-functional reactive programming.
+values and apply general operations to them.  
 
 You can see the above refactored code in action if you use your mouse
 to swipe over the dots below.
@@ -559,11 +559,99 @@ to swipe over the dots below.
 }
 </style>
 
+<style>
+.boardy .dot {
+   position: absolute;
+   width: 22px;
+   height: 22px;
+ 
+}
+
+.blue {
+   background: transparent url(/assets/images/geo_sprite.png) no-repeat -48px -1px;
+}
+
+.green {
+   background: transparent url(/assets/images/geo_sprite.png) no-repeat -24px -1px;
+}
+
+.purple {
+   background: transparent url(/assets/images/geo_sprite.png) no-repeat -96px -1px;
+}
+
+.yellow {
+   background: transparent url(/assets/images/geo_sprite.png) no-repeat 0px -1px;
+}
+
+.red {
+   background: transparent url(/assets/images/geo_sprite.png) no-repeat -72px -1px;
+}
+
+@media only screen and (-webkit-min-device-pixel-ratio: 2) {
+.blue {
+   background: transparent url(/assets/images/geo_sprite@2x.png) no-repeat -48px -1px;
+   background-size: 118px;
+}
+
+.green {
+   background: transparent url(/assets/images/geo_sprite@2x.png) no-repeat -24px -1px;
+   background-size: 118px;
+}
+
+.purple {
+   background: transparent url(/assets/images/geo_sprite@2x.png) no-repeat -96px -1px;
+   background-size: 118px;
+}
+
+.yellow {
+   background: transparent url(/assets/images/geo_sprite@2x.png) no-repeat 0px -1px;
+   background-size: 118px;
+}
+
+.red {
+   background: transparent url(/assets/images/geo_sprite@2x.png) no-repeat -72px -1px;
+   background-size: 118px;
+}
+}
+.log-msg {
+  color: white;
+  background-color: rgb(227, 73, 50);
+  padding-left: 10px;
+}
+.boardy { 
+  position: relative; 
+  height: 295px;
+  width: 70px;
+  border: 1px solid #f0f0f0;
+  -webkit-touch-callout: none; 
+  -webkit-user-select: none;
+  -khtml-user-select: none;
+  -moz-user-select: moz-none;
+  -ms-user-select: none; 
+  background-color: #444;
+}
+</style>
+
+
 <div id="example-3" class="boardy no-scroll">
 <div id="example-3-log" class="logger">
 </div>
 </div>
 [full source for example](https://github.com/bhauman/bhauman.github.com/blob/master/assets/cljs/dots-game/ex3.cljs)
+
+## Conclusion
+
+In this post I refactored part of the Dots game from my last post.  In
+doing this I discovered that it can be helpful to think of channels as
+structured data.  
+
+I also explored creating generic functions that operate on channels in
+a manner similar to how core Clojure functions operate on sequences.  
+
+I feel like I am witnessing a confluence of very powerful
+paradigms. Functional reactive programming, communicating sequential
+processes, and all the beauties of Clojure that allow us to be very
+plastic about how we aproach and solve a certain problem. 
 
 Resources:
 
@@ -572,7 +660,7 @@ Resources:
 * [ClojureScript Up and Running book](http://shop.oreilly.com/product/0636920025139.do)
 * [David Nolen's core.async examples](https://github.com/swannodette/async-tests)
 * [Core.async git repository examples](https://github.com/clojure/core.async/tree/master/examples)
-* [Full game source](https://github.com/bhauman/dotsters).
+* [Full Dots game source](https://github.com/bhauman/dotsters)
 
 <script src="/assets/js/dots-game-2.js">
 </script>
