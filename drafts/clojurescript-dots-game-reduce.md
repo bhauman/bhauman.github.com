@@ -639,7 +639,7 @@ to swipe over the dots below.
 <div id="example-3-log" class="logger">
 </div>
 </div>
-[full source for example](https://github.com/bhauman/bhauman.github.com/blob/master/assets/cljs/dots-game/ex3.cljs)
+[full source for example](https://github.com/bhauman/bhauman.github.com/blob/master/assets/cljs/dots-game-2/ex3.cljs)
 
 ## Conclusion
 
