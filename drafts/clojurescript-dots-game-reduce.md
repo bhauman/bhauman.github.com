@@ -156,7 +156,7 @@ are required to divide this stream of events into separate actions.
 The second problem is that the starting **:draw** message contains data
 that we want to use. As a result I found myself mucking around with the first
 message. You could introduce a **:drawstart** message into the stream
-but that gets well ... complex.
+but that gets ... complex.
 
 The third problem happens when you are in the middle of handling a
 series of **:draw** messages and you want to ignore the rest of the
@@ -649,17 +649,13 @@ doing this I discovered that it can be helpful to think of channels as
 structured data.  
 
 I also explored creating generic functions that operate on channels in
-a manner similar to how core Clojure functions operate on sequences.  
-
+a manner similar to how core Clojure functions operate on sequences.
+  
 I feel like I am witnessing a confluence of very powerful
 paradigms. Functional programming, functional reactive programming,
 communicating sequential processes, and all the beauties of Clojure
 that allow us to be very plastic about how we approach and solve a
-certain problem.
-
-
-
-
+problem.  It's really remarkable.
 
 Resources:
 
