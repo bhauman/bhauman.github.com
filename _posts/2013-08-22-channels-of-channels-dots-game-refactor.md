@@ -1,12 +1,12 @@
 ---
 layout: default
-title: "Channel of Channels: Dots Game Re-factor"
+title: "Channel of Channels: Dots Game Refactor"
 published: true
 category: 
 tags: []
 ---
-<style>
 
+<style>
 @media (max-width: 480px) {
   .clojure {
     font-size: 12px;
@@ -23,20 +23,28 @@ tags: []
     margin-left: -21px;
   }
 }
-.alert { font-size:0.8em; }
 </style>
 
 ## Refactoring the Dots Game
 
 In my [last post](/2013/08/12/clojurescript-core-async-dots-game.html)
-I built a straight forward implementation of the Dots game.  My
-intention was not to get to clever or respond the endless array of
-*shoulds* that come into my head while I'm programming.
+I built a "straight forward" implementation of the Dots game using
+ClojureScript and core.async.  My intention was not to get to clever
+or respond the endless array of *shoulds* that come into my head while
+I'm programming.
 
-It's time to reevaluate that and see what can be improved.
+It's time to reevaluate and see what can be improved. During this
+exploration we are going to explore using channels of channels and
+functional reactive programming.
 
-I am going to display drawing code similar to the last post because
-this is going to be the event source for this post.
+This post is assuming a familitarity with Clojure's new [core.async](http://clojure.github.io/core.async/)
+library.  You may find my last two posts helpful in learning more
+about core.async: [core.async
+todos](/2013/07/18/clojurescript-core-async-todos.html) and
+[core.async dots
+game](/2013/08/12/clojurescript-core-async-dots-game.html).
+
+We are going to use drawing code similar to the last post: 
 
 {% highlight clojure %}
 
@@ -236,7 +244,7 @@ We are effectively moving messages into their hierarchal
 position. Much like moving files into a sub directory or data into a
 child element in an XML or JSON document.
 
-We are going to re-factor the above <code>draw-chan</code> to return
+We are going to refactor the above <code>draw-chan</code> to return
 a channel of draw-action messages.
 
 {% highlight clojure %}
@@ -270,7 +278,7 @@ a channel of draw-action messages.
 
 The code above handles does what we want it to.  It creates and
 returns a channel of **:draw-action** messages.  Each message having
-it's own channel of **:draw** messages.  The code appears to be a tad
+its own channel of **:draw** messages.  The code appears to be a tad
 more complex but I would argue that this is because we are handling
 complexity that would otherwise have been handled downstream.
 
@@ -363,7 +371,7 @@ That does it. This function might be better named
 
 {% endhighlight %}
 
-This looks pretty good.  This re-factored <code>draw-chan</code>
+This looks pretty good.  This refactored <code>draw-chan</code>
 function does have one major difference from the original one
 though. It emits a channel of raw channels and omits containing each
 freshly split channel within a **:draw-action** message vector.
@@ -406,7 +414,7 @@ in it. Channels are now values that we are manipulating with a generic
 set of functions. In addition, channels are also being used as values
 inside of channels and it all seems to make sense.
 
-The drawing example below uses the re-factored <code>draw-chan</code>
+The drawing example below uses the refactored <code>draw-chan</code>
 function.
 
 <style>
@@ -493,7 +501,7 @@ forwarding partitioning a channel and the creating a channel that
 requires partitioning by the next consumer.
 
 Moving our attention to the <code>dot-collector</code> function, we
-can see that part of it's responsibility is to remove duplicate dot
+can see that part of its responsibility is to remove duplicate dot
 position messages from the channel by comparing the previous dot
 position with the current one. This elimination of duplicate messages
 seems like another generic operation that we can extract into a
@@ -514,7 +522,7 @@ utility function.
 
 {% endhighlight %}
 
-With this new utility the <code>dot-chan</code> code above re-factors
+With this new utility the <code>dot-chan</code> code above refactors
 into this:
 
 {% highlight clojure %}
@@ -531,7 +539,7 @@ into this:
 {% endhighlight %}
 
 I don't know about you, but I really prefer the code above to the
-previous version. The new <code>dot-chan</code> function and it's
+previous version. The new <code>dot-chan</code> function and its
 <code>dots-action</code> helper represent the familiar pattern of
 nested iteration. 
 
@@ -546,7 +554,7 @@ This new <code>dot-chan</code> function again represents a higher
 order of expression. We are treating streams of messages (channels) as
 values and apply general operations to them.  
 
-You can see the above re-factored code in action if you use your mouse
+You can see the above refactored code in action if you use your mouse
 to swipe over the dots below.
 
 <style>
@@ -644,7 +652,7 @@ to swipe over the dots below.
 
 ## Conclusion
 
-In this post I re-factored part of the Dots game from my last post.  In
+In this post I refactored part of the Dots game from my last post.  In
 doing this I discovered that it can be helpful to think of channels as
 structured data.  
 
