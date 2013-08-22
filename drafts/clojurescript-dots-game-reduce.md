@@ -126,13 +126,13 @@ following code.
 
 This code above is a state machine.  It has two states "drawing" and
 "not drawing". Both states have different behavior. The loop in
-<code>draw-chan</code> represents the bleeds off all the unneeded
+<code>draw-chan</code> bleeds off all the unneeded
 **:drawend** messages and waits for the first **:draw** message at
 which time it switches into the "drawing" state by calling
-<code>get-drawing</code>. The loop in <code>get-drawing</code> pushes all **:draw**
-messages onto the output channel until there is a message that isn't a
-**:draw** message and we switch back to the "not drawing"
-behavior/state.
+<code>get-drawing</code>. The loop in <code>get-drawing</code> pushes
+all **:draw** messages onto the output channel until there is a
+message that isn't a **:draw** message and we switch back to the "not
+drawing" behavior/state.
 
 This does a great job of cleaning up the message stream. We now get
 a stream of messages where there is only one **:drawend** terminating
