@@ -1,6 +1,6 @@
 ---
 layout: default
-title: "Channel of Channels: Dots Game Refactor"
+title: "Channel of Channels: Dots Game Re-factor"
 published: true
 category: 
 tags: []
@@ -169,8 +169,8 @@ moving on.
 
 A solution to these problems came as quite a suprise to me.  It seems
 that we can think of channels the similar way as we think of other
-data structures. We can nest channels within eachother to represent
-structured events the same as we nest lists or maps within eachother
+data structures. We can nest channels within each other to represent
+structured events the same as we nest lists or maps within each other
 to represent structured data.
 
 Consider a channel with the following messages in it.
@@ -235,7 +235,7 @@ We are effectively moving messages into their hierarchal
 position. Much like moving files into a sub directory or data into a
 child element in an XML or JSON document.
 
-We are going to refactor the above <code>draw-chan</code> to return
+We are going to re-factor the above <code>draw-chan</code> to return
 a channel of draw-action messages.
 
 {% highlight clojure %}
@@ -362,12 +362,12 @@ That does it. This function might be better named
 
 {% endhighlight %}
 
-This looks pretty good.  This refactored <code>draw-chan</code>
+This looks pretty good.  This re-factored <code>draw-chan</code>
 function does have one major difference from the original one
 though. It emits a channel of raw channels and omits containing each
 freshly split channel within a **:draw-action** message vector.
 
-It's debatable wether the **:draw-action** message container is needed
+It's debatable whether the **:draw-action** message container is needed
 but let's add it back to demonstrate that we haven't lost anything in
 translation.
 
@@ -405,7 +405,7 @@ in it. Channels are now values that we are manipulating with a generic
 set of functions. In addition, channels are also being used as values
 inside of channels and it all seems to make sense.
 
-The drawing example below uses the refactored <code>draw-chan</code>
+The drawing example below uses the re-factored <code>draw-chan</code>
 function.
 
 <style>
@@ -487,9 +487,9 @@ function and then changes context to the <code>dot-collector</code>
 loop. It also futzes with the initial message by forwarding it into
 the <code>dot-collector</code>.
 
-The above <code>dot-chan</code> funcion again continues the practice
+The above <code>dot-chan</code> function again continues the practice
 forwarding partitioning a channel and the creating a channel that
-requires paritioning by the next consumer.
+requires partitioning by the next consumer.
 
 Moving our attention to the <code>dot-collector</code> function, we
 can see that part of it's responsibility is to remove duplicate dot
@@ -513,7 +513,7 @@ utility function.
 
 {% endhighlight %}
 
-With this new utility the <code>dot-chan</code> code above refactors
+With this new utility the <code>dot-chan</code> code above re-factors
 into this:
 
 {% highlight clojure %}
@@ -545,7 +545,7 @@ This new <code>dot-chan</code> function again represents a higher
 order of expression. We are treating streams of messages (channels) as
 values and apply general operations to them.  
 
-You can see the above refactored code in action if you use your mouse
+You can see the above re-factored code in action if you use your mouse
 to swipe over the dots below.
 
 <style>
@@ -643,7 +643,7 @@ to swipe over the dots below.
 
 ## Conclusion
 
-In this post I refactored part of the Dots game from my last post.  In
+In this post I re-factored part of the Dots game from my last post.  In
 doing this I discovered that it can be helpful to think of channels as
 structured data.  
 
@@ -653,8 +653,12 @@ a manner similar to how core Clojure functions operate on sequences.
 I feel like I am witnessing a confluence of very powerful
 paradigms. Functional programming, functional reactive programming,
 communicating sequential processes, and all the beauties of Clojure
-that allow us to be very plastic about how we aproach and solve a
+that allow us to be very plastic about how we approach and solve a
 certain problem.
+
+
+
+
 
 Resources:
 
