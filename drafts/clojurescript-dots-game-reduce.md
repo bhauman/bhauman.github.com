@@ -409,11 +409,13 @@ The drawing example below uses the refactored <code>draw-chan</code>
 function.
 
 <style>
-.blue {   background-color: rgb(118,172,255);  }
-.green {  background-color: rgb(128,230,121);  }
-.purple { background-color: rgb(131, 70,169); }
-.yellow { background-color: rgb(226,214,  0);  }
-.red {    background-color: rgb(227, 73, 50);  }
+
+#example-1 .point { background-image: none; }
+.point.blue {   background-color: rgba(118,172,255, 0.6);  }
+.point.green {  background-color: rgba(128,230,121, 0.6);  }
+.point.purple { background-color: rgba(131, 70,169, 0.6); }
+.point.yellow { background-color: rgba(226,214,  0, 0.6);  }
+.point.red {    background-color: rgba(227, 73, 50, 0.6);  }
 
 #example-1, #example-1-1 {
  position: relative;
@@ -649,9 +651,10 @@ I also explored creating generic functions that operate on channels in
 a manner similar to how core Clojure functions operate on sequences.  
 
 I feel like I am witnessing a confluence of very powerful
-paradigms. Functional reactive programming, communicating sequential
-processes, and all the beauties of Clojure that allow us to be very
-plastic about how we aproach and solve a certain problem. 
+paradigms. Functional programming, functional reactive programming,
+communicating sequential processes, and all the beauties of Clojure
+that allow us to be very plastic about how we aproach and solve a
+certain problem.
 
 Resources:
 
