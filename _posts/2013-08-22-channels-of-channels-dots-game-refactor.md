@@ -13,7 +13,7 @@ or respond the endless array of *shoulds* that come into my head while
 I'm programming.
 
 It's time to reevaluate and see what can be improved. During this
-exploration we are going to explore using channels of channels and
+exploration we are going to look at using channels of channels and
 functional reactive programming.
 
 This post is assuming a familitarity with Clojure's new [core.async](http://clojure.github.io/core.async/)
