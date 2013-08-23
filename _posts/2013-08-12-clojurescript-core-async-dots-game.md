@@ -6,14 +6,14 @@ category:
 tags: []
 ---
 
+First go ahead and play the current game below. You play by connecting
+dots of the same color. When you make a cycle of dots, all the dots of
+that color are erased from the board.
+
 <link rel="stylesheet" href="/assets/css/dots2.css">
 </link>
 <link rel="stylesheet" href="/assets/css/anim2.css">
 </link>
-
-First go ahead and play the current game below. You play by connecting
-dots of the same color. When you make a cycle of dots, all the dots of
-that color are erased from the board.
 
 <style>
 .dots-game-container {

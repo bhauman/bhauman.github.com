@@ -1,31 +1,10 @@
 ---
-layout: default
+layout: post
 title: "Channel of Channels: Dots Game Refactor"
 published: true
 category: 
 tags: []
 ---
-
-<style>
-@media (max-width: 480px) {
-  .clojure {
-    font-size: 12px;
-  }
-  .highlight pre {
-    word-break: normal;
-    word-wrap: normal;
-    overflow-x: scroll;
-  }
-  .highlight pre code {
-    white-space: pre;
-  }
-  .dots-game-container {
-    margin-left: -21px;
-  }
-}
-</style>
-
-## Refactoring the Dots Game
 
 In my [last post](/2013/08/12/clojurescript-core-async-dots-game.html)
 I built a "straight forward" implementation of the Dots game using
@@ -71,6 +50,25 @@ We are going to use drawing code similar to the last post:
     out))
 
 {% endhighlight %}
+
+<style>
+@media (max-width: 480px) {
+  .clojure {
+    font-size: 12px;
+  }
+  .highlight pre {
+    word-break: normal;
+    word-wrap: normal;
+    overflow-x: scroll;
+  }
+  .highlight pre code {
+    white-space: pre;
+  }
+  .dots-game-container {
+    margin-left: -21px;
+  }
+}
+</style>
 
 The above code simply gathers the low level event sources into a
 channel of messages that capture the act of drawing.
