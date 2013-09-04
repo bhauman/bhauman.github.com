@@ -57,23 +57,26 @@ portable although I haven't done that yet.
 
 ## Hacking housing
 
-Why do this?  To me it's an inspiring problem. There is a real need
-for housing that is insulated, clean, dry, attractive, interesting,
-affordable and easy to build.  There is a inverse correlation between
-the cost of our housing and our freedom.
+Why do this?  To me it's an inspiring problem. 
 
-The current housing system requires a tremendous amount of energy
-input to construct and maintain.  The comfort and living convenience
-that we get from these large and inefficient houses does not increase
-linearly with their higher cost.  There is a decreasing [marginal
+There is a inverse correlation between the cost of our housing and our
+freedom. As a result there is a real need for housing that is
+insulated, clean, dry, attractive, interesting, affordable and easy to
+build.
+
+The current housing system requires that we use a tremendous amount of
+energy to construct and maintain a house.  The comfort and living
+convenience that we get from these large and inefficient houses does
+not increase linearly with their higher cost.  There is a decreasing
+[marginal
 efficiency](http://www.britannica.com/EBchecked/topic/364716/marginal-efficiency-of-investment)
 as investment in a home goes up. This extra cost often translates into
 a lifetime of working (often working on something you don't care
 about) to pay rent or a mortgage.
 
-As people find it increasingly difficult to either find fullfilling
+As people find it increasingly difficult to either find fulfilling
 work or just work it would be nice to literally think outside of the
-box and finally listen to the call of Buckminster Fuller exhorting us
+box and finally listen to the call of [Buckminster Fuller](http://en.wikipedia.org/wiki/Buckminster_Fuller) exhorting us
 to use our intelligence and modern materials/engineering to transcend
 the idea that housing is a scarce resource.
 
@@ -168,16 +171,26 @@ efficiency. This boils down to more space for a lot less material.
 
 ## The construction of current dome
 
+What follows is not a complete guide to how to build the dome but
+rather a general outline of how I broke down the geodesic geometry
+into a few easily assembled parts.  The idea being that this
+methodology can be reused for other geodesic structures.
+
+There is enough here for experienced makers to have a go but if you
+are intent on making one of these domes
+[contact](mailto:bhauman@gmail.com) me.
+
 ## Geodesic Geometry
 
 <p>
 <img src="/assets/images/dome/basic_dome_geometry.png"/>
 </p>
 
+Geodesic domes initially look complex but there is simplicity here.
 Geodesic domes are normally based on and underlying
-[icosahedron](http://en.wikipedia.org/wiki/Icosahedron).  You can trace
-the icosahedron in the structure above if you connect the vertices in
-middle of the purple pentagons to each other.  
+[icosahedron](http://en.wikipedia.org/wiki/Icosahedron).  You can
+trace the icosahedron in the structure above if you connect the
+vertices in middle of the purple pentagons to each other.
 
 This is a basic 3v geodesic dome. What I am trying to do is reduce the
 part count and make it easier to build.
@@ -197,21 +210,25 @@ octagon is outlined in blue.
 80%"/>
 </p>
 
-Now let's pick out a shape that maps to a 4x8 sheet with as little
-waste as possible. 
+For soccer fans this pattern of octagons and pentagons should look
+familiar. You are essentially looking at a [soccer ball](http://en.wikipedia.org/wiki/File:Soccer_ball.svg).
+
+Now let's pick out a repeating pattern of triangles that maps to a 4x8
+sheet with as little waste as possible.
 
 <p>
 <img src="/assets/images/dome/half_hexagon_shape.png"/>
 </p>
 
+This shape is half of one of the octagons found in the structure.
 This one shape repeated 30 times accounts for 73% of the skin of this
 structure. When you consider that we are going to have two plastic
 domes(interior and exterior) and 2 foam board domes for insulation.
-The discovery of one shape that covers so much area is a pretty
-amazing simplifier.
+The discovery of one shape that covers so much area is a very
+effective simplification.
 
-If we lay this shape out on a 4x8 sheet of material this is what we
-get:
+If we lay out this shape so that it fits on a 4x8 sheet of material
+this is what we get:
 
 <p>
 <img src="/assets/images/dome/first_peice_layout.png"/>
@@ -223,7 +240,7 @@ triangles. These outer lines lay 2 inches from the edges outer edges
 of the triangles.
 
 If you refer back to the photos at the start of this post you can see
-that the plastic sheets do not but up edge to edge but that they
+that the plastic sheets do not butt up edge to edge but that they
 overlap each other. In order to shed rain, the plastic sheets overlap
 each other as shingles on a roof would.
 
@@ -238,38 +255,128 @@ skin piece.
 
 When we lay out these sheets we are going to be very precise about
 where we drill the holes because that determines how well the
-structure fits together. If they are off there is a good chance that
+structure fits together. If they are off, there is a good chance that
 the structure will not fit together at all. The outer lines that
 create the overlap are much less important. 
 
 You can cut blue board insulation using this same pattern but we are
-not going to use the outer edge as a cutting line.  We are going to
-use the outer edges of the triangles. The insulation does not overlap
-but rather butts up edge to edge. 
+not going to use the outer edge of the pattern as a cutting line.  We
+are going to use the outer edges of the triangles. The insulation does
+not overlap but rather butts up edge to edge.
 
-The single pattern above can produce most of the outer skin and
-blueboard foam insulation. The pattern above captures all the hexogons
-in the structure.  Now we are going to address the pentagons.  The
-pentagons are going to be dived into the two patterns below.
+The single pattern above can produce most of the outer skin and blue
+board foam insulation. The pattern above can be used to produce all
+the hexagons in the structure.  Now we are going to address the
+pentagons.  The pentagons are going to be divided into the two patterns
+below.
 
-### Pieces for the pentagons
+### Layouts for the pentagons
 
-So let's divide the pentagon into two parts and lay them out. We'll
-start with this one:
+We essentially repeat the process above for the pentagons in the
+structure.  We are going to map the pentagon to layouts that will fit
+onto 4x8 material.
 
+Let's divide the pentagon into two parts and lay them out. We'll
+start with this diamond shape:
+
+<p>
 <img src="/assets/images/dome/pentagon_two_peice.png"/>
+</p>
 
-We can fit two of these shapes into one 4x8 sheet as shown below:
+We can fit two of these diamond shapes into one 4x8 sheet as shown below:
 
+<p>
 <img src="/assets/images/dome/pentagon_two_piece_layout.png"/>
+</p>
 
 Next we have the lower part of the pentagon:
 
+<p>
 <img src="/assets/images/dome/pentagon_three_piece.png"/>
+</p>
 
 Which gets laid out on a 4x8 sheet like this:
 
+<p>
 <img src="/assets/images/dome/pentagon_lower_layout.png"/>
+</p>
+
+Well here we are we three different layouts that we can use to produce
+most of the shell of the dome. 
+
+## Three shapes!! 164 parts!!
+
+The three shapes we derived above amount to a remarkable
+simplification in fabrication and construction.  We have decimated the
+complexity of the dome.
+
+This approach makes this dome among the most simple to build that I
+have witnessed. The part count for the whole shell (inner insulation,
+and outer) comes to 164 parts! The hubs are completely eliminated and
+replaced with simple bolts. The bolts account for all the necessary
+fastening needed to hold the shell together.
+
+The parts of the dome are also extremely lightweight. You will need
+ladders or scaffolding but there is absolutely no heavy lifting
+involved.
+
+There is the strain of knowing which parts go where.  But you
+literally can use a soccer ball as your model.  Seriously you can have
+one on hand to know weather you are currently making an octagon or a
+pentagon.
+
+## More parts
+
+There are some other shapes. If you refer back to the dome diagram you
+will notice that the bottom row of triangles is truncated to sit on a flat
+surface. These are derived from the previous layouts and are simply
+truncated versions of two of the previous layouts.
+
+<p>
+<img src="/assets/images/dome/bottom_pieces.png"/>
+</p>
+
+The inner plastic dome has the same three shapes but they are just
+slightly smaller than the original three patterns.
+
+<p>
+<img src="/assets/images/dome/inner_dome_patterns.png"/>
+</p>
+
+Well that is all the patterns needed for the shell of the dome. Keep
+in mind I didn't do any crazy math to calculate these lengths.  I used
+[Google Sketch Up](http://www.sketchup.com/).  I imported a 3v
+geodesic model and then scaled it to the right size. I then took the
+measurements right from the model.  No rocket science here just
+gratitude for the availability of fantastic easy to use tools.
+
+## Other details
+
+Of course I have just given a guide to the shell.  I have said nothing
+of doors, windows, ventilation, lighting etc. If there is enough
+interest I may do some follow up posts describing how I tackled these
+different challenges.  But the materials are very easy to work with
+and thus amenable to all sorts of windows and doors.
+
+
+## Living in the dome
+
+I think its very important to live in a structure before you advocate
+it.  I have to say that I am very pleased with dome life so far.  The
+insulation works really well for the size and shape of the structure.
+I never get exceptionally cold or warm.  Tree cover has been an
+essential ingredient in this.  The leaves come out in the summer to
+shield the dome from too much solar gain and they go away in the
+winter allowing solar gain to appreciably heat the dome.
+
+The dome has survived it's first 3 and a half years.  The exterior
+corrugated plastic was supposed to show degredation from solar
+exposure by now. I fully expected that I would have to replace some of
+the exterior corrugated plastic. But to my surprise the plastic still
+going strong. I suspect that I will only have to replace a few of the
+pieces that get the most sun.  I liken plastic replacement to the
+process of touching up the paint job on a house.
+
 
 
 ## Early attempts
