@@ -38,6 +38,7 @@ insulation. The shell of the dome is a basically a foam board
 insulation sandwich. There is an outer plastic dome, two layers of
 tightly fitted blue board insulation and then an inner plastic dome.
 It's all held together with bolts that bolt through all the layers.
+The shell of the dome is about 2 1/2 inches thick.
 
 There is no frame in this dome. The shell is self supporting much like
 and igloo is self supporting.
@@ -51,12 +52,15 @@ cooled with a small window sized air conditioner.
 The materials are all easily attainable and it cost about $2100 to
 build it.
 
+The dome is also extremely easy to disassemble and is theoretically
+portable although I haven't done that yet.
+
 ## Hacking housing
 
 Why do this?  To me it's an inspiring problem. There is a real need
-for housing that is easy to build, insulated, clean, dry, attractive,
-interesting and affordable.  There is a direct correlation between the
-cost of our housing and our freedom.
+for housing that is insulated, clean, dry, attractive, interesting,
+affordable and easy to build.  There is a inverse correlation between
+the cost of our housing and our freedom.
 
 The current housing system requires a tremendous amount of energy
 input to construct and maintain.  The comfort and living convenience
@@ -69,9 +73,9 @@ about) to pay rent or a mortgage.
 
 As people find it increasingly difficult to either find fullfilling
 work or just work it would be nice to literally think outside of the
-box and finally listen to the loud cries of Buckminster Fuller
-exhorting us to use our intelligence and modern materials/engineering
-to help us transcend the idea that housing is a scarce resource.
+box and finally listen to the call of Buckminster Fuller exhorting us
+to use our intelligence and modern materials/engineering to transcend
+the idea that housing is a scarce resource.
 
 Housing still costs money but it can cost tremendously less and be
 tremendously simpler to maintain.
@@ -85,30 +89,33 @@ are going to ensure that it is here to stay.
 
 Here is a model of the basic geodesic geometry of the dome:
 
+<p>
 <img src="/assets/images/dome/basic_dome_geometry.png"/>
+</p>
 
 The geodesic dome minimizes the amount materials needed to enclose a
-given amount of space. It doesn't optimize for construction time or
-material/part complexity.
+given amount of space. It doesn't necessarily minimize construction
+time or material/part complexity.
 
 There is complexity in the structure of a dome. The part count of a
 project is a good proxy for how much raw work you are going to be
 putting into it.  You have to fabricate and assemble all those parts
-and that takes time. We'll use part count to quantify that
-complexity.
+and that takes time, money and energy. We'll use part count to
+quantify that complexity.
 
-A the frame of a dome has a pretty high part count.  In this simple
-18ft diameter dome there are 207 struts and 81 hubs where the struts
-meet. So that's at least 288 parts for the frame only.  Let's say we cut
-triangles for the outer skin, we'll need 135 triangles just for the
-outside skin.  So with an inside and outside skin thats a total of 558
-parts!
+A the frame of a dome has a pretty high part count.  In the simple
+18ft diameter dome above there are 207 struts and 81 hubs where the
+struts meet. That's at least 288 parts for the frame only.  Let's say
+we cut triangles for the outer skin, we'll need 135 triangles just for
+the outside skin. Add insulation for each of the triangles and you get
+another 135 parts. So with an inside and outside skin thats a total of
+693 parts!  
 
 So with a very conservative estimate of 6 minutes per part of total
-handling time. That's 7 8 hour working days just for the outershell
-(no rest breaks).  That doesn't include a floor system for it to sit
-on. For an 209 square foot foot structure this is a lot of handling
-compared to conventional construction methods.
+handling time. That's almost 9 8 hour working days just for the
+outershell.  That doesn't include a floor system for it to sit on. For
+an 209 square foot foot structure this is a lot of handling compared
+to conventional construction methods.
 
 This complexity kept me away from domes for a while.  The sheer amount
 of work required to just experiment with them was daunting.
@@ -122,6 +129,10 @@ My perception of domes changed when I saw the
 
 The idea is based on Buckminster Fuller's [Self-strutted
 geodesic plydome](http://www.google.com/patents/US2905113) patent.
+
+<p>
+<img src="/assets/images/dome/self_strut_patent.png" />
+</p>
 
 The idea is really different than what we normally think of when we
 see geodesic domes.  There is no frame.  The skin is the frame! No
@@ -145,12 +156,12 @@ weatherproof siding make absolutely zero contribution to the holding
 the structure itself up. Even the external sheathing is only used as a
 lateral brace for the 2x4 walls. It's pretty wasteful.
 
-In my dome the skin and the insulation serve more purposes than just
-waterproofing and insulation.  The plastic skin serves as a weather
-proof skin and provides structural tension to the layer below. The
-insulation insulates and provides the bulk of the structural
-support. The inner skin provides structural support and clean walls to
-the interior of the structure.
+In the frameless dome the skin and the insulation serve more purposes
+than just waterproofing and insulation.  The plastic skin serves as a
+weather proof skin and provides structural tension to the layer
+below. The insulation insulates and provides the bulk of the
+structural support. The inner skin provides structural support and
+clean walls to the interior of the structure.
 
 All the materials work together in a beautiful harmonious
 efficiency. This boils down to more space for a lot less material.
@@ -159,34 +170,39 @@ efficiency. This boils down to more space for a lot less material.
 
 ## Geodesic Geometry
 
-Here is the basic geometry behind the dome:
-
+<p>
 <img src="/assets/images/dome/basic_dome_geometry.png"/>
+</p>
 
 Geodesic domes are normally based on and underlying
-[icosahedron](http://en.wikipedia.org/wiki/Icosahedron).  You can see
+[icosahedron](http://en.wikipedia.org/wiki/Icosahedron).  You can trace
 the icosahedron in the structure above if you connect the vertices in
-middle of the purple pentagons.  
+middle of the purple pentagons to each other.  
 
 This is a basic 3v geodesic dome. What I am trying to do is reduce the
-part count and make it easier to build.  
+part count and make it easier to build.
 
 I am going to map a set of triangles to a single sheet of 4x8 sheeting
 material. I want to do this in a way that creates as few items to cut
-as possible. So I am going to pick a repeating pattern.
+as possible. In order to do this I am going to pick a repeating pattern.
 
 If we look at the structure we can see some obvious repeating
 patterns.  In fact two shapes jump right out at us. The entire
-structure is made up of hexagons and pentagons. They are outlined in
-the illustration below:
+structure is made up of hexagons and pentagons. You can see them in
+the illustration below. The pentagons are purple and an example
+octagon is outlined in blue.
 
-<img src="/assets/images/dome/hexagon_highlight.png" style="width: 50%"/>
-<img src="/assets/images/dome/pentagon_highlight.png" style="width: 50%"/>
+<p>
+<img src="/assets/images/dome/hexagon_highlight.png" style="width:
+80%"/>
+</p>
 
 Now let's pick out a shape that maps to a 4x8 sheet with as little
 waste as possible. 
 
+<p>
 <img src="/assets/images/dome/half_hexagon_shape.png"/>
+</p>
 
 This one shape repeated 30 times accounts for 73% of the skin of this
 structure. When you consider that we are going to have two plastic
@@ -197,31 +213,42 @@ amazing simplifier.
 If we lay this shape out on a 4x8 sheet of material this is what we
 get:
 
+<p>
 <img src="/assets/images/dome/first_peice_layout.png"/>
+</p>
 
-If you refer back to the first photo in this post you can see that the
-plastic sheets do not but up edge to edge but that they overlap
-each other.  In the diagram above we the cut lines are going to be
-where the outer lines of the diagram and the vertices of the triangles
-are going to be where we drill the holes.
+In the diagram above we have laid out the selected triangles from the dome
+model. In addition we have added outer lines that bound the
+triangles. These outer lines lay 2 inches from the edges outer edges
+of the triangles.
 
-The structure is held together by bolts that go through the holes at
-the vertices.
+If you refer back to the photos at the start of this post you can see
+that the plastic sheets do not but up edge to edge but that they
+overlap each other. In order to shed rain, the plastic sheets overlap
+each other as shingles on a roof would.
+
+Thats why there are outer lines in the diagram above.  They account
+for the overlap that is needed to provide for the shingling overlap
+and to provide surface at the vertices to allow bolting through them.
+
+For the outer corrugated plastic skin we will layout out this pattern
+on a corrugated plastic sheet and drill holes where the vertices of
+the triangles are and then cut on the outer lines to obtain our final
+skin piece.
 
 When we lay out these sheets we are going to be very precise about
 where we drill the holes because that determines how well the
 structure fits together. If they are off there is a good chance that
-the structure will not fit together at all. The outer lines where we
-cut the sheets are much less important.  In the diagram above the
-outer lines are 2 inches out from the triangles.  This will give us a
-4 inch overlap after assembly.
+the structure will not fit together at all. The outer lines that
+create the overlap are much less important. 
 
-You can cut blue board insulation using this same pattern but since
-the blueboard insulation buts up edge to edge the cut lines are going
-to be the edges of the triangles and not the outer lines.
+You can cut blue board insulation using this same pattern but we are
+not going to use the outer edge as a cutting line.  We are going to
+use the outer edges of the triangles. The insulation does not overlap
+but rather butts up edge to edge. 
 
 The single pattern above can produce most of the outer skin and
-blueboard foam insulation. The pattern above caputes all the hexogons
+blueboard foam insulation. The pattern above captures all the hexogons
 in the structure.  Now we are going to address the pentagons.  The
 pentagons are going to be dived into the two patterns below.
 
@@ -240,6 +267,9 @@ Next we have the lower part of the pentagon:
 
 <img src="/assets/images/dome/pentagon_three_piece.png"/>
 
+Which gets laid out on a 4x8 sheet like this:
+
+<img src="/assets/images/dome/pentagon_lower_layout.png"/>
 
 
 ## Early attempts
