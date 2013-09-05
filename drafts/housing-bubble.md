@@ -33,10 +33,10 @@ It's a frameless geodesic dome designed to be easy to fabricate and build.
 It is 18 feet wide at the widest point and about 13 feet tall. It
 feels very spacious for it's 209 square foot floor.
 
-The dome is built out of corrugated plastic and blueboard foam
-insulation. The shell of the dome is a basically a foam board
+The dome is built out of 3/16" corrugated plastic and 3/4" blueboard
+foam insulation. The shell of the dome is a basically a foam board
 insulation sandwich. There is an outer plastic dome, two layers of
-tightly fitted blue board insulation and then an inner plastic dome.
+tightly fitted blueboard insulation and then an inner plastic dome.
 It's all held together with bolts that bolt through all the layers.
 The shell of the dome is about 2 1/2 inches thick.
 
@@ -44,16 +44,98 @@ There is no frame in this dome. The shell is self supporting much like
 and igloo is self supporting.
 
 The dome has a floor system held up by cinder blocks. The floor is
-also insulated with 2 layers of blue board foam insulation.
+also insulated with 2 layers of blueboard foam insulation.
 
 It has electricity and is heated with a single electric radiator and
-cooled with a small window sized air conditioner.
+cooled with an exhaust fan and small window sized air conditioner.
 
 The materials are all easily attainable and it cost about $2100 to
-build it.
+build it at the time. 
 
 The dome is also extremely easy to disassemble and is theoretically
 portable although I haven't done that yet.
+
+## Advocacy
+
+I have a fairly lengthy relationship with designing, building and
+living in alternative structures at this point. This dome is the
+culmination of that experience.  3 and a half years after building it
+I am ready to advocate it as an excellent alternative lightweight
+structure.  I think this frameless dome balances many of the
+trade-offs of lightweight structures and arrives at an optimal
+structure that drastically minimizes construction complexity, time and
+price while maximizing livability.
+
+This dome provides the cost and fabrication savings that a more tent
+like structure (teepee, yurt, canvas dome) would provide.  Unlike
+these the tent like structures this dome is entirely waterproof and
+insulated. The ability to regulate the interior environment easily
+makes all the difference when it comes to living in one of these
+structures.
+
+The fabricating of the dome is easier than many of the other
+alternative structures. The materials are easily accessible.  The
+corrugated plastic would probably need to be ordered in
+[bulk](http://corrugatedplastics.net/5mmCorrugatedPlasticSheets.html)
+and drop shipped but the simplifying properties of the material
+entirely justify it.  Everything else is simply sourced through your
+local hardware provider. There are no special hardware parts that need
+to be fabricated or sourced. Only standard carpentry tools are need to
+fabricate the dome. In fact a box cutter and a drill is all that is
+needed for the shell of the dome.
+
+This dome also provides a tremendously fast construction time which is
+comparable or faster than other lightweight structures. When you
+consider that you are getting a tight dry insulated structure the
+construction time is actually remarkable. Once the floor system is in
+place and the shell pieces are fabricated the structure can be built
+in a day or two by a couple people moving at a human pace.
+
+The fast construction time is mirrored by an equally fast disassembly
+time. Making the structure portable. A couple of pickup truck loads of
+material and you are off to a new spot. Of course portability of the
+entire structure will be highly impacted by the design decisions that
+reach beyond the shell of the structure.
+
+As for the mental overhead caused by the dome geometry, just think of
+a soccer ball. Studying a soccer ball and understanding the
+relationship between the octagons and pentagons does not seem like it
+should pose too great of a challenge for most people. I'll try to
+demonstrate later how this structure drastically simplifies the
+normally inherent complexity of dome construction.
+
+The living space of the dome feels open, clean, spacious and novel.
+There is a sense that you are not compromising comfort but rather
+living in a space that is nicer than many conventional living
+quarters.  I can't really emphasize this enough: the dome is an
+absolute pleasure to live in.
+
+The total energy input of the structure is a fraction of what is used
+in conventional construction while providing a very nice living area.
+
+## Solar gain
+
+The one drawback of the structure is shared with many small
+structures.  Solar gain can certainly be a problem in the summer time.
+Most small alternative structures have this problem. My dome is
+nestled in a group of deciduous trees which shade 60% of the dome in
+the summer. There is also a normal home exhaust fan mounted on top of
+the dome. So between the shade, the insulation and the exhaust fan you
+can keep the temperature of the dome close to the shade temperature
+outside. You can beat that temperature by adding and air conditioner.
+
+While solar gain is a problem in the summer it welcome in the winter
+and provides quite a bit of heat.
+
+## Plastic breakdown
+
+The polypropylene in the corrugated plastic is supposed to break down
+in UV solar radiation in a period of a few years.  3 and a half years
+later this hasn't been a real problem.  Right now I am expecting that
+I will only need to replace few of the exterior sheets which are
+receiving the bulk of solar exposure. The cost of 4 or 5 sheets of
+material every few years is comparable to cost of paint. The effort
+required to replace the sheets is minimal as well.
 
 ## Hacking housing
 
@@ -376,7 +458,6 @@ the exterior corrugated plastic. But to my surprise the plastic still
 going strong. I suspect that I will only have to replace a few of the
 pieces that get the most sun.  I liken plastic replacement to the
 process of touching up the paint job on a house.
-
 
 
 ## Early attempts
