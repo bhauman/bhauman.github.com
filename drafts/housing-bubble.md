@@ -8,8 +8,6 @@ tags: []
 
 # Frameless Geodesic Dome
 
-This is where I am currently living:
-
 <p>
 <img src="/assets/images/dome.jpg"/>
 </p>
@@ -52,8 +50,8 @@ cooled with an exhaust fan and small window sized air conditioner.
 The materials are all easily attainable and it cost about $2100 to
 build it at the time. 
 
-The dome is also extremely easy to disassemble and is theoretically
-portable although I haven't done that yet.
+The dome shell is also extremely easy to disassemble making it
+a portable structure.
 
 ## Advocacy
 
@@ -73,9 +71,9 @@ insulated. The ability to regulate the interior environment easily
 makes all the difference when it comes to living in one of these
 structures.
 
-The fabricating of the dome is easier than many of the other
-alternative structures. The materials are easily accessible.  The
-corrugated plastic would probably need to be ordered in
+Fabricating this dome is easier than many of the other alternative
+structures. The materials are easily accessible.  The corrugated
+plastic would probably need to be ordered in
 [bulk](http://corrugatedplastics.net/5mmCorrugatedPlasticSheets.html)
 and drop shipped but the simplifying properties of the material
 entirely justify it.  Everything else is simply sourced through your
@@ -97,16 +95,16 @@ material and you are off to a new spot. Of course portability of the
 entire structure will be highly impacted by the design decisions that
 reach beyond the shell of the structure.
 
-As for the mental overhead caused by the dome geometry, just think of
-a soccer ball. Studying a soccer ball and understanding the
-relationship between the octagons and pentagons does not seem like it
-should pose too great of a challenge for most people. I'll try to
-demonstrate later how this structure drastically simplifies the
-normally inherent complexity of dome construction.
+There is mental overhead caused by the dome geometry. However,
+studying a soccer ball and understanding the relationship between the
+white octagons and black pentagons is the only understanding is
+required of a lay person. I'll try to demonstrate later how the
+construction of this dome drastically simplifies the inherent
+complexity of a geodesic dome.
 
 The living space of the dome feels open, clean, spacious and novel.
 There is a sense that you are not compromising comfort but rather
-living in a space that is nicer than many conventional living
+living in a space that is actually nicer than many conventional living
 quarters.  I can't really emphasize this enough: the dome is an
 absolute pleasure to live in.
 
@@ -115,60 +113,52 @@ in conventional construction while providing a very nice living area.
 
 ## Solar gain
 
-The one drawback of the structure is shared with many small
-structures.  Solar gain can certainly be a problem in the summer time.
-Most small alternative structures have this problem. My dome is
-nestled in a group of deciduous trees which shade 60% of the dome in
-the summer. There is also a normal home exhaust fan mounted on top of
-the dome. So between the shade, the insulation and the exhaust fan you
-can keep the temperature of the dome close to the shade temperature
-outside. You can beat that temperature by adding and air conditioner.
+Solar gain can potentially be a problem in the dome during the summer.
+Most small lightweight structures suffer from this problem. 
 
-While solar gain is a problem in the summer it welcome in the winter
-and provides quite a bit of heat.
+My dome is nestled in a group of deciduous trees which shade 60% of
+the dome in the summer. There is also a conventional home exhaust fan
+mounted on top of the dome. So between the shade, the insulation and
+the exhaust fan it is possible to maintain the temperature of the dome
+close to the shade temperature outside. If it is still too warm inside
+a small air conditioner can adequately cool the interior.
+
+While solar gain is a problem in the summer it is welcome in the winter
+and can provide quite a bit of needed heating.
 
 ## Plastic breakdown
 
-The polypropylene in the corrugated plastic is supposed to break down
-in UV solar radiation in a period of a few years.  3 and a half years
-later this hasn't been a real problem.  Right now I am expecting that
-I will only need to replace few of the exterior sheets which are
+The polypropylene in the corrugated plastic is expected to break down
+in UV solar radiation after a period of a few years.  3 and a half
+years later this hasn't been a noticable problem.  Right now I am expecting
+that I will only need to replace a few of the exterior sheets which are
 receiving the bulk of solar exposure. The cost of 4 or 5 sheets of
 material every few years is comparable to cost of paint. The effort
 required to replace the sheets is minimal as well.
 
 ## Hacking housing
 
-Why do this?  To me it's an inspiring problem. 
-
-There is a inverse correlation between the cost of our housing and our
-freedom. As a result there is a real need for housing that is
-insulated, clean, dry, attractive, interesting, affordable and easy to
-build.
-
-The current housing system requires that we use a tremendous amount of
-energy to construct and maintain a house.  The comfort and living
-convenience that we get from these large and inefficient houses does
-not increase linearly with their higher cost.  There is a decreasing
-[marginal
+The housing problem is an inspiring challenge. The current housing
+system requires that we use a tremendous amount of energy to construct
+and maintain a home.  The comfort and living convenience that we get
+from these large and inefficient houses does not increase linearly
+with their higher cost.  There is a decreasing [marginal
 efficiency](http://www.britannica.com/EBchecked/topic/364716/marginal-efficiency-of-investment)
 as investment in a home goes up. This extra cost often translates into
 a lifetime of working (often working on something you don't care
-about) to pay rent or a mortgage.
+about) in order to service rent or a mortgage debt.
 
-As people find it increasingly difficult to either find fulfilling
-work or just work it would be nice to literally think outside of the
-box and finally listen to the call of [Buckminster Fuller](http://en.wikipedia.org/wiki/Buckminster_Fuller) exhorting us
-to use our intelligence and modern materials/engineering to transcend
-the idea that housing is a scarce resource.
+As the reality of our modern economic situation continues to decimate
+all faith in the American dream, it would be nice to literally think
+outside of the box and finally listen to the call of [Buckminster
+Fuller](http://en.wikipedia.org/wiki/Buckminster_Fuller) exhorting us
+to use our intelligence and modern materials to transcend the idea
+that housing is a scarce resource.
 
-Housing still costs money but it can cost tremendously less and be
-tremendously simpler to maintain.
-
-The [tiny housing
+The growing [tiny housing
 movement](http://www.thetinylife.com/what-is-the-tiny-house-movement/)
-is here for reason and as far as I can tell current economic realities
-are going to ensure that it is here to stay.
+is evidence that a lifestyle unburdened by exhorbent housing costs is
+becoming an attractive option for many people.
 
 ## Tackling geodesic complexity
 
@@ -178,34 +168,34 @@ Here is a model of the basic geodesic geometry of the dome:
 <img src="/assets/images/dome/basic_dome_geometry.png"/>
 </p>
 
-The geodesic dome minimizes the amount materials needed to enclose a
+The geodesic dome minimizes the amount of materials needed to enclose a
 given amount of space. It doesn't necessarily minimize construction
 time or material/part complexity.
 
-There is complexity in the structure of a dome. The part count of a
+I am going to use the number of parts required to build a dome as a
+way to quantify how complex it is to build a dome. The part count of a
 project is a good proxy for how much raw work you are going to be
 putting into it.  You have to fabricate and assemble all those parts
-and that takes time, money and energy. We'll use part count to
-quantify that complexity.
+and that takes time, money and energy.
 
-A the frame of a dome has a pretty high part count.  In the simple
+The frame of a dome has a pretty high part count.  In the simple
 18ft diameter dome above there are 207 struts and 81 hubs where the
 struts meet. That's at least 288 parts for the frame only.  Let's say
 we cut triangles for the outer skin, we'll need 135 triangles just for
 the outside skin. Add insulation for each of the triangles and you get
-another 135 parts. So with an inside and outside skin thats a total of
-693 parts!  
+another 135 parts. So including insulation and an inside skin that is
+a total of 693 parts!  
 
-So with a very conservative estimate of 6 minutes per part of total
-handling time. That's almost 9 8 hour working days just for the
-outershell.  That doesn't include a floor system for it to sit on. For
-an 209 square foot foot structure this is a lot of handling compared
-to conventional construction methods.
+With a very conservative estimate of 6 minutes per part of total
+handling time. That's almost 9 8 hour working days just for the outer
+shell of a dome.  That doesn't include a floor system for it to sit
+on. For an 209 square foot structure this is a lot of handling
+compared to conventional construction methods.
 
-This complexity kept me away from domes for a while.  The sheer amount
-of work required to just experiment with them was daunting.
+This complexity kept me away from domes.  The sheer amount of work
+required to just experiment with them was daunting.
 
-My perception of domes changed when I saw the
+My perception of domes changed when I saw Steve Miller's
 [plydome](http://andrewdurham.com/formactive/cottage_1.htm).
 
 <p>
@@ -219,20 +209,20 @@ geodesic plydome](http://www.google.com/patents/US2905113) patent.
 <img src="/assets/images/dome/self_strut_patent.png" />
 </p>
 
-The idea is really different than what we normally think of when we
-see geodesic domes.  There is no frame.  The skin is the frame! No
+The plydome is a considerable departure from normal geodesic
+construction methods. There is no frame. The skin is the frame! No
 complex hubs and strutting needed. No need to fabricate a gazzilion
 triangles and struts.
 
 The amazing idea behind the plydome is that by using the built in
-strength of sheeting material under flex tension we get a frame and an
-enclosing envelope in one material.  This drastically simplifies the
-fabrication and building of a dome. It reduces the part count by a
-very large factor.  One sheet of plywood replaces 7 struts, a couple
-of hubs and two plywood triangles and a lot of joining hardware.  You
-are dividing the total parts needed by a factor of 10 at least.  That
-is a non trivial improvement.  So if you needed 1000 parts before, you
-now only need 100. 
+strength of the sheeting material under flex tension we get a frame
+and an enclosing envelope in one material.  This drastically
+simplifies the fabrication and building of a dome. It reduces the part
+count by a very large factor.  One sheet of plywood replaces 7 struts,
+a couple of hubs and two plywood triangles and a lot of joining
+hardware.  You are dividing the total parts needed by a factor of 7.
+That is a remarkable improvement.  So if you needed 700 parts before,
+you now only need 100.
 
 ## Frameless Synergy
 
