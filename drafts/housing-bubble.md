@@ -173,6 +173,9 @@ Here is a model of the basic geodesic geometry of the dome:
 
 <p>
 <img src="/assets/images/dome/basic_dome_geometry.png"/>
+<a href="/assets/3dmodels/frameless_dome_model.skp">
+Download Google Sketchup model of the dome
+</a>
 </p>
 
 The geodesic dome is brilliant in how it minimizes the amount of
@@ -244,10 +247,10 @@ dramatically reduce construction complexity.
 
 ## Frameless Synergy
 
-In conventional wood housing (stick frame) construction the insulation
-and weatherproof siding contribute nothing to holding the structure
-itself up. Even the external plywood sheathing is only used as a
-lateral brace for the 2x4 walls.
+In conventional wood housing (stick frame) construction, the
+insulation and weatherproof siding contribute nothing to holding the
+structure itself up. Even the external plywood sheathing is only used
+as a lateral brace for the 2x4 walls.
 
 In my frameless dome the skin and the insulation serve more purposes
 than just waterproofing and insulation.  The plastic skin serves as a
@@ -281,7 +284,6 @@ mathematically inclined.
 
 <p>
 <img src="/assets/images/dome/basic_dome_geometry.png"/>
-[Download Google Sketchup model of the dome](/assets/3dmodels/frameless_dome_model.skp)
 </p>
 
 This is a basic 3v geodesic dome.
@@ -294,26 +296,23 @@ the illustration below. The pentagons are purple and an example
 hexagon is outlined in blue.
 
 <p>
-<img src="/assets/images/dome/hexagon_highlight.png" style="width:
-80%"/>
+<img src="/assets/images/dome/hexagon_highlight.png" style="width: 80%"/>
 </p>
 
 This pattern of hexagons and pentagons should look familiar. You are
-essentially looking at a [soccer
-ball](http://en.wikipedia.org/wiki/File:Soccer_ball.svg).
+essentially looking at a [soccer ball](http://en.wikipedia.org/wiki/File:Soccer_ball.svg).
 
 <p>
 <img src="/assets/images/dome/soccerball.jpg" style="width: 500px;" />
 </p>
 
+The soccer ball above has the same exact pattern of hexagons and
+pentagons as the geodesic model above.
+
 ## Laying out the hexagons
 
-My goal is to reduce the part count of the dome and make it simpler to
-build.
-
-Since hexagons are repeated accoss 73% of the surface area of the
-structure it makes sense to see if they provide a replicatable
-pattern that will fit onto a 4x8 sheet of material.
+Now that we have discovered that a dome can be composed of these two
+shapes let's figure out how to make them out of 4x8 sheeting material.
 
 It's easy to divide an hexagon in half so let's try that.
 
@@ -321,8 +320,11 @@ It's easy to divide an hexagon in half so let's try that.
 <img src="/assets/images/dome/half_hexagon_shape.png"/>
 </p>
 
-This one shape is repeated 30 times on the surface of the dome and it
-happens to fit on a 4x8 sheet. 
+This single shape is repeated 30 times on the surface of the dome and it
+happens to fit on a 4x8 sheet.
+
+By fastening two of these shapes together we can create one of the
+hexagons of the dome. 
 
 When you consider that we are going to have two plastic domes(interior
 and exterior) and 2 foam board domes for insulation. Having one shape
@@ -346,7 +348,8 @@ rain, the plastic sheets overlap each other as shingles on a roof
 would.
 
 Thats why there are outer lines in the diagram above.  They account
-for the overlap that is needed to provide for the shingling overlap.
+for the overlap that is needed to provide for the shingling of the
+plastic sheets.
 
 For the outer corrugated plastic skin we will layout out this pattern
 on a corrugated plastic sheet and drill holes where the vertices of
