@@ -105,12 +105,12 @@ to be fabricated or sourced. Only standard carpentry tools are need to
 fabricate the dome. In fact, a box cutter and a drill is all that is
 needed to make the shell of the dome.
 
-This dome also provides a tremendously fast construction time which is
-comparable or faster than other lightweight structures. When you
-consider that you are getting a tight dry insulated structure, the
-short construction time is remarkable. Once the floor system is in
-place and the shell pieces are fabricated, the structure can be built
-in a day or two by a couple people moving at a human pace.
+This dome can be built very quickly.  The build time is comparable or
+faster than other lightweight structures. When you consider that you
+are getting a tight dry insulated structure, the short construction
+time is remarkable. Once the floor system is in place and the shell
+pieces are fabricated, the structure can be built in a day or two by a
+couple people moving at a human pace.
 
 The fast construction time is mirrored by an equally fast disassembly
 time, making the structure portable. With only a couple pickup truck
@@ -235,13 +235,13 @@ can work in synergy to induce structure.
 ## Frameless Synergy
 
 In conventional wood housing (stick frame) construction the insulation
-and weatherproof siding contribute minimally to holding the structure
+and weatherproof siding contribute nothing to holding the structure
 itself up. Even the external plywood sheathing is only used as a
 lateral brace for the 2x4 walls.
 
 In my frameless dome the skin and the insulation serve more purposes
 than just waterproofing and insulation.  The plastic skin serves as a
-weather proof skin and provides structural tension to the layer
+weather proofing and provides structural tension to the layer
 below. The insulation insulates and provides the bulk of the
 structural support. The inner skin provides structural support and
 clean walls to the interior of the structure.
@@ -249,9 +249,9 @@ clean walls to the interior of the structure.
 All the materials work together in a beautiful harmonious
 efficiency to obviate the need for a frame.
 
-Keep in mind that the plastic sheathing is 3/16" thick and that it is
-helping to provide structural support.  Mind blowing when you think
-about it.
+Keep in mind that the plastic sheathing is 3/16" thick. When you think
+about how super thin and extremely lightweight this material is, the
+fact that it's providing structural support really blows my mind.
 
 ## The construction of current dome
 
@@ -288,7 +288,9 @@ This pattern of hexagons and pentagons should look familiar. You are
 essentially looking at a [soccer
 ball](http://en.wikipedia.org/wiki/File:Soccer_ball.svg).
 
-Soccer ball image here
+<p>
+<img src="/assets/images/dome/soccerball.jpg" style="width: 500px;" />
+</p>
 
 ## Laying out the hexagons
 
@@ -388,7 +390,7 @@ Which gets laid out on a 4x8 sheet like this:
 Well here we are we three different layouts that we can use to produce
 most of the shell of the dome. 
 
-## Three shapes!! 164 parts!!
+## Three patterns!! 164 parts!!
 
 The three shapes we derived above amount to a remarkable
 simplification in fabrication and construction.  We have decimated the
@@ -404,17 +406,19 @@ The parts of the dome are also extremely lightweight. You will need
 ladders or scaffolding but there is absolutely no heavy lifting
 involved.
 
-There is the strain of knowing which parts go where.  But you
-literally can use a soccer ball as your model.  Seriously you can have
-one on hand to know weather you are currently making an hexagon or a
-pentagon.
+There is the strain of knowing which parts go where but you literally
+can use a soccer ball as your model.  Seriously, you can have one on
+hand to know wether you are currently making an hexagon or a pentagon.
 
-## More parts
+## More patterns
 
-There are some other shapes. If you refer back to the dome diagram you
-will notice that the bottom row of triangles is truncated to sit on a flat
-surface. These are derived from the previous layouts and are simply
-truncated versions of two of the previous layouts.
+A few other patterns are needed to finish the shell. These patterns
+are based on the original three patterns.
+
+If you refer back to the dome diagram you will notice that the bottom
+row of triangles is truncated to allow the dome to sit on a flat
+surface. These bottom row patterns are simply truncated versions of
+two of the previous layouts.
 
 <p>
 <img src="/assets/images/dome/bottom_pieces.png"/>
@@ -427,66 +431,51 @@ slightly smaller than the original three patterns.
 <img src="/assets/images/dome/inner_dome_patterns.png"/>
 </p>
 
-Well that is all the patterns needed for the shell of the dome. Keep
-in mind I didn't do any crazy math to calculate these lengths.  I used
-[Google Sketch Up](http://www.sketchup.com/).  I imported a 3v
+These are all the patterns needed for the shell of the dome. 
+
+Keep in mind I didn't do any crazy math to calculate these lengths.  I
+used [Google Sketch Up](http://www.sketchup.com/).  I imported a 3v
 geodesic model and then scaled it to the right size. I then took the
 measurements right from the model.  No rocket science here just
 gratitude for the availability of fantastic easy to use tools.
 
 ## Other details
 
-Of course I have just given a guide to the shell.  I have said nothing
-of doors, windows, ventilation, lighting etc. If there is enough
-interest I may do some follow up posts describing how I tackled these
-different challenges.  But the materials are very easy to work with
-and thus amenable to all sorts of windows and doors.
+Of course, I have only provided insight into to the shell of the dome.
+This is my main novel contribution to this conversation.  I have said
+nothing of doors, windows, ventilation, lighting etc. If there is
+enough interest I may do some follow up posts describing how I tackled
+these different challenges.  But the materials are very easy to work
+with and thus amenable to all sorts of windows and doors.
 
+## Conclusion
 
-## Living in the dome
+This blog post has been a long time coming. I'm really glad I
+procrastinated this long.  I feel much better about recommending
+something that I have experienced  
 
 I think its very important to live in a structure before you advocate
-it.  I have to say that I am very pleased with dome life so far.  The
-insulation works really well for the size and shape of the structure.
-I never get exceptionally cold or warm.  Tree cover has been an
-essential ingredient in this.  The leaves come out in the summer to
-shield the dome from too much solar gain and they go away in the
-winter allowing solar gain to appreciably heat the dome.
+it.  
 
-The dome has survived it's first 3 and a half years.  The exterior
-corrugated plastic was supposed to show degredation from solar
-exposure by now. I fully expected that I would have to replace some of
-the exterior corrugated plastic. But to my surprise the plastic still
-going strong. I suspect that I will only have to replace a few of the
-pieces that get the most sun.  I liken plastic replacement to the
-process of touching up the paint job on a house.
 
 
 ## Early attempts
 
-I have iterated on this idea a bit. The first one was made out sheets
-of plywood and had many of the characteristic properties of a Bucky
-plydome.
+I have iterated on this idea a bit. 
 
+<p>
 <img src="/assets/images/plydome_first.jpg"/>
+</p>
 
-This dome worked but it had the following problems:
+<p>
+<img src="/assets/images/dome/clear_dome.jpg" />
+Don't ask.  This is what total utter failure looks like.
+</p>
 
-* a lot bolts are needed to hold it together
-* the openings are all oddly shaped and hard to cover
-* the wood sheeting doesn't like rain
-
+<p>
 <img src="/assets/images/plastic_dome_first.jpg"/>
+</p>
 
-This second attempted to fix the problems of the first. The only
-great improvement was the plastic.  I was still stuck on the idea of
-using rectilinear material.
-
+<p>
 <img src="/assets/images/plastic_dome_second.jpg"/>
-
-This final design lets go of the idea of rectilinear sheeting material
-and only uses one bolt at each vertex.  This design traded strength
-for lower part count and ease of assembly.
-
-
-
+</p>
