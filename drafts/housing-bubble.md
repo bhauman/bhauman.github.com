@@ -55,11 +55,16 @@ a portable structure.
 
 ## Hacking housing
 
-The housing problem is an inspiring challenge. The current housing
-system requires that we use a tremendous amount of energy to construct
-and maintain a home.  The comfort and living convenience that we get
-from these large and inefficient houses does not increase linearly
-with their higher cost.  There is a decreasing [marginal
+If I want to spend my time writing blog posts, exploring new programming
+languages, and other things that I want to do but I am unlikely to get
+paid for, I have to opt out of certain common expenses.  Housing is a
+major expense that is ripe for pruning.
+
+Conventional housing requires that we spend a tremendous amount of
+energy and money to construct and maintain a home.  The comfort and
+living convenience that we get from these large and inefficient houses
+does not increase linearly with their higher cost.  There is a
+decreasing [marginal
 efficiency](http://www.britannica.com/EBchecked/topic/364716/marginal-efficiency-of-investment)
 as investment in a home goes up. This extra cost often translates into
 a lifetime of working (often working on something you don't care
@@ -79,38 +84,38 @@ becoming an attractive option for many people.
 
 ## Advocacy
 
-I have a fairly lengthy relationship with designing, building and
-living in alternative structures at this point. This dome is the
-culmination of that experience.  3 and a half years after building it
-I am ready to advocate it as an excellent alternative lightweight
+Being a builder and noticing early on how expensive housing is I have
+had a lifelong fascination with alternative structures. Having built
+and lived in a variety of structures over the last 22 years I can say
+that alternative structures are not all created equal.  The difference
+in the ability of these different structures to shelter and provide a
+nice place to live is dramatic.
+
+The frameless dome pictured above is the culmination of my
+experience with these structures. Three and a half years after building
+it I am ready to advocate it as an excellent alternative lightweight
 structure.  I think this frameless dome balances many of the
 trade-offs of lightweight structures and arrives at an optimal
 structure that drastically minimizes construction complexity, time and
 price while maximizing livability.
 
-This dome provides the cost and fabrication savings that a more tent
-like structure (teepee, yurt, canvas dome) would provide.  Unlike
-these the tent like structures this dome is waterproof and
-insulated. The ability to regulate the interior environment makes all
-the difference when you are living in one of these structures.
+All the materials in the dome are easily sourced and you only need
+standard carpentry tools to build one. The frameless dome doesn't
+require special hardware, hubs, tools or materials. You can build one
+with the right patterns and sheeting with a standard carpentry tool kit.
 
-Fabricating this dome is easier than many of the other alternative
-structures. The materials are easily accessible.  The corrugated
-plastic would probably need to be ordered in
-[bulk](http://corrugatedplastics.net/5mmCorrugatedPlasticSheets.html)
-and drop shipped but the simplifying properties of the material
-entirely justify it.  Everything else is simply sourced through your
-local hardware provider. There are no special hardware parts that need
-to be fabricated or sourced. Only standard carpentry tools are need to
-fabricate the dome. In fact, a box cutter and a drill is all that is
-needed to make the shell of the dome.
+This dome is very inexpensive and has a construction cost which is
+comparable to the price of other lightweight structures (teepee, yurt,
+canvas dome).  At the same time the frameless dome provides a living
+area that is protected by a solid insulated waterproof shell. This is
+absent in these other lightweight structures.
 
-This dome can be built very quickly.  The build time is comparable or
-faster than other lightweight structures. When you consider that you
-are getting a tight dry insulated structure, the short construction
-time is remarkable. Once the floor system is in place and the shell
-pieces are fabricated, the structure can be built in a day or two by a
-couple people moving at a human pace.
+The short construction time of this dome is remarkable. I attribute
+this to a very low number of parts and part types compared to other
+domes. The parts are also very light and easy to handle individually.
+The pieces for the dome can be cut out and assembled in three to five
+days by a couple people working at a very human pace. That estimate
+includes building the floor, windows, door etc.
 
 The fast construction time is mirrored by an equally fast disassembly
 time, making the structure portable. With only a couple pickup truck
@@ -118,27 +123,29 @@ loads of material you can move the shell to a new spot. Of course the
 portability of the entire structure will be highly impacted by the
 design decisions that reach beyond the shell of the structure.
 
-There is mental overhead caused by the geodesic geometry of the
-dome. However, studying a soccer ball and understanding the
-relationship between the white hexagons and black pentagons is the
-only understanding is required of a person who wants to build
-one. I'll try to demonstrate later how the particular construction of
-this dome drastically simplifies the inherent complexity of a geodesic
-dome.
+The geometry of a geodesic dome is a natural stumbling block for many
+people. The frameless dome breaks this geometry down into a set of
+pentagons and hexagons positioned exactly as they are in a soccer
+ball. This structural pattern is intuitive after spending a few
+minutes holding and studying an actual soccer ball. It is possible to
+see how the cut out pieces relate to the dome being built, no crazy
+math required.
 
 The living space of the dome feels open, clean, spacious and novel.
-There is a sense that you are not compromising comfort but rather
-living in a space that is actually nicer than many conventional living
-quarters.  I can't really emphasize this enough: the dome is an
-absolute pleasure to live in.
+There is a sense that you are not compromising but rather living in a
+space that is actually nicer than many conventional living quarters.
+I can't really emphasize this enough: the dome is an absolute pleasure
+to live in.
 
-The total energy input of the structure is a fraction of what is used
-in conventional construction while providing a very nice living area.
+Environmentally speaking the total energy input of the structure is a
+fraction of what is used in conventional construction.  The
+polypropylene plastic is as benign as plastic can be and is 100%
+recycled and recyclable.
 
 ## Solar gain
 
-Solar gain can potentially be a problem in the dome during the summer.
-Most small lightweight structures suffer from this problem.
+Like many small structures solar gain can potentially be a problem in
+the dome during the summer.
 
 My dome is nestled in a group of deciduous trees which shade 60% of
 the dome during the summer. There is a conventional home exhaust fan
@@ -153,17 +160,14 @@ and can provide quite a bit of needed heating.
 ## Plastic breakdown
 
 The polypropylene in the corrugated plastic is expected to break down
-in UV solar radiation after a period of a few years.  3 and a half
-years later this hasn't been a noticable problem.  Right now I am expecting
-that I will only need to replace a few of the exterior sheets which are
-receiving the bulk of solar exposure. The cost of 4 or 5 sheets of
-material every few years is comparable to cost of paint. The effort
-required to replace the sheets is minimal as well.
+in UV solar radiation after a period of a few years.  Three and a half
+years later this hasn't been a noticeable problem.  Right now I am
+expecting that I will only need to replace a few of the exterior
+sheets which are receiving the bulk of solar exposure. The cost of 4
+or 5 sheets of material every few years is comparable to cost of
+paint. The effort required to replace the sheets is minimal as well.
 
-Polypropylene corrugated plastic is recyclable and you can purchase
-100% recycled polypropylene.
-
-## Tackling geodesic complexity
+## Tackling dome complexity
 
 Here is a model of the basic geodesic geometry of the dome:
 
@@ -171,9 +175,10 @@ Here is a model of the basic geodesic geometry of the dome:
 <img src="/assets/images/dome/basic_dome_geometry.png"/>
 </p>
 
-The geodesic dome minimizes the amount of materials needed to enclose a
-given space. However, it accomplishes this by dramatically increasing the
-geometric complexity of the structure.
+The geodesic dome is brilliant in how it minimizes the amount of
+materials needed to enclose a given space. However, it accomplishes
+this by dramatically increasing the geometric complexity of the
+structure.
 
 Since my aim here is to demonstrate a way to reduce the complexity of dome
 construction it's helpful to have a way to quantify this complexity
@@ -181,23 +186,24 @@ with a number.
 
 I am going to use the number of parts required to build a dome as a
 measure of complexity. The part count of a project is a good proxy for
-how much raw work you are going to be putting into it.  You have to
+how much raw work you are going to be putting into it. You have to
 fabricate and assemble all those parts and that takes time, money and
 energy.
 
 If you were to take a standard approach to building a dome where you
 fabricate a frame and apply triangle sheathing, insulation and
 interior covering to it you are looking at 288 frame parts and 405
-triangles. For the 18 foot wide dome above that's a total of 693 parts!
+triangles. For the 18 foot wide dome above, not including fastening
+hardware, that's a total of 693 parts!
 
-With a very conservative estimate of 6 minutes per part of total
+With a very conservative estimate of six minutes per part of total
 handling time, that's almost 9 8 hour working days just for the outer
 shell of a dome.  That doesn't include a floor system for the dome to
 sit on. For an 209 square foot structure this is a lot of handling
 compared to conventional construction methods.
 
 This is significant amount of complexity. Enough to cause me to be
-wary before undertaking the construction of a dome. 
+very wary before undertaking the construction of a dome.
 
 My perception of domes changed when I saw Steve Miller's
 [plydome](http://andrewdurham.com/formactive/cottage_1.htm).
@@ -219,18 +225,22 @@ complex hubs needed. No need to fabricate a gazzilion triangles and
 struts.
 
 The amazing idea behind the plydome is that by using the built in
-strength of the sheeting material under tension we get a frame and an
+strength of the sheathing material under tension we get a frame and an
 enclosing envelope in one material.  This drastically simplifies the
-fabrication and building of a dome. It reduces the part count
-significantly.  One sheet of plywood replaces 7 struts, a couple of
-hubs and two plywood triangles and a lot of joining hardware.  You are
-dividing the total parts needed by a factor of 7.  That is a
-remarkable improvement.  If you needed 700 parts before, you now only
-need 100, a very significant complexity reduction.
+construction of a dome. 
 
-Now my dome doesn't follow the self strutting patent above.  My dome,
-however, is greatly influenced by the idea that sheathing materials
-can work in synergy to induce structure.
+A plydome reduces the part count significantly.  One sheet of plywood
+replaces 7 struts, a couple of hubs and two plywood triangles and a
+lot of joining hardware.  You are dividing the total parts needed by a
+factor of 7.  Keep in mind a factor of 2 would rock. We are talking
+about a factor of 7. That is a dramatic improvement.  If you needed
+700 parts before, you now only need 100, a very significant complexity
+reduction.
+
+My version of the frameless dome doesn't follow the self strutting
+patent above.  My dome, however, is greatly influenced by the idea
+that sheathing materials can work in synergy to induce structure and
+dramatically reduce construction complexity.
 
 ## Frameless Synergy
 
@@ -251,7 +261,7 @@ efficiency to obviate the need for a frame.
 
 Keep in mind that the plastic sheathing is 3/16" thick. When you think
 about how super thin and extremely lightweight this material is, the
-fact that it's providing structural support really blows my mind.
+fact that it's providing structural support is really something.
 
 ## The construction of current dome
 
@@ -264,10 +274,14 @@ There is enough here for experienced makers to have a go but if you
 are intent on making one of these domes please
 [contact](mailto:bhauman@gmail.com) me.
 
+One of my aims here is to make domes a little less scary to the less
+mathematically inclined.
+
 ## Geodesic Geometry
 
 <p>
 <img src="/assets/images/dome/basic_dome_geometry.png"/>
+[Download Google Sketchup model of the dome](/assets/3dmodels/frameless_dome_model.skp)
 </p>
 
 This is a basic 3v geodesic dome.
