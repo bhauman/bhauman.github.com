@@ -449,11 +449,11 @@ of the previous layouts.
 <img src="/assets/images/dome/bottom_pieces.png"/>
 </p>
 
-When you start building the dome you start with these pieces and
-and alternate using on and then the other keeping the bottom
-cut lines down.
+When you start building the dome you start with these pieces and place
+them alternating using one and then the other keeping the bottom cut
+lines down.
 
-The inner plastic dome has the same three shapes but the bolt holes are
+ The inner plastic dome has the same three shapes but the bolt holes are
 just slightly closer to each other than in the original three
 patterns. This accounts for the smaller size of the inner dome.
 
@@ -539,9 +539,10 @@ free up time to create the things that have real lasting value.
 
 ## Resources
 
-[Google SketchUp](http://www.sketchup.com/)
-[Sketchup Dome Model](/assets/3dmodels/frameless_dome_model.skp)
-[Geodesic Math](http://www.amazon.com/Geodesic-Math-How-Use-It/dp/0520239318)
+[Google SketchUp](http://www.sketchup.com/)  
+[Sketchup Dome Model](/assets/3dmodels/frameless_dome_model.skp)  
+[Geodesic
+Math](http://www.amazon.com/Geodesic-Math-How-Use-It/dp/0520239318)  
 
 ## Early attempts
 
