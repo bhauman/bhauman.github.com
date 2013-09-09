@@ -55,10 +55,10 @@ a portable structure.
 
 ## Hacking housing
 
-If I want to spend my time writing blog posts, exploring new programming
-languages, and other things that I want to do but I am unlikely to get
-paid for, I have to opt out of certain common expenses.  Housing is a
-major expense that is ripe for pruning.
+If I want to spend my time writing blog posts, exploring new
+programming languages, and other things that I want to do but I am
+unlikely to get paid for, it's helpful to opt out of certain common
+expenses.  Housing is a major expense that is ripe for pruning.
 
 Conventional housing requires that we spend a tremendous amount of
 energy and money to construct and maintain a home.  The comfort and
@@ -329,10 +329,10 @@ it easily fits on a 4x8 sheet.
 By fastening two of these shapes together we can create a one of the
 hexagons of the dome.
 
-When you consider that we are going to have two plastic domes (interior
-and exterior) and 2 foam board domes for insulation. Having one shape
-that covers so much area is an effective simplification. We only have
-to have one pattern to produce most of the dome.
+When you consider that we are going to have two plastic domes
+(interior and exterior) and 2 foam board domes for insulation. Having
+one shape that covers so much area is an effective simplification. We
+only need one pattern to create the sea of hexagons.
 
 If we lay out this shape so that it fits on a 4x8 sheet of material
 this is what we get:
@@ -348,8 +348,8 @@ of the triangles.
 
 If you refer back to the photos at the start of this post you can see
 that the plastic sheets do not butt up edge to edge. In order to shed
-rain, the plastic sheets overlap each other as shingles on a roof
-would.
+rain and be fastened to each other, the plastic sheets overlap each
+other as shingles on a roof would.
 
 That's why there are outer lines in the diagram above. They account
 for the overlap that is needed to provide for the shingling of the
@@ -371,8 +371,7 @@ because the insulation doesn't overlap we are going cut on the outer
 edges of the triangles.
 
 The pattern above can be used to produce all the hexagons in the
-structure.  Now we are going to address the pentagons.  The pentagons
-are going to be divided into the two patterns below.
+structure.  Now we are going to address the pentagons.
 
 ### Layouts for the pentagons
 
@@ -388,7 +387,8 @@ parts and lay them out. We'll start with this diamond shape:
 <img src="/assets/images/dome/pentagon_two_peice.png"/>
 </p>
 
-We can fit two of these diamond shapes into one 4x8 sheet as shown below:
+We can fit two of these diamond shapes into one 4x8 sheet as shown
+below:
 
 <p>
 <img src="/assets/images/dome/pentagon_two_piece_layout.png"/>
@@ -434,19 +434,31 @@ hand to know whether you are currently making an hexagon or a pentagon.
 ## More patterns
 
 A few other patterns are needed to finish the shell. These patterns
-are based on the original three patterns.
+are based on the original three patterns. 
+
+If you are creating templates to trace and mark bolt holes you can
+just add the following patterns to those templates. Allowing you to
+cover mark out everything with three templates.
 
 If you refer back to the dome model you will notice that the bottom
-row of triangles is truncated to allow the dome to sit on a flat
-surface. These bottom row patterns are simply truncated versions of
-two of the previous layouts.
+row of triangles is truncated to allow the dome to be flat at the
+bottom. These bottom row patterns are simply truncated versions of two
+of the previous layouts.
 
 <p>
 <img src="/assets/images/dome/bottom_pieces.png"/>
 </p>
 
+When you start building the dome you start with these pieces and
+and alternate using on and then the other keeping the bottom
+cut lines down.
+
 The inner plastic dome has the same three shapes but the bolt holes are
-just slightly closer to each other than in the original three patterns.
+just slightly closer to each other than in the original three
+patterns. This accounts for the smaller size of the inner dome.
+
+The outer cut lines can stay the same as the previous patterns because
+they do not affect the shape of the final structure.
 
 <p>
 <img src="/assets/images/dome/inner_dome_patterns.png"/>
@@ -477,8 +489,8 @@ with and thus amenable to all sorts of windows and doors.
 
 Again, this is not a detailed guide to how to build a dome.  I wrote
 this with the intention of making a summary of my experience available
-to other makers and alternative shelter enthusiasts.  I was also
-hoping to make domes more approachable and less esoteric.
+to other makers and alternative shelter enthusiasts. I was also hoping
+to make domes more approachable and less esoteric.
 
 This blog post has been a long time coming. I'm really glad that I
 procrastinated this long.  I feel much better about recommending a
@@ -490,7 +502,46 @@ dome as well.  It's cheap, considerably easier to make, and in my
 opinion much more livable.
 
 If you are starting a startup, you should consider building a dome
-office.  If you need a workshop ...
+office.  If you need a workshop, art studio ...
+
+While I have made everything sound simple, every project has
+unforeseen complications.  For example, when I was building this dome
+I built the 3/16" plastic outer shell first. It held itself up
+admirably but three days later a freak snowstorm dumped 17 inches of
+snow. Something that the completed structure can handle but not the
+eggshell that was standing. It collapsed and my friends and I spent a
+day trying to keep it up and the snow off of it. I am very grateful
+for their help that day. Keep this in mind.
+
+Again, if you are itching to build one of these domes
+[contact](mailto:bhauman@gmail.com) me before you start.
+
+## Appropriate Shelter
+
+One might think that I am saying that people should dump their heavy
+structures and live in inexpensive, easy to build lightweight
+ones. This is not my ideal. 
+
+My ideal is slow built hand crafted housing. Housing that is crafted
+and grown by a community with attention towards those who will be
+occupying it 5 generations later. 
+
+We don't live in that world right now. We live in a world of mass
+produced system housing that treats efficiency as primary and where
+beauty is tacked on as an afterthought.  Modern economics has
+pressured us to give up on the handcrafted home and pushed us towards
+efficiency, all the while retaining a cost to us and the environment
+that is a tremendous burden.
+
+I am saying it is possible to hack the current system by creating
+homes that are absurdly efficient and ephemeral. Maybe that way we can
+free up time to create the things that have real lasting value.
+
+## Resources
+
+[Google SketchUp](http://www.sketchup.com/)
+[Sketchup Dome Model](/assets/3dmodels/frameless_dome_model.skp)
+[Geodesic Math](http://www.amazon.com/Geodesic-Math-How-Use-It/dp/0520239318)
 
 ## Early attempts
 
