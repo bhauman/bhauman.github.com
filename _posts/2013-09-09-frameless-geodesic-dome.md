@@ -1,12 +1,10 @@
 ---
 layout: default
-title: "Housing Bubble"
+title: "Frameless Geodesic Dome"
 published: true
 category: 
 tags: []
 ---
-
-# Frameless Geodesic Dome
 
 <p>
 <img src="/assets/images/dome.jpg"/>
