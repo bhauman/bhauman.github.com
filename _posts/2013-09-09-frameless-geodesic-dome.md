@@ -6,6 +6,7 @@ category:
 tags: []
 ---
 
+
 <p>
 <img src="/assets/images/dome.jpg"/>
 </p>
@@ -562,3 +563,7 @@ Don't ask.  This is what total utter failure looks like.
 <p>
 <img src="/assets/images/plastic_dome_second.jpg"/>
 </p>
+
+## Comments 
+
+Please join the conversation on Hacker News [https://news.ycombinator.com/item?id=6355488](https://news.ycombinator.com/item?id=6355488)
