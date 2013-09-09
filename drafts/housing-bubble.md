@@ -138,7 +138,7 @@ I can't really emphasize this enough: the dome is an absolute pleasure
 to live in.
 
 Environmentally speaking the total energy input of the structure is a
-fraction of what is used in conventional construction.  The
+tiny fraction of what is used in conventional construction.  The
 polypropylene plastic is as benign as plastic can be and is 100%
 recycled and recyclable.
 
@@ -307,20 +307,23 @@ essentially looking at a [soccer ball](http://en.wikipedia.org/wiki/File:Soccer_
 </p>
 
 The soccer ball above has the same exact pattern of hexagons and
-pentagons as the geodesic model above.
+pentagons as the geodesic model above. If one studies this you can see
+that the pentagons are islands in a sea of hexagons. All of the
+hexagons and pentagons in the dome are the exact same size.
+
+What we need to do is make it easy to create these hexagons and
+pentagons out of 4x8 sheet material.
 
 ## Laying out the hexagons
 
-Now that we have discovered that a dome can be composed of these two
-shapes let's figure out how to make them out of 4x8 sheeting material.
-
-Let's start with the hexagons below we divide the hexagon in half.
+If we look at a one of the hexagons we can see that half of a hexagon
+will fit onto a 4x8 sheet nicely.
 
 <p>
 <img src="/assets/images/dome/half_hexagon_shape.png"/>
 </p>
 
-This single shape is repeated 30 times on the surface of the dome and
+This half hexagon shape is repeated 30 times on the surface of the dome and
 it easily fits on a 4x8 sheet.
 
 By fastening two of these shapes together we can create a one of the
@@ -328,7 +331,8 @@ hexagons of the dome.
 
 When you consider that we are going to have two plastic domes (interior
 and exterior) and 2 foam board domes for insulation. Having one shape
-that covers so much area is an effective simplification.
+that covers so much area is an effective simplification. We only have
+to have one pattern to produce most of the dome.
 
 If we lay out this shape so that it fits on a 4x8 sheet of material
 this is what we get:
@@ -376,8 +380,9 @@ We essentially repeat the process above for the pentagons in the
 structure.  We are going to map the pentagon to layouts that will fit
 onto 4x8 material.
 
-Let's divide the pentagon into two parts and lay them out. We'll
-start with this diamond shape:
+Pentagons are not symmetric like hexagons so we are going to need two
+patterns to create the pentagons. Let's divide the pentagon into two
+parts and lay them out. We'll start with this diamond shape:
 
 <p>
 <img src="/assets/images/dome/pentagon_two_peice.png"/>
@@ -401,8 +406,10 @@ Which gets laid out on a 4x8 sheet like this:
 <img src="/assets/images/dome/pentagon_lower_layout.png"/>
 </p>
 
+We can now make the pentagons in the dome.
+
 Well here we are we three different layouts that we can use to produce
-most of the shell of the dome. 
+most of the shell of the dome.
 
 ## Three patterns!! 164 parts!!
 
@@ -422,14 +429,14 @@ involved.
 
 There is the strain of knowing which parts go where but you literally
 can use a soccer ball as your model.  Seriously, you can have one on
-hand to know wether you are currently making an hexagon or a pentagon.
+hand to know whether you are currently making an hexagon or a pentagon.
 
 ## More patterns
 
 A few other patterns are needed to finish the shell. These patterns
 are based on the original three patterns.
 
-If you refer back to the dome diagram you will notice that the bottom
+If you refer back to the dome model you will notice that the bottom
 row of triangles is truncated to allow the dome to sit on a flat
 surface. These bottom row patterns are simply truncated versions of
 two of the previous layouts.
@@ -438,8 +445,8 @@ two of the previous layouts.
 <img src="/assets/images/dome/bottom_pieces.png"/>
 </p>
 
-The inner plastic dome has the same three shapes but they are just
-slightly smaller than the original three patterns.
+The inner plastic dome has the same three shapes but the bolt holes are
+just slightly closer to each other than in the original three patterns.
 
 <p>
 <img src="/assets/images/dome/inner_dome_patterns.png"/>
@@ -453,6 +460,10 @@ geodesic model and then scaled it to the right size. I then took the
 measurements right from the model.  No rocket science here just
 gratitude for the availability of fantastic easy to use tools.
 
+Building the dome is essentially following the pattern on the soccer
+ball, recognizing whether you are currently creating a hexagon or a
+pentagon and placing the appropriate piece in place.
+
 ## Other details
 
 Of course, I have only provided insight into to the shell of the dome.
@@ -464,14 +475,22 @@ with and thus amenable to all sorts of windows and doors.
 
 ## Conclusion
 
-This blog post has been a long time coming. I'm really glad I
-procrastinated this long.  I feel much better about recommending
-something that I have experienced  
+Again, this is not a detailed guide to how to build a dome.  I wrote
+this with the intention of making a summary of my experience available
+to other makers and alternative shelter enthusiasts.  I was also
+hoping to make domes more approachable and less esoteric.
 
-I think its very important to live in a structure before you advocate
-it.  
+This blog post has been a long time coming. I'm really glad that I
+procrastinated this long.  I feel much better about recommending a
+structure that I have experienced living in.
 
+The dome I described performs admirably.  If you are considering a
+canvas dome, teepee, or yurt you should consider building a frameless
+dome as well.  It's cheap, considerably easier to make, and in my
+opinion much more livable.
 
+If you are starting a startup, you should consider building a dome
+office.  If you need a workshop ...
 
 ## Early attempts
 
