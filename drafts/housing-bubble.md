@@ -314,19 +314,19 @@ pentagons as the geodesic model above.
 Now that we have discovered that a dome can be composed of these two
 shapes let's figure out how to make them out of 4x8 sheeting material.
 
-It's easy to divide an hexagon in half so let's try that.
+Let's start with the hexagons below we divide the hexagon in half.
 
 <p>
 <img src="/assets/images/dome/half_hexagon_shape.png"/>
 </p>
 
-This single shape is repeated 30 times on the surface of the dome and it
-happens to fit on a 4x8 sheet.
+This single shape is repeated 30 times on the surface of the dome and
+it easily fits on a 4x8 sheet.
 
-By fastening two of these shapes together we can create one of the
-hexagons of the dome. 
+By fastening two of these shapes together we can create a one of the
+hexagons of the dome.
 
-When you consider that we are going to have two plastic domes(interior
+When you consider that we are going to have two plastic domes (interior
 and exterior) and 2 foam board domes for insulation. Having one shape
 that covers so much area is an effective simplification.
 
@@ -347,7 +347,7 @@ that the plastic sheets do not butt up edge to edge. In order to shed
 rain, the plastic sheets overlap each other as shingles on a roof
 would.
 
-Thats why there are outer lines in the diagram above.  They account
+That's why there are outer lines in the diagram above. They account
 for the overlap that is needed to provide for the shingling of the
 plastic sheets.
 
@@ -362,16 +362,13 @@ structure fits together. If they are off, there is a good chance that
 the structure will not fit together at all. The outer lines that
 create the overlap are much less important.
 
-You can cut blueboard insulation using this same pattern but we are
-not going to use the outer edge of the pattern as a cutting line.  We
-are going to use the outer edges of the triangles. The insulation does
-not overlap but rather butts up edge to edge.
+The blueboard insulation is cut into shapes just like the skin. But
+because the insulation doesn't overlap we are going cut on the outer
+edges of the triangles.
 
-The single pattern above can produce most of the outer skin and
-blueboard foam insulation. The pattern above can be used to produce
-all the hexagons in the structure.  Now we are going to address the
-pentagons.  The pentagons are going to be divided into the two
-patterns below.
+The pattern above can be used to produce all the hexagons in the
+structure.  Now we are going to address the pentagons.  The pentagons
+are going to be divided into the two patterns below.
 
 ### Layouts for the pentagons
 
