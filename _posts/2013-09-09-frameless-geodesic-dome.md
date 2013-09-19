@@ -510,7 +510,7 @@ admirably but three days later a freak snowstorm dumped 17 inches of
 snow. Something that the completed structure can handle but not the
 eggshell that was standing. It collapsed and my friends and I spent a
 day trying to keep it up and the snow off of it. I am very grateful
-for their help that day. Keep this in mind.
+for their help that day.
 
 Again, if you are itching to build one of these domes
 [contact](mailto:bhauman@gmail.com) me before you start.

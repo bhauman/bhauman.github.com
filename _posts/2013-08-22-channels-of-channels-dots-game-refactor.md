@@ -9,12 +9,12 @@ tags: []
 In my [last post](/2013/08/12/clojurescript-core-async-dots-game.html)
 I built a "straight forward" implementation of the Dots game using
 ClojureScript and core.async.  My intention was not to get to clever
-or respond the endless array of *shoulds* that come into my head while
-I'm programming.
+or respond the endless array of *shoulds* that normally interrupt my
+programming.
 
-It's time to reevaluate and see what can be improved. During this
-exploration we are going to look at using channels of channels and
-functional reactive programming.
+It's time to reevaluate the result and see what can be
+improved. During this exploration we are going to look at using
+channels of channels and functional reactive programming.
 
 This post is assuming a familitarity with Clojure's new [core.async](http://clojure.github.io/core.async/)
 library.  You may find my last two posts helpful in learning more
@@ -71,11 +71,12 @@ We are going to use drawing code similar to the last post:
 </style>
 
 The above code simply gathers the low level event sources into a
-channel of messages that capture the act of drawing.
+channel of messages that represent the act of drawing.
 
-This does not account for the full complexity of drawing across
-different browsers. [See the full example
-source](https://github.com/bhauman/bhauman.github.com/blob/master/assets/cljs/dots-game-2/ex1.cljs) for a more complete example.
+This code does not account for the full complexity of drawing across
+different browsers. [See the example
+source](https://github.com/bhauman/bhauman.github.com/blob/master/assets/cljs/dots-game-2/ex1.cljs)
+for a more complete example.
 
 ## What isn't working
 
@@ -107,7 +108,7 @@ continuous and looks like this:
 {% endhighlight %}
 
 This stream is still pretty raw and we'd like to eliminate all of
-those extra **:drawend** events. So we filter the stream using the
+those extra **:drawend** events. Let's filter the stream using the
 following code.
 
 {% highlight clojure %}
@@ -150,7 +151,7 @@ this state machine to handle more complex state progressions.
 However, there are some problems with this approach. The first being
 that consumers of the <code>draw-chan</code> message channel are
 likely going to have to implement their own state machine that mirrors
-the one above.  You see this over and over again in my previous post.
+the one above.  You can see this in my previous post.
 You can see it in the <code>dot-chan</code> and
 <code>collect-dots</code> functions
 [here](http://rigsomelight.com/2013/08/12/clojurescript-core-async-dots-game.html#code-example-4)
@@ -274,7 +275,7 @@ a channel of draw-action messages.
 
 {% endhighlight %}
 
-The code above handles does what we want it to.  It creates and
+The code above does what we want it to.  It creates and
 returns a channel of **:draw-action** messages.  Each message having
 its own channel of **:draw** messages.  The code appears to be a tad
 more complex but I would argue that this is because we are handling
@@ -298,13 +299,13 @@ Let's extract it.
 
 {% endhighlight %}
 
-The <code>tap-until</code> utility function does just what we need. It
-moves messages from one channel to another while a certain as long as
-the end predicate is not met. It also returns a channel created by the
-<code>go</code> expression. Channels created by a <code>go</code>
-expression return the last value of the expression. This allows us to
-block on on a call to <code>tap-until</code> and wait for it to
-forward all the messages until the end predicate is met.
+The <code>tap-until</code> utility function moves messages from one
+channel to another as long as the end predicate is not met. It also
+returns a channel created by the <code>go</code> expression. Channels
+created by a <code>go</code> expression return the last value of the
+expression. This allows us to block on a call to
+<code>tap-until</code> and wait for it to forward all the messages
+until the end predicate is met.
 
 Next we'll change the <code>draw-chan</code> function to use
 <code>tap-until</code> utility below.
@@ -334,7 +335,7 @@ That works but looking at <code>draw-chan</code> I am seeing another
 familiar pattern that looks vaguely similar to Clojure's
 [partition-by](http://clojuredocs.org/clojure_core/clojure.core/partition-by). 
 
-I am going to factor out this pattern of a splitting a channel into a
+I am going to factor out this pattern of splitting a channel into a
 channel of channels.
 
 {% highlight clojure %}
@@ -346,21 +347,21 @@ channel of channels.
        (go
         (loop []
           (if-let [val (<! in)]
-            (if (start-pred val)
-              (let [next-chan (chan)]
-                (>! out next-chan)
-                (>! next-chan val) ;; capture the first message
-                (<! (tap-until end-pred in next-chan))
-                (close! next-chan)))
-            (close! out))
-          (recur)))
+            (do
+              (if (start-pred val)
+                (let [next-chan (chan)]
+                  (>! out next-chan)
+                  (>! next-chan val) ;; capture the first message
+                  (<! (tap-until end-pred in next-chan))
+                  (close! next-chan)))
+              (recur))
+            (close! out))))
        out)))
 
 {% endhighlight %}
 
-That does it. This function might be better named
-<code>channel-splitter</code> but it works. This leaves us with a
-<code>draw-chan</code> function that looks like this:
+That does it. This leaves us with a <code>draw-chan</code> function
+that looks like this:
 
 {% highlight clojure %}
 
@@ -405,12 +406,13 @@ knife of working with channels. It simply maps the function over each
 value emitted by a channel returning a new channel of the values that
 result from the application of the provided function.
 
-The resulting <code>draw-chan</code> function represents a much higher
+The resulting <code>draw-chan</code> function represents a higher
 level of expression and thinking about channels. The
-<code>draw-chan</code> function does not have any core.async functions
-in it. Channels are now values that we are manipulating with a generic
-set of functions. In addition, channels are also being used as values
-inside of channels and it all seems to make sense.
+<code>draw-chan</code> function does not have any of core.async
+library functions in it. Channels are now values that we are
+manipulating with a generic set of functions. In addition, channels
+are also being used as values inside of channels and it all seems to
+make sense.
 
 The drawing example below uses the refactored <code>draw-chan</code>
 function.
@@ -652,7 +654,7 @@ to swipe over the dots below.
 
 In this post I refactored part of the Dots game from my last post.  In
 doing this I discovered that it can be helpful to think of channels as
-structured data.  
+structured data.
 
 I also explored creating generic functions that operate on channels in
 a manner similar to how core Clojure functions operate on sequences.

@@ -60,14 +60,15 @@
        (go
         (loop []
           (if-let [val (<! in)]
-            (if (start-pred val)
-              (let [next-chan (chan)]
-                (>! out next-chan)
-                (>! next-chan val) ;; capture the first message
-                (<! (tap-until end-pred in next-chan))
-                (close! next-chan)))
-            (close! out))
-          (recur)))
+            (do
+              (if (start-pred val)
+                (let [next-chan (chan)]
+                  (>! out next-chan)
+                  (>! next-chan val) ;; capture the first message
+                  (<! (tap-until end-pred in next-chan))
+                  (close! next-chan)))
+              (recur))
+            (close! out))))
        out)))
 
 (defn draw-chan [selector]
