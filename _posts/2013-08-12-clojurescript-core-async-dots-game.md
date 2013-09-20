@@ -292,7 +292,7 @@ And the resulting board is here:
    position: absolute;
    width: 22px;
    height: 22px;
- 
+   visibility: visible;
 }
 
 .blue {
