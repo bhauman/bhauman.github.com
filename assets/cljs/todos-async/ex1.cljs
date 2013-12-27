@@ -2,7 +2,7 @@
   (:require
    [cljs.core.async :as async
              :refer [<! >! chan close! sliding-buffer put! alts!]]
-   [jayq.core :refer [$ append ajax inner $deferred when done resolve pipe on] :as jq]
+   [jayq.core :refer [$ append ajax inner html $deferred when done resolve pipe on] :as jq]
    [jayq.util :refer [log]]
    [crate.core :as crate]
    [clojure.string :refer [join blank?]]
@@ -34,7 +34,7 @@
 
 (defn render-templates [state]
   (-> ($ "#example1")
-      (inner (crate/html (todo-list state)))))
+      (html (crate/html (todo-list state)))))
 
 (defn app-loop [start-state]
   (form-submit-chan "#example1 .new-task-form" :ignore [])

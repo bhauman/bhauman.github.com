@@ -210,51 +210,44 @@ code it that way?
 Let's create a couple of channel operations to help:
 
 {% highlight clojure %}
-(defn merge-chans [& chans]
-  (let [rc (chan)]
-    (go
-     (loop []
-       (put! rc (first (alts! chans)))
-       (recur)))
-    rc))
 
-(defn filter-chan [pred channel]
-  (let [rc (chan)]
-    (go (loop []
-          (let [val (<! channel)]
-            (if (pred val) (put! rc val))
-            (recur))
-          ))
-    rc))
+(defn async-some [predicate input-chan]
+  (go (loop []
+        (let [msg (<! input-chan)]
+          (if (predicate msg)
+            msg
+            (recur))))))
+
+(defn get-next-message [msg-name-set input-chan]
+  (async-some (comp msg-name-set first) input-chan))
+
 {% endhighlight %}
 
-The <code>merge-chans</code> function merges the values from all the
-channel args passed to it into a single channel. It does this by using
-the <code>alts!</code> function which blocks on a group of channels
-waiting for a value to become available on one of them. (If there is a
-tie it picks one randomly.)
+The <code>async-some</code> function behaves much like **clojure.core.some** in
+that it returns the first value of the channel for which the provided
+predicate returns true. It returns a channel with one value on it.
 
-The <code>filter-chan</code> creates a channel that only passes on values
-that meet the condition of a predicate. All other values are discarded.
+The <code>get-next-message</code> function that returns the first
+message value that has a message name that is in the provided set of message names.
 
 With these tools we can easily filter out all the message values that
 we don't want to respond to. Essentially eating any unwanted user actions.
 
 {% highlight clojure %}
 (defn example2-loop [start-state]
-  (let [ new-todo-click         (click-chan "a.new-todo" :new-task)
+  (let [ new-todo-click         (click-chan "a.new-todo" 
+                                            :new-task)
          cancel-new-form-click  (click-chan "a.cancel-new-todo" 
                                             :cancel-new-form)
-         input-chan             (merge-chans new-todo-click 
-                                             cancel-new-form-click)]
+         input-chan             (async/merge [ new-todo-click 
+                                               cancel-new-form-click])]
     (go
      (loop [state start-state]
        (render-templates state)
-       (<! new-todo-click)
+       (<! (get-next-message #{:new-task} input-chan))
        (render-templates (assoc state :mode :add-todo-form))
-       (<! (filter-chan (comp #{:cancel-new-form} first)
-                        input-chan))
-       (recur (dissoc state :mode))))))
+       (<! (get-next-message #{:cancel-new-form} input-chan))
+       (recur (dissoc state :mode)))))
 {% endhighlight %}
 
 Now things should work as we would would expect. 
@@ -302,19 +295,18 @@ submit events.
          task-form-submit (form-submit-chan ".new-task-form"
                                             :task-form-submit 
                                             [:content])        
-         input-chan             (merge-chans new-todo-click
-                                             cancel-new-form-click
-                                             task-form-submit)]
+         input-chan             (async/merge [ new-todo-click
+                                               cancel-new-form-click
+                                               task-form-submit ])]
     (go
      (loop [state start-state]
        (render-templates state)
-       (<! new-todo-click)
+       (<! (get-next-message #{:new-task} input-chan))
        (render-templates (assoc state :mode :add-todo-form))
        (let [[msg-name msg-data] 
-             (<! (filter-chan (comp #{:cancel-new-form
-                                      :task-form-submit}
-                                      first)
-                              input-chan))]
+             (<! (get-next-message #{:cancel-new-form
+                                     :task-form-submit}
+                                   input-chan))]
          (recur
           (condp = msg-name
            :cancel-new-form  (dissoc state :mode)
@@ -338,28 +330,26 @@ Again try the example.
 
 ## Completing todos
 
-Now we are adding the feature to complete individual todos.  This
+Now we are going to add a feature to complete individual todos.  This
 gives us a good opportunity to break out the modal functionality into
 a separate function and refactor a little.
 
 {% highlight clojure %}
-(defn filter-msg [msg-names input-chan]
-  (filter-chan (comp msg-names first) input-chan))
 
 (defn user-inputs []
   (merge-chans
-   (click-chan "a.new-todo" :new-task)
-   (click-chan "a.complete-todo" :complete-todo)
-   (click-chan "a.cancel-new-todo" :cancel-new-form)
-   (form-submit-chan ".new-task-form"
-                     :task-form-submit [:content])))
+   [ (click-chan "a.new-todo" :new-task)
+     (click-chan "a.complete-todo" :complete-todo)
+     (click-chan "a.cancel-new-todo" :cancel-new-form)
+     (form-submit-chan ".new-task-form"
+                       :task-form-submit [:content]) ]))
 
 (defn add-task-modal [state input-chan]
   (go
    (render-templates (assoc state :mode :add-todo-form))
-   (let [[msg-name msg-data] (<! (filter-msg #{:cancel-new-form
-                                               :task-form-submit}
-                                             input-chan))]
+   (let [[msg-name msg-data] (<! (get-next-message #{:cancel-new-form
+                                                     :task-form-submit}
+                                                   input-chan))]
      (condp = msg-name
        :cancel-new-form  state
        :task-form-submit (-> state
@@ -371,9 +361,9 @@ a separate function and refactor a little.
   (go
      (loop [state start-state]
        (render-templates state)
-       (let [[msg-name msg-data] (<! (filter-msg #{:new-task 
-                                                   :complete-todo}
-                                                 input-chan))]
+       (let [[msg-name msg-data] (<! (get-next-message #{:new-task 
+                                                         :complete-todo}
+                                                       input-chan))]
          (recur
           (condp = msg-name
             :complete-todo (complete-task state (:taskIndex msg-data))

@@ -2,11 +2,11 @@
   (:require
    [cljs.core.async :as async
              :refer [<! >! chan close! sliding-buffer put! alts!]]
-   [jayq.core :refer [$ append ajax inner $deferred when done resolve pipe on] :as jq]
+   [jayq.core :refer [$ append ajax html $deferred when done resolve pipe on] :as jq]
    [jayq.util :refer [log]]
    [crate.core :as crate]
    [clojure.string :refer [join blank?]]
-   [todos-async.chan-utils :refer [click-chan form-submit-chan merge-chans filter-chan]]
+   [todos-async.chan-utils :refer [click-chan form-submit-chan merge-chans filter-chan get-next-message]]
    [todos-async.ex3 :refer [modal-form]])
   (:require-macros [cljs.core.async.macros :as m :refer [go alt!]]))
 
@@ -31,7 +31,7 @@
 
 (defn render-templates [state]
   (-> ($ "#example4")
-      (inner (crate/html (todo-list state)))))
+      (html (crate/html (todo-list state)))))
 
 (defn add-task [{:keys [todo-list] :as state} task]
   (assoc state :todo-list (conj todo-list task)))
@@ -39,23 +39,20 @@
 (defn complete-task [state task-index]
   (assoc-in state [:todo-list task-index :completed] true))
 
-(defn filter-msg [msg-names input-chan]
-  (filter-chan (comp msg-names first) input-chan))
-
 (defn user-inputs []
-  (merge-chans
-   (click-chan "#example4 a.new-todo" :new-task)
-   (click-chan "#example4 a.complete-todo" :complete-todo)
-   (click-chan "#example4  a.cancel-new-todo" :cancel-new-form)
-   (form-submit-chan "#example4 .new-task-form"
-                     :task-form-submit [:content])))
+  (async/merge
+   [(click-chan "#example4 a.new-todo" :new-task)
+    (click-chan "#example4 a.complete-todo" :complete-todo)
+    (click-chan "#example4  a.cancel-new-todo" :cancel-new-form)
+    (form-submit-chan "#example4 .new-task-form"
+                      :task-form-submit [:content])]))
 
 (defn add-task-modal [state input-chan]
   (go
    (render-templates (assoc state :mode :add-todo-form))
-   (let [[msg-name msg-data] (<! (filter-msg #{:cancel-new-form
-                                               :task-form-submit}
-                                             input-chan))]
+   (let [[msg-name msg-data] (<! (get-next-message #{:cancel-new-form
+                                                     :task-form-submit}
+                                                   input-chan))]
      (condp = msg-name
        :cancel-new-form  state
        :task-form-submit (-> state
@@ -67,8 +64,8 @@
   (go
      (loop [state start-state]
        (render-templates state)
-       (let [[msg-name msg-data] (<! (filter-msg #{:new-task :complete-todo}
-                                                 input-chan))]
+       (let [[msg-name msg-data] (<! (get-next-message #{:new-task :complete-todo}
+                                                       input-chan))]
          (recur
           (condp = msg-name
             :complete-todo (complete-task state (:taskIndex msg-data))

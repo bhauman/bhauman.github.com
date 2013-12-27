@@ -4,7 +4,8 @@
   :license {:name "Eclipse Public License"
             :url "http://www.eclipse.org/legal/epl-v10.html"}
   :dependencies [[org.clojure/clojure "1.5.1"]
-                 [core.async "0.1.0-SNAPSHOT"]
+                 [org.clojure/clojurescript "0.0-2030"]
+                 [org.clojure/core.async "0.1.256.0-1bf8cf-alpha"]                 
                  [crate "0.2.4"]
                  [jayq "2.4.0"]]
   :repositories {"sonatype-oss-public" "https://oss.sonatype.org/content/groups/public/"}
@@ -14,8 +15,8 @@
                         :source-paths ["assets/cljs/todos-async"]
                         :compiler {:output-to "assets/js/todos-async.js"
                                    :externs ["assets/js/externs/jquery-1.9.js"]
-                                   :optimizations :advanced
-                                   :pretty-print false}}
+                                   :optimizations :simple
+                                   :pretty-print true}}
                        {:id "dots-game"
                         :source-paths ["assets/cljs/dots-game"]
                         :compiler {:output-to "assets/js/dots-game.js"

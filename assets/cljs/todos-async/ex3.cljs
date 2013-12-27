@@ -2,11 +2,11 @@
   (:require
    [cljs.core.async :as async
              :refer [<! >! chan close! sliding-buffer put! alts!]]
-   [jayq.core :refer [$ append ajax inner $deferred when done resolve pipe on] :as jq]
+   [jayq.core :refer [$ append ajax html $deferred when done resolve pipe on] :as jq]
    [jayq.util :refer [log]]
    [crate.core :as crate]
    [clojure.string :refer [join blank?]]
-   [todos-async.chan-utils :refer [click-chan form-submit-chan merge-chans filter-chan]])
+   [todos-async.chan-utils :refer [click-chan form-submit-chan async-some get-next-message]])
   (:require-macros [cljs.core.async.macros :as m :refer [go alt!]]))
 
 (defn modal-form [{:keys [mode task-form] :as state}]
@@ -35,7 +35,7 @@
 
 (defn render-templates [state]
   (-> ($ "#example3")
-      (inner (crate/html (todo-list state)))))
+      (html (crate/html (todo-list state)))))
 
 (defn add-task [{:keys [todo-list] :as state} task]
   (assoc state :todo-list (conj todo-list task)))
@@ -45,18 +45,16 @@
          cancel-new-form-click  (click-chan "#example3 a.cancel-new-todo" :cancel-new-form)
          task-form-submit (form-submit-chan "#example3 .new-task-form"
                                             :task-form-submit [:content])        
-         input-chan             (merge-chans new-todo-click
-                                             cancel-new-form-click
-                                             task-form-submit)]
+         input-chan             (async/merge [new-todo-click
+                                              cancel-new-form-click
+                                              task-form-submit])]
     (go
      (loop [state start-state]
        (render-templates state)
-       (<! new-todo-click)
+       (<! (get-next-message #{:new-task} input-chan))
        (render-templates (assoc state :mode :add-todo-form))
-       (let [[msg-name msg-data] (<! (filter-chan (comp #{:cancel-new-form
-                                                          :task-form-submit}
-                                                        first)
-                                                  input-chan))]
+       (let [[msg-name msg-data] (<! (get-next-message #{:task-form-submit :cancel-new-form}
+                                                       input-chan))]
          (recur
           (condp = msg-name
            :cancel-new-form  (dissoc state :mode)
@@ -64,3 +62,4 @@
                                  (add-task msg-data)
                                  (dissoc :mode))
            )))))))
+

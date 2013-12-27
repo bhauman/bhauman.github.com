@@ -31,6 +31,16 @@
           (put! rc [msg-name (fields-value-map form-selector fields)])))
     rc))
 
+(defn async-some [predicate input-chan]
+  (go (loop []
+        (let [msg (<! input-chan)]
+          (if (predicate msg)
+            msg
+            (recur))))))
+
+(defn get-next-message [msg-name-set input-chan]
+  (async-some (comp msg-name-set first) input-chan))
+
 (defn merge-chans [& chans]
   (let [rc (chan)]
     (go
