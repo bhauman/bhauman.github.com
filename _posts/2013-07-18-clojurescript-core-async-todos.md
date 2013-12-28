@@ -250,6 +250,10 @@ we don't want to respond to. Essentially eating any unwanted user actions.
        (recur (dissoc state :mode)))))
 {% endhighlight %}
 
+Note the use of the *clojure.core.async/merge* function. We use this
+to merge the *new-todo-click* and the *cancel-new-form-click* channels
+into one input channel.
+
 Now things should work as we would would expect. 
 
 <div id="example2" class="example">
