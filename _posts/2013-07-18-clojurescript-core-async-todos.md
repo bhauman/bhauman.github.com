@@ -337,7 +337,7 @@ a separate function and refactor a little.
 {% highlight clojure %}
 
 (defn user-inputs []
-  (merge-chans
+  (async/merge
    [ (click-chan "a.new-todo" :new-task)
      (click-chan "a.complete-todo" :complete-todo)
      (click-chan "a.cancel-new-todo" :cancel-new-form)
