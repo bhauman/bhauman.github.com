@@ -1,21 +1,115 @@
----
-layout: none
----
 <?xml version="1.0" encoding="UTF-8"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
 	<channel>
-		<title>{{ site.name }}</title>
-		<description>{{ site.description }}</description>
-		<link>{{ site.url }}</link>
-		<atom:link href="{{ site.url }}/feed.xml" rel="self" type="application/rss+xml" />
-		{% for post in site.posts limit:10 %}
+		<title>Bruce Hauman's Blog</title>
+		<description>Bruce Hauman's ramblings on web development and programming</description>
+		<link>http://rigsomelight.com</link>
+		<atom:link href="http://rigsomelight.com/feed.xml" rel="self" type="application/rss+xml" />
+		
 			<item>
-				<title>{{ post.title }}</title>
-				<description>{{ post.excerpt | strip_html }}</description>
-				<pubDate>{{ post.date | date: "%a, %d %b %Y %H:%M:%S %z" }}</pubDate>
-				<link>{{ site.url }}{{ post.url }}</link>
-				<guid isPermaLink="true">{{ site.url }}{{ post.url }}</guid>
+				<title>Frameless Geodesic Dome</title>
+				<description>
+
+
+
+
+
+
+
+
+
+</description>
+				<pubDate>Mon, 09 Sep 2013 00:00:00 -0400</pubDate>
+				<link>http://rigsomelight.com/2013/09/09/frameless-geodesic-dome.html</link>
+				<guid isPermaLink="true">http://rigsomelight.com/2013/09/09/frameless-geodesic-dome.html</guid>
 			</item>
-		{% endfor %}
+		
+			<item>
+				<title>Channel of Channels: Dots Game Refactor</title>
+				<description>In my last post I built a &#8220;straight forward&#8221; implementation of the Dots game using ClojureScript and core.async. My intention was not to get to clever or respond the endless array of shoulds that normally interrupt my programming.</description>
+				<pubDate>Thu, 22 Aug 2013 00:00:00 -0400</pubDate>
+				<link>http://rigsomelight.com/2013/08/22/channels-of-channels-dots-game-refactor.html</link>
+				<guid isPermaLink="true">http://rigsomelight.com/2013/08/22/channels-of-channels-dots-game-refactor.html</guid>
+			</item>
+		
+			<item>
+				<title>ClojureScript Core.Async Dots Game</title>
+				<description>First go ahead and play the current game below. You play by connecting dots of the same color. When you make a cycle of dots, all the dots of that color are erased from the board.</description>
+				<pubDate>Mon, 12 Aug 2013 00:00:00 -0400</pubDate>
+				<link>http://rigsomelight.com/2013/08/12/clojurescript-core-async-dots-game.html</link>
+				<guid isPermaLink="true">http://rigsomelight.com/2013/08/12/clojurescript-core-async-dots-game.html</guid>
+			</item>
+		
+			<item>
+				<title>ClojureScript Core.Async Todos</title>
+				<description>ClojureScript was already an incredible platform for experimenting with different approaches to writing browser based applications. However, things have changed dramatically for the better. The new core.async library introduces Go-like channels and blocks to ClojureScript. With this new library we can write blocking code and control the flow of state in a program with a great deal of precision.</description>
+				<pubDate>Thu, 18 Jul 2013 00:00:00 -0400</pubDate>
+				<link>http://rigsomelight.com/2013/07/18/clojurescript-core-async-todos.html</link>
+				<guid isPermaLink="true">http://rigsomelight.com/2013/07/18/clojurescript-core-async-todos.html</guid>
+			</item>
+		
+			<item>
+				<title>An Immutable Data Service</title>
+				<description>
+
+</description>
+				<pubDate>Mon, 17 Jun 2013 00:00:00 -0400</pubDate>
+				<link>http://rigsomelight.com/2013/06/17/immutable-data-service.html</link>
+				<guid isPermaLink="true">http://rigsomelight.com/2013/06/17/immutable-data-service.html</guid>
+			</item>
+		
+			<item>
+				<title>Fast tests in Rails make programming fun again</title>
+				<description>Corey Haines said just start with one test file. He was right, once you take Rails out of the loop your tests will fly. And your life will change.</description>
+				<pubDate>Mon, 19 Mar 2012 00:00:00 -0400</pubDate>
+				<link>http://rigsomelight.com/2012/03/19/fast-tests-in-rails.html</link>
+				<guid isPermaLink="true">http://rigsomelight.com/2012/03/19/fast-tests-in-rails.html</guid>
+			</item>
+		
+			<item>
+				<title>Stuff that I find very influential in my current thinking about programming in Rails</title>
+				<description>Fast TestsHaving a fast test suite is the best gift we can give ourselves and get out of the depressing time suck of Rails loading for each test run.Fast tests by Corey Haines. OOP on RailsThere has been some very good thinking going on lately about what to do to make rails apps more maintainable. This movement has been coming along and the recommendations result in fast test suites and decoupled code. What if you could back out of a feature easily rather than having it's various elements spread throughout your codebase? Uncle Bob Martins great talk:http://www.confreaks.com/videos/759-rubymidwest2011-keynote-architecture-the-lost-years This is a terrific (free) book by the author of Exceptional Ruby Advi Grimm:http://objectsonrails.com/CSS There is some good work being done in the CSS world as well. Object oriented CSS for one thing.The idea is that you trade off having more classes on your objects for more maintainable pluggable blocks of display code. Twitter Bootstrap is an example of this methodology.  The payoff of this method is having organized understandable CSS code. The short message is to stop stop the context based CSS madness.http://bem.github.com/bem-method/pages/beginning/beginning.en.html 
+
+
+</description>
+				<pubDate>Fri, 16 Mar 2012 00:00:00 -0400</pubDate>
+				<link>http://rigsomelight.com/2012/03/16/stuff-that-i-find-very-influential-in-my-current-thinking-about-programming-in-rails.html</link>
+				<guid isPermaLink="true">http://rigsomelight.com/2012/03/16/stuff-that-i-find-very-influential-in-my-current-thinking-about-programming-in-rails.html</guid>
+			</item>
+		
+			<item>
+				<title>Great Reading in Computer Science</title>
+				<description>This is a great list of computer science papers.http://www.cs.virginia.edu/~robins/CS_readings.html
+
+
+posted on http://news.ycombinator.com which is also a great news source.   
+
+
+</description>
+				<pubDate>Fri, 10 Dec 2010 00:00:00 -0500</pubDate>
+				<link>http://rigsomelight.com/2010/12/10/great-reading-in-computer-science.html</link>
+				<guid isPermaLink="true">http://rigsomelight.com/2010/12/10/great-reading-in-computer-science.html</guid>
+			</item>
+		
+			<item>
+				<title>Here's a warning <br/> (triangle icon)</title>
+				<description>In frustration after looking for a decent warning triangle icon I
+simply made one. Here it is. You can use it free and
+clear.
+
+</description>
+				<pubDate>Sat, 23 Oct 2010 00:00:00 -0400</pubDate>
+				<link>http://rigsomelight.com/2010/10/23/here-s-a-warning-triangle-icon-.html</link>
+				<guid isPermaLink="true">http://rigsomelight.com/2010/10/23/here-s-a-warning-triangle-icon-.html</guid>
+			</item>
+		
+			<item>
+				<title>Spotlight can't find Applications</title>
+				<description>So spotlight decided that it didn&#8217;t know where any of my Applications were. This really puts a damper in my work flow so here is the solution.</description>
+				<pubDate>Wed, 31 Mar 2010 00:00:00 -0400</pubDate>
+				<link>http://rigsomelight.com/2010/03/31/spotlight-can-t-find-applications.html</link>
+				<guid isPermaLink="true">http://rigsomelight.com/2010/03/31/spotlight-can-t-find-applications.html</guid>
+			</item>
+		
 	</channel>
 </rss>
