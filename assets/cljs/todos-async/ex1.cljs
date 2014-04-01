@@ -14,12 +14,12 @@
     [:div.modal-form
      [:h4 "Add Task"]
      [:form.new-task-form
-      [:input.new-task-name  {:type "text"
+      [:input.form-control.new-task-name  {:type "text"
                               :value (:content task-form)
                               :name "content"
                               :placeholder "New Task"}]
       [:p
-       [:a {:href "#" :class " cancel-new-todo btn"} "cancel"]]]]))
+       [:a {:href "#" :class " cancel-new-todo btn-default"} "cancel"]]]]))
 
 (defn todo-task [idx task]
     [:li (:content task)])
@@ -28,7 +28,7 @@
   [:div
    [:p
     [:a {:href "#" :class "new-todo btn btn-primary"} "Add task"]]
-   [:ul {:class "todo-list unstyled"}
+   [:ul {:class "todo-list list-unstyled"}
     (map-indexed todo-task todo-list)]
    (modal-form state)])
 

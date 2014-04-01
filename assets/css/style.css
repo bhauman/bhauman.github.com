@@ -1,13 +1,20 @@
 .container {
-  width: 620px;
+  width: 650px;
 }
 
 body, p { 
  font-family: "Droid Serif", "Georgia", "Times New Roman", "Palatino", "Hoefler Text", "Baskerville", serif;
- font-size: 100%; 
+ font-size: 16px;
+  
  line-height: 1.75;
 }
-h1, h2, h3 { margin-top:0; margin-bottom:0; }
+
+
+h1, h2, h3 { 
+line-height: 40px;
+margin-top:0; margin-bottom:0; 
+
+}
 h1 { font-size:1.5em; margin:2.04167em 0; }
 h2 { font-size:1.33333em; margin:1.75em 0; }
 h3 { font-size:1.16667em; margin:2.125em 0; }
@@ -151,6 +158,6 @@ code {
    font-size: 16px;
 }
 
-.clojure {
+.clojure, .javascript {
   font-size: 14px;
 }

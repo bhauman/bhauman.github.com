@@ -10,12 +10,20 @@ First go ahead and play the current game below. You play by connecting
 dots of the same color. When you make a cycle of dots, all the dots of
 that color are erased from the board.
 
-<link rel="stylesheet" href="/assets/css/dots2.css">
-</link>
-<link rel="stylesheet" href="/assets/css/anim2.css">
-</link>
+<link rel="stylesheet" href="/assets/css/dots2.css" />
+
+<link rel="stylesheet" href="/assets/css/anim2.css" />
 
 <style>
+.boardy,
+.boardy *,
+.dots-game-container,
+.dots-game-container * {
+  -moz-box-sizing: content-box;
+  -webkit-box-sizing: content-box;
+  box-sizing: content-box;
+}
+
 .dots-game-container {
   overflow: hidden;
   border: 1px solid #f6f6f6;

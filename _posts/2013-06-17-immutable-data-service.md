@@ -6,11 +6,11 @@ category:
 tags: []
 ---
 
-<script src="http://scratch.leaves.io/js/vendor/underscore-min.js">
+<script src="/assets/js/underscore-min.js">
 </script>
-<script src="http://scratch.leaves.io/js/json_renderer.js">
+<script src="/assets/js/json_renderer_leaves.js">
 </script>
-<link rel="stylesheet" href="http://scratch.leaves.io/css/json_renderer.css" />
+<link rel="stylesheet" href="/assets/css/json_renderer.css" />
 
 Web based data services provide a means of storing and reading data
 over HTTP. The core value of these services is that they make data

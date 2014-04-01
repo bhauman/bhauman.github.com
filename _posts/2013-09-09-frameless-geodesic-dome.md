@@ -8,19 +8,19 @@ tags: []
 
 
 <p>
-<img src="/assets/images/dome.jpg"/>
+<img class="img-responsive" src="/assets/images/dome.jpg"/>
 </p>
 <p>
-<img src="/assets/images/dome/interior_photo1.jpg"/>
+<img class="img-responsive" src="/assets/images/dome/interior_photo1.jpg"/>
 </p>
 <p>
-<img src="/assets/images/dome/interior_photo3.jpg"/>
+<img class="img-responsive" src="/assets/images/dome/interior_photo3.jpg"/>
 </p>
 <p>
-<img src="/assets/images/dome/interior_photo4.jpg"/>
+<img class="img-responsive" src="/assets/images/dome/interior_photo4.jpg"/>
 </p>
 <p>
-<img src="/assets/images/dome/interior_photo6.jpg"/>
+<img class="img-responsive" src="/assets/images/dome/interior_photo6.jpg"/>
 </p>
 
 ## What is it?
@@ -171,7 +171,7 @@ paint. The effort required to replace the sheets is minimal as well.
 Here is a model of the basic geodesic geometry of the dome:
 
 <p>
-<img src="/assets/images/dome/basic_dome_geometry.png"/>
+<img class="img-responsive" src="/assets/images/dome/basic_dome_geometry.png"/>
 <a href="/assets/3dmodels/frameless_dome_model.skp">
 Download Google Sketchup model of the dome
 </a>
@@ -211,14 +211,14 @@ My perception of domes changed when I saw Steve Miller's
 [plydome](http://andrewdurham.com/formactive/cottage_1.htm).
 
 <p>
-<img src="/assets/images/dome/stevemiller_plydome.jpg" style="width:170px"/>
+<img class="img-responsive" src="/assets/images/dome/stevemiller_plydome.jpg" style="width:170px"/>
 </p>
 
 The idea is based on Buckminster Fuller's [Self-strutted
 geodesic plydome](http://www.google.com/patents/US2905113).
 
 <p>
-<img src="/assets/images/dome/self_strut_patent.png" />
+<img class="img-responsive" src="/assets/images/dome/self_strut_patent.png" />
 </p>
 
 The plydome is a considerable departure from normal geodesic
@@ -282,7 +282,7 @@ mathematically inclined.
 ## Geodesic Geometry
 
 <p>
-<img src="/assets/images/dome/basic_dome_geometry.png"/>
+<img class="img-responsive" src="/assets/images/dome/basic_dome_geometry.png"/>
 </p>
 
 This is a basic 3v geodesic dome.
@@ -295,14 +295,14 @@ the illustration below. The pentagons are purple and an example
 hexagon is outlined in blue.
 
 <p>
-<img src="/assets/images/dome/hexagon_highlight.png" style="width: 80%"/>
+<img class="img-responsive" src="/assets/images/dome/hexagon_highlight.png" style="width: 80%"/>
 </p>
 
 This pattern of hexagons and pentagons should look familiar. You are
 essentially looking at a [soccer ball](http://en.wikipedia.org/wiki/File:Soccer_ball.svg).
 
 <p>
-<img src="/assets/images/dome/soccerball.jpg" style="width: 500px;" />
+<img class="img-responsive" src="/assets/images/dome/soccerball.jpg" style="width: 500px;" />
 </p>
 
 The soccer ball above has the same exact pattern of hexagons and
@@ -319,7 +319,7 @@ If we look at a one of the hexagons we can see that half of a hexagon
 will fit onto a 4x8 sheet nicely.
 
 <p>
-<img src="/assets/images/dome/half_hexagon_shape.png"/>
+<img class="img-responsive" src="/assets/images/dome/half_hexagon_shape.png"/>
 </p>
 
 This half hexagon shape is repeated 30 times on the surface of the dome and
@@ -337,7 +337,7 @@ If we lay out this shape so that it fits on a 4x8 sheet of material
 this is what we get:
 
 <p>
-<img src="/assets/images/dome/first_peice_layout.png"/>
+<img class="img-responsive" src="/assets/images/dome/first_peice_layout.png"/>
 </p>
 
 In the diagram above we have laid out the selected triangles from the
@@ -383,26 +383,26 @@ patterns to create the pentagons. Let's divide the pentagon into two
 parts and lay them out. We'll start with this diamond shape:
 
 <p>
-<img src="/assets/images/dome/pentagon_two_peice.png"/>
+<img class="img-responsive" src="/assets/images/dome/pentagon_two_peice.png"/>
 </p>
 
 We can fit two of these diamond shapes into one 4x8 sheet as shown
 below:
 
 <p>
-<img src="/assets/images/dome/pentagon_two_piece_layout.png"/>
+<img class="img-responsive" src="/assets/images/dome/pentagon_two_piece_layout.png"/>
 </p>
 
 Next we have the lower part of the pentagon:
 
 <p>
-<img src="/assets/images/dome/pentagon_three_piece.png"/>
+<img class="img-responsive" src="/assets/images/dome/pentagon_three_piece.png"/>
 </p>
 
 Which gets laid out on a 4x8 sheet like this:
 
 <p>
-<img src="/assets/images/dome/pentagon_lower_layout.png"/>
+<img class="img-responsive" src="/assets/images/dome/pentagon_lower_layout.png"/>
 </p>
 
 We can now make the pentagons in the dome.
@@ -445,7 +445,7 @@ bottom. These bottom row patterns are simply truncated versions of two
 of the previous layouts.
 
 <p>
-<img src="/assets/images/dome/bottom_pieces.png"/>
+<img class="img-responsive" src="/assets/images/dome/bottom_pieces.png"/>
 </p>
 
 When you start building the dome you start with these pieces and place
@@ -460,7 +460,7 @@ The outer cut lines can stay the same as the previous patterns because
 they do not affect the shape of the final structure.
 
 <p>
-<img src="/assets/images/dome/inner_dome_patterns.png"/>
+<img class="img-responsive" src="/assets/images/dome/inner_dome_patterns.png"/>
 </p>
 
 These are all the patterns needed for the shell of the dome. 
@@ -548,20 +548,20 @@ Math](http://www.amazon.com/Geodesic-Math-How-Use-It/dp/0520239318)
 I have iterated on this idea a bit. 
 
 <p>
-<img src="/assets/images/plydome_first.jpg"/>
+<img class="img-responsive" src="/assets/images/plydome_first.jpg"/>
 </p>
 
 <p>
-<img src="/assets/images/dome/clear_dome.jpg" />
+<img class="img-responsive" src="/assets/images/dome/clear_dome.jpg" />
 Don't ask.  This is what total utter failure looks like.
 </p>
 
 <p>
-<img src="/assets/images/plastic_dome_first.jpg"/>
+<img class="img-responsive" src="/assets/images/plastic_dome_first.jpg"/>
 </p>
 
 <p>
-<img src="/assets/images/plastic_dome_second.jpg"/>
+<img class="img-responsive" src="/assets/images/plastic_dome_second.jpg"/>
 </p>
 
 ## Comments 

@@ -1,0 +1,57 @@
+.chess-board .odd > .even,
+.chess-board .even > .odd {
+    background-color: #eee;
+}
+
+.chess-board tr td.nomove {
+    background-color: #aaa;
+}
+
+table.chess-board.table {
+    width: 489px;
+}
+
+.chess-board td {
+    width: 60px;
+    height: 60px;
+}
+
+.chess-board td.queen {
+  background: transparent url("../images/queen.jpg") no-repeat center center;
+  background-size: 60px 60px;
+}
+
+.board-area.has-won td.nomove {
+    background-color: #dff0d8;
+}
+
+.board-area.has-lost td.nomove {
+    background-color: #f2dede;
+}
+
+.board-area div.controls {
+    width: 489px;
+    height: 30px;
+    text-align: center;
+    margin-bottom: 10px;
+    position: relative;
+}
+
+.board-area span.text-success,
+.board-area span.text-warning,
+.board-area span.text-danger {
+    top: 6px;
+    font-size: 1.12em;
+    position: relative;
+}
+
+.board-area div.controls .lefter {
+    position: absolute;
+    left: 0px;
+}
+
+.board-area div.controls .righter {
+    position: absolute;
+    top: 7px;
+    right: 11px;
+}

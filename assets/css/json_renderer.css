@@ -1,0 +1,119 @@
+.json_renderer .atom_name,
+.json_renderer .object_name {
+   color: rgb(196,33,0);
+   padding-right: 20px;
+}
+
+.json_renderer .atom_value {
+   padding-right: 20px;
+}
+
+.json_renderer .array_name,
+.json_renderer .object_name {
+   color: rgb(196,33,0);
+   padding-right: 20px;
+   display: inline-block;
+}
+
+.json_renderer .array_items {
+   background-color: rgba(0,0,0,0.01);
+   display: inline-block;
+   vertical-align: top;
+}
+
+.json_renderer .hash_items {
+   padding: 1.8em;
+   display: inline-block;
+   vertical-align: top;
+}
+
+.json_renderer .hash {
+  background-color: rgba(0,0,0,0.02);
+}
+
+.json_renderer .hash:nth-child(even) {
+  background-color: rgba(0,0,0,0.04);
+}
+
+.json_renderer .array_items > .hash > .object_name,
+.json_renderer .array_items > .hash > .array_name,
+.json_renderer .array_items > .hash > .atom_name,
+.json_renderer .array_items > .atom > .object_name,
+.json_renderer .array_items > .atom > .array_name,
+.json_renderer .array_items > .atom > .atom_name {
+  display:none;
+}
+
+.json_renderer .action_taken > .object_name,
+.json_renderer .action_taken > .array_name,
+.json_renderer .action_taken > .atom_name,
+.json_renderer .action_taken_last:last-child > .object_name,
+.json_renderer .action_taken_last:last-child  > .array_name,
+.json_renderer .json_renderer .action_taken_last:last-child  > .atom_name {
+   color: #468847;
+   background-color: #dff0d8;
+}
+
+.json_renderer .action_taken > .hash_items,
+.json_renderer .action_taken > .array_items,
+.json_renderer .action_taken > .atom_value,
+.json_renderer .action_taken_last:last-child  > .hash_items,
+.json_renderer .action_taken_last:last-child  > .array_items,
+.json_renderer .action_taken_last:last-child  > .atom_value {
+   color: #468847;
+   background-color: #dff0d8;
+}
+
+.json_renderer .hash_items {
+  position: relative;
+}
+
+.json_renderer .hash_items:before {
+   content: "{";
+   color: #999;
+   position: absolute;
+   top: 0px;
+   left: 3px;
+}
+
+.json_renderer .hash_items:after {
+   content: "}";
+   color: #999;
+   position: absolute;
+   bottom: 0px;
+   left: 3px;
+}
+
+.json_renderer .array_items {
+   position: relative;
+}
+
+.json_renderer .array_items:before {
+   content: "[";
+   color: #999;
+   position: absolute;
+   top: 0px;
+   left: -10px;
+}
+
+.json_renderer .array_items:after {
+   content: "]";
+   color: #999;
+   position: absolute;
+   bottom: 0px;
+   right: -10px;
+}
+
+.json_renderer .empty,
+.json_renderer .null_val { 
+  color: #bbb;
+}
+
+.json_renderer .removed {
+   color: #b94a48;
+   background-color: #f2dede;
+   min-width: 200px;
+   border: 2px solid #eed3d7;
+   text-align: center;
+   padding: 1em;
+}

@@ -2,3 +2,6 @@ name: Bruce Hauman's Blog
 description: Bruce Hauman's ramblings on web development and programming
 url: http://rigsomelight.com
 pygments: true
+markdown: kramdown
+kramdown:
+  input: GFM
