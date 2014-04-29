@@ -15,11 +15,11 @@
      [:h4 "Add Task"]
      [:form.new-task-form
       [:input.form-control.new-task-name  {:type "text"
-                              :value (:content task-form)
-                              :name "content"
-                              :placeholder "New Task"}]
+                                           :value (:content task-form)
+                                           :name "content"
+                                           :placeholder "New Task"}]
       [:p
-       [:a {:href "#" :class " cancel-new-todo btn-default"} "cancel"]]]]))
+       [:a {:href "#" :class "btn cancel-new-todo btn-default"} "cancel"]]]]))
 
 (defn todo-task [idx task]
     [:li (:content task)])

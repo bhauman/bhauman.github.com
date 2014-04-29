@@ -22159,7 +22159,7 @@ todos_async.ex1.modal_form = function(a) {
   return cljs.core.truth_(b) ? new cljs.core.PersistentVector(null, 3, 5, cljs.core.PersistentVector.EMPTY_NODE, [new cljs.core.Keyword(null, "div.modal-form", "div.modal-form", 1055035603), new cljs.core.PersistentVector(null, 2, 5, cljs.core.PersistentVector.EMPTY_NODE, [new cljs.core.Keyword(null, "h4", "h4", 1013907518), "Add Task"], null), new cljs.core.PersistentVector(null, 3, 5, cljs.core.PersistentVector.EMPTY_NODE, [new cljs.core.Keyword(null, "form.new-task-form", "form.new-task-form", 
   2282634215), new cljs.core.PersistentVector(null, 2, 5, cljs.core.PersistentVector.EMPTY_NODE, [new cljs.core.Keyword(null, "input.form-control.new-task-name", "input.form-control.new-task-name", 3691171554), new cljs.core.PersistentArrayMap(null, 4, [new cljs.core.Keyword(null, "type", "type", 1017479852), "text", new cljs.core.Keyword(null, "value", "value", 1125876963), (new cljs.core.Keyword(null, "content", "content", 1965434859)).cljs$core$IFn$_invoke$arity$1(a), new cljs.core.Keyword(null, 
   "name", "name", 1017277949), "content", new cljs.core.Keyword(null, "placeholder", "placeholder", 1612151013), "New Task"], null)], null), new cljs.core.PersistentVector(null, 2, 5, cljs.core.PersistentVector.EMPTY_NODE, [new cljs.core.Keyword(null, "p", "p", 1013904354), new cljs.core.PersistentVector(null, 3, 5, cljs.core.PersistentVector.EMPTY_NODE, [new cljs.core.Keyword(null, "a", "a", 1013904339), new cljs.core.PersistentArrayMap(null, 2, [new cljs.core.Keyword(null, "href", "href", 1017115293), 
-  "#", new cljs.core.Keyword(null, "class", "class", 1108647146), " cancel-new-todo btn-default"], null), "cancel"], null)], null)], null)], null) : null;
+  "#", new cljs.core.Keyword(null, "class", "class", 1108647146), "btn cancel-new-todo btn-default"], null), "cancel"], null)], null)], null)], null) : null;
 };
 todos_async.ex1.todo_task = function(a, b) {
   return new cljs.core.PersistentVector(null, 2, 5, cljs.core.PersistentVector.EMPTY_NODE, [new cljs.core.Keyword(null, "li", "li", 1013907695), (new cljs.core.Keyword(null, "content", "content", 1965434859)).cljs$core$IFn$_invoke$arity$1(b)], null);
@@ -22333,10 +22333,10 @@ todos_async.ex3.modal_form = function(a) {
   a = cljs.core.get.call(null, b, new cljs.core.Keyword(null, "task-form", "task-form", 1148229502));
   b = cljs.core.get.call(null, b, new cljs.core.Keyword(null, "mode", "mode", 1017261333));
   return cljs.core.truth_(b) ? new cljs.core.PersistentVector(null, 3, 5, cljs.core.PersistentVector.EMPTY_NODE, [new cljs.core.Keyword(null, "div.modal-form", "div.modal-form", 1055035603), new cljs.core.PersistentVector(null, 2, 5, cljs.core.PersistentVector.EMPTY_NODE, [new cljs.core.Keyword(null, "h4", "h4", 1013907518), "Add Task"], null), new cljs.core.PersistentVector(null, 3, 5, cljs.core.PersistentVector.EMPTY_NODE, [new cljs.core.Keyword(null, "form.new-task-form", "form.new-task-form", 
-  2282634215), new cljs.core.PersistentVector(null, 2, 5, cljs.core.PersistentVector.EMPTY_NODE, [new cljs.core.Keyword(null, "input.new-task-name", "input.new-task-name", 1910649396), new cljs.core.PersistentArrayMap(null, 4, [new cljs.core.Keyword(null, "type", "type", 1017479852), "text", new cljs.core.Keyword(null, "value", "value", 1125876963), (new cljs.core.Keyword(null, "content", "content", 1965434859)).cljs$core$IFn$_invoke$arity$1(a), new cljs.core.Keyword(null, "name", "name", 1017277949), 
-  "content", new cljs.core.Keyword(null, "placeholder", "placeholder", 1612151013), "New Task"], null)], null), new cljs.core.PersistentVector(null, 3, 5, cljs.core.PersistentVector.EMPTY_NODE, [new cljs.core.Keyword(null, "p", "p", 1013904354), new cljs.core.PersistentVector(null, 2, 5, cljs.core.PersistentVector.EMPTY_NODE, [new cljs.core.Keyword(null, "input", "input", 1114262332), new cljs.core.PersistentArrayMap(null, 3, [new cljs.core.Keyword(null, "type", "type", 1017479852), "submit", new cljs.core.Keyword(null, 
-  "value", "value", 1125876963), "Save", new cljs.core.Keyword(null, "class", "class", 1108647146), "btn btn-primary"], null)], null), new cljs.core.PersistentVector(null, 3, 5, cljs.core.PersistentVector.EMPTY_NODE, [new cljs.core.Keyword(null, "a", "a", 1013904339), new cljs.core.PersistentArrayMap(null, 2, [new cljs.core.Keyword(null, "href", "href", 1017115293), "#", new cljs.core.Keyword(null, "class", "class", 1108647146), " cancel-new-todo btn"], null), "cancel"], null)], null)], null)], null) : 
-  null;
+  2282634215), new cljs.core.PersistentVector(null, 2, 5, cljs.core.PersistentVector.EMPTY_NODE, [new cljs.core.Keyword(null, "input.new-task-name.form-control", "input.new-task-name.form-control", 2070133874), new cljs.core.PersistentArrayMap(null, 4, [new cljs.core.Keyword(null, "type", "type", 1017479852), "text", new cljs.core.Keyword(null, "value", "value", 1125876963), (new cljs.core.Keyword(null, "content", "content", 1965434859)).cljs$core$IFn$_invoke$arity$1(a), new cljs.core.Keyword(null, 
+  "name", "name", 1017277949), "content", new cljs.core.Keyword(null, "placeholder", "placeholder", 1612151013), "New Task"], null)], null), new cljs.core.PersistentVector(null, 3, 5, cljs.core.PersistentVector.EMPTY_NODE, [new cljs.core.Keyword(null, "p", "p", 1013904354), new cljs.core.PersistentVector(null, 2, 5, cljs.core.PersistentVector.EMPTY_NODE, [new cljs.core.Keyword(null, "input", "input", 1114262332), new cljs.core.PersistentArrayMap(null, 3, [new cljs.core.Keyword(null, "type", "type", 
+  1017479852), "submit", new cljs.core.Keyword(null, "value", "value", 1125876963), "Save", new cljs.core.Keyword(null, "class", "class", 1108647146), "btn btn-primary"], null)], null), new cljs.core.PersistentVector(null, 3, 5, cljs.core.PersistentVector.EMPTY_NODE, [new cljs.core.Keyword(null, "a", "a", 1013904339), new cljs.core.PersistentArrayMap(null, 2, [new cljs.core.Keyword(null, "href", "href", 1017115293), "#", new cljs.core.Keyword(null, "class", "class", 1108647146), " cancel-new-todo btn btn-default"], 
+  null), "cancel"], null)], null)], null)], null) : null;
 };
 todos_async.ex3.todo_task = function(a, b) {
   return new cljs.core.PersistentVector(null, 2, 5, cljs.core.PersistentVector.EMPTY_NODE, [new cljs.core.Keyword(null, "li", "li", 1013907695), (new cljs.core.Keyword(null, "content", "content", 1965434859)).cljs$core$IFn$_invoke$arity$1(b)], null);
@@ -22345,7 +22345,7 @@ todos_async.ex3.todo_list = function(a) {
   a = cljs.core.seq_QMARK_.call(null, a) ? cljs.core.apply.call(null, cljs.core.hash_map, a) : a;
   var b = cljs.core.get.call(null, a, new cljs.core.Keyword(null, "todo-list", "todo-list", 3759774007));
   return new cljs.core.PersistentVector(null, 4, 5, cljs.core.PersistentVector.EMPTY_NODE, [new cljs.core.Keyword(null, "div", "div", 1014003715), new cljs.core.PersistentVector(null, 2, 5, cljs.core.PersistentVector.EMPTY_NODE, [new cljs.core.Keyword(null, "p", "p", 1013904354), new cljs.core.PersistentVector(null, 3, 5, cljs.core.PersistentVector.EMPTY_NODE, [new cljs.core.Keyword(null, "a", "a", 1013904339), new cljs.core.PersistentArrayMap(null, 2, [new cljs.core.Keyword(null, "href", "href", 
-  1017115293), "#", new cljs.core.Keyword(null, "class", "class", 1108647146), "new-todo btn btn-primary"], null), "Add task"], null)], null), new cljs.core.PersistentVector(null, 3, 5, cljs.core.PersistentVector.EMPTY_NODE, [new cljs.core.Keyword(null, "ul", "ul", 1013907977), new cljs.core.PersistentArrayMap(null, 1, [new cljs.core.Keyword(null, "class", "class", 1108647146), "todo-list unstyled"], null), cljs.core.map_indexed.call(null, todos_async.ex3.todo_task, b)], null), todos_async.ex3.modal_form.call(null, 
+  1017115293), "#", new cljs.core.Keyword(null, "class", "class", 1108647146), "new-todo btn btn-primary"], null), "Add task"], null)], null), new cljs.core.PersistentVector(null, 3, 5, cljs.core.PersistentVector.EMPTY_NODE, [new cljs.core.Keyword(null, "ul", "ul", 1013907977), new cljs.core.PersistentArrayMap(null, 1, [new cljs.core.Keyword(null, "class", "class", 1108647146), "todo-list list-unstyled"], null), cljs.core.map_indexed.call(null, todos_async.ex3.todo_task, b)], null), todos_async.ex3.modal_form.call(null, 
   a)], null);
 };
 todos_async.ex3.render_templates = function(a) {
@@ -22423,7 +22423,7 @@ todos_async.ex3.app_loop = function(a) {
         }
         if (4 === c) {
           return d = b[7], c = b[2], f = cljs.core.assoc.call(null, d, new cljs.core.Keyword(null, "mode", "mode", 1017261333), new cljs.core.Keyword(null, "add-todo-form", "add-todo-form", 1533000497)), f = todos_async.ex3.render_templates.call(null, f), d = [new cljs.core.Keyword(null, "cancel-new-form", "cancel-new-form", 870414902), null, new cljs.core.Keyword(null, "task-form-submit", "task-form-submit", 2549060715), null], d = new cljs.core.PersistentArrayMap(null, 2, d, null), d = new cljs.core.PersistentHashSet(null, 
-          d, null), d = todos_async.chan_utils.get_next_message.call(null, d, e), b[9] = c, b[10] = f, cljs.core.async.impl.ioc_helpers.take_BANG_.call(null, b, 5, d);
+          d, null), d = todos_async.chan_utils.get_next_message.call(null, d, e), b[9] = f, b[10] = c, cljs.core.async.impl.ioc_helpers.take_BANG_.call(null, b, 5, d);
         }
         if (5 === c) {
           return c = b[11], f = b[2], c = cljs.core.nth.call(null, f, 0, null), f = cljs.core.nth.call(null, f, 1, null), d = cljs.core._EQ_.call(null, new cljs.core.Keyword(null, "cancel-new-form", "cancel-new-form", 870414902), c), b[12] = f, b[11] = c, b[1] = d ? 6 : 7, new cljs.core.Keyword(null, "recur", "recur", 1122293407);
@@ -22456,17 +22456,17 @@ todos_async.ex3.app_loop = function(a) {
 };
 todos_async.ex4 = {};
 todos_async.ex4.todo_task = function(a, b) {
-  var c = cljs.core.seq_QMARK_.call(null, b) ? cljs.core.apply.call(null, cljs.core.hash_map, b) : b, d = cljs.core.get.call(null, c, new cljs.core.Keyword(null, "completed", "completed", 3905939901)), e = cljs.core.truth_(d) ? new cljs.core.PersistentVector(null, 2, 5, cljs.core.PersistentVector.EMPTY_NODE, [new cljs.core.Keyword(null, "i", "i", 1013904347), new cljs.core.PersistentArrayMap(null, 1, [new cljs.core.Keyword(null, "class", "class", 1108647146), "icon-ok-sign icon-white"], null)], null) : 
-  new cljs.core.PersistentVector(null, 3, 5, cljs.core.PersistentVector.EMPTY_NODE, [new cljs.core.Keyword(null, "a.complete-todo", "a.complete-todo", 3870467327), new cljs.core.PersistentArrayMap(null, 2, [new cljs.core.Keyword(null, "href", "href", 1017115293), "#", new cljs.core.Keyword(null, "data-task-index", "data-task-index", 4520172543), a], null), new cljs.core.PersistentVector(null, 2, 5, cljs.core.PersistentVector.EMPTY_NODE, [new cljs.core.Keyword(null, "i", "i", 1013904347), new cljs.core.PersistentArrayMap(null, 
-  1, [new cljs.core.Keyword(null, "class", "class", 1108647146), "icon-ok-circle icon-white"], null)], null)], null);
-  return new cljs.core.PersistentVector(null, 3, 5, cljs.core.PersistentVector.EMPTY_NODE, [new cljs.core.Keyword(null, "li", "li", 1013907695), e, new cljs.core.PersistentVector(null, 3, 5, cljs.core.PersistentVector.EMPTY_NODE, [new cljs.core.Keyword(null, "span", "span", 1017440956), new cljs.core.PersistentArrayMap(null, 1, [new cljs.core.Keyword(null, "class", "class", 1108647146), cljs.core.truth_(d) ? "completed" : null], null), (new cljs.core.Keyword(null, "content", "content", 1965434859)).cljs$core$IFn$_invoke$arity$1(c)], 
+  var c = cljs.core.seq_QMARK_.call(null, b) ? cljs.core.apply.call(null, cljs.core.hash_map, b) : b, d = cljs.core.get.call(null, c, new cljs.core.Keyword(null, "completed", "completed", 3905939901)), e = cljs.core.truth_(d) ? new cljs.core.PersistentVector(null, 2, 5, cljs.core.PersistentVector.EMPTY_NODE, [new cljs.core.Keyword(null, "span", "span", 1017440956), new cljs.core.PersistentArrayMap(null, 1, [new cljs.core.Keyword(null, "class", "class", 1108647146), "glyphicon glyphicon-ok-sign"], 
+  null)], null) : new cljs.core.PersistentVector(null, 3, 5, cljs.core.PersistentVector.EMPTY_NODE, [new cljs.core.Keyword(null, "a.complete-todo", "a.complete-todo", 3870467327), new cljs.core.PersistentArrayMap(null, 2, [new cljs.core.Keyword(null, "href", "href", 1017115293), "#", new cljs.core.Keyword(null, "data-task-index", "data-task-index", 4520172543), a], null), new cljs.core.PersistentVector(null, 2, 5, cljs.core.PersistentVector.EMPTY_NODE, [new cljs.core.Keyword(null, "span", "span", 
+  1017440956), new cljs.core.PersistentArrayMap(null, 1, [new cljs.core.Keyword(null, "class", "class", 1108647146), "glyphicon glyphicon-ok-circle"], null)], null)], null);
+  return new cljs.core.PersistentVector(null, 4, 5, cljs.core.PersistentVector.EMPTY_NODE, [new cljs.core.Keyword(null, "li", "li", 1013907695), e, " ", new cljs.core.PersistentVector(null, 3, 5, cljs.core.PersistentVector.EMPTY_NODE, [new cljs.core.Keyword(null, "span", "span", 1017440956), new cljs.core.PersistentArrayMap(null, 1, [new cljs.core.Keyword(null, "class", "class", 1108647146), cljs.core.truth_(d) ? "completed" : null], null), (new cljs.core.Keyword(null, "content", "content", 1965434859)).cljs$core$IFn$_invoke$arity$1(c)], 
   null)], null);
 };
 todos_async.ex4.todo_list = function(a) {
   a = cljs.core.seq_QMARK_.call(null, a) ? cljs.core.apply.call(null, cljs.core.hash_map, a) : a;
   var b = cljs.core.get.call(null, a, new cljs.core.Keyword(null, "todo-list", "todo-list", 3759774007));
   return new cljs.core.PersistentVector(null, 4, 5, cljs.core.PersistentVector.EMPTY_NODE, [new cljs.core.Keyword(null, "div", "div", 1014003715), new cljs.core.PersistentVector(null, 2, 5, cljs.core.PersistentVector.EMPTY_NODE, [new cljs.core.Keyword(null, "p", "p", 1013904354), new cljs.core.PersistentVector(null, 3, 5, cljs.core.PersistentVector.EMPTY_NODE, [new cljs.core.Keyword(null, "a", "a", 1013904339), new cljs.core.PersistentArrayMap(null, 2, [new cljs.core.Keyword(null, "href", "href", 
-  1017115293), "#", new cljs.core.Keyword(null, "class", "class", 1108647146), "new-todo btn btn-primary"], null), "Add task"], null)], null), new cljs.core.PersistentVector(null, 3, 5, cljs.core.PersistentVector.EMPTY_NODE, [new cljs.core.Keyword(null, "ul", "ul", 1013907977), new cljs.core.PersistentArrayMap(null, 1, [new cljs.core.Keyword(null, "class", "class", 1108647146), "todo-list unstyled"], null), cljs.core.map_indexed.call(null, todos_async.ex4.todo_task, b)], null), todos_async.ex3.modal_form.call(null, 
+  1017115293), "#", new cljs.core.Keyword(null, "class", "class", 1108647146), "new-todo btn btn-primary"], null), "Add task"], null)], null), new cljs.core.PersistentVector(null, 3, 5, cljs.core.PersistentVector.EMPTY_NODE, [new cljs.core.Keyword(null, "ul", "ul", 1013907977), new cljs.core.PersistentArrayMap(null, 1, [new cljs.core.Keyword(null, "class", "class", 1108647146), "todo-list list-unstyled"], null), cljs.core.map_indexed.call(null, todos_async.ex4.todo_task, b)], null), todos_async.ex3.modal_form.call(null, 
   a)], null);
 };
 todos_async.ex4.render_templates = function(a) {
@@ -22556,8 +22556,8 @@ todos_async.ex4.add_task_modal = function(a, b) {
         }
         if (2 === d) {
           var e = c[2], d = cljs.core.nth.call(null, e, 0, null), e = cljs.core.nth.call(null, e, 1, null), k = cljs.core._EQ_.call(null, new cljs.core.Keyword(null, "cancel-new-form", "cancel-new-form", 870414902), d);
-          c[8] = e;
           c[7] = d;
+          c[8] = e;
           c[1] = k ? 3 : 4;
           return new cljs.core.Keyword(null, "recur", "recur", 1122293407);
         }
@@ -22642,7 +22642,7 @@ todos_async.ex4.main_app = function(a, b) {
           return new cljs.core.Keyword(null, "recur", "recur", 1122293407);
         }
         if (5 === d) {
-          return d = c[7], e = c[10], e = (new cljs.core.Keyword(null, "taskIndex", "taskIndex", 1174315455)).cljs$core$IFn$_invoke$arity$1(e), d = todos_async.ex4.complete_task.call(null, d, e), c[2] = d, c[1] = 7, new cljs.core.Keyword(null, "recur", "recur", 1122293407);
+          return e = c[10], d = c[7], e = (new cljs.core.Keyword(null, "taskIndex", "taskIndex", 1174315455)).cljs$core$IFn$_invoke$arity$1(e), d = todos_async.ex4.complete_task.call(null, d, e), c[2] = d, c[1] = 7, new cljs.core.Keyword(null, "recur", "recur", 1122293407);
         }
         if (6 === d) {
           return d = c[9], d = cljs.core._EQ_.call(null, new cljs.core.Keyword(null, "new-task", "new-task", 2345051396), d), c[1] = d ? 8 : 9, new cljs.core.Keyword(null, "recur", "recur", 1122293407);

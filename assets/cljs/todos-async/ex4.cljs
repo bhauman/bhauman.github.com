@@ -12,11 +12,13 @@
 
 (defn todo-task [idx {:keys [completed] :as task}]
   (let [control (if completed
-                  [:i {:class "icon-ok-sign icon-white"}]
+                  [:span {:class "glyphicon glyphicon-ok-sign"}]
                   [:a.complete-todo {:href "#" :data-task-index idx}
-                   [:i {:class "icon-ok-circle icon-white"}]])]
+                   [:span {:class "glyphicon glyphicon-ok-circle"}]])]
+    
     [:li
      control
+     " "
      [:span {:class (if completed "completed")}
       (:content task)]]
     ))
@@ -25,7 +27,7 @@
   [:div
    [:p
     [:a {:href "#" :class "new-todo btn btn-primary"} "Add task"]]
-   [:ul {:class "todo-list unstyled"}
+   [:ul {:class "todo-list list-unstyled"}
     (map-indexed todo-task todo-list)]
    (modal-form state)])
 

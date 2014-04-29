@@ -19,18 +19,18 @@ applications.
 
 I'd like to do an exploration here and hopefully derive a library that
 embodies __The Clojure Way__ yet is still small enough to "drown in the
-bathtub" (its fun to quote wack jobs).
+bathtub".
 
 ## Out of the Tar Pit
 
-I have heard tell that the paper Out of the Tar Pit by Ben Mosely was
-infuential in the design of Clojure. This is an absolutely excellent
-paper. Read it several times, please.
+I have heard that the paper [Out of the Tar
+Pit](http://shaffner.us/cs/papers/tarpit.pdf) by Ben Moseley was
+infuential in the design of Clojure.
 
-In the paper Ben steadfastly calls out all sources of complexity that
-are not essential to solving a problem and patently states that as we
-move away from the essential complexity of a problem we are shooting
-ourselves in the foot, or face or something like that.
+In the paper Ben Moseley steadfastly calls out all sources of
+complexity that are not essential to solving a problem and patently
+states that as we move away from the essential complexity of a problem
+we are shooting ourselves in the foot, or face or something like that.
 
 After reading the paper several times recently, a basic epiphany hit
 me. As with most epiphanies I worry about drinking my own koolaid only
@@ -93,16 +93,11 @@ state is our best guess at how to model the given problem so that we
 can store and reason about it. However, in terms of this exploration
 it is a rolled up view of the original source of truth: the inputs.
 
-Lets reflect on the stability of the domain model versus the stability
-of the inputs. Domain models change quite often as knowledge of the
-domain increases and software requirements change. But the inputs are
-much more essential and immutable if a user changes his first name on
-the 12th then that is always true regardless of your model changes.
-You can have new and different types of inputs but the previous inputs
-have happened and can't change. Again pointing to the essential nature
-of the inputs to our systems. Yet it is standard practice to treat
-them as the most transient things and trust our data model of
-situation implicitly.
+Domain models change quite often as knowledge of the domain increases
+and software requirements change. Thus the storage of same data can
+take different forms. The inputs, however, are much more essential and
+immutable if a user changes his first name on the 12th at 5:30 then
+that fact is always true regardless of your model changes.
 
 That being said domain state is a very useful and important derivation
 of the inputs. We like thinking about and operating on domain models
@@ -143,8 +138,12 @@ produced application state:
 {% highlight ruby %}
 Transform(AS2, input3) = reduce(Transform, input1, input2, input3)
 
+# is the same as 
+
 F(inputs) = ToDom( Transform(AS2, input3) )
 {% endhighlight %}
+
+
 
 Again we haven't strayed too much from our original system by doing
 this, but I must clear that this is added complexity. Data is not the
@@ -180,6 +179,44 @@ practically impossible to implement. Again, if the Trasform function is
 changing and operating on cached state its probably gonna fail. If we
 are reducing across a set of inputs the transient domain state
 constructed by transform will be internally consistent.
+
+## A start
+
+{% highlight clojure %}
+
+(defn to-dom! [sab-dom]
+   (.renderComponent js/React (sablono/html sab-dom)        
+                     (.getElementById js/document "app-area")))
+
+(defn view-state [state send-message]
+      [:div [:div "Current Count: " (:count state)]
+            [:div 
+              [:a { :onClick (fn [e] (send-message :add-one)) } 
+                  "Add One"]]
+            [:div 
+              [:a { :onClick (fn [e] (send-message :sub-one)) } 
+                  "Subtract One"]]])
+
+(defmulti transform identity)
+
+(defmethod transform :default [_ state] state)
+
+(defmethod transform :add-one [_ state]
+   (assoc-in state [:count] inc))
+
+(defmethod transform :sub-one [_ state]
+   (assoc-in state [:count] dec))
+
+(defn run [trans]
+   (let [state (atom nil)
+         send-message (fn [msg] 
+                         (swap! state conj msg))]
+      (add-watch state :renderer 
+         (fn [] (to-dom (view-state @state) send-message))
+      ))
+
+{% endhighlight %}
+
 
 ## Super Powers
 
