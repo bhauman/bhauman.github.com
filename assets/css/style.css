@@ -26,7 +26,7 @@ h1, h2, h3, h4 {
   font-family: "CartoGothic Std", "Verdana", "Lucida Grande", "Gill Sans", "Arial", "Helvetica", sans-serif;
 }
 
-p, ul{
+pre, p, ul{
   margin-bottom: 1.75em;
 }
 
@@ -137,6 +137,21 @@ footer {
   vertical-align: top;
 }
 
+.video-container {
+    position: relative;
+    padding-bottom: 56.25%;
+    padding-top: 30px; height: 0; overflow: hidden;
+}
+ 
+.video-container iframe,
+.video-container object,
+.video-container embed {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}
 
 @media (max-width: 480px){
     .container { 
@@ -152,6 +167,12 @@ footer {
    .http_request, .node_tree {
      font-size: 0.7em;
    }
+
+   .youtube-video {
+     width: 620px;
+     height: 465px;
+   }
+
 }
 
 code {
