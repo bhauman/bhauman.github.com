@@ -5,4 +5,4 @@ pygments: true
 markdown: kramdown
 kramdown:
   input: GFM
-  hard-wrap: false
+  hard_wrap: false
