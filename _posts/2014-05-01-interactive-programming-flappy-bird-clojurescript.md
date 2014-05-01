@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "Interactive Programming in ClojureScript"
-published: false
+published: true
 category: 
 tags: []
 ---
@@ -16,7 +16,8 @@ When I say *interactive programming* I explicitly mean that as I make
 changes to a ClojureScript **file**, the compiled javascript makes its
 way to the browser so that I can see changed program behavior almost
 immediately as I save the file. This workflow is distinctly different
-from REPL based interactivity.
+from REPL based interactivity, where you cherry pick what to reload and
+what processes to execute.
 
 I recently hunkered down and wrote a [leinigen plugin/browser
 client](https://github.com/bhauman/lein-figwheel) combo that handles
@@ -44,7 +45,8 @@ type:
 
 You can now goto `localhost:3449/index.html` and open up
 `src/flappy-bird-demo/core.cljs` your favorite editor and start
-coding.
+coding. Make sure you open the development console so you can get
+feedback about code reloads.
 
 Keep in mind this is all pre-post-pre-alpha stuff, so when you find bugs in
 figwheel let me know.
@@ -168,15 +170,6 @@ program state I'd call that a clear win.
 I feel like the time for interactive programming is now. Give it a
 try, you won't regret it.
 
-## You code in Javascript?
-
-If you are programming in JavaScript and want to experience file based
-interactivity give [Light Table](http://www.lighttable.com/) a try! As
-an experiment try live coding in say Backbone, Angular or Ember and
-see how well it handles code changes. Then switch to React and note
-how the different frameworks respond to interactive programming. If you do
-this, your experiences would make a great blog post ... just sayin'
-
 ## Question for the reader
 
 Is reloadable code inherently better code?
@@ -187,9 +180,8 @@ Is reloadable code inherently better code?
 * [Play the flappy bird game](http://rigsomelight.com/flappy-bird-demo/)
 * [Flappy bird demo code](https://github.com/bhauman/flappy-bird-demo)
 * [React](http://facebook.github.io/react/)
-* [Great talk on React](https://www.youtube.com/watch?v=h3KksH8gfcQ#t=1192)
-* [The awesome Om framwork](https://github.com/swannodette/om)
-* [Light Table](http://www.lighttable.com/)
-* [The Functional Final Frontier by David Nolen](https://www.youtube.com/watch?v=DMtwq3QtddY)
 * [Local State is Poison](http://awelonblue.wordpress.com/2012/10/21/local-state-is-poison/)
+* [The awesome Om framwork](https://github.com/swannodette/om)
+* [The Functional Final Frontier](https://www.youtube.com/watch?v=DMtwq3QtddY)
+* [Light Table](http://www.lighttable.com/)
 

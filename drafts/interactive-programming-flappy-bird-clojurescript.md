@@ -177,7 +177,7 @@ interactivity give [Light Table](http://www.lighttable.com/) a try! As
 an experiment try live coding in say Backbone, Angular or Ember and
 see how well it handles code changes. Then switch to React and note
 how the different frameworks respond to interactive programming. If you do
-this it would make a great blog post.
+this, your experiences would make a great blog post ... just sayin'
 
 ## Question for the reader
 
