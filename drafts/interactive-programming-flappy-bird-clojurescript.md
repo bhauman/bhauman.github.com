@@ -20,12 +20,7 @@ save the file.
 
 I recently hunkered down and wrote a [leinigen plugin/browser
 client](https://github.com/bhauman/lein-figwheel) combo that handles
-the reloading of changed files and enables this interactive work flow.
-
-This programming work flow is different from interactive programming in
-the Repl. It is also editor independent. [Light
-Table](http://www.lighttable.com/) is awesome and offers an
-interactive coding experience but I love my Emacs.
+the reloading of changed files and enables this interactive workflow.
 
 ## Flappy Bird live on figwheel
 
@@ -177,3 +172,11 @@ arrived. So, let's thank the good people who have worked so hard to
 bring us Clojure, ClojureScript, and React. I am extremely grateful
 for these thoughful designs.
 
+## Links 
+
+* [lein-figwheel](https://github.com/bhauman/lein-figwheel)
+* [Play the flappy bird game](http://rigsomelight.com/flappy-bird-demo/)
+* [Flappy bird demo code](https://github.com/bhauman/flappy-bird-demo)
+* [React](http://facebook.github.io/react/)
+* [Great talk on React](https://www.youtube.com/watch?v=h3KksH8gfcQ#t=1192)
+* [The awesome Om framwork](https://github.com/swannodette/om)
