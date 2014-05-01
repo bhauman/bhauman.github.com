@@ -1,7 +1,7 @@
 --- 
 layout: post
 title: Console for Sinatra on jruby_appengine
-published: true
+published: false
 ---
 
 So where is the console for your sinatra jruby app?

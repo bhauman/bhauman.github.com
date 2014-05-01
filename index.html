@@ -4,10 +4,11 @@ title: Rig Some Light
 ---
 
 <div id="home">
-  <h1>Blog Posts</h1>
-  <ul class="posts unstyled">
+  <!-- <h2>Posts</h2> -->
+  <ul class="posts list-unstyled">
     {% for post in site.posts %}
       <li><span class="post_date">{{ post.date | date_to_string }}</span>  <span><a href="{{ post.url }}">{{ post.title }}</a></span></li>
     {% endfor %}
   </ul>
 </div>
+
