@@ -1,117 +1,13 @@
-<!DOCTYPE html>
-<html>
-    <head>
-        <meta charset="utf-8">
-        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-        <title>Rig Some Light</title>
-        <meta name="viewport" content="width=device-width">
+---
+layout: default
+title: Rig Some Light
+---
 
-        <!-- syntax highlighting CSS -->
-        <link rel="stylesheet" href="/css/syntax.css">
-
-        <!-- Custom CSS -->
-        <!-- <link rel="stylesheet" href="/css/main.css"> -->
-        <script src="/assets/js/jquery.min.js"></script>
-        <script src="/assets/js/jquery.browser.js"></script>
-        <link href="http://fonts.googleapis.com/css?family=Droid+Serif:400,700,400italic" rel="stylesheet" type="text/css">
-        <link rel="stylesheet" href="/assets/bootstrap/css/bootstrap.css">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <link href="/assets/bootstrap/css/bootstrap-responsive.css" rel="stylesheet">        
-        <link rel="alternate" type="application/rss+xml" title="Rig Some Light Feed" href="http://rigsomelight.com/feed.xml">
-        <link rel="stylesheet" href="/assets/css/fonts.css">
-        <link rel="stylesheet" href="/assets/css/style.css">
-    </head>
-    <body>
-
-        <div class="container">
-          <div class="site">
-            
-            <ul class="breadcrumb">
-              <li class="active"><a href="/">Bruce Hauman</a></li>
-            </ul>
-
-                <div id="home">
+<div id="home">
   <h1>Blog Posts</h1>
-  <ul class="posts list-unstyled">
-    
-      <li><span class="post_date">09 Sep 2013</span>  <span><a href="/2013/09/09/frameless-geodesic-dome.html">Frameless Geodesic Dome</a></span></li>
-    
-      <li><span class="post_date">22 Aug 2013</span>  <span><a href="/2013/08/22/channels-of-channels-dots-game-refactor.html">Channel of Channels: Dots Game Refactor</a></span></li>
-    
-      <li><span class="post_date">12 Aug 2013</span>  <span><a href="/2013/08/12/clojurescript-core-async-dots-game.html">ClojureScript Core.Async Dots Game</a></span></li>
-    
-      <li><span class="post_date">18 Jul 2013</span>  <span><a href="/2013/07/18/clojurescript-core-async-todos.html">ClojureScript Core.Async Todos</a></span></li>
-    
-      <li><span class="post_date">17 Jun 2013</span>  <span><a href="/2013/06/17/immutable-data-service.html">An Immutable Data Service</a></span></li>
-    
-      <li><span class="post_date">19 Mar 2012</span>  <span><a href="/2012/03/19/fast-tests-in-rails.html">Fast tests in Rails make programming fun again</a></span></li>
-    
-      <li><span class="post_date">16 Mar 2012</span>  <span><a href="/2012/03/16/stuff-that-i-find-very-influential-in-my-current-thinking-about-programming-in-rails.html">Stuff that I find very influential in my current thinking about programming in Rails</a></span></li>
-    
-      <li><span class="post_date">10 Dec 2010</span>  <span><a href="/2010/12/10/great-reading-in-computer-science.html">Great Reading in Computer Science</a></span></li>
-    
-      <li><span class="post_date">23 Oct 2010</span>  <span><a href="/2010/10/23/here-s-a-warning-triangle-icon-.html">Here's a warning <br/> (triangle icon)</a></span></li>
-    
-      <li><span class="post_date">31 Mar 2010</span>  <span><a href="/2010/03/31/spotlight-can-t-find-applications.html">Spotlight can't find Applications</a></span></li>
-    
-      <li><span class="post_date">02 Mar 2010</span>  <span><a href="/2010/03/02/the-elegant-way-to-make-square-images-in-ruby-avatar-style-.html">The elegant way to make square images in Ruby (avatar style)</a></span></li>
-    
-      <li><span class="post_date">02 Mar 2010</span>  <span><a href="/2010/03/02/passing-configuration-options-to-sinatra-middleware.html">Passing configuration options to Sinatra Middleware</a></span></li>
-    
-      <li><span class="post_date">23 Feb 2010</span>  <span><a href="/2010/02/23/sammy-a-tiny-mvcish-javascript-framework-think-sinatra-.html">Sammy a tiny MVCish Javascript framework (think Sinatra)</a></span></li>
-    
-      <li><span class="post_date">23 Feb 2010</span>  <span><a href="/2010/02/23/getting-periodicalexecuter-to-not-depend-on-prototype-.html">Getting PeriodicalExecuter to not depend on Prototype.</a></span></li>
-    
-      <li><span class="post_date">22 Feb 2010</span>  <span><a href="/2010/02/22/a-brilliant-way-to-do-templates-in-javascript-.html">A brilliant way to do Templates in javascript.</a></span></li>
-    
-      <li><span class="post_date">14 Feb 2010</span>  <span><a href="/2010/02/14/making-factory-girl-do-what-you-thought-she-couldn-t.html">Making Factory_Girl do what you thought she couldn't</a></span></li>
-    
-      <li><span class="post_date">14 Feb 2010</span>  <span><a href="/2010/02/14/emacs-interactively-find-and-replace-string-patterns-on-multiple-files.html">Emacs: Interactively Find and Replace String Patterns on Multiple Files</a></span></li>
-    
-      <li><span class="post_date">13 Feb 2010</span>  <span><a href="/2010/02/13/setting-width-and-height-of-paperclip-image-upload-on-create.html">Setting width and height of Paperclip image upload on create</a></span></li>
-    
-      <li><span class="post_date">13 Feb 2010</span>  <span><a href="/2010/02/13/rm-rf-on-osx-doesn-t-remove-the-git-directory.html">rm -rf * on OSX doesn't remove the .git directory</a></span></li>
-    
-      <li><span class="post_date">12 Feb 2010</span>  <span><a href="/2010/02/12/the-most-important-command-in-ido-for-emacs.html">The most important command in Ido for emacs</a></span></li>
-    
-      <li><span class="post_date">12 Feb 2010</span>  <span><a href="/2010/02/12/deleting-files-with-ido-in-emacs.html">Deleting files with ido in Emacs</a></span></li>
-    
-      <li><span class="post_date">10 Feb 2010</span>  <span><a href="/2010/02/10/console-for-sinatra-on-jruby-appengine.html">Console for Sinatra on jruby_appengine</a></span></li>
-    
+  <ul class="posts unstyled">
+    {% for post in site.posts %}
+      <li><span class="post_date">{{ post.date | date_to_string }}</span>  <span><a href="{{ post.url }}">{{ post.title }}</a></span></li>
+    {% endfor %}
   </ul>
 </div>
-
-
-            <div class="footer">
-              <div class="contact">
-                <p>
-                  Bruce Hauman<br />
-                  Programmer<br />
-                  bhauman@gmail.com
-                </p>
-              </div>
-              <div class="contact">
-                <p>
-                  <a href="http://github.com/bhauman/">github.com/bhauman</a><br />
-                  <a href="http://twitter.com/bhauman/">twitter.com/bhauman</a><br />
-                  <a href="/feed.xml">blog feed</a>
-                </p>
-              </div>
-            </div>
-          </div>
-        </div> <!-- /container -->
-<script type="text/javascript">
-
-  var _gaq = _gaq || [];
-  _gaq.push(['_setAccount', 'UA-368586-6']);
-  _gaq.push(['_trackPageview']);
-
-  (function() {
-    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
-    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
-    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
-  })();
-
-</script>
-    </body>
-</html>

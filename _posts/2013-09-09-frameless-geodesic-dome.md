@@ -6,7 +6,6 @@ category:
 tags: []
 ---
 
-
 <p>
 <img class="img-responsive" src="/assets/images/dome.jpg"/>
 </p>
