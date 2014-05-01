@@ -61,19 +61,16 @@ I wish I could say I did that on purpose.
 Suggestions:
 
 * change the game play parameters (make the game harder or easier)
+* change the pitch of flappy in relation to to his velocity
 * make a protocol called animate and have a list of things that you call animate on
-* experiment with sending the jump message on the **event-chan**
-* get rid of the **event-chan** all together 
-* there is a **transform** function and a **world** function, get rid of the **world** function
+* make flappy flap his wings
 
-You should be able to do any of the changes above live with minimal reloads.
 
 #### Greenfield?
 
 Want to jump into live coding? Try the leinigen template:
 
     lein new figwheel hello-world
-
 
 
 ## Not magic
@@ -129,14 +126,14 @@ Here's an example of a React program:
                         (.preventDefault e)
                         (swap! counter inc))} "increment"]]])
 
-(defn render-comp [comp]
+(defn render [comp]
   (.renderComponent js/React
                     (sablono/html comp) 
                     (.getElementById js/document "main-area")))
 
 (add-watch counter :renderer
            (fn [_ _ _ n]
-             (render-comp (template n))))
+             (render (template n))))
 
 ;; ping the state to trigger the first render
 (reset! counter @counter)
@@ -165,7 +162,7 @@ first line in the above program to this:
 
 {% endhighlight %}
 
-So now we won't be redefining and reseting the state of the system on
+Now we won't be redefining and reseting the state of the system on
 reload. The burden of making the above program reloadable is extremely
 small.
 
@@ -173,10 +170,10 @@ Now that the burden of writing reloadable code has shifted, the cost
 benefit of doing interactive programming has shifted along with it. If
 you tell me that I can experience live behavior changes in the browser
 as I type and all I have to do is `defonce` the reference to my
-program state I'd say "I'm in!"
+program state I'd call that a clear win.
 
-I feel like the time for interactive programming is now and it is
-awesome. We have arrived. So let's thank the good people who have
-worked so hard to bring us Clojure, ClojureScript, and React. I, for
-one, am extremely grateful for these absolutely excellent designs.
+I feel like the time for interactive programming is now. We have
+arrived. So, let's thank the good people who have worked so hard to
+bring us Clojure, ClojureScript, and React. I am extremely grateful
+for these thoughful designs.
 
