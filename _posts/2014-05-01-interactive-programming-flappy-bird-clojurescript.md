@@ -185,3 +185,7 @@ Is reloadable code inherently better code?
 * [The Functional Final Frontier](https://www.youtube.com/watch?v=DMtwq3QtddY)
 * [Light Table](http://www.lighttable.com/)
 
+## Comments
+
+[Join the conversiation over on Hacker News](https://news.ycombinator.com/item?id=7682901)
+
