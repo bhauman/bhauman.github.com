@@ -152,9 +152,6 @@ by changing the first line in the above program to this:
 
 (defonce counter (atom 0))
 
-;; defonce is not part of ClojureScript yet
-;; I have included it in figwheel
-
 {% endhighlight %}
 
 Now when the code is reloaded it won't be redefining and reseting the
