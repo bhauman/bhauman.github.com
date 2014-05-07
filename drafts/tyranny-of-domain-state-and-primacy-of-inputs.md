@@ -31,14 +31,6 @@ opposed to the inputs themsleves results in applications that are
 opaque with regards to time, unresponsive to new requirements and
 difficult to distribute.
 
-The reason most often given for throwing away the inputs is
-performance. The cost of keeping "uneeded data". Again, we seem to be
-having a hard time keeping up with the order of magnitude of our gains
-in storage and performance. It is ironic that on one hand we dismiss
-the storing of inputs (literally the chain of events that lead up to
-this state) while on the other we revere the blockchain. Every click
-on the internet is now collected by how many services?
-
 ## The opacity of WTF
 
 As programmers it seems like we have valid opportunities to say WTF
@@ -88,7 +80,7 @@ Essential complexity is the complexity inherent in the problem *as
 seen by its users*. A user would percieve that it isn't that hard to add
 a todo to a list of todos. The layers of user interface, server and
 database interaction all fall outside of the users concern and thus
-into the realm of Accidental complexity.
+into the realm of additional complexity.
 
 "Out of the tar pit" proposes that as we move away from the essential
 we are creating problems for ourselves. We are moving towards more
@@ -122,9 +114,9 @@ inputs?
 
     X = process([x1, x2, x3, x4, x5 ...])
 
-But wait! I am looking for `X` to be the essential state of the system,
-and `process` is clearly causing `X` to be a derivative of the inputs.
-Maybe `X` is just the current list of inputs:
+But wait! I am looking for `X` to be the *essential* state of the
+system, and `process` is clearly causing `X` to be a derivative of the
+inputs. Maybe `X` is just the current list of inputs:
 
     X = [x1, x2, x3, x4, x5 ...]
 
@@ -136,44 +128,92 @@ Our ideal system now looks like this:
 
     ViewState = F( [x1, x2, x3, x4, x5 ...] )
 
+This is extremely interesting! I am stating that this list of inputs
+IS for sure the essential state of our program. If this is true we can
+can conclude that if we stick to this list of inputs as the base for
+our state we will avoid our dreaded enemy complexity.
 
+The inputs we recieve from a user or some other service is an
+immutable occurance. When an input comes in its hard to argue that it
+never happened or that it happend some other way. "John clicked delete
+at 7:00" is an event that occured in time and as such is fact.
+
+So the inputs are an *immutable* time series. This immutable concrete
+nature suggests that they are the base from which everything else is
+derived. And thus the essential *transaction log* of our application.
+
+
+## Concrete semantic inputs
+
+Let's look at what this list of inputs is for a typical web application:
+
+```clojure
+[:add-todo {:content "buy milk" :id 5}]
+[:complete-todo { :id 5 }]
+[:remove-todo {:id 7}]
+[:look-up-help {:question "Add todo?"}]
+...
+```
+
+This is my interpretation of the inputs to a typical client side web
+app. I am giving these inputs first class status. I might just give
+them a schema as well.
+
+Notice how the list does look like a transaction log for our
+application. Also notice the *semantic nature of the list of inputs is
+aligned towards the users perception of what is happening*. To me this
+preserves the essential nature of the inputs. You are staying closer
+to the intent and farther from the implementation.
+
+If we had instead encoded the inputs as this:
+
+```clojure
+[:add-todo {:content "buy milk" :id 5}]
+[:update-todo { :id 5 :completed? true }]
+[:delete-todo {:id 7}]
+[:help-window {:id 35}]
+...
+```
+
+We are leaking the implementation details and losing the more general
+nature of the actual intent when the event occured. We are moving from
+the essential to the accidental.
+
+I am pointing this out because I think there are those who may not
+realize the degree of the trade off they are making by having a
+transaction log that only records domain model transitions. For now
+let's just say that it is a movement towards complexity and thus
+something we do not want.
 
 ## Hmmm ... where is domain state?
 
+So we have this expression that represents our *simple* system:
+
+    ViewState = F( [x1, x2, x3, x4, x5 ...] )    
+
+We now get that the inputs may very well be the the essential data of
+my application. However, it looks like it could be an unpleasent
+experience to work with the raw inputs as my data source. We do need
+our data models.
+
+What is domain state really? Lets look at what happens when an input
+comes in.
+
+```
+NextDomainState = TransformFunc( CurrentDomainState, 
+                              [:add-todo {:id 7 :content "buy cheese"}] )
+```
+
+We can think of domain state as being the result of applying a
+transformation to the current domain state based on the current input.
+From this we can conclude see that we can have our domain state if we
+just reduce this transformation over the inputs.
+
+```
+CurrDomainState = reduce( TransformFunc,  [x1, x2, x3, x4, x5 ...] )
+```
+
+If this is not clear I don't care. Go learn something.
 
 
-
-
-
-This is odd because I have never considered the list of inputs to be
-essential to my systems. What has been essential to my systems is the
-list of Todo models instances and the various veiw model instances.
-This domain state has been what I have considered the essential state.
-
-
-
-
-#### garbage pail
-Consider that the list of inputs is an immutable time series. An input
-like a user click occurs in time once. It can not be undone. It
-walked through the one way door of time.
-
-If inputs are the essential state of our systems we had better store
-them eh? In fact, we may want to give them schemas!
-
-We are talking about moving inputs from the ephemeral
-
-{% highlight javascript %}
-$("a.like").click( function(e) { 
-  likeButton.increment({ user-id: 5}); 
-});
-{% endhighlight %}
-
-to the concrete
-
-{% highlight javascript %}
-$("a.like").click( function(e) { 
-  system.sendInput(["likeUser", { user-id: 5}]);
-});
-{% endhighlight %}
 
