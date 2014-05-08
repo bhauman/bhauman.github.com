@@ -184,5 +184,5 @@ Is reloadable code inherently better code?
 
 ## Comments
 
-[Join the conversiation over on Hacker News](https://news.ycombinator.com/item?id=7682901)
+[Join the conversation over on Hacker News](https://news.ycombinator.com/item?id=7682901)
 
