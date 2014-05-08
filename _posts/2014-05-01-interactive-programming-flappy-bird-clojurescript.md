@@ -38,18 +38,18 @@ totally understand). You can get the above demo from github:
 
     git clone https://github.com/bhauman/flappy-bird-demo.git
 
-After it's downloaded `cd` into the `flappy-bird-demo` directory and
+After it has downloaded, `cd` into the `flappy-bird-demo` directory and
 type:
 
     lein figwheel
 
 You can now goto `localhost:3449/index.html` and open up
-`src/flappy-bird-demo/core.cljs` your favorite editor and start
+`src/flappy_bird_demo/core.cljs` your favorite editor and start
 coding. Make sure you open the development console so you can get
 feedback about code reloads.
 
 Keep in mind this is all pre-post-pre-alpha stuff, so when you find bugs in
-figwheel let me know.
+figwheel please let me know.
 
 The flappy bird code is rough and has many refactoring opportunities.
 I wish I could say I did that on purpose.
