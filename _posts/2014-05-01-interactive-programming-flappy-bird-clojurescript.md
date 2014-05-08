@@ -56,7 +56,7 @@ I wish I could say I did that on purpose.
 
 Suggestions:
 
-* make the game display the nth Fibonacci of yr score!! (thanks to @KanYang)
+* make the game display the nth Fibonacci of your score (thanks to @KanYang)
 * change the game play parameters (make the game harder or easier)
 * change the pitch of flappy in relation to to his velocity
 * make a protocol called animate and have a list of things that you call animate on
