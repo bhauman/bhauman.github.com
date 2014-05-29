@@ -37,7 +37,7 @@ As programmers it seems like we have valid opportunities to say WTF
 quite often. Here are some common situations:
 
 You get an email from a user that simply states: "It isn't working"
-and nothing else. Well we are kinda stuck here if they fail to tell us
+and nothing else. Well, we are kinda stuck here if they fail to tell us
 anything more. We have no idea what they are talking about and there
 is no way to find out. The most likely possibility is that there is
 unknown bug in the system.
@@ -45,7 +45,7 @@ unknown bug in the system.
 Your COO comes by and says "Hey I was on the site yesteday afternoon
 and when I saved a todo it didn't take." Well that's just great. You
 haven't touched the Todo code in 3 months and all the commits you have
-made recently are no where near todo code path. In short, you have no
+made recently are no where near the todo codepath. In short, you have no
 idea what could be causing a problem in the todos. Your only recourse
 is to guess, read code, look at commits and slueth your way towards a
 possible explaination. Too many times, we come away with shrugged
@@ -136,7 +136,7 @@ our state we will avoid our dreaded enemy complexity.
 The inputs we recieve from a user or some other service is an
 immutable occurance. When an input comes in its hard to argue that it
 never happened or that it happend some other way. "John clicked delete
-at 7:00" is an event that occured in time and as such is fact.
+at 7:15" is an event that occured in time and as such is fact.
 
 So the inputs are an *immutable* time series. This immutable concrete
 nature suggests that they are the base from which everything else is
@@ -194,14 +194,14 @@ So we have this expression that represents our *simple* system:
 We now get that the inputs may very well be the the essential data of
 my application. However, it looks like it could be an unpleasent
 experience to work with the raw inputs as my data source. We do need
-our data models.
+our domain models.
 
 What is domain state really? Lets look at what happens when an input
 comes in.
 
 ```
 NextDomainState = TransformFunc( CurrentDomainState, 
-                              [:add-todo {:id 7 :content "buy cheese"}] )
+                                 [:add-todo {:id 7 :content "buy cheese"}] )
 ```
 
 We can think of domain state as being the result of applying a
@@ -212,8 +212,4 @@ just reduce this transformation over the inputs.
 ```
 CurrDomainState = reduce( TransformFunc,  [x1, x2, x3, x4, x5 ...] )
 ```
-
-If this is not clear I don't care. Go learn something.
-
-
 

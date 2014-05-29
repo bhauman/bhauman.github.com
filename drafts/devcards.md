@@ -1,0 +1,192 @@
+---
+layout: default
+title: "Devcards"
+published: true
+category: 
+tags: []
+---
+
+<link href="/resources/public/devcards/two-zero.css" rel="stylesheet" type="text/css">
+
+# Devcards, a visual REPL experience for ClojureScript 
+
+[Devcards][devcards] is a ClojureScript library that helps developers
+interactively lift code examples out of their source files into an
+organized set of cards in the browser.
+
+<p>
+<a href="https://github.com/bhauman/devcards">
+<img class="img-responsive" src="https://s3.amazonaws.com/bhauman-blog-images/devcards-action-shot.png"/>
+</a>
+</p>
+
+## Code examples and feedback
+
+A REPL allows us to interactively try different code examples and
+validate that we understand their behavior. For programmers who are
+used to this workflow, this interactive validation of expectations
+starts to become a cornerstone of how they strategize and corner the
+solution to a particular problem. However, when you are coding UIs for
+the browser you often want to verify code that has a display aspect
+and the REPL doesn't help.
+
+The current workflow for verifying visual behavior in the browser is
+normally constrained to editing, reloading and then manually
+manipulating the main application into a particular state. For
+example: we are writing a game, and we just changed some behavior of
+the game and need to verify that the change worked. We will have to
+interact with the game and put it into the specific state that will
+validate that what we did worked. 
+
+We are normally constrained to working within **ONE** instance of the
+application at hand. It doesn't have to be this way, but currently the
+**cost** of displaying different code examples in different states is
+often higher than just manually manipulating the main application
+instance into state we are wanting to check.
+
+Thus constrained, we are less likely to freely experiment but rather
+continually run a cost benefit analysis in our heads as to whether
+trying to validate a certain piece code is practical in our current
+application enviroment. We end up writing longer stretches of code
+without the value of feedback. I would venture that this alters the code
+we write, as we will be prejudiced towards conservative tried and true
+patterns that will reduce the likely pain of having to repeatedly
+manipulate the main application into a certain state over and over
+again.
+
+This is an extreme divergence from the REPL experience where we can
+try out different code examples with relative ease and low cost.
+
+I am proposing a straight forward solution to this. A library that
+allows us to easily create code examples in our source files which
+will be immediately presented to us in the browser. This library is
+intended to bring the interactive nature of REPL coding to problems
+that are graphical in nature.
+
+For example, this library would make it effortless to interactively
+surface several [2048][2048] boards in different starting states.
+
+<div class="panel panel-default devcard-panel devcard-padding devcard-padding-top">
+  <div id="tz-board-1"></div>
+</div>
+
+<div class="panel panel-default devcard-panel devcard-padding devcard-padding-top">
+<div id="tz-board-2"></div>
+</div>
+
+<div class="panel panel-default devcard-panel devcard-padding devcard-padding-top">
+<div id="tz-board-3"></div>
+</div>
+
+Interacting with these one row boards quickly verifies that tiles are
+combining correctly and animations are phasing correctly in these
+particular starting states. Given that [2048][2048] game progression is
+random, being able to look at specific examples like this can be very
+helpful in nailing down the behavior of shifting tile rows. 
+
+Seeing examples like these side by side is a luxury that we are not
+accustomed to. Now imagine being able to surface code examples with
+ease directly from the the source file your are working in.
+
+## Introducing Devcards
+
+I have created [Devcards][devcards] as one possible solution to this
+problem. Devcards provides an interface that organizises a set of
+cards, where each card repesents a code example. Devcards allows you
+to define cards inline in your source file like so:
+
+{% highlight clojure %}
+
+(defcard my-first-card 
+  (react-card (sablono/html [:div [:h1 "I'm a Devcard"]])))
+
+{% endhighlight %}
+
+This card will then be displayed in the Devcards interface. 
+
+Devcards is written with a great deal of attention towards live code
+reloading. When you use [Figwheel][figwheel] the card above will appear instantly
+in the Devcards interface. It will appear under the namespace it was
+defined in and it will respond to changes as you continue to code.
+
+You can see an example of the Devcards interface [here](http://rigsomelight.com/devcards/).
+
+## Developing 2048 with Devcards
+
+If you are curious about how this works in reality I have made a video
+in which I develop the 2048 game with the assistence of Devcards.
+It's a long video but there is no other way to communicate the how
+amazing it is to interactively code in this manner.
+
+<iframe src="//player.vimeo.com/video/96664598?byline=0&amp;portrait=0" width="620" height="348" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
+
+[the code from the video](https://gist.github.com/bhauman/68f965573ba660715b35)
+
+## Feedback - the utlimate progamming tool
+
+Working with a page of visual code examples that are **all**
+responding the code I am writing, provides an unprecedented amount of
+feedback and it accelerates my understanding of the ramifications of
+the code I am writing. Tests start to fail, entities start
+dissappearing, I can go back and interact with components in specific
+states and see how they are responding to recent code changes. I can
+then move to other pages of cards and see if they are still working as
+expected.
+
+This exerience has driven home for me the paucity of feedback in our
+current development workflows. Bret Victor has expressed this many
+many times. Figwheel and Devcards have both turned up the feedback
+tremendously for me. Once you experience this for yourself your eyes
+will be opened and you will not freely give up this way of coding,
+just as you would hate to give up your REPL now.
+
+## Pages of examples FTW
+
+As we all know, tests are not enough. Integration tests run in a black
+box and take forever, preventing real time feedback and can't catch
+the most obvious of display errors. Unit tests live in an isolated
+world away from the real complexity where things actually go wrong.
+
+A page of functioning code examples however, can give us a very good
+tool to verify that our various expectations continue to be true. We
+can grow this list of examples to include problematic component
+combinations. Then a **person** can go through all of these examples
+and visually observe and interact with them. Automation helps but it
+clearly isn't enough to verify the complex interactions of CSS,
+JavaScript, and DOM, we need a human for that.
+
+Be clear that I am not saying that this solves everything, I am just
+saying that this is another tool that can be potentially very helpful.
+
+## Potential
+
+Anyone can implement their own cards. We can create cards with history
+management and backtracking built in. We can create cards that mimic
+parts of Bret Victors learnable programming.
+
+There can also be cards that are very targeted, like a regular
+expression card we would present an interface to try different strings
+and evolve the regex.
+
+Different libraries could provide their own cards. Quil is coming to
+ClojureScript imagine the Quil card? Or the Threejs card? Or the
+DataScript query composer card?
+
+This is new territory and there are probably many creative helpful
+applications.
+
+## Give it a try
+
+These are still the very early days for Devcards but I sincerely hope
+you give it a try.
+
+The [readme on Github][devcards] provides instructions for getting started.
+
+[devcards]: https://github.com/bhauman/devcards
+[figwheel]: https://github.com/bhauman/lein-figwheel
+[2048]: http://gabrielecirulli.github.io/2048/
+[learnable programming]: http://worrydream.com/LearnableProgramming/
+
+
+<script src="/resources/public/devcards/js/devcard-examples-prod.js"></script>
+

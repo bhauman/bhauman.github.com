@@ -4,3 +4,7 @@
 \.\#*
 _site
 target
+resources/public/devcards/js/out
+resources/public/devcards/js/devcard-examples.js
+
+.nrepl-port
