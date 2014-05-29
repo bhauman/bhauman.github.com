@@ -2,10 +2,13 @@
   width: 650px;
 }
 
+body {
+ background-color: white;
+}
+
 body, p { 
  font-family: "Droid Serif", "Georgia", "Times New Roman", "Palatino", "Hoefler Text", "Baskerville", serif;
  font-size: 16px;
- background-color: white;
  line-height: 1.75;
 }
 
