@@ -187,6 +187,8 @@ applications.
 These are still the very early days for Devcards but I sincerely hope
 you give it a try.
 
+The [readme on Github][devcards] provides instructions for getting started.
+
 ## Faq
 
 I plan to grow this as questions come in.
@@ -210,7 +212,7 @@ instead of using figwheel.
 
 
 
-The [readme on Github][devcards] provides instructions for getting started.
+
 
 [devcards]: https://github.com/bhauman/devcards
 [figwheel]: https://github.com/bhauman/lein-figwheel
