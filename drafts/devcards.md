@@ -189,29 +189,6 @@ you give it a try.
 
 The [readme on Github][devcards] provides instructions for getting started.
 
-## Faq
-
-I plan to grow this as questions come in.
-
-#### Does Devcards only work with React or OM?
-
-No it doesn't. At its core Devcards manages a raw HTML node and a
-data atom for each card. Devcards works with anything you can put in a
-node.
-
-#### Does Devcards require Figwheel?
-
-No, you can manually reload the browser after changing your code.
-Devcards requires the figwheel client as a dependancy because if you do
-decide to use figwheel it hooks into various events fired by the
-figwheel client.
-
-You could also integrate Devcards into a Browser REPL workflow
-instead of using figwheel.
-
-
-
-
 
 
 [devcards]: https://github.com/bhauman/devcards
