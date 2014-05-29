@@ -35,8 +35,8 @@ normally constrained to editing, reloading and then manually
 manipulating the main application into a particular state. For
 example: we are writing a game, and we just changed some behavior of
 the game and need to verify that the change worked. We will have to
-interact with the game and put it into the specific state that will
-validate that what we did worked. 
+interact with the game in order to put it into the specific state which will
+help us validate our change worked. 
 
 We are normally constrained to working within **ONE** instance of the
 application at hand. It doesn't have to be this way, but currently the
@@ -45,9 +45,9 @@ often higher than just manually manipulating the main application
 instance into state we are wanting to check.
 
 Thus constrained, we are less likely to freely experiment but rather
-continually run a cost benefit analysis in our heads as to whether
+continually run a cost-benefit analysis in our heads as to whether
 trying to validate a certain piece code is practical in our current
-application enviroment. We end up writing longer stretches of code
+application environment. We end up writing longer stretches of code
 without the value of feedback. I would venture that this alters the code
 we write, as we will be prejudiced towards conservative tried and true
 patterns that will reduce the likely pain of having to repeatedly
@@ -64,7 +64,8 @@ intended to bring the interactive nature of REPL coding to problems
 that are graphical in nature.
 
 For example, this library would make it effortless to interactively
-surface several [2048][2048] boards in different starting states.
+surface several [2048][2048] boards in different starting states. Feel
+free to interact with these examples.
 
 <div class="panel panel-default devcard-panel devcard-padding devcard-padding-top">
   <div id="tz-board-1"></div>
@@ -78,11 +79,11 @@ surface several [2048][2048] boards in different starting states.
 <div id="tz-board-3"></div>
 </div>
 
-Interacting with these one row boards quickly verifies that tiles are
+Interacting with these boards quickly verifies that tiles are
 combining correctly and animations are phasing correctly in these
-particular starting states. Given that [2048][2048] game progression is
-random, being able to look at specific examples like this can be very
-helpful in nailing down the behavior of shifting tile rows. 
+particular starting states. Given that [2048][2048] game progression
+is random, being able to look at specific examples like this can be
+very helpful in nailing down the behavior of shifting tile rows.
 
 Seeing examples like these side by side is a luxury that we are not
 accustomed to. Now imagine being able to surface code examples with
@@ -125,20 +126,21 @@ amazing it is to interactively code in this manner.
 ## Feedback - the utlimate progamming tool
 
 Working with a page of visual code examples that are **all**
-responding the code I am writing, provides an unprecedented amount of
-feedback and it accelerates my understanding of the ramifications of
+responding to the code I am writing, provides an unprecedented amount
+of feedback and it accelerates my awareness of the ramifications of
 the code I am writing. Tests start to fail, entities start
 dissappearing, I can go back and interact with components in specific
 states and see how they are responding to recent code changes. I can
 then move to other pages of cards and see if they are still working as
 expected.
 
-This exerience has driven home for me the paucity of feedback in our
-current development workflows. Bret Victor has expressed this many
-many times. Figwheel and Devcards have both turned up the feedback
-tremendously for me. Once you experience this for yourself your eyes
-will be opened and you will not freely give up this way of coding,
-just as you would hate to give up your REPL now.
+This experience has driven home for me the paucity of feedback in our
+current development workflows. We are still in the cave looking at
+shadows. Bret Victor has expressed  [this][learnableprogramming]
+[several][unthinkable] times. Figwheel and Devcards have both turned up
+the feedback tremendously for me. Once you experience this for
+yourself your eyes will be opened and you will not freely give up this
+way of coding, just as you would be loath to give up your REPL now.
 
 ## Pages of examples FTW
 
@@ -147,8 +149,8 @@ box and take forever, preventing real time feedback and can't catch
 the most obvious of display errors. Unit tests live in an isolated
 world away from the real complexity where things actually go wrong.
 
-A page of functioning code examples however, can give us a very good
-tool to verify that our various expectations continue to be true. We
+A page of functioning code examples can be a very powerful tool in our
+quest to continually verify that our code is working as we expect. We
 can grow this list of examples to include problematic component
 combinations. Then a **person** can go through all of these examples
 and visually observe and interact with them. Automation helps but it
@@ -160,17 +162,22 @@ saying that this is another tool that can be potentially very helpful.
 
 ## Potential
 
-Anyone can implement their own cards. We can create cards with history
-management and backtracking built in. We can create cards that mimic
-parts of Bret Victors learnable programming.
+Anyone can implement their own cards easily. If you can create a React
+or Om component you can create a card. So the potential for having a
+library of very helpful cards at your fingertips as you program is
+very high.
 
-There can also be cards that are very targeted, like a regular
-expression card we would present an interface to try different strings
-and evolve the regex.
+We can create cards with history management and backtracking built in.
+We can create cards that mimic parts of Bret Victors [learnable
+programming][learnableprogramming].
 
-Different libraries could provide their own cards. Quil is coming to
-ClojureScript imagine the Quil card? Or the Threejs card? Or the
-DataScript query composer card?
+There can also be cards that are very targeted, like a [regular
+expression card][rubular] which would present an interface to try different
+strings and allow you to change the regex.
+
+Different libraries could provide their own cards. [Quil][quil] is coming to
+ClojureScript imagine the Quil card? Or the [Threejs][threejs] card? Or the
+[DataScript][datascript] query composer card?
 
 This is new territory and there are probably many creative helpful
 applications.
@@ -180,13 +187,40 @@ applications.
 These are still the very early days for Devcards but I sincerely hope
 you give it a try.
 
+## Faq
+
+I plan to grow this as questions come in.
+
+#### Does Devcards only work with React or OM?
+
+No it doesn't. At its core Devcards manages a raw HTML node and a
+data atom for each card. Devcards works with anything you can put in a
+node.
+
+#### Does Devcards require Figwheel?
+
+No, you can manually reload the browser after changing your code.
+Devcards requires the figwheel client as a dependancy because if you do
+decide to use figwheel it hooks into various events fired by the
+figwheel client.
+
+You could also integrate Devcards into a Browser REPL workflow
+instead of using figwheel.
+
+
+
+
 The [readme on Github][devcards] provides instructions for getting started.
 
 [devcards]: https://github.com/bhauman/devcards
 [figwheel]: https://github.com/bhauman/lein-figwheel
 [2048]: http://gabrielecirulli.github.io/2048/
-[learnable programming]: http://worrydream.com/LearnableProgramming/
-
+[learnableprogramming]: http://worrydream.com/LearnableProgramming/
+[unthinkable]: http://worrydream.com/#!/MediaForThinkingTheUnthinkable
+[quil]: https://github.com/quil/quil
+[threejs]: http://threejs.org/
+[datascript]: https://github.com/tonsky/datascript
+[rubular]: http://rubular.com/
 
 <script src="/resources/public/devcards/js/devcard-examples-prod.js"></script>
 
