@@ -22,7 +22,6 @@
 (print "Yeahaw")
 
 (when (dev-host? host)
-  
   (dc/start-devcard-ui!)
   (dc/start-figwheel-reloader!))
 
@@ -30,19 +29,14 @@
   (dc/start-single-card-ui!)
   (dc/start-figwheel-reloader! { :websocket-url "ws://localhost:3449/figwheel-ws"})
 
-  
-
   (dc/render-single-card [:devcard_examples.two_zero :board-state-1] (js/$ "#tz-board-1"))
   (dc/render-single-card [:devcard_examples.two_zero :board-state-2] (js/$ "#tz-board-2"))
-  (dc/render-single-card [:devcard_examples.two_zero :board-state-3] (js/$ "#tz-board-3"))
-  )
+  (dc/render-single-card [:devcard_examples.two_zero :board-state-3] (js/$ "#tz-board-3")))
 
-#_(condp = path
-  ""
-
-  )
-
-
-#_(dc/render-single-card [:devcard_examples.two_zero :board-state-1] (js/$ "#tz-board-1"))
-
+(when (prod-host? host)
+  (dc/start-single-card-ui!)
+  
+  (dc/render-single-card [:devcard_examples.two_zero :board-state-1] (js/$ "#tz-board-1"))
+  (dc/render-single-card [:devcard_examples.two_zero :board-state-2] (js/$ "#tz-board-2"))
+  (dc/render-single-card [:devcard_examples.two_zero :board-state-3] (js/$ "#tz-board-3")))
 
