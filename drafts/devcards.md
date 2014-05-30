@@ -92,7 +92,7 @@ ease directly from the the source file your are working in.
 ## Introducing Devcards
 
 I have created [Devcards][devcards] as one possible solution to this
-problem. Devcards provides an interface that organizises a set of
+problem. Devcards provides an interface that organizes a set of
 cards, where each card repesents a code example. Devcards allows you
 to define cards inline in your source file like so:
 
@@ -103,21 +103,32 @@ to define cards inline in your source file like so:
 
 {% endhighlight %}
 
-This card will then be displayed in the Devcards interface. 
-
 Devcards is written with a great deal of attention towards live code
-reloading. When you use [Figwheel][figwheel] the card above will appear instantly
-in the Devcards interface. It will appear under the namespace it was
-defined in and it will respond to changes as you continue to code.
+reloading. When you save the file that holds the definition above, a
+card containing the rendered template will appear instantly in the
+Devcards interface. It will appear under the namespace it was defined
+in and it will respond to changes as you continue to code.
+
+As you progress through a problem, you can create a set of cards that
+will all appear in the Devcards interface. This enables you to surface
+a set of examples that are **all** responding in real time to your
+code changes. At the end of a coding session you will potentially have
+a set of valuable artifacts (cards) that help you and others
+understand your approach to the problem.
 
 You can see an example of the Devcards interface [here](http://rigsomelight.com/devcards/).
 
+Devcards derives its interactivity from the live reloading leinigen
+plugin: [lein-figwheel]. Figwheel is a code reloading server/client
+combination that continually reloads compiled code into the browser as
+you change your ClojureScript sources.
+
 ## Developing 2048 with Devcards
 
-If you are curious about how this works in reality I have made a video
-in which I develop the 2048 game with the assistence of Devcards.
+If you are curious about how this looks in reality I have made a video
+in which I develop the [2048][2048] game with the assistence of Devcards.
 It's a long video but there is no other way to communicate the how
-amazing it is to interactively code in this manner.
+amazing it is to interactively develop with the assistence of Devcards.
 
 <div class="video-container">
 <iframe src="//player.vimeo.com/video/96664598?byline=0&amp;portrait=0" width="620" height="348" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
@@ -138,16 +149,17 @@ expected.
 
 This experience has driven home for me the paucity of feedback in our
 current development workflows. We are still in the cave looking at
-shadows. Bret Victor has expressed  [this][learnableprogramming]
-[several][unthinkable] times. Figwheel and Devcards have both turned up
-the feedback tremendously for me. Once you experience this for
-yourself your eyes will be opened and you will not freely give up this
-way of coding, just as you would be loath to give up your REPL now.
+shadows. Bret Victor has expressed [this][learnableprogramming]
+[several][unthinkable] times. Figwheel and Devcards have both the
+increased the amount of feedback I receive while I code by a very
+large factor. Once you experience this for yourself your eyes will be
+opened and you will not freely give up this way of coding, just as you
+would be loath to give up your REPL now.
 
 ## Pages of examples FTW
 
 As we all know, tests are not enough. Integration tests run in a black
-box and take forever, preventing real time feedback and can't catch
+box and take forever (preventing real time feedback) and they can't catch
 the most obvious of display errors. Unit tests live in an isolated
 world away from the real complexity where things actually go wrong.
 
@@ -177,9 +189,10 @@ There can also be cards that are very targeted, like a [regular
 expression card][rubular] which would present an interface to try different
 strings and allow you to change the regex.
 
-Different libraries could provide their own cards. [Quil][quil] is coming to
-ClojureScript imagine the Quil card? Or the [Threejs][threejs] card? Or the
-[DataScript][datascript] query composer card?
+Different libraries could provide their own cards. [Quil][quil] is
+coming to ClojureScript! Can you imagine the Quil card? Or the
+[Threejs][threejs] card? Or the [DataScript][datascript] query
+composer card?
 
 This is new territory and there are probably many creative helpful
 applications.
