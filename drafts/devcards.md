@@ -119,7 +119,9 @@ in which I develop the 2048 game with the assistence of Devcards.
 It's a long video but there is no other way to communicate the how
 amazing it is to interactively code in this manner.
 
+<div class="video-container">
 <iframe src="//player.vimeo.com/video/96664598?byline=0&amp;portrait=0" width="620" height="348" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
+</div>
 
 [the code from the video](https://gist.github.com/bhauman/68f965573ba660715b35)
 

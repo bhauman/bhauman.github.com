@@ -167,6 +167,13 @@
       width: 280px;
       height: 280px;
   }
+
+  .one-row-board .board-area {
+       height: 76px;
+       width: 280px;
+       overflow: hidden;
+  }
+
   .cell-pos, .cell {
       width: 60px;
       height: 60px;
