@@ -93,8 +93,8 @@ ease directly from the the source file your are working in.
 
 I have created [Devcards][devcards] as one possible solution to this
 problem. Devcards provides an interface that organizes a set of
-cards, where each card repesents a code example. Devcards allows you
-to define cards inline in your source file like so:
+cards, where each card represents a code example. Devcards allows you
+to define cards in-line in your source file like so:
 
 {% highlight clojure %}
 
@@ -118,31 +118,31 @@ understand your approach to the problem.
 
 You can see an example of the Devcards interface [here](http://rigsomelight.com/devcards/).
 
-Devcards derives its interactivity from the live reloading leinigen
-plugin: [lein-figwheel]. Figwheel is a code reloading server/client
+Devcards derives its interactivity from the live reloading Leinigen
+plugin: [lein-figwheel][figwheel-post]. Figwheel is a code reloading server/client
 combination that continually reloads compiled code into the browser as
 you change your ClojureScript sources.
 
 ## Developing 2048 with Devcards
 
 If you are curious about how this looks in reality I have made a video
-in which I develop the [2048][2048] game with the assistence of Devcards.
+in which I develop the [2048][2048] game with the assistance of Devcards.
 It's a long video but there is no other way to communicate the how
-amazing it is to interactively develop with the assistence of Devcards.
+amazing it is to interactively develop with the assistance of Devcards.
 
 <div class="video-container">
-<iframe src="//player.vimeo.com/video/96664598?byline=0&amp;portrait=0" width="620" height="348" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
+<iframe src="//player.vimeo.com/video/97078905?byline=0&amp;portrait=0" width="620" height="348" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
 </div>
 
 [the code from the video](https://gist.github.com/bhauman/68f965573ba660715b35)
 
-## Feedback - the utlimate progamming tool
+## Feedback - the ultimate programming tool
 
 Working with a page of visual code examples that are **all**
 responding to the code I am writing, provides an unprecedented amount
 of feedback and it accelerates my awareness of the ramifications of
 the code I am writing. Tests start to fail, entities start
-dissappearing, I can go back and interact with components in specific
+disappearing, I can go back and interact with components in specific
 states and see how they are responding to recent code changes. I can
 then move to other pages of cards and see if they are still working as
 expected.
@@ -208,6 +208,7 @@ The [readme on Github][devcards] provides instructions for getting started.
 
 [devcards]: https://github.com/bhauman/devcards
 [figwheel]: https://github.com/bhauman/lein-figwheel
+[figwheel-post]: http://rigsomelight.com/2014/05/01/interactive-programming-flappy-bird-clojurescript.html
 [2048]: http://gabrielecirulli.github.io/2048/
 [learnableprogramming]: http://worrydream.com/LearnableProgramming/
 [unthinkable]: http://worrydream.com/#!/MediaForThinkingTheUnthinkable
@@ -216,5 +217,11 @@ The [readme on Github][devcards] provides instructions for getting started.
 [datascript]: https://github.com/tonsky/datascript
 [rubular]: http://rubular.com/
 
+## Links 
+
+
+
+
 <script src="/resources/public/devcards/js/devcard-examples-prod.js"></script>
+
 
