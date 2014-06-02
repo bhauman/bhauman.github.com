@@ -441,14 +441,22 @@
        (<! (timeout 400))
        (swap! data remove-highlight-and-reveal)))))
 
+(defn prevent [f]
+  (fn [e]
+    (.preventDefault e)
+    (f e)))
+
 (defn one-row-board [reset-state data]
   (sab/html
    [:div.one-row-board
     (game-board (vals @data))
     [:div.row
-     [:span.col-md-1 [:a {:onClick (fn [] (one-row-move :left data))} "left"]]
-     [:span.col-md-1 [:a {:onClick (fn [] (one-row-move :right data))} "right"]]
-     [:span.col-md-1 [:a {:onClick (fn [] (swap! data (fn [_] reset-state)))} "reset"]]]]))
+     [:span.col-md-1 [:a {:onClick (prevent #(one-row-move :left data))
+                          :href "#"} "left"]]
+     [:span.col-md-1 [:a {:onClick (prevent #(one-row-move :right  data))
+                          :href "#"} "right"]]
+     [:span.col-md-1 [:a {:onClick (prevent #(swap! data (fn [_] reset-state)))
+                          :href "#"} "reset"]]]]))
 
 (defn one-row-board-card [start-state]
   (dc/react-runner-card

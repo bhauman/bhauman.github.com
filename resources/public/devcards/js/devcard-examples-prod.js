@@ -34214,17 +34214,24 @@ devcard_examples.two_zero.one_row_move = function(a, b) {
   }
   return null;
 };
+devcard_examples.two_zero.prevent = function(a) {
+  return function(b) {
+    b.preventDefault();
+    return a.call(null, b);
+  };
+};
 devcard_examples.two_zero.one_row_board = function(a, b) {
   var c = devcard_examples.two_zero.game_board.call(null, cljs.core.vals.call(null, cljs.core.deref.call(null, b)));
-  return cljs.core.map_QMARK_.call(null, c) ? React.DOM.div(sablono.interpreter.attributes.call(null, sablono.util.merge_with_class.call(null, new cljs.core.PersistentArrayMap(null, 1, [new cljs.core.Keyword(null, "class", "class", 1108647146), new cljs.core.PersistentVector(null, 1, 5, cljs.core.PersistentVector.EMPTY_NODE, ["one-row-board"], null)], null), c)), React.DOM.div({className:"row"}, React.DOM.span({className:"col-md-1"}, React.DOM.a({onClick:function(a) {
+  return cljs.core.map_QMARK_.call(null, c) ? React.DOM.div(sablono.interpreter.attributes.call(null, sablono.util.merge_with_class.call(null, new cljs.core.PersistentArrayMap(null, 1, [new cljs.core.Keyword(null, "class", "class", 1108647146), new cljs.core.PersistentVector(null, 1, 5, cljs.core.PersistentVector.EMPTY_NODE, ["one-row-board"], null)], null), c)), React.DOM.div({className:"row"}, React.DOM.span({className:"col-md-1"}, React.DOM.a({onClick:devcard_examples.two_zero.prevent.call(null, 
+  function(a) {
     return function() {
       return devcard_examples.two_zero.one_row_move.call(null, new cljs.core.Keyword(null, "left", "left", 1017222009), b);
     };
-  }(c)}, "left")), React.DOM.span({className:"col-md-1"}, React.DOM.a({onClick:function(a) {
+  }(c)), href:"#"}, "left")), React.DOM.span({className:"col-md-1"}, React.DOM.a({onClick:devcard_examples.two_zero.prevent.call(null, function(a) {
     return function() {
       return devcard_examples.two_zero.one_row_move.call(null, new cljs.core.Keyword(null, "right", "right", 1122416014), b);
     };
-  }(c)}, "right")), React.DOM.span({className:"col-md-1"}, React.DOM.a({onClick:function(c) {
+  }(c)), href:"#"}, "right")), React.DOM.span({className:"col-md-1"}, React.DOM.a({onClick:devcard_examples.two_zero.prevent.call(null, function(c) {
     return function() {
       return cljs.core.swap_BANG_.call(null, b, function(b) {
         return function(b) {
@@ -34232,15 +34239,15 @@ devcard_examples.two_zero.one_row_board = function(a, b) {
         };
       }(c));
     };
-  }(c)}, "reset")))) : React.DOM.div({className:"one-row-board"}, sablono.interpreter.interpret.call(null, c), React.DOM.div({className:"row"}, React.DOM.span({className:"col-md-1"}, React.DOM.a({onClick:function(a) {
+  }(c)), href:"#"}, "reset")))) : React.DOM.div({className:"one-row-board"}, sablono.interpreter.interpret.call(null, c), React.DOM.div({className:"row"}, React.DOM.span({className:"col-md-1"}, React.DOM.a({onClick:devcard_examples.two_zero.prevent.call(null, function(a) {
     return function() {
       return devcard_examples.two_zero.one_row_move.call(null, new cljs.core.Keyword(null, "left", "left", 1017222009), b);
     };
-  }(c)}, "left")), React.DOM.span({className:"col-md-1"}, React.DOM.a({onClick:function(a) {
+  }(c)), href:"#"}, "left")), React.DOM.span({className:"col-md-1"}, React.DOM.a({onClick:devcard_examples.two_zero.prevent.call(null, function(a) {
     return function() {
       return devcard_examples.two_zero.one_row_move.call(null, new cljs.core.Keyword(null, "right", "right", 1122416014), b);
     };
-  }(c)}, "right")), React.DOM.span({className:"col-md-1"}, React.DOM.a({onClick:function(c) {
+  }(c)), href:"#"}, "right")), React.DOM.span({className:"col-md-1"}, React.DOM.a({onClick:devcard_examples.two_zero.prevent.call(null, function(c) {
     return function() {
       return cljs.core.swap_BANG_.call(null, b, function(b) {
         return function(b) {
@@ -34248,7 +34255,7 @@ devcard_examples.two_zero.one_row_board = function(a, b) {
         };
       }(c));
     };
-  }(c)}, "reset"))));
+  }(c)), href:"#"}, "reset"))));
 };
 devcard_examples.two_zero.one_row_board_card = function(a) {
   return devcards.core.react_runner_card.call(null, cljs.core.partial.call(null, devcard_examples.two_zero.one_row_board, a), new cljs.core.PersistentArrayMap(null, 1, [new cljs.core.Keyword(null, "initial-state", "initial-state", 4067401786), a], null));
