@@ -51,25 +51,6 @@ We are going to use drawing code similar to the last post:
 
 {% endhighlight %}
 
-<style>
-@media (max-width: 480px) {
-  .clojure {
-    font-size: 12px;
-  }
-  .highlight pre {
-    word-break: normal;
-    word-wrap: normal;
-    overflow-x: scroll;
-  }
-  .highlight pre code {
-    white-space: pre;
-  }
-  .dots-game-container {
-    margin-left: -21px;
-  }
-}
-</style>
-
 The above code simply gathers the low level event sources into a
 channel of messages that represent the act of drawing.
 

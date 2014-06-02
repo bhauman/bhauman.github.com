@@ -203,7 +203,7 @@ The [readme on Github][devcards] provides instructions for getting started.
 
 * [Devcards][devcards]
 * [Figwheel introductory blog post][figwheel-post]
-* [figwheel][figwheel]
+* [Figwheel][figwheel]
 * [2048 game][2048]
 * [Learnable Programming][learnableprogramming]
 * [Media for Thinking the Unthinkable][unthinkable]
