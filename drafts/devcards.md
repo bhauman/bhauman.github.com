@@ -46,7 +46,7 @@ instance into state we are wanting to check.
 
 Thus constrained, we are less likely to freely experiment but rather
 continually run a cost-benefit analysis in our heads as to whether
-trying to validate a certain piece code is practical in our current
+trying to validate a certain piece of code is practical in our current
 application environment. We end up writing longer stretches of code
 without the value of feedback. I would venture that this alters the code
 we write, as we will be prejudiced towards conservative tried and true
@@ -123,12 +123,10 @@ plugin: [lein-figwheel][figwheel-post]. Figwheel is a code reloading server/clie
 combination that continually reloads compiled code into the browser as
 you change your ClojureScript sources.
 
-## Developing 2048 with Devcards
+## Developing with Devcards
 
-If you are curious about how this looks in reality I have made a video
-in which I develop the [2048][2048] game with the assistance of Devcards.
-It's a long video but there is no other way to communicate the how
-amazing it is to interactively develop with the assistance of Devcards.
+If you are curious about how this looks in reality, check out the
+demonstration video. 
 
 <div class="video-container">
 <iframe src="//player.vimeo.com/video/97078905?byline=0&amp;portrait=0" width="620" height="348" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
@@ -149,12 +147,12 @@ expected.
 
 This experience has driven home for me the paucity of feedback in our
 current development workflows. We are still in the cave looking at
-shadows. Bret Victor has expressed [this][learnableprogramming]
-[several][unthinkable] times. Figwheel and Devcards have both the
-increased the amount of feedback I receive while I code by a very
-large factor. Once you experience this for yourself your eyes will be
-opened and you will not freely give up this way of coding, just as you
-would be loath to give up your REPL now.
+shadows. Bret Victor has eloquently expressed this
+[several][unthinkable] [times][learnableprogramming]. Figwheel and
+Devcards have both the increased the amount of feedback I receive
+while I code by a very large factor. Once you experience this for
+yourself your eyes will be opened and you will not freely give up this
+way of coding, just as you would be loath to give up your REPL now.
 
 ## Pages of examples FTW
 
@@ -182,12 +180,9 @@ library of very helpful cards at your fingertips as you program is
 very high.
 
 We can create cards with history management and backtracking built in.
-We can create cards that mimic parts of Bret Victors [learnable
-programming][learnableprogramming].
-
 There can also be cards that are very targeted, like a [regular
-expression card][rubular] which would present an interface to try different
-strings and allow you to change the regex.
+expression][rubular] card which would present an interface to try
+different strings and allow you to change the regex.
 
 Different libraries could provide their own cards. [Quil][quil] is
 coming to ClojureScript! Can you imagine the Quil card? Or the
@@ -204,6 +199,16 @@ you give it a try.
 
 The [readme on Github][devcards] provides instructions for getting started.
 
+## Links 
+
+* [Devcards][devcards]
+* [Figwheel introductory blog post][figwheel-post]
+* [figwheel][figwheel]
+* [2048 game][2048]
+* [Learnable Programming][learnableprogramming]
+* [Media for Thinking the Unthinkable][unthinkable]
+* [React](http://facebook.github.io/react/)
+* [Om](https://github.com/swannodette/om)
 
 
 [devcards]: https://github.com/bhauman/devcards
@@ -216,10 +221,6 @@ The [readme on Github][devcards] provides instructions for getting started.
 [threejs]: http://threejs.org/
 [datascript]: https://github.com/tonsky/datascript
 [rubular]: http://rubular.com/
-
-## Links 
-
-
 
 
 <script src="/resources/public/devcards/js/devcard-examples-prod.js"></script>
