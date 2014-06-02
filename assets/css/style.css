@@ -193,3 +193,19 @@ code {
 .devcard-padding-top {
     padding-top: 14px;
 }
+
+
+@media (max-width: 480px) {
+  .clojure {
+    font-size: 12px;
+  }
+  .highlight pre {
+    word-break: normal;
+    word-wrap: normal;
+    overflow-x: scroll;
+  }
+  .highlight pre code {
+    white-space: pre;
+  }
+}
+
