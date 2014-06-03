@@ -6,12 +6,11 @@ category:
 tags: []
 ---
 
-<link href="/resources/public/devcards/two-zero.css" rel="stylesheet" type="text/css">
-
 [Devcards][devcards] is a ClojureScript library that helps developers
 interactively lift code examples out of their source files into an
 organized set of cards in the browser.
 
+<link href="/resources/public/devcards/two-zero.css" rel="stylesheet" type="text/css">
 <p>
 <a href="https://github.com/bhauman/devcards">
 <img class="img-responsive" src="https://s3.amazonaws.com/bhauman-blog-images/devcards-action-shot.png"/>
@@ -213,6 +212,10 @@ The [readme on Github][devcards] provides instructions for getting started.
 * [Media for Thinking the Unthinkable][unthinkable]
 * [React](http://facebook.github.io/react/)
 * [Om](https://github.com/swannodette/om)
+
+## Comments
+
+[Join the discussion on Hacker News](https://news.ycombinator.com/item?id=7841389)
 
 ## Thanks 
 
