@@ -8,7 +8,7 @@ tags: []
 
 <link href="/resources/public/devcards/two-zero.css" rel="stylesheet" type="text/css">
 
-# Devcards, a visual REPL experience for ClojureScript 
+# Devcards, Taking Interactivity to the Next Level with ClojureScript 
 
 [Devcards][devcards] is a ClojureScript library that helps developers
 interactively lift code examples out of their source files into an
@@ -20,23 +20,28 @@ organized set of cards in the browser.
 </a>
 </p>
 
+## TLDR
+
+If you have to have the goods now, skip ahead and watch [the
+video](#developing-with-devcards).
+
 ## Code examples and feedback
 
 A REPL allows us to interactively try different code examples and
-validate that we understand their behavior. For programmers who are
-used to this workflow, this interactive validation of expectations
-starts to become a cornerstone of how they strategize and corner the
-solution to a particular problem. However, when you are coding UIs for
-the browser you often want to verify code that has a display aspect
-and the REPL doesn't help.
+quickly confirm that we understand their behavior. For programmers who
+are used to this workflow, this interactive validation of expectations
+starts to become a cornerstone of how they strategize and arrive at
+the solution to a particular problem. However, when you are coding UIs
+for the browser you often want to verify code that has a certain
+display characteristic and in this case the REPL doesn't help.
 
 The current workflow for verifying visual behavior in the browser is
 normally constrained to editing, reloading and then manually
 manipulating the main application into a particular state. For
 example: we are writing a game, and we just changed some behavior of
 the game and need to verify that the change worked. We will have to
-interact with the game in order to put it into the specific state which will
-help us validate our change worked. 
+interact with the game in order to put it into the specific state
+which will help us validate our change worked.
 
 We are normally constrained to working within **ONE** instance of the
 application at hand. It doesn't have to be this way, but currently the
@@ -48,24 +53,25 @@ Thus constrained, we are less likely to freely experiment but rather
 continually run a cost-benefit analysis in our heads as to whether
 trying to validate a certain piece of code is practical in our current
 application environment. We end up writing longer stretches of code
-without the value of feedback. I would venture that this alters the code
-we write, as we will be prejudiced towards conservative tried and true
-patterns that will reduce the likely pain of having to repeatedly
-manipulate the main application into a certain state over and over
-again.
+without the valuable feedback that a REPL provides. I would venture
+that this alters the code we write. We become prejudiced towards
+conservative, proven, patterns that will reduce the likely pain
+of having to repeatedly manipulate the main application into a certain
+state over and over again.
 
-This is an extreme divergence from the REPL experience where we can
-try out different code examples with relative ease and low cost.
+This is an extreme divergence from developing with a REPL where we can
+where we can experiment with different code examples at low cost and
+with relative ease.
 
-I am proposing a straight forward solution to this. A library that
-allows us to easily create code examples in our source files which
-will be immediately presented to us in the browser. This library is
-intended to bring the interactive nature of REPL coding to problems
-that are graphical in nature.
+I am proposing a straightforward solution to this problem, a library
+that allows us to easily create code examples in our source files
+which are then immediately presented to us in the browser. This
+library is intended to bring the interactive nature of developing
+using a REPL to problems that are graphical in nature.
 
-For example, this library would make it effortless to interactively
-surface several [2048][2048] boards in different starting states. Feel
-free to interact with these examples.
+For example, this library would make it easy to interactively surface
+several [2048][2048] boards in different starting states. Feel free to
+interact with these examples.
 
 <div class="panel panel-default devcard-panel devcard-padding devcard-padding-top">
   <div id="tz-board-1"></div>
@@ -92,9 +98,9 @@ ease directly from the the source file your are working in.
 ## Introducing Devcards
 
 I have created [Devcards][devcards] as one possible solution to this
-problem. Devcards provides an interface that organizes a set of
-cards, where each card represents a code example. Devcards allows you
-to define cards in-line in your source file like so:
+problem. Devcards provides an interface that organizes a set of code
+examples, where each code example is represented by a card. Devcards
+allows you to define cards in-line in your source file like so:
 
 {% highlight clojure %}
 
@@ -105,9 +111,9 @@ to define cards in-line in your source file like so:
 
 Devcards is written with a great deal of attention towards live code
 reloading. When you save the file that holds the definition above, a
-card containing the rendered template will appear instantly in the
-Devcards interface. It will appear under the namespace it was defined
-in and it will respond to changes as you continue to code.
+card containing the rendered template will instantly appear in the
+Devcards interface. Cards are organized by their namespace and will
+respond to changes as you continue to code.
 
 As you progress through a problem, you can create a set of cards that
 will all appear in the Devcards interface. This enables you to surface
@@ -137,9 +143,9 @@ demonstration video.
 ## Feedback - the ultimate programming tool
 
 Working with a page of visual code examples that are **all**
-responding to the code I am writing, provides an unprecedented amount
-of feedback and it accelerates my awareness of the ramifications of
-the code I am writing. Tests start to fail, entities start
+responding to the code I am writing, provides an unprecedented level
+of feedback that can increase my awareness of the changes propagated
+due to the code I am writing. Tests start to fail, entities start
 disappearing, I can go back and interact with components in specific
 states and see how they are responding to recent code changes. I can
 then move to other pages of cards and see if they are still working as
@@ -150,14 +156,14 @@ current development workflows. We are still in the cave looking at
 shadows. Bret Victor has eloquently expressed this
 [several][unthinkable] [times][learnableprogramming]. Figwheel and
 Devcards have both the increased the amount of feedback I receive
-while I code by a very large factor. Once you experience this for
-yourself your eyes will be opened and you will not freely give up this
-way of coding, just as you would be loath to give up your REPL now.
+while I code by a very large factor. Once you experience this your
+eyes will be opened and you will not freely give up this way of
+coding, just as you would be loath to give up your REPL now.
 
 ## Pages of examples FTW
 
 As we all know, tests are not enough. Integration tests run in a black
-box and take forever (preventing real time feedback) and they can't catch
+box and take forever (preventing real time feedback) and can't catch
 the most obvious of display errors. Unit tests live in an isolated
 world away from the real complexity where things actually go wrong.
 
@@ -209,6 +215,11 @@ The [readme on Github][devcards] provides instructions for getting started.
 * [Media for Thinking the Unthinkable][unthinkable]
 * [React](http://facebook.github.io/react/)
 * [Om](https://github.com/swannodette/om)
+
+## Thanks 
+
+Special thanks to @willsommers for taking time to review and correct
+the copy in this post.
 
 
 [devcards]: https://github.com/bhauman/devcards
