@@ -1,5 +1,5 @@
 ---
-layout: default
+layout: post
 title: "Devcards, Taking Interactivity to the Next Level"
 published: true
 category: 
