@@ -1,14 +1,12 @@
 ---
 layout: default
-title: "Devcards"
+title: "Devcards, Taking Interactivity to the Next Level"
 published: true
 category: 
 tags: []
 ---
 
 <link href="/resources/public/devcards/two-zero.css" rel="stylesheet" type="text/css">
-
-# Devcards, Taking Interactivity to the Next Level
 
 [Devcards][devcards] is a ClojureScript library that helps developers
 interactively lift code examples out of their source files into an
