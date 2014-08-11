@@ -56,9 +56,9 @@ conservative, proven, patterns that will reduce the likely pain
 of having to repeatedly manipulate the main application into a certain
 state over and over again.
 
-This is an extreme divergence from developing with a REPL where we can
-where we can experiment with different code examples at low cost and
-with relative ease.
+This is an extreme divergence from developing with a REPL where we can 
+experiment with different code examples at low cost and with relative 
+ease.
 
 I am proposing a straightforward solution to this problem, a library
 that allows us to easily create code examples in our source files
@@ -90,7 +90,7 @@ very helpful in nailing down the behavior of shifting tile rows.
 
 Seeing examples like these side by side is a luxury that we are not
 accustomed to. Now imagine being able to surface code examples with
-ease directly from the the source file your are working in.
+ease directly from the the source file you are working in.
 
 ## Introducing Devcards
 
@@ -152,8 +152,8 @@ This experience has driven home for me the paucity of feedback in our
 current development workflows. We are still in the cave looking at
 shadows. Bret Victor has eloquently expressed this
 [several][unthinkable] [times][learnableprogramming]. Figwheel and
-Devcards have both the increased the amount of feedback I receive
-while I code by a very large factor. Once you experience this your
+Devcards have both increased the amount of feedback I receive
+while I code by a very large factor. Once you experience this, your
 eyes will be opened and you will not freely give up this way of
 coding, just as you would be loath to give up your REPL now.
 
