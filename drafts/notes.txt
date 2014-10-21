@@ -1,0 +1,58 @@
+Notes for tryanny of domain state
+
+Elevating inputs from there current ephemeral status to the level of
+concrete transaction log is preferable.
+
+This transaction log should be semantic with regard to the
+interactions of the application.  [:add-todo {:content "buy milk"}]
+
+Other levels of transaction granularity obscure the users intentions
+and mould the transactions into a more general api and thus or mask
+the users intention and reveal implementation details.
+
+
+
+Downgrading domain state from its current status as root of all truth 
+
+
+Inputs 
+
+All interactive programs have inputs. The average client side web
+application has many types of inputs.
+
+- user triggered events
+- callbacks from the server
+- various browser api callbacks
+
+These are all examples of inputs to our system.
+
+Example:
+
+
+Domain State
+
+The state that an application keeps stored in memory or otherwise to
+answer the questions that will be asked of the application.  One
+general question is "What does the screen look like now?"
+
+Instances of Todo models and collections of activity feed models are
+all 
+
+
+
+Inputs as Ephemeral
+
+- at the user interaction level we throw away the inputs
+
+
+
+
+Domain state regarded as primary
+
+- we have a preference for our domain models because we like to solve
+  problems with things we can hold onto
+
+- we prefer domain state and gravitate towards those data structures
+  that help us answer the questions that we are designing the
+  application to answer. Only problem is that the questions change.
+
