@@ -272,8 +272,8 @@ into a few easily assembled parts.  The idea being that this
 methodology can be reused for other geodesic structures.
 
 There is enough here for experienced makers to have a go but if you
-are intent on making one of these domes please
-[contact](mailto:bhauman@gmail.com) me.
+are really intent on making one of these domes please
+be careful and construct several paper models first.
 
 One of my aims here is to make domes a little less scary to the less
 mathematically inclined.
