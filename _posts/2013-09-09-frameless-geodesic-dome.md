@@ -511,9 +511,6 @@ eggshell that was standing. It collapsed and my friends and I spent a
 day trying to keep it up and the snow off of it. I am very grateful
 for their help that day.
 
-Again, if you are itching to build one of these domes
-[contact](mailto:bhauman@gmail.com) me before you start.
-
 ## Appropriate Shelter
 
 One might think that I am saying that people should dump their heavy
