@@ -18,6 +18,7 @@ its current feature set live.
 <div class="video-container">
 <iframe width="620" height="350" src="https://www.youtube.com/embed/j-kj2qwJa_E" frameborder="0" allowfullscreen></iframe>
 </div>
+<br/>
 
 ClojureWest was an absolutely amazing experience. Met some absolutely great folks and I am really looking forwar to next year.
 
