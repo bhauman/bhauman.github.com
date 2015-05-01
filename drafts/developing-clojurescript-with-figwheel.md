@@ -42,7 +42,7 @@ ClojureWest was an absolutely amazing experience. I enjoyed meeting some absolut
 
 ## Links
 
-* [Talk on Youtube](https://www.youtube.com/watch?v=j-kj2qwJa_E&feature=youtu.be)
+* [This Talk on Youtube](https://www.youtube.com/watch?v=j-kj2qwJa_E&feature=youtu.be)
 * [Figwheel](https://github.com/bhauman/lein-figwheel)
 * [Crashverse](https://github.com/bhauman/crashverse)
 * [ClojureTV](https://www.youtube.com/channel/UCaLlzGqiPE2QRj6sSOawJRg)
