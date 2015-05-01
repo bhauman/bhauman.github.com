@@ -15,9 +15,11 @@ development workflow when you are working with ClojureScript.
 In the talk I explain why I created Figwheel and then I demonstrate
 its current feature set live.
 
-The Demo starts at about (11:10)[https://www.youtube.com/watch?v=j-kj2qwJa_E&feature=youtu.be&t=669].
+I have embeded videos that start at the different sections of the talk below. You can also use the following links to view the talk on youtube.
 
-The question and answer section starts at (31:50)[https://www.youtube.com/watch?v=j-kj2qwJa_E&feature=youtu.be&t=1910].
+The Demo starts at about [11:10](https://www.youtube.com/watch?v=j-kj2qwJa_E&feature=youtu.be&t=669).
+
+The question and answer section starts at [31:50](https://www.youtube.com/watch?v=j-kj2qwJa_E&feature=youtu.be&t=1910).
 
 <div class="video-container">
 <iframe width="620" height="350" src="https://www.youtube.com/embed/j-kj2qwJa_E" frameborder="0" allowfullscreen></iframe>
@@ -38,10 +40,16 @@ The question and answer section starts at (31:50)[https://www.youtube.com/watch?
 </div>
 <br/>
 
+Take advantage of the fact that all the ClojureWest Sessions are [now currently online)[https://www.youtube.com/channel/UCaLlzGqiPE2QRj6sSOawJRg].
+
 ClojureWest was an absolutely amazing experience. I enjoyed meeting some absolutely great folks and I am really looking forward to next year.
+
+
 
 ## Links
 
+* [Talk on Youtube](https://www.youtube.com/watch?v=j-kj2qwJa_E&feature=youtu.be)
 * [Figwheel](https://github.com/bhauman/lein-figwheel)
 * [Crashverse](https://github.com/bhauman/crashverse)
+* [ClojureTV](https://www.youtube.com/channel/UCaLlzGqiPE2QRj6sSOawJRg)
 
