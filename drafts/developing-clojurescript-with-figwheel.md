@@ -20,7 +20,7 @@ its current feature set live.
 </div>
 <br/>
 
-ClojureWest was an absolutely amazing experience. Met some absolutely great folks and I am really looking forwar to next year.
+ClojureWest was an absolutely amazing experience. I enjoyed meeting some absolutely great folks and I am really looking forward to next year.
 
 ## Links
 
