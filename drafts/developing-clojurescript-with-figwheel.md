@@ -12,14 +12,10 @@ I recently had a lot of fun giving a talk about [Figwheel](https://github.com/bh
 ClojureWest 2015. Figwheel facilitates an almost effortless live
 development workflow when you are working with ClojureScript.
 
-In the talk I explain why I created Figwheel and then I demonstrate
+In the talk, I explained why I created Figwheel and I demonstrated
 its current feature set live.
 
-I have embeded videos that start at the different sections of the talk below. You can also use the following links to view the talk on youtube.
-
-The Demo starts at about [11:10](https://www.youtube.com/watch?v=j-kj2qwJa_E&feature=youtu.be&t=669).
-
-The question and answer section starts at [31:50](https://www.youtube.com/watch?v=j-kj2qwJa_E&feature=youtu.be&t=1910).
+Below, I have embedded videos that start at the different sections of the talk.
 
 <div class="video-container">
 <iframe width="620" height="350" src="https://www.youtube.com/embed/j-kj2qwJa_E" frameborder="0" allowfullscreen></iframe>
@@ -40,11 +36,9 @@ The question and answer section starts at [31:50](https://www.youtube.com/watch?
 </div>
 <br/>
 
-Take advantage of the fact that all the ClojureWest Sessions are [now currently online)[https://www.youtube.com/channel/UCaLlzGqiPE2QRj6sSOawJRg].
+Take advantage of the fact that all the ClojureWest Sessions are [now currently online](https://www.youtube.com/channel/UCaLlzGqiPE2QRj6sSOawJRg).
 
 ClojureWest was an absolutely amazing experience. I enjoyed meeting some absolutely great folks and I am really looking forward to next year.
-
-
 
 ## Links
 
