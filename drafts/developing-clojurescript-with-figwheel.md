@@ -15,8 +15,19 @@ development workflow when you are working with ClojureScript.
 In the talk I explain why I created Figwheel and then I demonstrate
 its current feature set live.
 
+The Demo starts at about (11:10)[https://www.youtube.com/watch?v=j-kj2qwJa_E&feature=youtu.be&t=669].
+
+The question and answer section starts at (31:50)[https://www.youtube.com/watch?v=j-kj2qwJa_E&feature=youtu.be&t=669].
+
 <div class="video-container">
 <iframe width="620" height="350" src="https://www.youtube.com/embed/j-kj2qwJa_E" frameborder="0" allowfullscreen></iframe>
+</div>
+<br/>
+
+#### Live demo
+
+<div class="video-container">
+<iframe width="620" height="350" src="https://www.youtube.com/embed/j-kj2qwJa_E?start=670" frameborder="0" allowfullscreen></iframe>
 </div>
 <br/>
 
