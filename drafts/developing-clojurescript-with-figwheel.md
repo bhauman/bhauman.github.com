@@ -10,10 +10,9 @@ tags: []
 
 I recently had a lot of fun giving a talk about [Figwheel](https://github.com/bhauman/lein-figwheel) in Portland, at
 ClojureWest 2015. Figwheel facilitates an almost effortless live
-development workflow when you are working with ClojureScript and
-React.js.
+development workflow when you are working with ClojureScript.
 
-In the talk I explain why I created Figwheel and I demonstrate
+In the talk I explain why I created Figwheel and then I demonstrate
 its current feature set live.
 
 <div class="video-container">
