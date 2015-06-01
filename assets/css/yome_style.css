@@ -1,0 +1,44 @@
+body {
+    background-color: rgb(24,26,38);
+    color: white;
+    font-family: sans-serif;
+}
+
+svg line, svg polygon, svg ellipse {
+   stroke: #2997ab;
+   stroke-width: 2;
+   fill: transparent;
+    -webkit-animation: appear 0.7s;
+}
+
+.yome-widget-body { position: relative; }
+.control-holder   { position: absolute; }
+
+.window-control-offset {
+    position: relative;
+    top: -7px;
+    left: -25px;
+}
+
+.corner-control-offset {
+    position: relative;
+    top: -21px;
+    left: -35px;
+}
+
+a {
+    color: white;
+    text-decoration: none;
+    display: block;
+    font-size: 12px;
+}
+
+
+a.remove { color: rgb(239, 131, 75);}
+a.hidden { visibility: hidden;}
+
+@-webkit-keyframes appear {
+    0% { opacity: 0; }
+    100% { opacity: 1;}
+}
+

@@ -1,0 +1,64 @@
+.yome-widget {
+    background-color: rgb(24,26,38);
+    color: white;
+    font-family: sans-serif;
+    margin-bottom: 2em;
+    padding-top: 20px;
+    padding-bottom: 20px;
+}
+
+.yome-widget svg line,
+.yome-widget svg polygon,
+.yome-widget svg ellipse {
+   stroke: #2997ab;
+   stroke-width: 2;
+   fill: transparent;
+    -webkit-animation: yome-widget-appear 0.7s;
+}
+
+.yome-widget .top-control {
+    width: 208px;
+    margin: auto;
+}
+
+.yome-widget-body {
+    position: relative;
+    width: 500px;
+    margin: auto;
+}
+
+.control-holder   { width: 10px; position: absolute; }
+
+.yome-widget .window-control-offset {
+    position: relative;
+    top: -7px;
+    left: -25px;
+    width: 55px;
+    height: 14px;
+}
+
+.yome-widget .corner-control-offset {
+    position: relative;
+    top: -21px;
+    left: -35px;
+    height: 42px;
+    width: 70px;
+}
+
+.yome-widget a {
+    color: #f2eac4;    
+    text-decoration: none;
+    display: block;
+    font-size: 12px;
+    line-height: 1.2em;
+    text-align: left;    
+}
+
+.yome-widget a.remove { color: rgb(239, 131, 75);}
+.yome-widget a.hidden { visibility: hidden; display:block !important; }
+
+@-webkit-keyframes yome-widget-appear {
+    0% { opacity: 0; }
+    100% { opacity: 1;}
+}
+

@@ -6,6 +6,10 @@ category:
 tags: []
 ---
 
+<script>
+  React.renderComponent = React.render;
+</script>
+
 [Devcards][devcards] is a ClojureScript library that helps developers
 interactively lift code examples out of their source files into an
 organized set of cards in the browser.
