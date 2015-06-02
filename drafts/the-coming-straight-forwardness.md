@@ -24,12 +24,12 @@ tags: []
 <img src="/assets/images/yome.jpg" style="width: 100%;">
 </div>
 
-My friend Peter, the inventor of the Yome and proprietor of [Red Sky
-Shelters](http://redskyshelters.com/) asked me to update a widget that
-I built for him 9 years ago. He is moving his website and the current
-widget is aestheticly dated and not portable. The widget itself allows
-a client to show where windows and doors should be placed on the walls
-of their Yome (pictured above).
+My friend Peter, the inventor of the Yome (pictured above) and
+proprietor of [Red Sky Shelters](http://redskyshelters.com/) asked me
+to update a widget that I built for him 9 years ago. He is moving his
+website and the current widget is aestheticly dated and not portable.
+The widget itself allows a client to show where windows and doors
+should be placed on the walls of their Yome.
 
 I wrote a JavaScript version of this widget for this blog post. You
 can see the widget below:
@@ -89,7 +89,7 @@ As of late, I have been hearing what seems like justified reactions to
 this complexity. Folks are saying things like: [JQuery considered
 harmful](http://lea.verou.me/2015/04/jquery-considered-harmful/),
 "Frameworks are dead", etc. There seems to be a reductionism at hand
-and its understandable. For a fun talk about this see [Programming
+and its understandable. For a really great talk about this see [Programming
 with Hand Tools](https://www.youtube.com/watch?v=ShEez0JkOFw).
 
 The main point here is we actually want to reduce cognitive overhead,
@@ -109,8 +109,9 @@ increase the complexity of a program**. The complexity and cognitive
 overhead of your program grows exponentially the more
 mutable-state/side-effects that you have. When you reason about your
 program you have to account for the potential state of all these
-changeable/changing entities and entity systems. This is, my friend, is
-cognitive overhead.
+changable/changing entities and entity systems. It is amazing how
+quickly things grow past our ability to effectively reason about them.
+This, my friend, is cognitive overhead.
 
 But in order to write a program we have to compute, right? Where
 does that leave us?
@@ -121,8 +122,7 @@ side effects, it leaves us with the pure function:
 > `view = F(state)`
 
 This is the very base of computation, and it's very hard to simplify
-past this point. (Declarative programming does this, but that is a
-digression ...)
+past this point. (Declarative programming does this, but ...)
 
 Using functions we can add code to our programs without significantly
 increasing the complexity. As a result, programming with pure functions
@@ -130,12 +130,12 @@ is more like taking a relaxing stroll. You can really limit the scope
 of your thinking to the input and output of the current function.
 
 Of course, pure functions can only take us so far in an interactive
-program. State and views have to **change** in response to user actions.
-But I am going to ruthlessly stick to pure functions as far as I can
-and when I have to compromise and write a function with side effects I
-will. But in doing so I will minimize complexity as much as possible
-and then hopefully the only complexity I have left will represent the
-**essential complexity** of the program.
+program. State and views have to **change** in response to user
+actions. But I am going to ruthlessly stick to pure functions as far
+as I can and when I have to compromise and write a function with side
+effects I will. In doing so, I will minimize complexity as much as
+possible and then hopefully the only complexity I have left will
+represent the **essential complexity** of the program.
 
 Also, I'm going to be using functional programming in a
 __straightforward__ manner. No esoteric functional meanderings. I'm
@@ -155,9 +155,9 @@ straightforward.
 ### YAGNI - You really aren't going to need it
 
 It can be very exciting to follow the cutting edge of best practices,
-frameworks and implementation patterns. It's just that normally the
-queue of what's cool starts on one end with a great PR push and
-eventually comes out the other to fall into a trash bin.
+frameworks and implementation patterns. It's just that the queue of
+what's cool starts at one end with a great PR push and eventually
+comes out the other to fall into a trash bin.
 
 I'm not only going to be reductive with my computation but my tooling
 as well.
@@ -321,7 +321,7 @@ system>/yome_widget/index.html` and open `yome_widget/src/yome.js` in
 your favorite text editor.
 
 From now on you can add the JavaScript code into the file by appending
-each function definition in this post to the `yome.js` file.
+the displayed code in this post to the `yome.js` file.
 
 ### The future is live
 
@@ -1238,12 +1238,12 @@ If we could get away with doing pure computation all of the time I
 really think we would. But eventually we are going to face
 some computational limits.
 
-When using functions in this manner to return a complete Virtual DOM
+When using pure functions to return a complete Virtual DOM
 representation of an application view, it is possible that the size of
 our Virtual DOM tree will get too bulky for the React differencing
-algorithm to complete quickly. It is at this point, that I will
-start breaking the appliciation down into some well placed React
-components to trim the Virtual Dom tree a bit.
+algorithm to complete quickly. It is at this point, that I will start
+breaking the appliciation down into some well placed React components
+to trim the Virtual Dom tree a bit.
 
 It is important to remember that the in memory differencing of the
 Virtual DOM is very very fast and you can probably render 10x the
@@ -1299,6 +1299,5 @@ are perhaps creating more complexity than they need too.
 ### Thanks!
 
 If you have read thus far thanks for taking the time and I hope there
-was something here that you found helpful.
-
+was something here that you found useful.
 
