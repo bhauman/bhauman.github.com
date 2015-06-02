@@ -79,20 +79,25 @@ straightforward front end code.
 As developers we do something that is very difficult. In response to
 this difficulty we create and reach for tools that promise to take
 some of this burden from our shoulders. Often we are faced with the
-hard reality that these tools may not in fact be helping us. These
+hard reality that these tools may not, in fact, be helping us. These
 tools often offer the promise of lightening our cognitive overhead but
 in the end, the set of complex problems has just been moved from one
 location to another. Even worse, the set of problems has been
 exacerbated with much increased complexity.
 
-As of late we have been hearing what seems like justified reactions to
-this complexity. Folks are saying things like: "JavaScript the new
-jQuery", "Frameworks are dead", etc. There seems to be a reductionism
-at hand and its understandable. For a fun talk about this see
-[Programming with Hand Tools](https://www.youtube.com/watch?v=ShEez0JkOFw).
+As of late, I have been hearing what seems like justified reactions to
+this complexity. Folks are saying things like: [JQuery considered
+harmful](http://lea.verou.me/2015/04/jquery-considered-harmful/),
+"Frameworks are dead", etc. There seems to be a reductionism at hand
+and its understandable. For a fun talk about this see [Programming
+with Hand Tools](https://www.youtube.com/watch?v=ShEez0JkOFw).
 
 The main point here is we actually want to reduce cognitive overhead,
 and not just push it around, or worse, grow it with bad trade-offs.
+
+There really is no free lunch, so instead of looking to techniques,
+patterns, libraries, and frameworks, maybe we should look at the
+simplifying the computation itself.
 
 In the implementation of Yome widget below, I am going to use functional
 programming to express this problem in a straightforward manner.
@@ -104,11 +109,11 @@ increase the complexity of a program**. The complexity and cognitive
 overhead of your program grows exponentially the more
 mutable-state/side-effects that you have. When you reason about your
 program you have to account for the potential state of all these
-changeable/changing entities and entity systems. This is my friend is
+changeable/changing entities and entity systems. This is, my friend, is
 cognitive overhead.
 
 But in order to write a program we have to compute, right? Where
-does that leave us? 
+does that leave us?
 
 If we are ruthlessly reductive and eschew all mutable local state, and
 side effects, it leaves us with the pure function:
@@ -119,10 +124,10 @@ This is the very base of computation, and it's very hard to simplify
 past this point. (Declarative programming does this, but that is a
 digression ...)
 
-Using the pure functions does not add overhead to our problem and as a
-result programming with pure functions is more like taking a relaxing
-stroll. Using functions thusly, we can add code to our programs without
-significantly increasing the complexity.
+Using functions we can add code to our programs without significantly
+increasing the complexity. As a result, programming with pure functions
+is more like taking a relaxing stroll. You can really limit the scope
+of your thinking to the input and output of the current function.
 
 Of course, pure functions can only take us so far in an interactive
 program. State and views have to **change** in response to user actions.
@@ -133,9 +138,9 @@ and then hopefully the only complexity I have left will represent the
 **essential complexity** of the program.
 
 Also, I'm going to be using functional programming in a
-__straightforward__ manner. No esoteric meanderings. I'm not saying that
-Monads and such are bad. They just aren't needed here in this program
-at all.
+__straightforward__ manner. No esoteric functional meanderings. I'm
+not saying that Monads and such are bad. They just aren't needed here,
+in this program, at all.
 
 ### Straightforwardness != Familiarity
 
@@ -154,7 +159,8 @@ frameworks and implementation patterns. It's just that normally the
 queue of what's cool starts on one end with a great PR push and
 eventually comes out the other to fall into a trash bin.
 
-I'm not only going to be reductive with my code but my tooling as well.
+I'm not only going to be reductive with my computation but my tooling
+as well.
 
 As I go through the widget implementation below please notice all the
 things that aren't there:
@@ -173,8 +179,13 @@ In fact, I'm just using **ONE** library:
 [Babel](https://babeljs.io/) to compile the JSX and the ES2015 fat arrow
 syntax.
 
-With expressiveness and capability of modern JavaScript and React we really
+With expressiveness and capability of modern JavaScript and React, we really
 have to ask ourselves if we really need that extra library.
+
+For me it's really important to only add things when they are actually
+needed. Far too often, we add things to our programs for the sake of
+convenient expression. Being able to type less characters is not a
+good reason to introduce complexity into a program.
 
 Again, this reductionism is intended to make our code more
 understandable and easier to reason about.
@@ -183,7 +194,8 @@ understandable and easier to reason about.
 
 If I'm being so reductive why even use React, which introduces its own
 cognitive overhead? I see this not only as a necessary trade-off, but
-the very thing that enables our functional expression in the first place.
+the very thing that enables us to express views and DOM state
+functionally.
 
 The DOM API doesn't let us express `view = F(state)` in an efficient
 manner. React makes this possible.
@@ -208,16 +220,16 @@ function todos(todos) {
 }
 {% endhighlight %}
 
-These are pure functions the take data and return a virtual dom which
-then can be diffed with the actual DOM and rendered efficiently. In
+These are pure functions the take data and return a Virtual DOM which
+then can be diffed with the actual DOM and rendered very efficiently. In
 fact, React is an extremely exciting development and one of the
 reasons that I'm writing this post in the first place.
 
 ### The setup
 
-This is going to be an interactive demonstration. I am really hoping you
-follow along. This way of coding needs to be experienced to really
-appreciate the simplicity that I'm getting at.
+This is going to be an interactive demonstration. I think could be
+very helpful to experience this way of coding to really appreciate the
+simplicity of what I'm getting at.
 
 For this demo I'm going to use JavaScript and React.js.
 
@@ -347,8 +359,9 @@ And now reload the `index.html` page and open the Developers Console
 of your browser. You should see `--- reloading ---` get printed out
 every 3 seconds.
 
-Now the interesting thing here is that this code is being reloaded so
-you can change it and see the behavior change **without reloading the browser**.
+Now the interesting thing here is that this Reloader code is being
+**reloaded** itself, so you can change it and see the behavior change
+**without reloading the browser**.
 
 Go ahead and modify the `Reloader.start_reloading` function and change
 the timeout from `1000` to `5000`. Or change the `"--- reloading ---"`
@@ -1137,10 +1150,155 @@ You can refer to the JavaScript code for this widget to see how I
 implemented the rest of the corner controls or you can implement them
 yourself as an exercise.
 
+### Straightforward code as an enabler
 
+The full Yome widget is a not a trivial application but using a
+straightforward approach I was able to create something that works for
+my friend in a relatively short period of time. And as I said before
+it was like taking a relatively pleasant stroll. I encountered very
+few WTF moments while I wrote it.
 
+This is important. The sraightforwardness of the code enabled me to
+just continue to do the next task at hand and in the end provide
+actual value to my friend, without breaking his bank.
 
+### Problems that aren't
 
+The code above does have some problems that will show their heads as
+an application built like this grows. These are not problems for the
+program as presented but its important to mention them.
 
+**Asynchronous Event Handlers**
+
+It's very likely that we are going to need asynchronous code in our
+event handlers as some point.
+
+The current `eventHandler` can't handle an asynchronous callbacks and
+its possible that `Yome.render` will be called before the state has
+actually changed. As soon as this behavior is needed it's better to
+move to a pattern where the render happens as a result of a state
+change.
+
+**Modularity**
+
+This code currently doesn't lend itself to being used more than once
+in a client environment.
+
+This again isn't a problem for the current use case but can be easily
+remedied by enclosing it in its own React componet and storing the
+state in the local state of the React Component. This doesn't require
+much refactoring at all. This also solves the previous asynchronous
+handler problem as well, because when the local state of a React
+element changes it automaticly rerenders.
+
+You could also componentize it without using a React wrapper, there
+are many well known patterns to do these things.
+
+It is important to remember that you don't need to do this if it isn't
+necessary.
+
+**Data safety**
+
+The biggest problem that I have with the above code is that as it
+grows it is possible that someone will accidently modify the state
+during the render phase.
+
+The `Yome.state` is mutable an that means any function that has a
+reference to it during the render phase may accidentally change the
+state while it is say conjuring up some derivative state for some
+other function.
+
+This could definitely cause some hard to solve problems and really
+wreaks havoc on the independance of the functions that we are
+creating. It is for this reason that I would be very likely to start
+using persistent data types like the ones found in
+[Immutable-js](https://facebook.github.io/immutable-js/). Immutable
+data prevents functions from inadvertently side effecting and ruining
+the data for the functions. Immutable data guarantees that our pure
+functions are indeed independent.
+
+Refactoring the Yome widget to use Immutable data would be easy. But
+again, for this widget, it really isn't needed yet. The data
+transitions are few and its easy to keep track of the few code
+sections that do mutate data.
+
+I actually think that adding something like Immutable.js will address
+all the previous problems I have outlined.
+
+If you want to give it a try please add Immutable.js to the widget
+above. Also, have a look at the Immutable.js Cursor and see if that is
+helpful in making the code more modular.
+
+If folks are interested I'll do a follow up post that addresses these
+things.
+
+**Performance**
+
+If we could get away with doing pure computation all of the time I
+really think we would. But eventually we are going to face
+some computational limits.
+
+When using functions in this manner to return a complete Virtual DOM
+representation of an application view, it is possible that the size of
+our Virtual DOM tree will get too bulky for the React differencing
+algorithm to complete quickly. It is at this point, that I will
+start breaking the appliciation down into some well placed React
+components to trim the Virtual Dom tree a bit.
+
+It is important to remember that the in memory differencing of the
+Virtual DOM is very very fast and you can probably render 10x the
+amount of Virtual DOM than you think you can. JavaScript engines are
+insanely fast.
+
+But there is a limit, and when you reach it there will probably be an
+obvious bottle neck, some large section of the DOM that doesn't change
+that often.
+
+You can take care of these bottle necks fairly simply if you are using
+Immutable.js. The following `memoizeReact` function can make short work of
+trimming the Virtual DOM tree.
+
+{% highlight javascript %}
+Yome.pureRender = Yome.pureRender || React.createClass({
+  shouldComponentUpdate: function(nextProps, _) {
+    return !(this.props.data.length === nextProps.data.length &&
+             this.props.data.map((p,i) =>
+               p === nextProps.data[i]).reduce((a,v) => a && v, true));
+  },
+  render: function() {
+    return this.props.f.apply(null, this.props.data);
+  }
+});
+
+Yome.memoizeReact = (f) =>
+  function () {
+    let args = Array.prototype.slice.call(arguments);
+    return React.createElement(Yome.pureRender, { data: args, f: f});
+  }
+{% endhighlight %}
+
+And you can use it to create memoized React functions like this:
+
+{% highlight javascript %}
+Yome.drawWindowMem = Yome.memoizeReact(Yome.drawWindow);
+{% endhighlight %}
+
+Now the `drawWindowMem` function will only be executed when the
+arguments have changed.
+
+This simple memoize pattern can extend this purely functional approach
+to creating front end React applications quite far.
+
+**Those other cases**
+
+There are other cases when you need to break out and create custom
+react elements, objects and such. I'm not saying that they are bad, I'm
+just saying that I think folks turn to them to early and too often and
+are perhaps creating more complexity than they need too.
+
+### Thanks!
+
+If you have read thus far thanks for taking the time and I hope there
+was something here that you found helpful.
 
 
