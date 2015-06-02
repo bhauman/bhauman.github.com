@@ -311,7 +311,8 @@ Edit `index.html` to have these contents:
 {% endhighlight %}
 
 Now we will need the Babel compiler to watch our `yome.js` file and
-compile it whenever we hit save. We can do by invoking `babel` like so:
+compile it whenever we hit save. We can do this by invoking `babel`
+like so:
 
     cd yome_widget
     babel src/ -w --out-dir build/
@@ -355,11 +356,11 @@ Reloader.start_reloading = function (files) {
 Reloader.start_reloading(["build/yome.js"])
 {% endhighlight %}
 
-And now reload the `index.html` page and open the Developers Console
+Now reload the `index.html` page and open the Developers Console
 of your browser. You should see `--- reloading ---` get printed out
 every 3 seconds.
 
-Now the interesting thing here is that this Reloader code is being
+The interesting thing here is that this Reloader code is being
 **reloaded** itself, so you can change it and see the behavior change
 **without reloading the browser**.
 
@@ -371,8 +372,9 @@ behavior in the console. You can adjust the timing to your preference.
 This can be hard to get used to but give it a try and as you make your
 changes below remember that you don't have to reload the browser.
 
-If this isn't for you just remove the code above or comment out the
-`start_reloading` line like so:
+If this isn't for you or if you need to turn it off for a bit just
+remove the code above or comment out the `start_reloading` line like
+so:
 
 {% highlight javascript %}
 //Reloader.start_reloading(["build/yome.js"])
@@ -528,11 +530,11 @@ Yome.clearPlayArea = () =>
   React.unmountComponentAtNode(document.getElementById("playarea"))
 {% endhighlight %}
 
-So, above I have created a utility function `playArea` that allows us
+Above I have created a utility function `playArea` that allows us
 to see the visual output of function that returns React SVG elements.
 
-So you can use the following commented out `drawWalls`
-expressions to verify how our `drawWalls` function is working.
+You can use the following commented out `drawWalls` expressions to
+verify how our `drawWalls` function is working.
 
 {% highlight javascript %}
 //Yome.playArea(Yome.drawWalls({sides: [1,2,3,4,5,6]}))
@@ -568,6 +570,8 @@ of the points in the polygon. Go ahead and modify the radius which is
 
 As you can see, we now have a way to quickly examine the output of our
 DOM emitting functions. This can be very helpful.
+
+Comment out the logging functions above before you go on.
 
 ### Windows and Doors
 
@@ -740,7 +744,7 @@ Yome.render_svg_world("example6",
 </script>
 
 Well this is great. We have quickly and built up our drawing
-primitives and the are all **functional**.
+primitives and they are all **functional**.
 
 We may want to reflect at this point: Why is it so effortless to
 display and work with our different drawing functions?
@@ -804,8 +808,8 @@ If you print out the resulting `exampleData` you will see that each
 side has an optional `face` and `corner`. `face` can have a value of
 `"window"` and corner can be "door-frame", "zip-door" or "stove-vent".
 
-Now, let's put our method dispatch to work to draw a complete yome
-along with its features.
+Let's put our method dispatch to work to draw a complete yome along
+with its features.
 
 First, we need a way to draw a single slice (side) which is a grouping
 of a corner and a side.
@@ -1294,10 +1298,11 @@ to creating front end React applications quite far.
 There are other cases when you need to break out and create custom
 react elements, objects and such. I'm not saying that they are bad, I'm
 just saying that I think folks turn to them to early and too often and
-are perhaps creating more complexity than they need too.
+are perhaps creating more complexity than they need to.
 
 ### Thanks!
 
 If you have read thus far thanks for taking the time and I hope there
 was something here that you found useful.
+
 
