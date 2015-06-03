@@ -45,7 +45,7 @@ tags: []
 My friend Peter, the inventor of the Yome (pictured above) and
 proprietor of [Red Sky Shelters](http://redskyshelters.com/) asked me
 to update a widget that I built for him 9 years ago. He is moving his
-website and the current widget is aestheticly dated and not portable.
+website and the current widget is aesthetically dated and not portable.
 The widget itself allows a client to show where windows and doors
 should be placed on the walls of their Yome.
 
@@ -103,21 +103,21 @@ in the end, the set of complex problems has just been moved from one
 location to another. Even worse, the set of problems has been
 exacerbated with much increased complexity.
 
-As of late, I have been hearing what seems like justified reactions to
+As of late, I have been hearing what seem like justified reactions to
 this complexity. Folks are saying things like: [JQuery considered
 harmful](http://lea.verou.me/2015/04/jquery-considered-harmful/),
 "Frameworks are dead", etc. There seems to be a reductionism at hand
-and its understandable. For a really great talk about this see [Programming
+and it's understandable. For a really great talk about this see [Programming
 with Hand Tools](https://www.youtube.com/watch?v=ShEez0JkOFw).
 
 The main point here is we actually want to reduce cognitive overhead,
 and not just push it around, or worse, grow it with bad trade-offs.
 
 There really is no free lunch, so instead of looking to techniques,
-patterns, libraries, and frameworks, maybe we should look at the
+patterns, libraries, and frameworks, maybe we should look at
 simplifying the computation itself.
 
-In the implementation of Yome widget below, I am going to use functional
+In the implementation of the Yome widget below, I am going to use functional
 programming to express this problem in a straightforward manner.
 
 ### Why is functional programming straightforward?
@@ -127,7 +127,7 @@ increase the complexity of a program**. The complexity and cognitive
 overhead of your program grows exponentially the more
 mutable-state/side-effects that you have. When you reason about your
 program you have to account for the potential state of all these
-changable/changing entities and entity systems. It is amazing how
+changeable/changing entities and entity systems. It is amazing how
 quickly things grow past our ability to effectively reason about them.
 This, my friend, is cognitive overhead.
 
@@ -196,7 +196,7 @@ In fact, I'm just using **ONE** library:
 [Babel](https://babeljs.io/) to compile the JSX and the ES2015 fat arrow
 syntax.
 
-With expressiveness and capability of modern JavaScript and React, we really
+With the expressiveness and capability of modern JavaScript and React, we really
 have to ask ourselves if we really need that extra library.
 
 Again, this reductionism is intended to make our code more
@@ -333,8 +333,8 @@ Now, open your browser to `file:///<the path on your
 system>/yome_widget/index.html` and open `yome_widget/src/yome.js` in
 your favorite text editor.
 
-From now on, you can add code to the file by appending the displayed
-JavaScript code in this post to the `yome.js` file.
+From now on, you can add code to the file by appending the examples 
+in this post to the `yome.js` file.
 
 ### The future is live
 
@@ -396,7 +396,7 @@ Welcome to instantaneous live reloading, it is the future.
 
 ### The Start
 
-Go ahead and append these definitions to the `yome.js` file:
+Now append these definitions to the `yome.js` file:
 
 {% highlight javascript %}
 function l(x) { console.log(x);  return x; }
@@ -417,7 +417,7 @@ behaving as I expect.
 In the code above, you can see that I define a Yome object literal and
 on that literal I add an `initialState` function. 
 
-In this yome widget there will be **one** state map/object this will be
+In this yome widget there will be **one** state map/object. This will be
 the central source of truth. The view of the state widget will
 be a **function** of this data.
 
@@ -434,9 +434,9 @@ Yome.sideCount = (st) => st.sides.length
 The widget allows for drawing different Yome sizes so we will need to
 assess the current size often. `Yome.sideCount` will allow us to do
 this. Notice that `Yome.sideCount` is not referencing some
-local/global state but the state is passed into to it.
+local/global state, but rather the state is passed into it.
 
-Now you can check the functioning of sidecount by uncommenting the log
+Now you can check the functioning of `sideCount` by uncommenting the log
 line below it, then observing the output of the function call in the
 Dev Console. This output should be `8`. After verifying that it works,
 comment out that log line again.
@@ -450,7 +450,7 @@ Since we are working with regular polygons I am going to constantly
 be referencing the angle of one of the slices. The `sliceTheta`
 function give us this angle in radians.
 
-Again, you can see you its working by uncommenting the log line below
+Again, you can see it's working by uncommenting the log line below
 it and seeing the output in the Dev Console. I will continue to place
 these log comments in the code and I will leave it up to you to try
 the code out.
@@ -581,9 +581,9 @@ Now, leave one of the logging functions uncommented, so that it renders
 each time you save the file.
 
 You can now modify the `Yome.sidePoints` function to change the radius
-of the points in the polygon. Go ahead and modify the radius which is
-currently `100` in the `Yome.sidePoints` function. Go ahead and try
-values of 50, 120 and then back to 100.
+of the points in the polygon. Modify the radius which is
+currently `180` in the `Yome.sidePoints` function. Go ahead and try
+values of 50, 120 and then back to 180.
 
 As you can see, we now have a way to quickly examine the output of our
 DOM emitting functions live. This can be very helpful.
@@ -594,7 +594,7 @@ Comment out the `playArea` logging functions above before you go on.
 
 Let's draw some windows and doors.
 
-Now I'm planing on abusing the ability of SVG to rotate things. So, I
+I'm planning on abusing the ability of SVG to rotate things. So, I
 am going to just worry about drawing an item in one position and then
 letting SVG rotate it to the appropriate side of the Yome.
 
@@ -652,7 +652,7 @@ Yome.render_svg_world("example3",
 
 </script>
 
-Great we have a window!! Now you can, of course, play with the
+Great, we have a window!! Now you can, of course, play with the
 dimensions of this window by adjusting the `windowPoints` function.
 
 I'm going to follow this same process for the rest of the drawn items,
@@ -676,8 +676,8 @@ Yome.drawDoor = (st) =>
 //                 {Yome.drawWalls(Yome.state)}</g>)
 {% endhighlight %}
 
-Now the big difference with the door and the rest of the items is that
-they are drawn at the corner, where as the window is drawn at a face.
+The big difference with the door and the rest of the items is that
+they are drawn at the corner, whereas the window is drawn at a face.
 
 If you render a door and a window you will see this:
 
@@ -694,7 +694,7 @@ Yome.render_svg_world("example4",
                                             Yome.drawDoor(st)]})
 </script>
 
-The zip door is a little challenging in that it isn't just a group of
+The zip door is a little challenging because it isn't just a group of
 points that we turn into a polygon. A zip door is a set of lines.
 
 {% highlight javascript %}
@@ -761,22 +761,22 @@ Yome.render_svg_world("example6",
                       Yome.drawStoveVent);
 </script>
 
-Well this is great. We have quickly and built up our drawing
+Well this is great. We have quickly built up our drawing
 primitives and they are all **functional**.
 
 We may want to reflect at this point: Why is it so effortless to
 display and work with our different drawing functions?
 
-Pure functions are amazingly independent peices of code. Beyond their
+Pure functions are amazingly independent pieces of code. Beyond their
 parameter signatures they are not tied to a grander design (global
-state, etc). This independance is what makes them so amazingly free and
+state, etc). This independence is what makes them so amazingly free and
 composable.
 
 ### Dispatch
 
 You may have noticed a familiar pattern in the drawing functions
-above. Those of you who had a classical OOP education may see the old
-shape polymorphism exercise. The classic example where you have a
+above. Those of you who had an OOP education may see the old
+shape polymorphism exercise: the classic example where you have a
 `Drawable` class or interface that defines a `draw` method. Then you
 can pass a list of drawable things to a renderer and the renderer will
 just `draw` them. Easy peasy.
@@ -867,7 +867,7 @@ React.render(Yome.svgWorld(Yome.sideSlice(Yome.exampleData, 5)),
 
 So this is cool, we have a working dispatch `itemRender` function and
 we are successfully able to render a side of the example Yome. There
-is very little we have left to do in order to render the whole Yome
+is very little we have left to do to render the whole Yome
 layout.
 
 {% highlight javascript %}
@@ -880,12 +880,12 @@ Yome.drawYome = (st) =>
 //Yome.playArea(Yome.drawYome(Yome.exampleData))
 {% endhighlight %}
 
-In the `drawYome` function above we just draw the walls of the Yome
-and then draw all the features. You'll notice that I also rotate the drawing a
-half a slice. This is because I like having the flat sides lined up
-with the sides rectilinear universe of the webpage.
+In the `drawYome` function above, we just draw the walls of the Yome
+and then draw all the features. You'll notice that I also rotate the
+drawing half a slice. This is because I like having the flat sides in
+alignment with the rectilinear universe of the webpage.
 
-And viola!
+And voila!
 
 <div class="yome-widget">
 <div id="example8" class="yome-widget-body">
@@ -917,7 +917,7 @@ Yome.render = () =>
 Yome.render();
 {% endhighlight %}
 
-At this point we have created all the code to do the line drawing of
+At this point we have created all the code needed to do the line drawing of
 our Yome widget.
 
 ### Straightforwardness
@@ -925,10 +925,10 @@ our Yome widget.
 Do we need anything more than the above to express how to draw our
 Yome layout clearly?
 
-This is straightforward right? The code above is both understandable
+This is straightforward, right? The code above is both understandable
 and reduces cognitive overhead.
 
-But not only that, we can reload it live and test the output
+Not only that, we can also reload it live and test the output
 of the individual functions with great ease.
 
 Since it's possible to express things this way, this begs an important
@@ -940,20 +940,20 @@ Let's add a way to control the number of sides in our Yome layout.
 
 We are now in a place where we are going to have to change the state
 of the program. An input event is going to get fired from the user and
-we are going to have to
+we are going to have to:
 
 * change the program state
 * rerender the Yome
 
-These side effects are the absolutely unavoidable in an interactive
+These side effects are absolutely unavoidable in an interactive
 system. Because there is no way for us to live without them, I'm going
 to call them the **essential complexity** of the program.
 
 There are innumerable ways to express how the state is changed and the
 widget is re-rendered. But since these side-effects are unavoidable
-I'm going to let the needs of the actual program in front of me
-dictate how this should be done. Again, keeping to my reductive stance
-of not adding anything that isn't needed.
+I'm going to let the needs of the actual program dictate how this
+should be done. Again, I'm keeping to my reductive stance of not adding
+anything that isn't needed.
 
 {% highlight javascript %}
 //side effecting
@@ -964,24 +964,23 @@ Yome.eventHandler = (f) =>
 Let's look at this event handler function. All the events in our system
 are going to be composed of this `eventHandler`. This function takes a
 side-effecting function `f` that will be changing the state of the
-application in response to a event. This `eventHandler` function
+application in response to an event. This `eventHandler` function
 builds and returns an event handler that will call this side-effecting
 function `f` and then re-render the widget after the state transition.
 
-Yep, it is that simple. I have handled both the requirement for both
-state transition and rerendering.
+Yep, it is that simple. I have handled the requirements for both
+state transition and re-rendering.
 
 Normally, we would have some sort of state object that fires an event
 when it changes. We would then hook the re-render of the widget to that
-state object. But this really is not needed for this small application. So
-instead I am just sneaking a call to `Yome.render()` into the
+change event. But this really is not needed for this small application.
+Instead, I am just sneaking a call to `Yome.render()` into the
 `eventHandler` so that it occurs after a state change. 
 
-Keep in mind that this is the first piece of this application that I
-would change as it grows and our event listeners start having more
-sophisticated needs like asynchronous Ajax calls. Again, the added
-complexity is just not needed here in this widget. Why would I add it?
-I don't need to prepare for things that are not actually being done.
+Keep in mind that this is the first part of this program that I will
+change as our event listeners start having more sophisticated needs
+(like asynchronous Ajax calls). Again, the added complexity is just
+not needed here.
 
 Let's look at how this `eventHandler` is used:
 
@@ -998,8 +997,8 @@ Yome.changeSideCount = (new_count) => {
 
 The `changeSideCount` method does just what its name states. It
 changes the number of sides on the Yome. It does this by directly
-changing the global state. Again, this is the essential complexity of
-the program and we are going to have to do it one way or another so
+changing the global state. This is the essential complexity of
+the program and we are going to have to do it one way or another, so
 why not the easiest most straightforward way?
 
 So far, we have minimized the side effects of this entire program to
@@ -1007,8 +1006,8 @@ the `eventHandler` and the `changeSideCount` functions. This is rather
 remarkable, since these are the parts of the program that usually
 cause problems.
 
-Let's use these functions to allow us to change the Yome layout
-directly from our widget.
+Let's use these functions to change the Yome layout directly from our
+widget.
 
 {% highlight javascript %}
 Yome.sideOptions = () =>
@@ -1027,13 +1026,13 @@ Yome.sideCountInput = st =>
 //             document.getElementById("playarea"))
 {% endhighlight %}
 
-Here is a select input that allows you to select a new size for the
-Yome layout. If there is a change it fires our event handler which in
-turn will change the state of the application and rerender it.
+Here is a select input that allows you to choose a new Yome size. If
+there is a change it fires our event handler which in turn will change
+the state of the application and re-render it.
 
-Now the `sideCountInput` function is still a pure function it returns
-some virtual DOM. This virtual DOM in turn references a function that will
-change the state. But the function itself is still a pure function.
+The `sideCountInput` function is still a pure function that returns
+some virtual DOM. This virtual DOM in turn **references** a function that will
+change the state. The function itself is still a pure function.
 
 If you uncomment the `React.render` call, you can see our new size
 control and if you select the different sizes you should see the Yome
@@ -1085,7 +1084,7 @@ Yome.render();
 
 ## The window controls
 
-Now it's time to add the controls that let us add and remove windows
+Now it's time to build the controls that let us add and remove windows
 from the Yome layout.
 
 {% highlight javascript %}
@@ -1117,11 +1116,11 @@ Yome.windowControls = (st) =>
 
 This code follows the pattern that we just established with the size
 control. We create a bunch of absolutely positioned window control
-links around the perimiter of the Yome layout. When someone clicks on
-the link we change the state by taking the chosen side and adding the
+links around the perimeter of the Yome layout. When someone clicks on
+a link we change the state by taking the chosen side and adding the
 string `"window"` to the `face` property or nulling it out.
 
-And we'll add the window controls to our `widget` function:
+We'll add the window controls to our `widget` function:
 
 {% highlight javascript %}
 Yome.widget = (st) =>
@@ -1134,7 +1133,7 @@ Yome.widget = (st) =>
   </div>
 {% endhighlight %}
 
-And now the widget should render like this:
+Now the widget should render like this:
 
 <div class="yome-widget">
 <div id="example10" class="yome-widget-bod">
@@ -1169,7 +1168,7 @@ And the Yome widget comes to life!
 
 You can refer to the JavaScript code for this widget to see how I
 implemented the rest of the corner controls or you can implement them
-yourself as an exercise. I reccomend the latter, of course.
+yourself as an exercise. I recommend the latter, of course.
 
 ### Straightforward code as an enabler
 
