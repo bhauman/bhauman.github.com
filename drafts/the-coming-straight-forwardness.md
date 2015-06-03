@@ -1014,15 +1014,15 @@ Yome layout. If there is a change it fires our event handler which in
 turn will change the state of the application and rerender it.
 
 Now the `sideCountInput` function is still a pure function it returns
-dom that references a function that will change the state. But the
-function it self is still a pure function.
+some virtual DOM. This virtual DOM in turn references a function that will
+change the state. But the function itself is still a pure function.
 
-If you uncomment the `React.render` call at you can see our new
+If you uncomment the `React.render` call, you can see our new size
 control and if you select the different sizes you should see the Yome
 layout change.
 
-Let's integtrate this `sideCountInput` into the widget proper. Go edit
-the `Yome.sidget` function so it now looks like this:
+Let's integrate this `sideCountInput` into the widget proper. Go edit
+the `Yome.widget` function so it now looks like this:
 
 {% highlight javascript %}
 Yome.widget = (st) =>
