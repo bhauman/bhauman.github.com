@@ -1022,7 +1022,7 @@ control and if you select the different sizes you should see the Yome
 layout change.
 
 Let's integrate this `sideCountInput` into the widget proper. Go edit
-the `Yome.widget` function so it now looks like this:
+the `Yome.widget` function so that it now looks like this:
 
 {% highlight javascript %}
 Yome.widget = (st) =>
@@ -1034,7 +1034,7 @@ Yome.widget = (st) =>
   </div>
 {% endhighlight %}
 
-Now our control is part of the widget:
+Now our size control is part of the widget:
 
 <div class="yome-widget">
 <div id="example9" class="yome-widget-body">
@@ -1097,11 +1097,11 @@ Yome.windowControls = (st) =>
   st.sides.map((side, i) => Yome.windowControl(st, side, i))
 {% endhighlight %}
 
-This code follows the pattern that we just established. We create a
-bunch of absolutely positioned window control links around the
-perimiter of the Yome layout. When someone clicks on the link we
-change the state by adding or removing the string `"window"` to the
-`face` property of the chosen side.
+This code follows the pattern that we just established with the size
+control. We create a bunch of absolutely positioned window control
+links around the perimiter of the Yome layout. When someone clicks on
+the link we change the state by taking the chosen side and adding the
+string `"window"` to the `face` property or nulling it out.
 
 And we'll add the window controls to our `widget` function:
 
