@@ -863,7 +863,7 @@ Yome.drawYome = (st) =>
 {% endhighlight %}
 
 In the `drawYome` function above we just draw the walls of the Yome
-and then draw all the features. You notice that I also rotate the drawing a
+and then draw all the features. You'll notice that I also rotate the drawing a
 half a slice. This is because I like having the flat sides lined up
 with the sides rectilinear universe of the webpage.
 
@@ -1158,9 +1158,8 @@ yourself as an exercise.
 
 The full Yome widget is a not a trivial application but using a
 straightforward approach I was able to create something that works for
-my friend in a relatively short period of time. And as I said before
-it was like taking a relatively pleasant stroll. I encountered very
-few WTF moments while I wrote it.
+my friend in a relatively short period of time. And, as I said before,
+it was like taking a relatively pleasant stroll.
 
 This is important. The sraightforwardness of the code enabled me to
 just continue to do the next task at hand and in the end provide
@@ -1168,20 +1167,20 @@ actual value to my friend, without breaking his bank.
 
 ### Problems that aren't
 
-The code above does have some problems that will show their heads as
-an application built like this grows. These are not problems for the
+The code above does have some problems that will show themselves as an
+application built like this grows. These are not problems for the
 program as presented but its important to mention them.
 
 **Asynchronous Event Handlers**
 
 It's very likely that we are going to need asynchronous code in our
-event handlers as some point.
+event handlers at some point.
 
 The current `eventHandler` can't handle an asynchronous callbacks and
-its possible that `Yome.render` will be called before the state has
-actually changed. As soon as this behavior is needed it's better to
-move to a pattern where the render happens as a result of a state
-change.
+if asynchronous code is used, it's possible that `Yome.render` will be
+called before the state has actually changed. As soon as this type
+behavior is needed it's better to move to a pattern where the render
+happens explicitly as the result of a state change.
 
 **Modularity**
 
@@ -1189,11 +1188,11 @@ This code currently doesn't lend itself to being used more than once
 in a client environment.
 
 This again isn't a problem for the current use case but can be easily
-remedied by enclosing it in its own React componet and storing the
-state in the local state of the React Component. This doesn't require
-much refactoring at all. This also solves the previous asynchronous
-handler problem as well, because when the local state of a React
-element changes it automaticly rerenders.
+remedied by enclosing it in its own React component and storing the
+state in the local state of the component. This doesn't require much
+refactoring at all. This also solves the previous asynchronous handler
+problem as well, because when the local state of a React element
+changes the component automaticly re-renders.
 
 You could also componentize it without using a React wrapper, there
 are many well known patterns to do these things.
