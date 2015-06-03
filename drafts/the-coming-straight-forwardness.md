@@ -1151,11 +1151,11 @@ And the Yome widget comes to life!
 
 You can refer to the JavaScript code for this widget to see how I
 implemented the rest of the corner controls or you can implement them
-yourself as an exercise.
+yourself as an exercise. I reccomend the latter, of course.
 
 ### Straightforward code as an enabler
 
-The full Yome widget is a not a trivial application but using a
+The full Yome widget is a not a trivial application but by using a
 straightforward approach I was able to create something that works for
 my friend in a relatively short period of time. And, as I said before,
 it was like taking a relatively pleasant stroll.

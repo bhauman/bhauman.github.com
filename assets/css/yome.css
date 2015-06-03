@@ -51,7 +51,8 @@
     display: block;
     font-size: 12px;
     line-height: 1.2em;
-    text-align: left;    
+    text-align: left;
+    white-space: nowrap;
 }
 
 .yome-widget a.remove { color: rgb(239, 131, 75);}
