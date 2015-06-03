@@ -144,13 +144,12 @@ in this program, at all.
 
 ### Straightforwardness != Familiarity
 
-It's very important to note that **straightforwardness has nothing to
-do with familiarity**. Just because a technique, language or syntax is
+It's important to note that **straightforwardness has nothing to do
+with familiarity**. Just because a technique, language or syntax is
 familiar or even an accepted industry best practice does not mean that
-it is straightforward. And likewise, straightforward code does not
-have to be familiar to be straightforward. Just because someone
-doesn't understand it or finds it strange doesn't mean the code isn't
-straightforward.
+it is straightforward. And likewise, just because someone doesn't
+understand the code or finds it strange, that does not mean that it
+isn't straightforward.
 
 ### YAGNI - You really aren't going to need it
 
@@ -181,11 +180,6 @@ syntax.
 
 With expressiveness and capability of modern JavaScript and React, we really
 have to ask ourselves if we really need that extra library.
-
-For me it's really important to only add things when they are actually
-needed. Far too often, we add things to our programs for the sake of
-convenient expression. Being able to type less characters is not a
-good reason to introduce complexity into a program.
 
 Again, this reductionism is intended to make our code more
 understandable and easier to reason about.
@@ -220,16 +214,16 @@ function todos(todos) {
 }
 {% endhighlight %}
 
-These are pure functions the take data and return a Virtual DOM which
+These are pure functions that take data and return a Virtual DOM which
 then can be diffed with the actual DOM and rendered very efficiently. In
 fact, React is an extremely exciting development and one of the
 reasons that I'm writing this post in the first place.
 
 ### The setup
 
-This is going to be an interactive demonstration. I think could be
-very helpful to experience this way of coding to really appreciate the
-simplicity of what I'm getting at.
+This is going to be an interactive demonstration. I think that one
+needs to actually experience this way of coding to really appreciate
+the simplicity of what I'm getting at.
 
 For this demo I'm going to use JavaScript and React.js.
 
@@ -310,19 +304,19 @@ Edit `index.html` to have these contents:
 </html>
 {% endhighlight %}
 
-Now we will need the Babel compiler to watch our `yome.js` file and
+We will need the Babel compiler to watch our `yome.js` file and
 compile it whenever we hit save. We can do this by invoking `babel`
 like so:
 
     cd yome_widget
     babel src/ -w --out-dir build/
 
-All right, now open your browser to `file:///<the path on your
+Now, open your browser to `file:///<the path on your
 system>/yome_widget/index.html` and open `yome_widget/src/yome.js` in
 your favorite text editor.
 
-From now on you can add the JavaScript code into the file by appending
-the displayed code in this post to the `yome.js` file.
+From now on, you can add code to the file by appending the displayed
+JavaScript code in this post to the `yome.js` file.
 
 ### The future is live
 
@@ -356,11 +350,11 @@ Reloader.start_reloading = function (files) {
 Reloader.start_reloading(["build/yome.js"])
 {% endhighlight %}
 
-Now reload the `index.html` page and open the Developers Console
+Now, reload the `index.html` page and open the Developers Console
 of your browser. You should see `--- reloading ---` get printed out
 every 3 seconds.
 
-The interesting thing here is that this Reloader code is being
+The interesting thing here, is that this Reloader code is being
 **reloaded** itself, so you can change it and see the behavior change
 **without reloading the browser**.
 
@@ -380,7 +374,7 @@ so:
 //Reloader.start_reloading(["build/yome.js"])
 {% endhighlight %}
 
-Welcome to instantaneous live reloading, it's the future.
+Welcome to instantaneous live reloading, it is the future.
 
 ### The Start
 
@@ -402,27 +396,27 @@ Yome.state = Yome.state || Yome.initialState();
 I always create a logging shortcut so that I can verify code is
 behaving as I expect.
 
-In the code above you can see that I define a Yome object literal and
-on that literal I add an `initialState` function. I put this at the top
-so that I can refer back to it to remind me of the shape of the data.
+In the code above, you can see that I define a Yome object literal and
+on that literal I add an `initialState` function. 
 
 In this yome widget there will be **one** state map/object this will be
 the central source of truth. The view of the state widget will
 be a **function** of this data.
 
-Yomes come in three sizes: 6, 7 or 8 sides. Thus the view from above is
-either a hexagon, septagon or octagon. As you can see from the
-`initialState` above we are going to be starting with an octagon.
+Yomes come in three sizes: 6, 7 or 8 sides. Thus, the view from above
+is either a hexagon, septagon or octagon. As you can see from the
+`initialState` function above we are going to be starting with an
+octagon.
 
 {% highlight javascript %}
 Yome.sideCount = (st) => st.sides.length
 //l(Yome.sideCount(Yome.state))
 {% endhighlight %}
 
-The widget allows you to change sizes so we will need to assess the
-current size often. `Yome.sideCount` will allow us to do this. Notice
-that `Yome.sideCount` is not referencing some local/global state but the
-state is passed into to it.
+The widget allows for drawing different Yome sizes so we will need to
+assess the current size often. `Yome.sideCount` will allow us to do
+this. Notice that `Yome.sideCount` is not referencing some
+local/global state but the state is passed into to it.
 
 Now you can check the functioning of sidecount by uncommenting the log
 line below it, then observing the output of the function call in the
@@ -441,7 +435,7 @@ function give us this angle in radians.
 Again, you can see you its working by uncommenting the log line below
 it and seeing the output in the Dev Console. I will continue to place
 these log comments in the code and I will leave it up to you to try
-code out if you would like.
+the code out.
 
 {% highlight javascript %}
 Yome.rotate = (theta, point) => {
@@ -456,17 +450,17 @@ Yome.radialPoint = (radius, theta) =>
 //l(Yome.radialPoint(100, Math.PI));
 {% endhighlight %}
 
-Now I am planning on having a 500x500 SVG based widget and I'm going
-to be drawing things arranged in a circle in it. It will be much
-simpler to think in terms of radial points. In this case, a radial
-point is the combination of a distance from a center and angle from a
-line pointing straight down.
+Now, I am planning on having a 500x500 SVG based widget and I'm going
+to be drawing things arranged in a circle. It will be much simpler to
+think in terms of radial points. In this case, a radial point is the
+combination of a distance from a center and an angle from a line
+pointing straight down.
 
-In order to facilitate radial points its necessary to `Yome.rotate` a
+In order to facilitate radial points it's necessary to `Yome.rotate` a
 point about the center at 0,0.
 
 The `radialPoint` function just takes a point that lays straight down
-radius from the center and rotates it to angle theta from there.
+radius from the center and rotates it to angle `theta` from there.
 
 {% highlight javascript %}
 Yome.sidePoints = (st) =>
@@ -490,11 +484,16 @@ polygon element.
 Now if you have been using the log function `l` to verify how our
 various functions are working then you may be starting to value how
 easy it is to verify these functions. This easy verifiability is also
-a result of using pure functions. The state we need to verify
-how a function works in isolation is much much simpler to setup.
+a result of using pure functions.
 
-And the same for the compound functionality of several functions
-together. This is normally not true for a set of stateful objects.
+It is often very simple to meet the data shape needs of a pure
+function. This makes it easy to conjure up some quick data to pass
+into a function and verify its behavior.
+
+The same is true for the compound functionality of several functions
+together. This is normally not the case for a set of stateful objects
+where you may have to create several objects and a couple mocks in
+order to test a simple code path.
 
 {% highlight javascript %}
 Yome.drawWalls = (state) =>
@@ -505,7 +504,7 @@ Yome.drawWalls = (state) =>
 Here we start generating some SVG with JSX. The `Yome.drawWalls` method
 will take the current state and emit an React polygon element.
 
-Now when we get here we would really really like to know if our
+Now when we get here we would really, really like to know if our
 strategy for drawing octagons is working. While our log function is
 helpful for seeing how data based functions are behaving, it is useless
 for checking how our visual functions are working.
@@ -558,20 +557,20 @@ React.render(Yome.svgWorld(Yome.drawWalls({sides: [1,2,3,4,5,6]})),
 </script>
 
 You can also uncomment the other examples and see that we are indeed
-successfully drawing the polygons that we are looking for.
+successfully drawing the regular polygons that we are looking for.
 
-Now leave one of the logging functions uncommented so that it renders
+Now, leave one of the logging functions uncommented, so that it renders
 each time you save the file.
 
 You can now modify the `Yome.sidePoints` function to change the radius
 of the points in the polygon. Go ahead and modify the radius which is
-`100` in the `Yome.sidePoints` function to 50, 120 and then back to
-100.
+currently `100` in the `Yome.sidePoints` function. Go ahead and try
+values of 50, 120 and then back to 100.
 
 As you can see, we now have a way to quickly examine the output of our
-DOM emitting functions. This can be very helpful.
+DOM emitting functions live. This can be very helpful.
 
-Comment out the logging functions above before you go on.
+Comment out the `playArea` logging functions above before you go on.
 
 ### Windows and Doors
 
@@ -579,10 +578,10 @@ Let's draw some windows and doors.
 
 Now I'm planing on abusing the ability of SVG to rotate things. So, I
 am going to just worry about drawing an item in one position and then
-let SVG rotate it to the appropriate side of the Yome.
+letting SVG rotate it to the appropriate side of the Yome.
 
 For all of the different things that are being drawn I just need to
-find the set of radial points for the resulting item.
+find the set of radial points that will outline the needed item.
 
 Let's start with windows.
 
@@ -604,12 +603,12 @@ Yome.drawWindow = (st) =>
 //                 {Yome.drawWalls(Yome.initialState())}</g>)
 {% endhighlight %}
 
-First we create a function `windowPoints` that creates the points
-for our window. Using radial points thinking about this is pretty
-straightforward. We tighten the radius and create points that are
-close but indented from the corners of the side polygon and then we
-connect the to a point that has an even shorter radius and is in the
-middle.
+First we create a function `windowPoints` that creates the points for
+our window. Using radial points, thinking about this is pretty
+straightforward. We tighten the radius in from the walls a little. We
+then create points that are close but indented from the corners of the
+side polygon and then we connect these to a point that has an even
+shorter radius and is centered on the side of the Yome.
 
 This code will give us a different window depending on the size of the Yome.
 
@@ -638,7 +637,8 @@ Yome.render_svg_world("example3",
 Great we have a window!! Now you can, of course, play with the
 dimensions of this window by adjusting the `windowPoints` function.
 
-I'm going to follow this same pattern for the rest of the drawn items.
+I'm going to follow this same process for the rest of the drawn items,
+starting with doors.
 
 {% highlight javascript %}
 Yome.doorPoints = (st) => {
@@ -658,8 +658,8 @@ Yome.drawDoor = (st) =>
 //                 {Yome.drawWalls(Yome.state)}</g>)
 {% endhighlight %}
 
-Now the big difference with the rest of the items is that they are
-drawn at the corner where as the window is drawn at a face.
+Now the big difference with the door and the rest of the items is that
+they are drawn at the corner, where as the window is drawn at a face.
 
 If you render a door and a window you will see this:
 
@@ -759,12 +759,12 @@ composable.
 You may have noticed a familiar pattern in the drawing functions
 above. Those of you who had a classical OOP education may see the old
 shape polymorphism exercise. The classic example where you have a
-`Drawable` interface that defines a `draw` method. Then you can pass a
-list of drawable things to a renderer and the renderer will just
-`draw` them. Easy peasy.
+`Drawable` class or interface that defines a `draw` method. Then you
+can pass a list of drawable things to a renderer and the renderer will
+just `draw` them. Easy peasy.
 
 But here is the deal: Why the heck would I want to do this? Yes I do
-want dispatch but creating a bunch of objects that have different draw
+want dispatch, but creating a bunch of objects that have different draw
 methods is a lot of ceremony when I just want to dispatch on some type
 of data. If I want dispatch, why not just create it directly?
 
@@ -806,7 +806,7 @@ Yome.exampleData = ((state)=>{
 
 If you print out the resulting `exampleData` you will see that each
 side has an optional `face` and `corner`. `face` can have a value of
-`"window"` and corner can be "door-frame", "zip-door" or "stove-vent".
+"window" and `corner` can be "door-frame", "zip-door" or "stove-vent".
 
 Let's put our method dispatch to work to draw a complete yome along
 with its features.
@@ -828,12 +828,12 @@ Yome.sideSlice = (st, i) => {
 //Yome.playArea(Yome.sideSlice(Yome.exampleData, 0))
 {% endhighlight %}
 
-The `sideSlice` function returns a rendering of a face and corner of
-one of the sides of the Yome layout. It also uses SVG to rotate it
-into its appropriate position in the drawing.
+The `sideSlice` function returns a rendering of a face and a corner of
+one of the sides of the Yome layout. It also uses SVG functionality to
+rotate it into its appropriate position in the drawing.
 
 If you uncomment the first log statement you will see the 6th side of
-the 8 sided Yome, which has a door and a window, rendered in its
+the eight sided Yome, which has a door and a window, rendered in its
 correct position like this:
 
 <div class="yome-widget">
@@ -847,7 +847,7 @@ React.render(Yome.svgWorld(Yome.sideSlice(Yome.exampleData, 5)),
                            document.getElementById("example7"));
 </script>
 
-So this is great, we have a working dispatch `itemRender` function and
+So this is cool, we have a working dispatch `itemRender` function and
 we are successfully able to render a side of the example Yome. There
 is very little we have left to do in order to render the whole Yome
 layout.
@@ -910,12 +910,11 @@ Yome layout clearly?
 This is straightforward right? The code above is both understandable
 and reduces cognitive overhead.
 
-But not only that, we can live reload it and test the output
+But not only that, we can reload it live and test the output
 of the individual functions with great ease.
 
-Since it's possible to express things this way, this leads us to this very
-important question: **Why would we create complexity when it isn't
-needed?**
+Since it's possible to express things this way, this begs an important
+question: **Why would we create complexity when it isn't needed?**
 
 ### Embracing Change
 
@@ -929,7 +928,7 @@ we are going to have to
 * rerender the Yome
 
 These side effects are the absolutely unavoidable in an interactive
-system. Becasue there is no way for us to live without them, I'm going
+system. Because there is no way for us to live without them, I'm going
 to call them the **essential complexity** of the program.
 
 There are innumerable ways to express how the state is changed and the
@@ -949,12 +948,12 @@ are going to be composed of this `eventHandler`. This function takes a
 side-effecting function `f` that will be changing the state of the
 application in response to a event. This `eventHandler` function
 builds and returns an event handler that will call this side-effecting
-function and then re-render the widget after the state transition.
+function `f` and then re-render the widget after the state transition.
 
-Yep, its that simple. I have handled both the requirement for state
-transition and rerendering.
+Yep, it is that simple. I have handled both the requirement for both
+state transition and rerendering.
 
-Nornally we would have some sort of state object that fires an event
+Normally we would have some sort of state object that fires an event
 when it changes. We would then hook the rerender of the widget to that
 state object. But this is really not needed for this small application. So
 instead I am just sneaking a call to `Yome.render()` into the
