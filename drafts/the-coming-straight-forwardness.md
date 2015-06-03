@@ -953,19 +953,19 @@ function `f` and then re-render the widget after the state transition.
 Yep, it is that simple. I have handled both the requirement for both
 state transition and rerendering.
 
-Normally we would have some sort of state object that fires an event
-when it changes. We would then hook the rerender of the widget to that
-state object. But this is really not needed for this small application. So
+Normally, we would have some sort of state object that fires an event
+when it changes. We would then hook the re-render of the widget to that
+state object. But this really is not needed for this small application. So
 instead I am just sneaking a call to `Yome.render()` into the
 `eventHandler` so that it occurs after a state change. 
 
 Keep in mind that this is the first piece of this application that I
 would change as it grows and our event listeners start having more
-sophisticated needs like asynchronous ajax calls. Again, the added
+sophisticated needs like asynchronous Ajax calls. Again, the added
 complexity is just not needed here in this widget. Why would I add it?
 I don't need to prepare for things that are not actually being done.
 
-Now lets look at how the `eventHandler` is used.
+Let's look at how this `eventHandler` is used:
 
 {% highlight javascript %}
 //side effecting
