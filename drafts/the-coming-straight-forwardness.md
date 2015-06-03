@@ -1189,7 +1189,7 @@ less overall effort.
 
 The code above does have some problems that will show themselves as an
 application built like this grows. These are not problems for the
-program presented but its important to mention potential pitfalls of
+program presented but it's important to mention potential pitfalls of
 this approach.
 
 **Asynchronous Event Handlers**
@@ -1197,7 +1197,7 @@ this approach.
 It's very likely that we are going to need asynchronous code in our
 event handlers at some point.
 
-The current `eventHandler` can't handle an asynchronous callbacks and
+The current `eventHandler` can't handle asynchronous callbacks and
 if asynchronous code is used, it's possible that `Yome.render` will be
 called before the state has actually changed. As soon as this type
 behavior is needed it's better to move to a pattern where the render
@@ -1208,15 +1208,15 @@ happens explicitly as the result of a state change.
 This code currently doesn't lend itself to being used more than once
 in a client environment.
 
-This again isn't a problem for the current use case but can be easily
+This again isn't a problem for the current use case, but can be easily
 remedied by enclosing it in its own React component and storing the
 state in the local state of the component. This doesn't require much
 refactoring at all. This also solves the previous asynchronous handler
 problem as well, because when the local state of a React element
 changes the component automatically re-renders.
 
-You could also componentize it without using a React wrapper, there
-are many well known patterns to do these things.
+You could also componentize the program without using a React wrapper
+and there are many well known patterns to do this.
 
 It's important to remember that you don't need to do this if it isn't
 necessary. Yes, I know I keep saying this ...
@@ -1227,13 +1227,12 @@ The biggest problem that I have with the above code is that it is
 possible that someone will accidently modify the state during the
 render phase.
 
-The `Yome.state` is a mutable data type and that means that any
-function that has a reference to it during the render phase may
-accidentally change the state while it is, say, conjuring up some
-derivative state for some other function. This is easier to do than
-one may think.
+The `Yome.state` is a mutable and that means that any function that
+has a reference to it during the render phase may accidentally change
+the state while it is, say, conjuring up some derivative state for
+some other function. This is easier to do than one may think.
 
-This could definitely cause some hard to find problems and really
+This could definitely cause some hard to find bugs and really
 wreaks havoc on the apparent independence of the functions that we are
 creating. It is for this reason that I would very likely start using
 immutable (persistent) data types like the ones found in
@@ -1251,12 +1250,12 @@ sections that do mutate data.
 I actually think that adding something like Immutable.js can help
 address all the previous problems outlined above.
 
-If you want to give it a try please add Immutable.js to the widget
-above. Also, have a look at the Immutable.js
-[Cursor](https://github.com/facebook/immutable-js/tree/master/contrib/cursor)
+It would be a great exercise to add Immutable.js to the widget above.
+Also, have a look at the Immutable.js
+[cursor](https://github.com/facebook/immutable-js/tree/master/contrib/cursor)
 and see if that is helpful in making the code more modular.
 
-If folks are interested I'll do a follow up post that addresses these
+If folks are interested, I will do a follow up post that addresses these
 things.
 
 **Performance**
@@ -1273,7 +1272,7 @@ breaking the application down into some well placed React components
 to trim the Virtual DOM tree a bit.
 
 It is important to remember that the in-memory differencing of the
-Virtual DOM is very very very fast and you can probably render 20x the
+Virtual DOM is very VERY fast and you can probably render 20x the
 amount of Virtual DOM than you think you can. JavaScript engines are
 insanely fast.
 
@@ -1282,8 +1281,9 @@ obvious bottle neck, some large section of the DOM that doesn't change
 that often.
 
 You can take care of these bottle necks fairly simply if you are using
-Immutable.js. The following `memoizeReact` function can make extremely
-short work of trimming the Virtual DOM tree.
+Immutable.js to hold your application data. The following
+`memoizeReact` function can make extremely short work of trimming the
+Virtual DOM tree.
 
 {% highlight javascript %}
 Yome.pureRender = Yome.pureRender || React.createClass({
@@ -1304,23 +1304,24 @@ Yome.memoizeReact = (f) =>
   }
 {% endhighlight %}
 
-And you can use it to create memoized React functions like this:
+You can use `memoizeReact` to create memoized React
+functions like this:
 
 {% highlight javascript %}
 Yome.drawWindowMem = Yome.memoizeReact(Yome.drawWindow);
 {% endhighlight %}
 
-Now the `drawWindowMem` function will only be executed when the
-arguments have changed value.
+Now the `drawWindow` function will only be executed when the
+arguments to `drawWindowMem` have changed value.
 
 This simple memoize pattern can extend this purely functional approach
-to creating front end React applications quite far.
+much farther quite far.
 
 **Those other cases**
 
 There are other cases when you need to break out and create custom
-react elements, objects and such. I'm not saying that these techniques
-are bad, I'm just saying that I think folks turn to them to early and
+React elements, objects and such. I'm not saying that these techniques
+are bad, I'm just saying that I think folks turn to them too early and
 too often and are perhaps creating more complexity than they need to.
 
 ### Thanks!
