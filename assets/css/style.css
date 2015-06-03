@@ -209,3 +209,19 @@ code {
   }
 }
 
+@media (max-width: 480px) {
+  .highlight, blockquote, .breadcrumb, .example {
+    margin-left: -15px;
+    margin-right: -15px;
+    border-radius: 0px;    
+  }
+  .highlight pre {
+    border-left: 0px;
+    border-right: 0px;
+    border-radius: 0px;
+  }
+  p code {
+    white-space: normal !important;
+  }
+}
+

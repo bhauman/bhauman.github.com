@@ -15,6 +15,24 @@ tags: []
    color: #333;
    background-color: transparent;
  }
+
+@media (max-width: 420px) {
+  .yome-widget {
+    border-radius: 0px;
+    overflow: hidden;
+    margin-left: -15px;
+    margin-right: -15px;    
+  }
+  .yome-widget-body {
+     margin: 0px;  
+     width:  300px;  
+     height: 400px;
+     top:    -50px;
+     left: -30px;
+     -webkit-transform: scale(0.75);
+     transform: scale(0.75);     
+  }
+}
 </style>
 
 
@@ -1037,7 +1055,7 @@ Yome.widget = (st) =>
 Now our size control is part of the widget:
 
 <div class="yome-widget">
-<div id="example9" class="yome-widget-body">
+<div id="example9" class="yome-widget-bod">
   
 </div>
 </div>
@@ -1119,7 +1137,7 @@ Yome.widget = (st) =>
 And now the widget should render like this:
 
 <div class="yome-widget">
-<div id="example10" class="yome-widget-body">
+<div id="example10" class="yome-widget-bod">
   
 </div>
 </div>
@@ -1158,17 +1176,22 @@ yourself as an exercise. I reccomend the latter, of course.
 The full Yome widget is a not a trivial application but by using a
 straightforward approach I was able to create something that works for
 my friend in a relatively short period of time. And, as I said before,
-it was like taking a relatively pleasant stroll.
+the experience was like taking a relatively pleasant stroll.
 
 This is important. The sraightforwardness of the code enabled me to
 just continue to do the next task at hand and in the end provide
-actual value to my friend, without breaking his bank.
+actual value to my friend.
+
+Another way to say this: by addressing the complexity directly at the
+level of computation I was able to write this program correctly with
+less overall effort.
 
 ### Problems that aren't
 
 The code above does have some problems that will show themselves as an
 application built like this grows. These are not problems for the
-program as presented but its important to mention them.
+program presented but its important to mention potential pitfalls of
+this approach.
 
 **Asynchronous Event Handlers**
 
@@ -1197,35 +1220,37 @@ You could also componentize it without using a React wrapper, there
 are many well known patterns to do these things.
 
 It's important to remember that you don't need to do this if it isn't
-necessary. Yes, I keep saying this ...
+necessary. Yes, I know I keep saying this ...
 
-**Data safety**
+**Unsafe data structures**
 
 The biggest problem that I have with the above code is that it is
 possible that someone will accidently modify the state during the
 render phase.
 
-The `Yome.state` is mutable and that means that any function that has
-a reference to it during the render phase may accidentally change the
-state while it is, say, conjuring up some derivative state for some
-other function.
+The `Yome.state` is a mutable data type and that means that any
+function that has a reference to it during the render phase may
+accidentally change the state while it is, say, conjuring up some
+derivative state for some other function. This is easier to do than
+one may think.
 
 This could definitely cause some hard to solve problems and really
-wreaks havoc on the independance of the functions that we are
+wreaks havoc on the apparent independance of the functions that we are
 creating. It is for this reason that I would very likely start using
-persistent data types like the ones found in
+immutable (persistent) data types like the ones found in
 [Immutable-js](https://facebook.github.io/immutable-js/). Immutable
-data prevents functions from inadvertently side effecting and
-accidentally ruining the data for the aplication. Immutable data
-guarantees that our pure functions are indeed independent.
+data is the most efficient way to prevent functions from inadvertently
+side effecting and accidentally ruining the data for the application.
+Immutable data guarantees that our pure functions are indeed
+independent.
 
-Refactoring the Yome widget to use Immutable data would be easy. But
+Refactoring the Yome widget to use immutable data would be easy. But
 again, for this widget, it really isn't needed yet. The data
-transitions are few and its easy to keep track of the few code
+transitions are few and it's easy to keep track of the few code
 sections that do mutate data.
 
 I actually think that adding something like Immutable.js can help
-address all the previous problems I have outlined.
+address all the previous problems outlined above.
 
 If you want to give it a try please add Immutable.js to the widget
 above. Also, have a look at the Immutable.js
@@ -1238,10 +1263,10 @@ things.
 **Performance**
 
 If we could get away with doing pure computation all of the time I
-really think we would. But eventually we are going to face
+really think we would. Eventually, we are going to run into
 some computational limits.
 
-When using pure functions to return a complete Virtual DOM
+When using pure functions to create a complete Virtual DOM
 representation of an application view, it is possible that the size of
 our Virtual DOM tree will get too bulky for the React differencing
 algorithm to complete quickly. It is at this point, that I will start
@@ -1249,7 +1274,7 @@ breaking the appliciation down into some well placed React components
 to trim the Virtual Dom tree a bit.
 
 It is important to remember that the in-memory differencing of the
-Virtual DOM is very very fast and you can probably render 10x the
+Virtual DOM is very very very fast and you can probably render 20x the
 amount of Virtual DOM than you think you can. JavaScript engines are
 insanely fast.
 
@@ -1258,8 +1283,8 @@ obvious bottle neck, some large section of the DOM that doesn't change
 that often.
 
 You can take care of these bottle necks fairly simply if you are using
-Immutable.js. The following `memoizeReact` function can make short work of
-trimming the Virtual DOM tree.
+Immutable.js. The following `memoizeReact` function can make extremely
+short work of trimming the Virtual DOM tree.
 
 {% highlight javascript %}
 Yome.pureRender = Yome.pureRender || React.createClass({
@@ -1295,9 +1320,9 @@ to creating front end React applications quite far.
 **Those other cases**
 
 There are other cases when you need to break out and create custom
-react elements, objects and such. I'm not saying that they are bad, I'm
-just saying that I think folks turn to them to early and too often and
-are perhaps creating more complexity than they need to.
+react elements, objects and such. I'm not saying that these techniques
+are bad, I'm just saying that I think folks turn to them to early and
+too often and are perhaps creating more complexity than they need to.
 
 ### Thanks!
 
