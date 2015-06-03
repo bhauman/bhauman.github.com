@@ -1214,7 +1214,7 @@ remedied by enclosing it in its own React component and storing the
 state in the local state of the component. This doesn't require much
 refactoring at all. This also solves the previous asynchronous handler
 problem as well, because when the local state of a React element
-changes the component automaticly re-renders.
+changes the component automatically re-renders.
 
 You could also componentize it without using a React wrapper, there
 are many well known patterns to do these things.
@@ -1234,8 +1234,8 @@ accidentally change the state while it is, say, conjuring up some
 derivative state for some other function. This is easier to do than
 one may think.
 
-This could definitely cause some hard to solve problems and really
-wreaks havoc on the apparent independance of the functions that we are
+This could definitely cause some hard to find problems and really
+wreaks havoc on the apparent independence of the functions that we are
 creating. It is for this reason that I would very likely start using
 immutable (persistent) data types like the ones found in
 [Immutable-js](https://facebook.github.io/immutable-js/). Immutable
@@ -1264,14 +1264,14 @@ things.
 
 If we could get away with doing pure computation all of the time I
 really think we would. Eventually, we are going to run into
-some computational limits.
+computational limits.
 
 When using pure functions to create a complete Virtual DOM
 representation of an application view, it is possible that the size of
 our Virtual DOM tree will get too bulky for the React differencing
 algorithm to complete quickly. It is at this point, that I will start
-breaking the appliciation down into some well placed React components
-to trim the Virtual Dom tree a bit.
+breaking the application down into some well placed React components
+to trim the Virtual DOM tree a bit.
 
 It is important to remember that the in-memory differencing of the
 Virtual DOM is very very very fast and you can probably render 20x the
