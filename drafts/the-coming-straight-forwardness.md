@@ -1197,40 +1197,41 @@ changes the component automaticly re-renders.
 You could also componentize it without using a React wrapper, there
 are many well known patterns to do these things.
 
-It is important to remember that you don't need to do this if it isn't
-necessary.
+It's important to remember that you don't need to do this if it isn't
+necessary. Yes, I keep saying this ...
 
 **Data safety**
 
-The biggest problem that I have with the above code is that as it
-grows it is possible that someone will accidently modify the state
-during the render phase.
+The biggest problem that I have with the above code is that it is
+possible that someone will accidently modify the state during the
+render phase.
 
-The `Yome.state` is mutable an that means any function that has a
-reference to it during the render phase may accidentally change the
-state while it is say conjuring up some derivative state for some
+The `Yome.state` is mutable and that means that any function that has
+a reference to it during the render phase may accidentally change the
+state while it is, say, conjuring up some derivative state for some
 other function.
 
 This could definitely cause some hard to solve problems and really
 wreaks havoc on the independance of the functions that we are
-creating. It is for this reason that I would be very likely to start
-using persistent data types like the ones found in
+creating. It is for this reason that I would very likely start using
+persistent data types like the ones found in
 [Immutable-js](https://facebook.github.io/immutable-js/). Immutable
-data prevents functions from inadvertently side effecting and ruining
-the data for the functions. Immutable data guarantees that our pure
-functions are indeed independent.
+data prevents functions from inadvertently side effecting and
+accidentally ruining the data for the aplication. Immutable data
+guarantees that our pure functions are indeed independent.
 
 Refactoring the Yome widget to use Immutable data would be easy. But
 again, for this widget, it really isn't needed yet. The data
 transitions are few and its easy to keep track of the few code
 sections that do mutate data.
 
-I actually think that adding something like Immutable.js will address
-all the previous problems I have outlined.
+I actually think that adding something like Immutable.js can help
+address all the previous problems I have outlined.
 
 If you want to give it a try please add Immutable.js to the widget
-above. Also, have a look at the Immutable.js Cursor and see if that is
-helpful in making the code more modular.
+above. Also, have a look at the Immutable.js
+[Cursor](https://github.com/facebook/immutable-js/tree/master/contrib/cursor)
+and see if that is helpful in making the code more modular.
 
 If folks are interested I'll do a follow up post that addresses these
 things.
@@ -1248,12 +1249,12 @@ algorithm to complete quickly. It is at this point, that I will start
 breaking the appliciation down into some well placed React components
 to trim the Virtual Dom tree a bit.
 
-It is important to remember that the in memory differencing of the
+It is important to remember that the in-memory differencing of the
 Virtual DOM is very very fast and you can probably render 10x the
 amount of Virtual DOM than you think you can. JavaScript engines are
 insanely fast.
 
-But there is a limit, and when you reach it there will probably be an
+However, there is a limit, and when you reach it there will probably be an
 obvious bottle neck, some large section of the DOM that doesn't change
 that often.
 
@@ -1287,7 +1288,7 @@ Yome.drawWindowMem = Yome.memoizeReact(Yome.drawWindow);
 {% endhighlight %}
 
 Now the `drawWindowMem` function will only be executed when the
-arguments have changed.
+arguments have changed value.
 
 This simple memoize pattern can extend this purely functional approach
 to creating front end React applications quite far.
@@ -1301,7 +1302,6 @@ are perhaps creating more complexity than they need to.
 
 ### Thanks!
 
-If you have read thus far thanks for taking the time and I hope there
+If you have read thus far, thanks for taking the time and I hope there
 was something here that you found useful.
-
 
