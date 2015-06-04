@@ -1,6 +1,6 @@
 ---
 layout: default
-title: "The Coming Straightforwardness"
+title: "Straightforward Functional JavaScript with React"
 published: true
 category: 
 tags: []
@@ -16,27 +16,9 @@ tags: []
    background-color: transparent;
  }
 
-@media (max-width: 420px) {
-  .yome-widget {
-    border-radius: 0px;
-    overflow: hidden;
-    margin-left: -15px;
-    margin-right: -15px;    
-  }
-  .yome-widget-body {
-     margin: 0px;  
-     width:  300px;  
-     height: 400px;
-     top:    -50px;
-     left: -30px;
-     -webkit-transform: scale(0.75);
-     transform: scale(0.75);     
-  }
-}
 </style>
 
-
-## The Coming Straightforwardness
+## Straightforward Functional JavaScript with React
 
 <div style="background-color: #333; text-align: center; margin-bottom: 2em;">
 <img src="/assets/images/yome.jpg" style="width: 100%;">
@@ -155,11 +137,6 @@ effects I will. In doing so, I will minimize complexity as much as
 possible and then hopefully the only complexity I have left will
 represent the **essential complexity** of the program.
 
-Also, I'm going to be using functional programming in a
-__straightforward__ manner. No esoteric functional meanderings. I'm
-not saying that Monads and such are bad. They just aren't needed here,
-in this program, at all.
-
 ### Straightforwardness != Familiarity
 
 It's important to note that **straightforwardness has nothing to do
@@ -170,11 +147,6 @@ understand the code or finds it strange, that does not mean that it
 isn't straightforward.
 
 ### YAGNI - You really aren't going to need it
-
-It can be very exciting to follow the cutting edge of best practices,
-frameworks and implementation patterns. It's just that the queue of
-what's cool starts at one end with a great PR push and eventually
-comes out the other to fall into a trash bin.
 
 I'm not only going to be reductive with my computation but my tooling
 as well.
@@ -294,6 +266,7 @@ a {
     text-decoration: none;
     display: block;
     font-size: 12px;
+    white-space: nowrap;    
 }
 
 a.remove { color: rgb(239, 131, 75);}
@@ -1172,7 +1145,7 @@ Yome.render();
 
 And the Yome widget comes to life!
 
-You can refer to the JavaScript code for this widget to see how I
+You can refer to the [JavaScript code](https://github.com/bhauman/javascript_yome_widget/blob/master/src/yome.js) for this widget to see how I
 implemented the rest of the corner controls or you can implement them
 yourself as an exercise. I recommend the latter, of course.
 
@@ -1330,3 +1303,15 @@ too often and are perhaps creating more complexity than they need to.
 
 If you have read thus far, thanks for taking the time and I hope there
 was something here that you found useful.
+
+Much of the inspiration of this post comes from my exposure to
+[ClojureScript](https://github.com/bhauman/javascript_yome_widget) and
+some really great books like [SICP](https://mitpress.mit.edu/sicp/).
+
+### Links
+
+* [Code of JavaScript Yome Widget](https://github.com/bhauman/javascript_yome_widget)
+* [Programming with Hand Tools](https://www.youtube.com/watch?v=ShEez0JkOFw)
+* [Out of the Tar Pit](http://shaffner.us/cs/papers/tarpit.pdf)
+* [ClojureScript](https://github.com/clojure/clojurescript/wiki/Quick-Start)
+* [SICP](https://mitpress.mit.edu/sicp/)
