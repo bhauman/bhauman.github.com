@@ -381,8 +381,10 @@ the timeout from `500` to `3000`. Or change the `"--- reloading ---"`
 string to `"--- reloading files ---"`. You will see a likewise change of
 behavior in the console. You can adjust the timing as you prefer.
 
+This can be a little hard to get used to, but remember that as you make
 your changes below, **you don't have to reload the browser**.
 
+If this isn't for you or if you need to turn it off, just
 remove the code above or comment out the `startReloading` line like
 so:
 
@@ -444,6 +446,9 @@ Yome.sliceTheta = (st) => 2 * Math.PI / Yome.sideCount(st)
 //l(Yome.sliceTheta(Yome.state))
 {% endhighlight %}
 
+Since we are working with regular polygons, I am going to constantly be
+referencing the angle of one of the polygon slices (an octagon
+has eight slices). The `sliceTheta` function gives us this angle in
 radians.
 
 Again, you can see it working by uncommenting the log line below
@@ -501,9 +506,12 @@ functions, then you may be starting to appreciate how easy it is to
 verify that these functions are working.
 
 This easy verifiability is also a result of using pure functions. It
+is often very simple to meet the data shape needs of a pure function
+by conjuring up some quick data to pass into it.
 
 The same is true for the compound functionality of several functions
 together. This is normally not the case for a set of stateful objects
+where you may have to create several objects and a mock or two in
 order to test a simple code path.
 
 {% highlight javascript %}
@@ -515,10 +523,16 @@ Yome.drawWalls = (state) =>
 Here we start generating some SVG with JSX. The `Yome.drawWalls` method
 will take the current state and emit an React polygon element.
 
+Now when we get here, we would really like to know if our code for
+drawing octagons is working. While our log function is helpful for
+seeing how data-based functions are behaving, it is useless for
+checking how our visual functions are working.
 
 ### Verifying graphical functions
 
 You may have noticed a `playarea` element in the `index.html`. We are
+going to create a log function that renders functions like
+`Yome.drawWalls` into the `playarea` element of our application page.
 
 {% highlight javascript %}
 Yome.svgWorld = (children) =>
@@ -534,6 +548,7 @@ Yome.clearPlayArea = () =>
   React.unmountComponentAtNode(document.getElementById("playarea"))
 {% endhighlight %}
 
+Above, I have created a utility function `playArea` that allows us
 to see the visual output of function that returns React SVG elements.
 
 You can use the following commented out `drawWalls` expressions to
@@ -572,6 +587,7 @@ currently `180` in the `Yome.sidePoints` function. Go ahead and try
 values of 50, 120 and then back to 180.
 
 As you can see, we now have a way to quickly examine the output of our
+DOM emitting functions live. This is very helpful.
 
 Comment out the `playArea` logging functions above before you go on.
 
@@ -774,6 +790,7 @@ of data. If I want dispatch, why not just create it directly?
 Here is my dispatch:
 
 {% highlight javascript %}
+Yome.itemRenderDispatch = {
   "window":     Yome.drawWindow,
   "door-frame": Yome.drawDoor,
   "zip-door":   Yome.drawZipDoor,
@@ -817,6 +834,8 @@ First, we need a way to draw a single slice (side) which is a grouping
 of a corner and a side.
 
 {% highlight javascript %}
+Yome.sliceDeg = (st) => 360 / Yome.sideCount(st)
+
 Yome.sideSlice = (st, i) => {
   const side = st.sides[i];
   if(side.corner || side.face)        
@@ -862,6 +881,7 @@ Yome.drawYome = (st) =>
   </g>
 
 //Yome.playArea(Yome.drawYome(Yome.exampleData))
+//Yome.clearPlayArea()
 {% endhighlight %}
 
 In the `drawYome` function above, we just draw the walls of the Yome
@@ -972,6 +992,7 @@ Let's look at how this `eventHandler` is used:
 //side effecting
 Yome.changeSideCount = (new_count) => {
     let nArray = Array.apply(null, Array(parseInt(new_count)));
+    Yome.state.sides = nArray.map((_,i) => Yome.state.sides[i] || {});
 }
 //Yome.changeSideCount(6)
 //Yome.changeSideCount(7)
@@ -1009,9 +1030,14 @@ Yome.sideCountInput = st =>
 //             document.getElementById("playarea"))
 {% endhighlight %}
 
+Here is a select input that allows you to change the Yome size. If
 there is a change it fires our event handler which in turn will change
 the state of the application and re-render it.
 
+It's interesting to note, the `sideCountInput` function is still a pure
+function that returns some virtual DOM. This virtual DOM in turn
+**references** another function `changeSideCount` that will change the
+state. The function itself is still a pure function.
 
 If you uncomment the `React.render` call, you can see our new size
 control and if you select the different sizes you should see the Yome
@@ -1023,6 +1049,7 @@ the `Yome.widget` function so that it now looks like this:
 {% highlight javascript %}
 Yome.widget = (st) =>
   <div className="yome-widget">
+    { Yome.sideCountInput(st) } //<-- add this
     <div className="yome-widget-body">
      { Yome.svgWorld(Yome.drawYome(st)) }
     </div>
@@ -1150,10 +1177,16 @@ yourself as an exercise. I recommend the latter, of course.
 
 ### Straightforward code as an enabler
 
+The full Yome widget is not a trivial application, but by using a
 straightforward approach I was able to create something that works for
+my friend in a relatively short period of time and managed to have fun while doing it.
 
+> BLASHiTTERS
+
+This is important. The straightforwardness of the code enabled me to
 just continue to do the next task at hand and in the end provide
 actual value to my friend.
+
 
 Another way to say this: by addressing the complexity directly at the
 level of computation I was able to write this program correctly with
@@ -1173,7 +1206,9 @@ event handlers at some point.
 
 The current `eventHandler` can't handle asynchronous callbacks and
 if asynchronous code is used, it's possible that `Yome.render` will be
+called before the state has actually changed. As soon as this type of
 behavior is needed it's better to move to a pattern where the render
+happens explicitly as a result of a state change.
 
 **Modularity**
 
@@ -1184,6 +1219,8 @@ This again isn't a problem for the current use case, but can be easily
 remedied by enclosing it in its own React component and storing the
 state in the local state of the component. This doesn't require much
 refactoring at all. This also solves the previous asynchronous handler
+problem, because the component automatically re-renders when the local
+state of a React element changes.
 
 You could also componentize the program without using a React wrapper
 and there are many well known patterns to do this.
@@ -1193,8 +1230,18 @@ necessary. Yes, I know I keep saying this ...
 
 **Unsafe data structures**
 
+The biggest problem that I have with the above code is that someone
+may accidentally modify the state during the render phase.
 
+The `Yome.state` is mutable and any function that has a reference to
+it during the render phase may accidentally change the state while it
+is, say, conjuring up some derivative state for some other function.
+This is easier to do than one may think.
 
+This could definitely cause some hard to find bugs and wreak havoc on
+the apparent independence of the functions that we are creating. It is
+for this reason that I would very likely start using immutable
+(persistent) data types like the ones found in
 [Immutable-js](https://facebook.github.io/immutable-js/). Immutable
 data is the most efficient way to prevent functions from inadvertently
 side effecting and accidentally ruining the data for the application.
@@ -1206,34 +1253,38 @@ again, for this widget, it really isn't needed yet. The data
 transitions are few and it's easy to keep track of the few code
 sections that do mutate data.
 
+Adding Immutable.js to the Yome widget addresses all the problems
+outlined above and would be a fantastic exercise. Have a look at the
+Immutable.js
 [cursor](https://github.com/facebook/immutable-js/tree/master/contrib/cursor)
 and see if that is helpful in making the code more modular.
 
+If folks are interested, I will do a follow-up post that addresses these
 things.
 
 **Performance**
 
-If we could get away with doing pure computation all of the time I
-really think we would. Eventually, we are going to run into
+If we could get away with doing pure functional computation all the
+time, life would be awesome. However, we will eventually run into
 computational limits.
 
 When using pure functions to create a complete Virtual DOM
 representation of an application view, it is possible that the size of
 our Virtual DOM tree will get too bulky for the React differencing
-algorithm to complete quickly. It is at this point, that I will start
-breaking the application down into some well placed React components
+algorithm to complete quickly. It is at this point that I will start
+breaking the application down into some well-placed React components
 to trim the Virtual DOM tree a bit.
 
 It is important to remember that the in-memory differencing of the
 Virtual DOM is very VERY fast and you can probably render 20x the
-amount of Virtual DOM than you think you can. JavaScript engines are
-insanely fast.
+amount of Virtual DOM than you think you can. It's hard to comprehend
+the performance of modern JavaScript engines.
 
 However, there is a limit, and when you reach it there will probably be an
-obvious bottle neck, some large section of the DOM that doesn't change
+obvious bottleneck, some large section of the DOM that doesn't change
 that often.
 
-You can take care of these bottle necks fairly simply if you are using
+You can take care of these bottlenecks fairly simply if you are using
 Immutable.js to hold your application data. The following
 `memoizeReact` function can make extremely short work of trimming the
 Virtual DOM tree.
@@ -1268,7 +1319,7 @@ Now the `drawWindow` function will only be executed when the
 arguments to `drawWindowMem` have changed value.
 
 This simple memoize pattern can extend this purely functional approach
-much farther quite far.
+quite far.
 
 **Those other cases**
 
