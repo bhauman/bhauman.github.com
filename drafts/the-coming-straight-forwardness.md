@@ -1181,12 +1181,9 @@ The full Yome widget is not a trivial application, but by using a
 straightforward approach I was able to create something that works for
 my friend in a relatively short period of time and managed to have fun while doing it.
 
-> BLASHiTTERS
-
 This is important. The straightforwardness of the code enabled me to
 just continue to do the next task at hand and in the end provide
 actual value to my friend.
-
 
 Another way to say this: by addressing the complexity directly at the
 level of computation I was able to write this program correctly with
@@ -1332,4 +1329,3 @@ too often and are perhaps creating more complexity than they need to.
 
 If you have read thus far, thanks for taking the time and I hope there
 was something here that you found useful.
-
