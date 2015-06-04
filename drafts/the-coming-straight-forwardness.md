@@ -351,21 +351,21 @@ Go ahead and put this at the top of the `yome.js` file.
 {% highlight javascript %}
 var Reloader = Reloader || {};
 
-Reloader.reload_file = function (path) {
+Reloader.reloadFile = (path) => {
   var x = document.createElement("script");
   x.setAttribute("src",path + "?rel=" + (new Date().getTime()));
   document.body.appendChild(x);
   setTimeout(function(){ document.body.removeChild(x);}, 1000);
 }
 
-Reloader.start_reloading = function (files) {
+Reloader.startReloading = (files) => {
   setTimeout(function() {
     console.log("--- reloading ---");
-    files.map(Reloader.reload_file);
-  }, 3000);
+    files.map(Reloader.reloadFile);
+  }, 500);
 }
 
-Reloader.start_reloading(["build/yome.js"])
+Reloader.startReloading(["build/yome.js"])
 {% endhighlight %}
 
 Now, reload the `index.html` page and open the Developers Console
@@ -376,20 +376,18 @@ The interesting thing here, is that this Reloader code is being
 **reloaded** itself, so you can change it and see the behavior change
 **without reloading the browser**.
 
-Go ahead and modify the `Reloader.start_reloading` function and change
-the timeout from `1000` to `5000`. Or change the `"--- reloading ---"`
+Go ahead and modify the `Reloader.startReloading` function and change
+the timeout from `500` to `3000`. Or change the `"--- reloading ---"`
 string to `"--- reloading files ---"`. You will see a likewise change of
-behavior in the console. You can adjust the timing to your preference.
+behavior in the console. You can adjust the timing as you prefer.
 
-This can be hard to get used to but give it a try and as you make your
-changes below remember that you don't have to reload the browser.
+your changes below, **you don't have to reload the browser**.
 
-If this isn't for you or if you need to turn it off for a bit just
-remove the code above or comment out the `start_reloading` line like
+remove the code above or comment out the `startReloading` line like
 so:
 
 {% highlight javascript %}
-//Reloader.start_reloading(["build/yome.js"])
+//Reloader.startReloading(["build/yome.js"])
 {% endhighlight %}
 
 Welcome to instantaneous live reloading, it is the future.
@@ -423,7 +421,7 @@ be a **function** of this data.
 
 Yomes come in three sizes: 6, 7 or 8 sides. Thus, the view from above
 is either a hexagon, septagon or octagon. As you can see from the
-`initialState` function above we are going to be starting with an
+`initialState` function above, we are going to be starting with an
 octagon.
 
 {% highlight javascript %}
@@ -446,11 +444,9 @@ Yome.sliceTheta = (st) => 2 * Math.PI / Yome.sideCount(st)
 //l(Yome.sliceTheta(Yome.state))
 {% endhighlight %}
 
-Since we are working with regular polygons I am going to constantly
-be referencing the angle of one of the slices. The `sliceTheta`
-function give us this angle in radians.
+radians.
 
-Again, you can see it's working by uncommenting the log line below
+Again, you can see it working by uncommenting the log line below
 it and seeing the output in the Dev Console. I will continue to place
 these log comments in the code and I will leave it up to you to try
 the code out.
@@ -478,7 +474,8 @@ In order to facilitate radial points it's necessary to `Yome.rotate` a
 point about the center at 0,0.
 
 The `radialPoint` function just takes a point that lays straight down
-radius from the center and rotates it to angle `theta` from there.
+a distance `radius` from the center and then rotates it to an angle
+`theta` from there.
 
 {% highlight javascript %}
 Yome.sidePoints = (st) =>
@@ -499,18 +496,14 @@ Yome.pointsToPointsString = (points) =>
 Here we take a set of points and turn it into a string for the SVG
 polygon element.
 
-Now if you have been using the log function `l` to verify how our
-various functions are working then you may be starting to value how
-easy it is to verify these functions. This easy verifiability is also
-a result of using pure functions.
+If you have been using the log function `l` to see the output of these
+functions, then you may be starting to appreciate how easy it is to
+verify that these functions are working.
 
-It is often very simple to meet the data shape needs of a pure
-function. This makes it easy to conjure up some quick data to pass
-into a function and verify its behavior.
+This easy verifiability is also a result of using pure functions. It
 
 The same is true for the compound functionality of several functions
 together. This is normally not the case for a set of stateful objects
-where you may have to create several objects and a couple mocks in
 order to test a simple code path.
 
 {% highlight javascript %}
@@ -522,16 +515,10 @@ Yome.drawWalls = (state) =>
 Here we start generating some SVG with JSX. The `Yome.drawWalls` method
 will take the current state and emit an React polygon element.
 
-Now when we get here we would really, really like to know if our
-strategy for drawing octagons is working. While our log function is
-helpful for seeing how data based functions are behaving, it is useless
-for checking how our visual functions are working.
 
 ### Verifying graphical functions
 
 You may have noticed a `playarea` element in the `index.html`. We are
-going to use this to create a log function that renders functions like
-`Yome.drawWalls` into the DOM of our application page.
 
 {% highlight javascript %}
 Yome.svgWorld = (children) =>
@@ -547,7 +534,6 @@ Yome.clearPlayArea = () =>
   React.unmountComponentAtNode(document.getElementById("playarea"))
 {% endhighlight %}
 
-Above I have created a utility function `playArea` that allows us
 to see the visual output of function that returns React SVG elements.
 
 You can use the following commented out `drawWalls` expressions to
@@ -586,7 +572,6 @@ currently `180` in the `Yome.sidePoints` function. Go ahead and try
 values of 50, 120 and then back to 180.
 
 As you can see, we now have a way to quickly examine the output of our
-DOM emitting functions live. This can be very helpful.
 
 Comment out the `playArea` logging functions above before you go on.
 
@@ -789,7 +774,6 @@ of data. If I want dispatch, why not just create it directly?
 Here is my dispatch:
 
 {% highlight javascript %}
-Yome.itemRender = {
   "window":     Yome.drawWindow,
   "door-frame": Yome.drawDoor,
   "zip-door":   Yome.drawZipDoor,
@@ -988,7 +972,6 @@ Let's look at how this `eventHandler` is used:
 //side effecting
 Yome.changeSideCount = (new_count) => {
     let nArray = Array.apply(null, Array(parseInt(new_count)));
-    Yome.sides = nArray.map((_,i) => Yome.sides[i] || {});
 }
 //Yome.changeSideCount(6)
 //Yome.changeSideCount(7)
@@ -1026,13 +1009,9 @@ Yome.sideCountInput = st =>
 //             document.getElementById("playarea"))
 {% endhighlight %}
 
-Here is a select input that allows you to choose a new Yome size. If
 there is a change it fires our event handler which in turn will change
 the state of the application and re-render it.
 
-The `sideCountInput` function is still a pure function that returns
-some virtual DOM. This virtual DOM in turn **references** a function that will
-change the state. The function itself is still a pure function.
 
 If you uncomment the `React.render` call, you can see our new size
 control and if you select the different sizes you should see the Yome
@@ -1044,7 +1023,6 @@ the `Yome.widget` function so that it now looks like this:
 {% highlight javascript %}
 Yome.widget = (st) =>
   <div className="yome-widget">
-    { Yome.sideCountInput(st) }
     <div className="yome-widget-body">
      { Yome.svgWorld(Yome.drawYome(st)) }
     </div>
@@ -1172,12 +1150,8 @@ yourself as an exercise. I recommend the latter, of course.
 
 ### Straightforward code as an enabler
 
-The full Yome widget is a not a trivial application but by using a
 straightforward approach I was able to create something that works for
-my friend in a relatively short period of time. And, as I said before,
-the experience was like taking a relatively pleasant stroll.
 
-This is important. The sraightforwardness of the code enabled me to
 just continue to do the next task at hand and in the end provide
 actual value to my friend.
 
@@ -1199,9 +1173,7 @@ event handlers at some point.
 
 The current `eventHandler` can't handle asynchronous callbacks and
 if asynchronous code is used, it's possible that `Yome.render` will be
-called before the state has actually changed. As soon as this type
 behavior is needed it's better to move to a pattern where the render
-happens explicitly as the result of a state change.
 
 **Modularity**
 
@@ -1212,8 +1184,6 @@ This again isn't a problem for the current use case, but can be easily
 remedied by enclosing it in its own React component and storing the
 state in the local state of the component. This doesn't require much
 refactoring at all. This also solves the previous asynchronous handler
-problem as well, because when the local state of a React element
-changes the component automatically re-renders.
 
 You could also componentize the program without using a React wrapper
 and there are many well known patterns to do this.
@@ -1223,19 +1193,8 @@ necessary. Yes, I know I keep saying this ...
 
 **Unsafe data structures**
 
-The biggest problem that I have with the above code is that it is
-possible that someone will accidently modify the state during the
-render phase.
 
-The `Yome.state` is a mutable and that means that any function that
-has a reference to it during the render phase may accidentally change
-the state while it is, say, conjuring up some derivative state for
-some other function. This is easier to do than one may think.
 
-This could definitely cause some hard to find bugs and really
-wreaks havoc on the apparent independence of the functions that we are
-creating. It is for this reason that I would very likely start using
-immutable (persistent) data types like the ones found in
 [Immutable-js](https://facebook.github.io/immutable-js/). Immutable
 data is the most efficient way to prevent functions from inadvertently
 side effecting and accidentally ruining the data for the application.
@@ -1247,15 +1206,9 @@ again, for this widget, it really isn't needed yet. The data
 transitions are few and it's easy to keep track of the few code
 sections that do mutate data.
 
-I actually think that adding something like Immutable.js can help
-address all the previous problems outlined above.
-
-It would be a great exercise to add Immutable.js to the widget above.
-Also, have a look at the Immutable.js
 [cursor](https://github.com/facebook/immutable-js/tree/master/contrib/cursor)
 and see if that is helpful in making the code more modular.
 
-If folks are interested, I will do a follow up post that addresses these
 things.
 
 **Performance**
