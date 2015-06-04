@@ -1049,7 +1049,7 @@ the `Yome.widget` function so that it now looks like this:
 {% highlight javascript %}
 Yome.widget = (st) =>
   <div className="yome-widget">
-    { Yome.sideCountInput(st) } //<-- add this
+    { Yome.sideCountInput(st) }
     <div className="yome-widget-body">
      { Yome.svgWorld(Yome.drawYome(st)) }
     </div>
@@ -1105,7 +1105,8 @@ Yome.windowControl = (st, side, i) => {
   let theta = Yome.sliceTheta(st) * (i + 1),
       pos   = Yome.worldPosition(Yome.radialPoint(200, theta)),
       add   = !side.face;
-  return <div className="control-holder" style={{ top: pos.y, left: pos.x}}>
+  return <div className="control-holder" style={ { top:  pos.y,
+                                                   left: pos.x } }>
     <a className={ "window-control-offset " +
                    (add ? "add" : "remove")}
        onClick={ Yome.eventHandler(Yome.addRemoveWindow(i)) }
@@ -1132,7 +1133,7 @@ Yome.widget = (st) =>
   <div className="yome-widget">
     { Yome.sideCountInput(st) }
     <div className="yome-widget-body">
-     { Yome.windowControls(st) }
+     { Yome.windowControls(st) } 
      { Yome.svgWorld(Yome.drawYome(st)) }
     </div>
   </div>
