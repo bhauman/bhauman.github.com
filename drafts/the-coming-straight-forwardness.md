@@ -1,6 +1,6 @@
 ---
 layout: default
-title: "Straightforward Functional JavaScript with React"
+title: "Straightforward (Live) Functional JavaScript: Building the Yome Widget"
 published: true
 category: 
 tags: []
@@ -18,7 +18,8 @@ tags: []
 
 </style>
 
-## Straightforward Functional JavaScript with React
+## Straightforward (Live) Functional JavaScript: Building the Yome Widget
+*How one ClojureScripter writes JavaScript*
 
 <div style="background-color: #333; text-align: center; margin-bottom: 2em;">
 <img src="/assets/images/yome.jpg" style="width: 100%;">
@@ -26,13 +27,19 @@ tags: []
 
 My friend Peter, the inventor of the Yome (pictured above) and
 proprietor of [Red Sky Shelters](http://redskyshelters.com/) asked me
-to update a widget that I built for him 9 years ago. He is moving his
-website and the current widget is aesthetically dated and not portable.
-The widget itself allows a client to show where windows and doors
-should be placed on the walls of their Yome.
+to update an interactive widget that I built for him 9 years ago.
 
-I wrote a JavaScript version of this widget for this blog post. You
-can see the widget below:
+I usually code in ClojureScript, so I thought it would be interesting
+to demonstrate how I would go about writing this widget in JavaScript.
+ClojureScript and React together have given me a preference for
+extremely straightforward, live, functional JavaScript, while
+abstaining from absolutely everything that isn't needed.
+
+ClojureScript has inspired me to write my JavaScript in a way that
+reflects the simplicity of the Yome itself.
+
+You can interact with the completed JavaScript widget right
+here:
 
 <div id="example1"></div>
 
@@ -51,12 +58,11 @@ Yome.exampleRenderers.push(function() {
 Yome.render();
 </script>
 
-Please take some time and interact with it. Add some windows and
-doors, and change its size.
+This widget represents a blueprint of sorts so that Peter can sew the
+Yome windows and doors into the Yome walls where the customer desires.
 
 Now reflect on how you would implement this widget:
 
-* What resources would you use?
 * Would you use a framework?
 * Would you use a drawing library?
 * jQuery?
@@ -67,10 +73,8 @@ Now reflect on how you would implement this widget:
 Flux like data flow?
 * Would you create some custom React elements to
 break this widget down into its obvious components?
-
-I'm going to share my implementation of this widget in this post. I am
-also going to share my thoughts on the coming possibility of extremely
-straightforward front end code.
+* What steps you would take to just get a base project up and
+running?
 
 ### It's all about cognitive overhead
 
@@ -83,7 +87,7 @@ hard reality that these tools may not, in fact, be helping us. These
 tools often offer the promise of lightening our cognitive overhead but
 in the end, the set of complex problems has just been moved from one
 location to another. Even worse, the set of problems has been
-exacerbated with much increased complexity.
+exacerbated with much increased [complexity](http://shaffner.us/cs/papers/tarpit.pdf).
 
 As of late, I have been hearing what seem like justified reactions to
 this complexity. Folks are saying things like: [JQuery considered
