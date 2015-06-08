@@ -215,9 +215,8 @@ simulates how I built it. If you follow along you will get to
 experience the "live" interactive aspect of the development process as
 well as appreciate how directly the code applies to the problem.
 
-For this demo I'm going to use JavaScript and React.js.
-
-We need to get Babel to watch and compile the JavaScript/JSX.
+To start, we need to get Babel to watch and compile the
+JavaScript/JSX.
 
     npm install --global babel
 
