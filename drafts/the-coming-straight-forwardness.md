@@ -103,19 +103,29 @@ There really is no free lunch, so instead of looking to techniques,
 patterns, libraries, and frameworks, maybe we should look at
 simplifying the computation itself.
 
-In the implementation of the Yome widget below, I am going to use functional
-programming to express this problem in a straightforward manner.
+### The trouble with Objects
+
+In our code, complexity normally takes the form of Object instances
+that maintain a mutable local state. I conjecture that Ruby, Java and
+general prevalence of OOP has lead many developers to code in and
+*object first* manner. When faced with a blank file and a problem, the
+modern developer seems to gravitate towards creating Objects.
+
+It's this predilection that I take issue with. Folks are unconsciously
+spending the complexity budget of their appilcations. Eventually there
+will be a real need, performance or otherwise, to create an Object.
+I'm suggesting that one wait until that need arises.
 
 ### Why is functional programming straightforward?
 
-My answer to this is that **local mutable state and side effects
-increase the complexity of a program**. The complexity and cognitive
-overhead of your program grows exponentially the more
-mutable-state/side-effects that you have. When you reason about your
-program you have to account for the potential state of all these
-changeable/changing entities and entity systems. It is amazing how
-quickly things grow past our ability to effectively reason about them.
-This, my friend, is cognitive overhead.
+My answer to this is that **the complexity and cognitive overhead of
+your program grows exponentially as you add more [local mutable
+state](https://awelonblue.wordpress.com/2012/10/21/local-state-is-poison/)
+and side effects**. When you reason about your program you have to
+account for the potential state of all these changeable/changing
+entities and entity systems. It is amazing how quickly things grow
+past our ability to effectively reason about them. This, my friend, is
+cognitive overhead.
 
 But in order to write a program we have to compute, right? Where
 does that leave us?
@@ -129,17 +139,18 @@ This is the very base of computation, and it's very hard to simplify
 past this point. (Declarative programming does this, but ...)
 
 Using functions we can add code to our programs without significantly
-increasing the complexity. As a result, programming with pure functions
-is more like taking a relaxing stroll. You can really limit the scope
-of your thinking to the input and output of the current function.
+increasing the complexity. Programming with pure functions is more
+like taking a relaxing stroll because you can often limit the scope of
+your thinking to the input and output of the current function.
 
 Of course, pure functions can only take us so far in an interactive
-program. State and views have to **change** in response to user
-actions. But I am going to ruthlessly stick to pure functions as far
-as I can and when I have to compromise and write a function with side
-effects I will. In doing so, I will minimize complexity as much as
-possible and then hopefully the only complexity I have left will
-represent the **essential complexity** of the program.
+program. State and views are required to **change** over time in
+response to user actions. But I am going to ruthlessly stick to pure
+functions as far as I can and when I have to compromise and write a
+function with side effects I will. In doing so, I will minimize
+complexity as much as possible and then hopefully the only complexity
+I have left will represent the **essential complexity** of the
+program.
 
 ### Straightforwardness != Familiarity
 
@@ -233,71 +244,9 @@ Create the project files and directories:
     touch yome_widget/index.html
     touch yome_widget/style.css
 
+Grab [this content](https://raw.githubusercontent.com/bhauman/javascript_yome_widget/master/style.css) for the `style.css` file.
 
-Edit `style.css` to look like:
-
-{% highlight css %}
-body {
-    background-color: rgb(24,26,38);
-    color: white;
-    font-family: sans-serif;
-}
-
-svg line, svg polygon, svg ellipse {
-   stroke: #2997ab;
-   stroke-width: 2;
-   fill: transparent;
-    -webkit-animation: appear 0.7s;
-}
-
-.yome-widget-body { position: relative; }
-.control-holder   { position: absolute; }
-
-.window-control-offset {
-    position: relative;
-    top: -7px;
-    left: -25px;
-}
-
-.corner-control-offset {
-    position: relative;
-    top: -21px;
-    left: -35px;
-}
-
-a {
-    color: white;
-    text-decoration: none;
-    display: block;
-    font-size: 12px;
-    white-space: nowrap;    
-}
-
-a.remove { color: rgb(239, 131, 75);}
-a.hidden { visibility: hidden;}
-
-@-webkit-keyframes appear {
-    0% { opacity: 0; }
-    100% { opacity: 1;}
-}
-{% endhighlight %}
-
-Edit `index.html` to have these contents:
-
-{% highlight html %}
-<!DOCTYPE html>
-<html>
-  <head>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/react/0.13.3/react.js"></script>
-    <link href="style.css" rel="stylesheet" type="text/css">
-  </head>
-  <body>
-    <div id="playarea"></div>
-    <div id="app"></div>
-    <script src="build/yome.js"></script>
-  </body>
-</html>
-{% endhighlight %}
+Grab [this content](https://raw.githubusercontent.com/bhauman/javascript_yome_widget/master/index.html) for the `index.html` file.
 
 We will need the Babel compiler to watch our `yome.js` file and
 compile it whenever we hit save. We can do this by invoking `babel`
@@ -315,9 +264,10 @@ in this post to the `yome.js` file.
 
 ### The future is live
 
-I have become very accustomed to live code reloading. When I wrote
-this code, I made a simple file reloader so that I could see my code
-changes in real time without reloading the page for every change.
+As a ClojureScripter, I have become very accustomed to live code
+reloading. When I wrote this code, I made a simple file reloader so
+that I could see my code changes in real time without reloading the
+page for every change.
 
 One of the benefits of using pure function definitions and
 constraining side effects is that it makes it very easy to write code
@@ -387,9 +337,6 @@ Yome.initialState = () => {
 Yome.state = Yome.state || Yome.initialState();
 //l(Yome.state)
 {% endhighlight %}
-
-I always create a logging shortcut so that I can verify code is
-behaving as I expect.
 
 In the code above, you can see that I define a Yome object literal and
 on that literal I add an `initialState` function. 
@@ -1319,3 +1266,4 @@ some really great books like [SICP](https://mitpress.mit.edu/sicp/).
 * [Out of the Tar Pit](http://shaffner.us/cs/papers/tarpit.pdf)
 * [ClojureScript](https://github.com/clojure/clojurescript/wiki/Quick-Start)
 * [SICP](https://mitpress.mit.edu/sicp/)
+* [Local mutable state](https://awelonblue.wordpress.com/2012/10/21/local-state-is-poison/)
