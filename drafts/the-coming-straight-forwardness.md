@@ -35,7 +35,7 @@ ClojureScript and React together have given me a preference for
 extremely straightforward, live reloadable, functional code, while
 abstaining from absolutely everything that isn't needed.
 
-ClojureScript has inspired me to write my JavaScript in a way that
+ClojureScript has inspired me to write JavaScript in a way that
 reflects the simplicity of the Yome itself.
 
 You can interact with the completed JavaScript widget right
@@ -58,8 +58,8 @@ Yome.exampleRenderers.push(function() {
 Yome.render();
 </script>
 
-This widget represents a blueprint of sorts so that Peter can sew the
-Yome windows and doors into the Yome walls where the customer desires.
+This widget represents a blueprint, that helps the potential Yome
+buyer show Peter where they want their windows and doors placed.
 
 ### It's all about cognitive overhead
 
@@ -75,7 +75,7 @@ location to another. Even worse, the set of problems has been
 exacerbated with much increased [complexity](http://shaffner.us/cs/papers/tarpit.pdf).
 
 As of late, I have been hearing what seem like justified reactions to
-this complexity. Folks are saying things like: [JQuery considered
+this complexity. Folks are saying things like: [jQuery considered
 harmful](http://lea.verou.me/2015/04/jquery-considered-harmful/),
 "Frameworks are dead", [Monolith
 first](http://martinfowler.com/bliki/MonolithFirst.html) etc. There
@@ -1097,10 +1097,10 @@ less overall effort.
 
 ### Problems that aren't
 
-The code above does have some problems that will show themselves as an
-application built like this grows. These are not problems for the
-program presented but it's important to mention potential pitfalls of
-this approach.
+The programming pattern used in this widget does have some potential
+problems that will show themselves as an application built like this
+grows. These are not problems for the program as presented but it's
+important to mention some of looming gotchas.
 
 **Asynchronous Event Handlers**
 
@@ -1224,27 +1224,21 @@ arguments to `drawWindowMem` have changed value.
 This simple memoize pattern can extend this purely functional approach
 quite far.
 
-**Those other cases**
-
-There are other cases when you need to break out and create custom
-React elements, objects and such. I'm not saying that these techniques
-are bad, I'm just saying that I think folks turn to them too early and
-too often and are perhaps creating more complexity than they need to.
-
 ### Thanks!
 
 If you have read thus far, thanks for taking the time and I hope there
 was something here that you found useful.
 
-If you find this way of coding attractive you may want to check
+If you find this way of coding attractive, you may want to check
 [ClojureScript](https://github.com/clojure/clojurescript/wiki/Quick-Start)
-out. I also recommend the highly regarded [SICP](https://mitpress.mit.edu/sicp/).
+out.
 
 ### Links
 
 * [Code of JavaScript Yome Widget](https://github.com/bhauman/javascript_yome_widget)
-* [Programming with Hand Tools](https://www.youtube.com/watch?v=ShEez0JkOFw)
-* [Out of the Tar Pit](http://shaffner.us/cs/papers/tarpit.pdf)
 * [ClojureScript](https://github.com/clojure/clojurescript/wiki/Quick-Start)
+* [Programming with Hand Tools](https://www.youtube.com/watch?v=ShEez0JkOFw)
+* [Why Why Functional Programming Matters Matters](http://raganwald.com/2014/12/20/why-why-functional-programming-matters-matters.html)
+* [Out of the Tar Pit](http://shaffner.us/cs/papers/tarpit.pdf)
+* [Local state is Poison](https://awelonblue.wordpress.com/2012/10/21/local-state-is-poison/)
 * [SICP](https://mitpress.mit.edu/sicp/)
-* [Local mutable state](https://awelonblue.wordpress.com/2012/10/21/local-state-is-poison/)
