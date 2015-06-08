@@ -32,7 +32,7 @@ to update an interactive widget that I built for him 9 years ago.
 I usually code in ClojureScript, so I thought it would be interesting
 to demonstrate how I would go about writing this widget in JavaScript.
 ClojureScript and React together have given me a preference for
-extremely straightforward, live, functional JavaScript, while
+extremely straightforward, live reloadable, functional code, while
 abstaining from absolutely everything that isn't needed.
 
 ClojureScript has inspired me to write my JavaScript in a way that
@@ -61,21 +61,6 @@ Yome.render();
 This widget represents a blueprint of sorts so that Peter can sew the
 Yome windows and doors into the Yome walls where the customer desires.
 
-Now reflect on how you would implement this widget:
-
-* Would you use a framework?
-* Would you use a drawing library?
-* jQuery?
-* How would you structure it?
-* Would you use a set of eventing objects in a "backbone" style?
-* Would you go all "double binding" on it?
-* If you are a React developer, would you create a
-Flux like data flow?
-* Would you create some custom React elements to
-break this widget down into its obvious components?
-* What steps you would take to just get a base project up and
-running?
-
 ### It's all about cognitive overhead
 
 > Straightforward: not complicated and easy to understand 
@@ -92,9 +77,11 @@ exacerbated with much increased [complexity](http://shaffner.us/cs/papers/tarpit
 As of late, I have been hearing what seem like justified reactions to
 this complexity. Folks are saying things like: [JQuery considered
 harmful](http://lea.verou.me/2015/04/jquery-considered-harmful/),
-"Frameworks are dead", etc. There seems to be a reductionism at hand
-and it's understandable. For a really great talk about this see [Programming
-with Hand Tools](https://www.youtube.com/watch?v=ShEez0JkOFw).
+"Frameworks are dead", [Monolith
+first](http://martinfowler.com/bliki/MonolithFirst.html) etc. There
+seems to be a reductionism at hand and it's understandable. For a
+really great talk about this see [Programming with Hand
+Tools](https://www.youtube.com/watch?v=ShEez0JkOFw).
 
 The main point here is we actually want to reduce cognitive overhead,
 and not just push it around, or worse, grow it with bad trade-offs.
@@ -112,9 +99,10 @@ general prevalence of OOP has lead many developers to code in and
 modern developer seems to gravitate towards creating Objects.
 
 It's this predilection that I take issue with. Folks are unconsciously
-spending the complexity budget of their appilcations. Eventually there
-will be a real need, performance or otherwise, to create an Object.
-I'm suggesting that one wait until that need arises.
+and prematurely spending the complexity budget of their applications.
+Eventually there will be a real need, performance or otherwise, to
+create an Object. I'm suggesting that one wait until that need arises
+and code in an *object last* manner.
 
 ### Why is functional programming straightforward?
 
@@ -146,8 +134,8 @@ your thinking to the input and output of the current function.
 Of course, pure functions can only take us so far in an interactive
 program. State and views are required to **change** over time in
 response to user actions. But I am going to ruthlessly stick to pure
-functions as far as I can and when I have to compromise and write a
-function with side effects I will. In doing so, I will minimize
+functions as far as I can, and when I have to compromise and write a
+function with side effects, I will. In doing so, I will minimize
 complexity as much as possible and then hopefully the only complexity
 I have left will represent the **essential complexity** of the
 program.
@@ -182,12 +170,6 @@ In fact, I'm just using **ONE** library:
 [React](https://facebook.github.io/react/). I'm also using one tool:
 [Babel](https://babeljs.io/) to compile the JSX and the ES2015 fat arrow
 syntax.
-
-With the expressiveness and capability of modern JavaScript and React, we really
-have to ask ourselves if we really need that extra library.
-
-Again, this reductionism is intended to make our code more
-understandable and easier to reason about.
 
 ### Why use React?
 
@@ -226,9 +208,12 @@ reasons that I'm writing this post in the first place.
 
 ### The setup
 
-This is going to be an interactive demonstration. I think that one
-needs to actually experience this way of coding to really appreciate
-the simplicity of what I'm getting at.
+To really appreciate this way of coding, it's important to experience
+the **process** as well as the code. For this reason, I am going to
+guide the reader through the construction of the widget, in a way that
+simulates how I built it. If you follow along you will get to
+experience the "live" interactive aspect of the development process as
+well as appreciate how directly the code applies to the problem.
 
 For this demo I'm going to use JavaScript and React.js.
 
@@ -262,12 +247,16 @@ your favorite text editor.
 From now on, you can add code to the file by appending the examples 
 in this post to the `yome.js` file.
 
+*If you would rather follow along with the completed project you can
+get it from the [github repositiory](https://github.com/bhauman/javascript_yome_widget).*
+
 ### The future is live
 
-As a ClojureScripter, I have become very accustomed to live code
-reloading. When I wrote this code, I made a simple file reloader so
-that I could see my code changes in real time without reloading the
-page for every change.
+As a ClojureScripter, I have become very accustomed to [live code
+reloading](http://rigsomelight.com/2014/05/01/interactive-programming-flappy-bird-clojurescript.html).
+When I wrote this code, I made a simple file reloader so that I could
+see my code changes in real time without reloading the page for every
+change.
 
 One of the benefits of using pure function definitions and
 constraining side effects is that it makes it very easy to write code
@@ -342,7 +331,7 @@ In the code above, you can see that I define a Yome object literal and
 on that literal I add an `initialState` function. 
 
 In this yome widget there will be **one** state map/object. This will be
-the central source of truth. The view of the state widget will
+the central source of truth. The visualization of the state widget will
 be a **function** of this data.
 
 Yomes come in three sizes: 6, 7 or 8 sides. Thus, the view from above
@@ -357,8 +346,9 @@ Yome.sideCount = (st) => st.sides.length
 
 The widget allows for drawing different Yome sizes so we will need to
 assess the current size often. `Yome.sideCount` will allow us to do
-this. Notice that `Yome.sideCount` is not referencing some
-local/global state, but rather the state is passed into it.
+this. Notice that `Yome.sideCount` is pure function and is not
+referencing some local/global state, but rather the state is passed
+into it.
 
 Now you can check the functioning of `sideCount` by uncommenting the log
 line below it, then observing the output of the function call in the
@@ -370,15 +360,18 @@ Yome.sliceTheta = (st) => 2 * Math.PI / Yome.sideCount(st)
 //l(Yome.sliceTheta(Yome.state))
 {% endhighlight %}
 
-Since we are working with regular polygons, I am going to constantly be
-referencing the angle of one of the polygon slices (an octagon
-has eight slices). The `sliceTheta` function gives us this angle in
-radians.
+Since we are working with [regular
+polygons](http://en.wikipedia.org/wiki/Regular_polygon), I am going to
+constantly be referencing the angle of one of the polygon slices (an
+octagon has eight slices). The `sliceTheta` function gives us this
+angle in radians.
 
 Again, you can see it working by uncommenting the log line below
-it and seeing the output in the Dev Console. I will continue to place
-these log comments in the code and I will leave it up to you to try
-the code out.
+it and seeing the output in the Dev Console.
+
+*I will continue to place these log comments in the code and I will
+leave it up to you to try them out by uncommenting and recommenting
+them.*
 
 {% highlight javascript %}
 Yome.rotate = (theta, point) => {
@@ -425,18 +418,13 @@ Yome.pointsToPointsString = (points) =>
 Here we take a set of points and turn it into a string for the SVG
 polygon element.
 
-If you have been using the log function `l` to see the output of these
+If you have been using the log utility `l` to see the output of these
 functions, then you may be starting to appreciate how easy it is to
 verify that these functions are working.
 
 This easy verifiability is also a result of using pure functions. It
 is often very simple to meet the data shape needs of a pure function
 by conjuring up some quick data to pass into it.
-
-The same is true for the compound functionality of several functions
-together. This is normally not the case for a set of stateful objects
-where you may have to create several objects and a mock or two in
-order to test a simple code path.
 
 {% highlight javascript %}
 Yome.drawWalls = (state) =>
@@ -475,8 +463,8 @@ Yome.clearPlayArea = () =>
 Above, I have created a utility function `playArea` that allows us
 to see the visual output of function that returns React SVG elements.
 
-You can use the following commented out `drawWalls` expressions to
-verify how our `drawWalls` function is working.
+You can paste in the following commented out `drawWalls` expressions to
+help verify how our `drawWalls` function is working.
 
 {% highlight javascript %}
 //Yome.playArea(Yome.drawWalls({sides: [1,2,3,4,5,6]}))
@@ -552,8 +540,6 @@ straightforward. We tighten the radius in from the walls a little. We
 then create points that are close but indented from the corners of the
 side polygon and then we connect these to a point that has an even
 shorter radius and is centered on the side of the Yome.
-
-This code will give us a different window depending on the size of the Yome.
 
 If you uncomment the second `playArea` call you will see this:
 
@@ -692,11 +678,6 @@ primitives and they are all **functional**.
 We may want to reflect at this point: Why is it so effortless to
 display and work with our different drawing functions?
 
-Pure functions are amazingly independent pieces of code. Beyond their
-parameter signatures they are not tied to a grander design (global
-state, etc). This independence is what makes them so amazingly free and
-composable.
-
 ### Dispatch
 
 You may have noticed a familiar pattern in the drawing functions
@@ -725,13 +706,16 @@ Yome.itemRender = (type, st) =>
   (Yome.itemRenderDispatch[type] || (x => null))(st)
 {% endhighlight %}
 
-Now I have a way of iterating over an array of items and then
-rendering them. Simple. This is even extensible! I can add new types
-to it at runtime.
+Now I have a way of rendering an item based on its **type** items.
+Simple! This is also extensible:
+
+{% highlight javascript %}
+Yome.itemRenderDispatch["__default"] = (_) => null
+{% endhighlight %}
 
 Now in order to use this render function we are going to need some
-data. We have been working with a featureless Yome. Let's create a
-more interesting Yome by adding some features to the sides.
+data. Let's create a more interesting Yome by adding some features to
+the sides.
 
 {% highlight javascript %}
 Yome.exampleData = ((state)=>{
@@ -845,10 +829,10 @@ Yome.render = () =>
 Yome.render();
 {% endhighlight %}
 
-At this point we have created all the code needed to do the line drawing of
-our Yome widget.
+At this point, we have created all the code needed to draw our Yome
+widget.
 
-### Straightforwardness
+### Straightforward? Am I right?
 
 Do we need anything more than the above to express how to draw our
 Yome layout clearly?
@@ -856,7 +840,7 @@ Yome layout clearly?
 This is straightforward, right? The code above is both understandable
 and reduces cognitive overhead.
 
-Not only that, we can also reload it live and test the output
+Not only that, we can also reload it live and verify the output
 of the individual functions with great ease.
 
 Since it's possible to express things this way, this begs an important
@@ -874,8 +858,8 @@ we are going to have to:
 * rerender the Yome
 
 These side effects are absolutely unavoidable in an interactive
-system. Because there is no way for us to live without them, I'm going
-to call them the **essential complexity** of the program.
+system. Because there is no way to get by without them, I'm
+going to call them the **essential complexity** of the program.
 
 There are innumerable ways to express how the state is changed and the
 widget is re-rendered. But since these side-effects are unavoidable
@@ -930,9 +914,7 @@ the program and we are going to have to do it one way or another, so
 why not the easiest most straightforward way?
 
 So far, we have minimized the side effects of this entire program to
-the `eventHandler` and the `changeSideCount` functions. This is rather
-remarkable, since these are the parts of the program that usually
-cause problems.
+the `eventHandler` and the `changeSideCount` functions.
 
 Let's use these functions to change the Yome layout directly from our
 widget.
@@ -1147,8 +1129,8 @@ state of a React element changes.
 You could also componentize the program without using a React wrapper
 and there are many well known patterns to do this.
 
-It's important to remember that you don't need to do this if it isn't
-necessary. Yes, I know I keep saying this ...
+Here is a quick re-factor to [make this widget
+modular](https://github.com/bhauman/javascript_yome_widget/commit/9547f5e2de9afa45dcf4e0fb3293f4491e202a40).
 
 **Unsafe data structures**
 
@@ -1255,9 +1237,9 @@ too often and are perhaps creating more complexity than they need to.
 If you have read thus far, thanks for taking the time and I hope there
 was something here that you found useful.
 
-Much of the inspiration of this post comes from my exposure to
-[ClojureScript](https://github.com/bhauman/javascript_yome_widget) and
-some really great books like [SICP](https://mitpress.mit.edu/sicp/).
+If you find this way of coding attractive you may want to check
+[ClojureScript](https://github.com/clojure/clojurescript/wiki/Quick-Start)
+out. I also recommend the highly regarded [SICP](https://mitpress.mit.edu/sicp/).
 
 ### Links
 
