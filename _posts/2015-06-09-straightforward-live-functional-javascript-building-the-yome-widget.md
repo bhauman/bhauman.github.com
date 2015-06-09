@@ -1244,3 +1244,10 @@ reviewing this post.
 * [Out of the Tar Pit](http://shaffner.us/cs/papers/tarpit.pdf)
 * [Local state is Poison](https://awelonblue.wordpress.com/2012/10/21/local-state-is-poison/)
 * [SICP](https://mitpress.mit.edu/sicp/)
+
+## Comments
+
+I have created a gist for comments:
+
+[Comment here](https://gist.github.com/bhauman/146e067c8cc4d5aa3fd2)
+
