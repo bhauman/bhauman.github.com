@@ -117,7 +117,7 @@ cognitive overhead.
 But in order to write a program we have to compute, right? Where
 does that leave us?
 
-If we are ruthlessly reductive and eschew all mutable local state, and
+If we are ruthlessly reductive and eschew all mutable local state and
 side effects, it leaves us with the pure function:
 
 > `view = F(state)`
