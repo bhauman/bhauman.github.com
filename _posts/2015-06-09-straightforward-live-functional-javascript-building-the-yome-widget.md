@@ -57,7 +57,7 @@ Yome.exampleRenderers.push(function() {
 Yome.render();
 </script>
 
-This widget represents a blueprint, that helps the potential Yome
+This widget represents a blueprint that helps the potential Yome
 buyer show Peter where they want their windows and doors placed.
 
 ### It's all about cognitive overhead
@@ -93,7 +93,7 @@ simplifying the computation itself.
 
 In our code, complexity normally takes the form of Object instances
 that maintain a mutable local state. I conjecture that Ruby, Java and
-general prevalence of OOP has lead many developers to code in and
+the general prevalence of OOP has led many developers to code in an
 *object first* manner. When faced with a blank file and a problem, the
 modern developer seems to gravitate towards creating Objects.
 
