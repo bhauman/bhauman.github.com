@@ -1226,12 +1226,15 @@ quite far.
 
 ### Thanks!
 
-If you have read thus far, thanks for taking the time and I hope there
-was something here that you found useful.
+Thanks for taking the time, and I hope you found something useful here.
 
 If you find this way of coding attractive, you may want to check
 [ClojureScript](https://github.com/clojure/clojurescript/wiki/Quick-Start)
 out.
+
+Special thanks to William Blasko(@wukkuan), Egg Syntax(@eggsyntax), Sean
+Omlor(@seanomlor), James Long(@jlongster) and Dominique Ferraton for
+reviewing this post.
 
 ### Links
 
