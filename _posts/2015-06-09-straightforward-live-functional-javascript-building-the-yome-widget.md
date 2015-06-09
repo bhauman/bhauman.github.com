@@ -1229,7 +1229,7 @@ Thanks for reading this and I hope you found something useful here.
 
 If you find this way of coding attractive, you may want to check
 [ClojureScript](https://github.com/clojure/clojurescript/wiki/Quick-Start)
-out.
+out. Who knows? It may affect your JavaScript as well.
 
 Special thanks to William Blasko(@wukkuan), Egg Syntax(@eggsyntax), Sean
 Omlor(@seanomlor), James Long(@jlongster) and Dominique Ferraton for
