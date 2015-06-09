@@ -1226,7 +1226,7 @@ quite far.
 
 ### Thanks!
 
-Thanks for taking the time, and I hope you found something useful here.
+Thanks for reading this and I hope you found something useful here.
 
 If you find this way of coding attractive, you may want to check
 [ClojureScript](https://github.com/clojure/clojurescript/wiki/Quick-Start)
