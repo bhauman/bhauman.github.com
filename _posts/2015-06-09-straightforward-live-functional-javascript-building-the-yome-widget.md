@@ -1099,7 +1099,7 @@ less overall effort.
 The programming pattern used in this widget does have some potential
 problems that will show themselves as an application built like this
 grows. These are not problems for the program as presented but it's
-important to mention some of looming gotchas.
+important to mention some of the looming gotchas.
 
 **Asynchronous Event Handlers**
 
