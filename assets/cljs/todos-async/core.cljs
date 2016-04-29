@@ -2,7 +2,7 @@
   (:require
    [cljs.core.async :as async
              :refer [<! >! chan close! sliding-buffer put! alts!]]
-   [jayq.core :refer [$ append ajax inner $deferred when done resolve pipe on] :as jq]
+   [jayq.core :refer [$ append ajax inner $deferred $when done resolve pipe on] :as jq]
    [jayq.util :refer [log]]
    [crate.core :as crate]
    [clojure.string :refer [join blank?]]
@@ -11,6 +11,7 @@
    [todos-async.ex3 :as ex3]
    [todos-async.ex4 :as ex4])
   (:require-macros [cljs.core.async.macros :as m :refer [go alt!]]))
+
 
 (ex1/app-loop { :todo-list [{:content "buy milk"}
                             {:content "buy cheese"}]})

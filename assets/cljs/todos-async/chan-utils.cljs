@@ -2,7 +2,7 @@
   (:require
    [cljs.core.async :as async
              :refer [<! >! chan close! sliding-buffer put! alts!]]
-   [jayq.core :refer [$ append ajax inner $deferred when done resolve pipe on] :as jq]
+   [jayq.core :refer [$ append ajax inner $deferred $when done resolve pipe on] :as jq]
    [jayq.util :refer [log]])
   (:require-macros [cljs.core.async.macros :as m :refer [go alt!]]))
 

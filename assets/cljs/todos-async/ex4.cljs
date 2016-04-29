@@ -2,13 +2,14 @@
   (:require
    [cljs.core.async :as async
              :refer [<! >! chan close! sliding-buffer put! alts!]]
-   [jayq.core :refer [$ append ajax html $deferred when done resolve pipe on] :as jq]
+   [jayq.core :refer [$ append ajax html $deferred $when done resolve pipe on] :as jq]
    [jayq.util :refer [log]]
    [crate.core :as crate]
    [clojure.string :refer [join blank?]]
    [todos-async.chan-utils :refer [click-chan form-submit-chan merge-chans filter-chan get-next-message]]
    [todos-async.ex3 :refer [modal-form]])
   (:require-macros [cljs.core.async.macros :as m :refer [go alt!]]))
+
 
 (defn todo-task [idx {:keys [completed] :as task}]
   (let [control (if completed

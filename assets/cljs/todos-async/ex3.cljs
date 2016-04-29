@@ -2,7 +2,7 @@
   (:require
    [cljs.core.async :as async
              :refer [<! >! chan close! sliding-buffer put! alts!]]
-   [jayq.core :refer [$ append ajax html $deferred when done resolve pipe on] :as jq]
+   [jayq.core :refer [$ append ajax html $deferred $when done resolve pipe on] :as jq]
    [jayq.util :refer [log]]
    [crate.core :as crate]
    [clojure.string :refer [join blank?]]
