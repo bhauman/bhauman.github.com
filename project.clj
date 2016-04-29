@@ -14,7 +14,7 @@
 
   #_:repositories #_{"sonatype-oss-public" "https://oss.sonatype.org/content/groups/public/"}
 
-  :clean-targets ["assets/js/dotsoutprod" "assets/js/dotsout" "target"]
+  :clean-targets ["assets/js/dotsoutprod" "assets/js/dotsout" "assets/js/dotsout2"   "assets/js/out" "target"]
   
   :plugins [[lein-cljsbuild "1.1.3"]
             [lein-figwheel "0.5.2"]]
@@ -71,10 +71,24 @@
                                    ; :source-map "assets/js/dots-game-prod.map"
                                     ; :pseudo-names true
                                     ; :pretty-print true
-                                   }}                       
-                       #_{:id "dots-game-2"
+                                   }}
+
+                       {:id "dots-game-2"
+                        :source-paths ["assets/cljs/dots-game-2"]
+                        :figwheel true
+                        :compiler {:main "dots-game-2.core"
+                                   :asset-path "/assets/js/dotsout2"
+                                   :output-to "assets/js/dots-game-2.js"
+                                   :output-dir "assets/js/dotsout2"
+                                   :externs ["assets/js/externs/jquery-1.9.js"]
+                                   :optimizations :none
+                                   :source-map true
+                                   :pretty-print true}}
+                       {:id "dots-game-2-prod"
                         :source-paths ["assets/cljs/dots-game-2"]
                         :compiler {:output-to "assets/js/dots-game-2.js"
                                    :externs ["assets/js/externs/jquery-1.9.js"]
-                                   :optimizations :simple
-                                   :pretty-print true}}]})
+                                   :optimizations :advanced
+                                   ;:pseudo-names true
+                                   ;:pretty-print true
+                                   }}]})

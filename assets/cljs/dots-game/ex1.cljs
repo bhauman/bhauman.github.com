@@ -17,7 +17,6 @@
     (and (gobj/get browser "msie")
          (> 10 (gobj/get browser "version")))))
 
-
 (defn xy-message [ch msg-name xy-obj]
   (put! ch [msg-name {:x (gobj/get xy-obj "pageX")
                       :y (gobj/get xy-obj "pageY")}]))
