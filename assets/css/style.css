@@ -6,9 +6,11 @@ body {
  background-color: white;
 }
 
-body, p { 
- font-family: "Droid Serif", "Georgia", "Times New Roman", "Palatino", "Hoefler Text", "Baskerville", serif;
- font-size: 16px;
+body, p {
+ font-family: medium-content-serif-font,Georgia,Cambria,"Times New Roman",Times,serif;
+
+ /* font-family: "Droid Serif", "Georgia", "Times New Roman", "Palatino", "Hoefler Text", "Baskerville", serif; */
+ font-size: 18px;
  line-height: 1.75;
 }
 
@@ -19,14 +21,17 @@ margin-top:0; margin-bottom:0;
 
 }
 h1 { font-size:1.5em; margin:2.04167em 0; }
-h2 { font-size:1.33333em; margin:1.75em 0; }
+h2 { font-size:1.02em; margin:2em 0; }
 h3 { font-size:1.16667em; margin:2.125em 0; }
 
 h1, h2, h3, h4 {
-  font-weight: bold;
+  font-weight: 700;
+      
   text-transform: uppercase;
   color: #333;
-  font-family: "CartoGothic Std", "Verdana", "Lucida Grande", "Gill Sans", "Arial", "Helvetica", sans-serif;
+  font-family: medium-content-sans-serif-font,"Lucida Grande","Lucida Sans Unicode","Lucida Sans",Geneva,Arial,sans-serif
+  /* font-family: -apple-system, ".SFNSText-Regular", "San Francisco", "Roboto", "Segoe UI", "Helvetica Neue", "Lucida Grande", sans-serif; */
+ /* font-family: "CartoGothic Std", "Verdana", "Lucida Grande", "Gill Sans", "Arial", "Helvetica", sans-serif; */
 }
 
 pre, p, ul{
