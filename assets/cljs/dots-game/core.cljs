@@ -3,7 +3,7 @@
    [cljs.core.async :as async
     :refer [<! >! chan close! sliding-buffer put! alts! timeout]]
    [jayq.core :refer [$ append ajax inner css $deferred
-                      when done resolve pipe on bind attr
+                      done resolve pipe on bind attr
                       offset] :as jq]
    [jayq.util :refer [log]]
    [crate.core :as crate]
@@ -16,6 +16,8 @@
    [dots-game.ex7 :refer [example-7]]
    )
   (:require-macros [cljs.core.async.macros :as m :refer [go]]))
+
+
 
 (defn no-scroll-on-touch [selector]
   (bind ($ selector) "touchstart" (fn [e] (jq/prevent e)))
