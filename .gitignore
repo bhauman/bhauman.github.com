@@ -7,4 +7,6 @@ target
 resources/public/devcards/js/out
 resources/public/devcards/js/devcard-examples.js
 
+figwheel_server.log
+
 .nrepl-port

@@ -2,29 +2,37 @@
   (:require
    [cljs.core.async :as async
     :refer [<! >! chan close! sliding-buffer put! alts! timeout]]
-   [jayq.core :refer [$ append ajax inner css $deferred
+   [jayq.core :refer [$ append ajax html css $deferred
                       done resolve pipe on bind attr
                       offset] :as jq]
    [jayq.util :refer [log]]
-   [crate.core :as crate])
+   [crate.core :as crate]
+   [goog.object :as gobj])
   (:require-macros [cljs.core.async.macros :as m :refer [go]]))
 
+(enable-console-print!)
+
 (defn is-bad-ie? []
-  (let [browser (.-browser js/$)]
-    (and (.-msie browser)
-         (> 10 (.-version browser)))))
+  (let [browser (gobj/get js/$ "browser")]
+    (and (gobj/get browser "msie")
+         (> 10 (gobj/get browser "version")))))
+
 
 (defn xy-message [ch msg-name xy-obj]
-  (put! ch [msg-name {:x (.-pageX xy-obj) :y (.-pageY xy-obj)}]))
+  (put! ch [msg-name {:x (gobj/get xy-obj "pageX")
+                      :y (gobj/get xy-obj "pageY")}]))
 
 (defn touch-xy-message [ch msg-name xy-obj]
   (xy-message ch msg-name
-              (aget (.-touches (.-originalEvent xy-obj)) 0)))
+              (-> xy-obj
+                  (gobj/get "originalEvent")
+                  (gobj/get "touches")
+                  (aget 0))))
 
 (defn mousemove-handler [in-chan jqevent]
-  (if (pos? (if (nil? (.-buttons jqevent))
-              (.-which jqevent)
-              (.-buttons jqevent)))
+  (if (pos? (if (nil? (gobj/get jqevent "buttons"))
+              (gobj/get jqevent "which")
+              (gobj/get jqevent "buttons")))
     (xy-message in-chan :draw jqevent)
     (put! in-chan [:drawend])))
 

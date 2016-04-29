@@ -2,7 +2,7 @@
   (:require
    [cljs.core.async :as async
     :refer [<! >! chan close! sliding-buffer put! alts! timeout]]
-   [jayq.core :refer [$ append ajax inner css $deferred
+   [jayq.core :refer [$ append ajax html css $deferred
                       done resolve pipe on bind attr
                       offset] :as jq]
    [jayq.util :refer [log]]

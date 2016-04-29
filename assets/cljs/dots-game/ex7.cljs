@@ -2,7 +2,7 @@
   (:require
    [cljs.core.async :as async
     :refer [<! >! chan close! sliding-buffer put! alts! timeout]]
-   [jayq.core :refer [$ append ajax inner css $deferred
+   [jayq.core :refer [$ append ajax html css $deferred
                       done resolve pipe on bind attr
                       offset] :as jq]
    [jayq.util :refer [log]]
@@ -96,15 +96,15 @@
                    (rest dot-chain)
                    (repeat color))]
     (when (pos? (count dot-chain))
-      (inner ($ (str (state :selector) " .dot-chain-holder"))
+      (html ($ (str (state :selector) " .dot-chain-holder"))
              (crate/html (concat [:div] rends)))
       (append ($ (str (state :selector) " .dot-highlights"))
               (crate/html (dot-highlight-templ (last dot-chain) color))))
     dot-chain))
 
 (defn erase-dot-chain [state]
-  (inner ($ (str (state :selector) " .dot-chain-holder")) "")
-  (inner ($ (str (state :selector) " .dot-highlights")) ""))
+  (html ($ (str (state :selector) " .dot-chain-holder")) "")
+  (html ($ (str (state :selector) " .dot-highlights")) ""))
 
 (defn dot-follows? [{:keys [board]} prev-dot cur-dot]
   (let [prev-color (-> board (get prev-dot) :color)
