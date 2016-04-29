@@ -10,7 +10,7 @@ First go ahead and play the current game below. You play by connecting
 dots of the same color. When you make a cycle of dots, all the dots of
 that color are erased from the board.
 
-<!-- <link rel="stylesheet" href="/assets/css/dots2.css" /> -->
+<link rel="stylesheet" href="/assets/css/dots2.css" /> 
 
 <link rel="stylesheet" href="/assets/css/anim2.css" />
 
@@ -53,7 +53,7 @@ that color are erased from the board.
 <div class="dots-game-container no-scroll" ondragstart="return false;" ondrop="return false;">
 </div>
 
-<!-- <script src="/assets/js/dots3.js"></script> -->
+<script src="/assets/js/dots5.js"></script>
 
 [Play the game in a window by itself](http://rigsomelight.com/dotsters).
 
@@ -923,5 +923,4 @@ Resources:
 * [Core.async git repository examples](https://github.com/clojure/core.async/tree/master/examples)
 * [Full game source](https://github.com/bhauman/dotsters/tree/dots_game_blog_v1).
 
-<script src="/assets/js/dots-game.js">
-</script>
+<script src="/assets/js/dots-game.js"></script> 
