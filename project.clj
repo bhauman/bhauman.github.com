@@ -45,12 +45,29 @@
                                    :optimizations :advanced
                                    ; :pretty-print true
                                    }}
-                       #_{:id "dots-game"
+                       {:id "dots-game"
                         :source-paths ["assets/cljs/dots-game"]
-                        :compiler {:output-to "assets/js/dots-game.js"
+                        :compiler {:main "dots-game.core"
+                                   :asset-path "/assets/js/dotsout"
+                                   :output-to "assets/js/dots-game.js"
+                                   :output-dir "assets/js/dotsout"
+                                   :externs ["assets/js/externs/jquery-1.9.js"]
+                                   :optimizations :none
+                                   :source-map true
+                                   :pretty-print true}}
+                       ;; have to clean up references to names before advanced compilation works
+                       ;; user :pseudo-names true to find the names
+                       {:id "dots-game-prod"
+                        :source-paths ["assets/cljs/dots-game"]
+                        :compiler {
+                                   :output-to "assets/js/dots-game.js"
+                                   :output-dir "assets/js/dotsoutprod"
                                    :externs ["assets/js/externs/jquery-1.9.js"]
                                    :optimizations :simple
-                                   :pretty-print true}}
+                                   ; :source-map "assets/js/dots-game-prod.map"
+                                   ; :pseudo-names true
+                                   ; :pretty-print true
+                                   }}                       
                        #_{:id "dots-game-2"
                         :source-paths ["assets/cljs/dots-game-2"]
                         :compiler {:output-to "assets/js/dots-game-2.js"
