@@ -1,7 +1,7 @@
 ---
 layout: post
 title: Fast tests in Rails make programming fun again
-published: true
+published: false
 ---
 
 Corey Haines said just start with one test file.  He was right, once

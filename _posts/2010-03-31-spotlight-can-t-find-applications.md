@@ -1,7 +1,7 @@
 --- 
 layout: post
 title: Spotlight can't find Applications
-published: true
+published: false
 ---
 
 So spotlight decided that it didn't know where any of my Applications
