@@ -59,7 +59,7 @@ And thats it. Nothing is installed, nothing happens and there is no
 feedback. It turns out that I misspelled `dependencies`.
 
 You have to wonder how hard it would be for `npm-install` to mention
-that while you have asked for things to be installed, yet you have no
+that while you have asked for things to be installed, you have no
 `dependencies` key ... or to report that there is an unrecognized
 key `dependncies` in the configuration file.
 
@@ -199,5 +199,5 @@ helpful than just stating that an unknown key has been found.
 
 It's not sexy, and people may not sing your praises for implementing
 good configuration validation. However, it's definitely within our
-grasp to provide the kind of validation and feedback that will help
-all of us on a daily basis.
+grasp to provide the kind of validation and feedback that will be
+helpful all of us on a daily basis.
