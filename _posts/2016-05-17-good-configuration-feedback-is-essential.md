@@ -48,7 +48,7 @@ Let's create a `package.json` file for a project:
 }
 ```
 
-Now that we have configured our project we run `npm install` to install our dependncies:
+Now that we have configured our project we run `npm install` to install our dependencies:
 
 ```
 bash$> npm install
@@ -74,14 +74,14 @@ One could argue that this isn't such a big deal, but ...
 
 Again, I'm not picking on NPM, this behavior is ubiquitous.
 
-## A cultural blindspot
+## A cultural blind spot
 
 The above NPM example was extremely easy to find. I just tried the
 first thing that came to mind knowing full well that it would most
 likely provide crappy feedback. I would have been very surprised
 if NPM responded with a decent feedback message. 
 
-This is a blindspot. While configuration is painful we accept the
+This is a blind spot. While configuration is painful we accept the
 situation as normal. We believe that this is just how it is. 
 
 It is easy to see how we got here. From the tool author's
