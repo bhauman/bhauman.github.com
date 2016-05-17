@@ -34,7 +34,7 @@ development tool that has a configuration file or api.
 
 Let's create a `package.json` file for a project:
 
-```javascript
+```json
 {
   "name": "trytry",
   "version": "1.0.0",
@@ -66,16 +66,17 @@ key `dependncies` in the configuration file.
 It would just be **crazy over the top** for the tool to detect and report that
 `dependncies` is misspelled.
 
-One could argue that this isn't such a big deal, but when you consider
-the total amount of time we spend configuring tools that give us
-crappy configuration validation and feedback it paints a picture of an
-extremely antagonistic environment.
+One could argue that this isn't such a big deal, but ...
+
+> when you consider the total amount of time we spend configuring
+> tools that give us crappy configuration validation and feedback, it
+> paints a picture of an extremely antagonistic environment.
 
 Again, I'm not picking on NPM, this behavior is ubiquitous.
 
 ## A cultural blindspot
 
-The above npm example was extremely easy to find. I just tried the
+The above NPM example was extremely easy to find. I just tried the
 first thing that came to mind knowing full well that it would most
 likely provide crappy feedback. I would have been very surprised
 if NPM responded with a decent feedback message. 
@@ -198,5 +199,5 @@ helpful than just stating that an unknown key has been found.
 
 It's not sexy, and people may not sing your praises for implementing
 good configuration validation. However, it's definitely within our
-grasp to provide validation that will help a lot developers on a daily
-basis.
+grasp to provide the kind of validation and feedback that will help
+all of us on a daily basis.
