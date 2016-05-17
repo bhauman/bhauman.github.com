@@ -1,12 +1,10 @@
 ---
-layout: default
-title: "Configuration Feedback is Essential"
+layout: post
+title: "Good Configuration Feedback is Essential"
 published: true
 category: 
 tags: []
 ---
-
-## Good Configuration Feedback is Essential
 
 > Configuration: where your dreams go to die.
 
@@ -29,7 +27,7 @@ own configuration "language", these configuration dialects are often
 half baked, irregular, and provide absolutely crappy feedback when
 they are misconfigured.
 
-#### Crappy feedback example
+### Crappy feedback example
 
 I'm going to use NPM here, but I could have chosen almost any
 development tool that has a configuration file or api.
@@ -57,12 +55,12 @@ bash$> npm install
 bash$>
 ```
 
-And thats it. Nothing happens and there is no feedback. It turns out
-that I misspelled `dependencies`.
+And thats it. Nothing is installed, nothing happens and there is no
+feedback. It turns out that I misspelled `dependencies`.
 
 You have to wonder how hard it would be for `npm-install` to mention
-that while you have asked for things to be installed, you have no
-`dependencies` key ... or to maybe report that there is an unrecognized
+that while you have asked for things to be installed, yet you have no
+`dependencies` key ... or to report that there is an unrecognized
 key `dependncies` in the configuration file.
 
 It would just be **crazy over the top** for the tool to detect and report that
@@ -140,13 +138,13 @@ the love of some supreme being, implement it soon. It costs so little
 to do so.
 
 However, because many configuration languages have such a small scope
-I'd suggestthat we can do better with even a modest amount of
+I'd suggest that we can do better with even a modest amount of
 programming.
 
 ## Excellent configuration feedback
 
 I'm about to give examples of configuration feedback from
-[Figwheel](https://github.com/bhauman/lein-figwheel) a tool that I
+[Figwheel](https://github.com/bhauman/lein-figwheel), a tool that I
 wrote to hot swap ClojureScript code as it's being worked
 on.
 
@@ -196,24 +194,9 @@ configuration:
 The above is much more challenging to implement but is much more
 helpful than just stating that an unknown key has been found.
 
-## A Better Configuration Correction Process
-
-<img alt="error with key displacement" src="/assets/images/figconf/live-reload-option.png" width="100%"/>
-
-There is another annoying aspect of correcting configuration errors
-and that is the constant need to restart a process to see if our
-configuration changes are correct.
-
-In Figwheel, I'm experimenting with an **interactive configuration repair
-process**.
-
-When a configuration error is reported, Figwheel will watch the
-configuration file for changes and then will reload, and re-validate
-it. This allows the user to skip the time cost of restarting Figwheel
-process over and over.
-
 ## It's not sexy, but give good configuration feedback a chance
 
-It's not sexy, and people will not sing your praises for implementing
-good configuration validation. However, it's code that will help a lot
-developers on a daily basis.
+It's not sexy, and people may not sing your praises for implementing
+good configuration validation. However, it's definitely within our
+grasp to provide validation that will help a lot developers on a daily
+basis.
