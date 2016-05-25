@@ -199,5 +199,5 @@ helpful than just stating that an unknown key has been found.
 
 It's not sexy, and people may not sing your praises for implementing
 good configuration validation. However, it's definitely within our
-grasp to provide the kind of validation and feedback that will be
-helpful all of us on a daily basis.
+grasp to provide the kind of validation and feedback that can lift us
+out of the configuration quagmire we're in. 
