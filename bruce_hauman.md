@@ -81,4 +81,3 @@ from easily obtainable materials.
 * **Comedy Improv** - Spent 7 weeks studying improv in Chicago during the summer of 2010. The final show is up at [theremedials.com](http://theremedials.com)
 * **SnowBoarding** - My brother and I have an annual 8 day engagement with a mountain in Utah.
 
-
