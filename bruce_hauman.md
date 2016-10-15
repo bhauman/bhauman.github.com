@@ -29,8 +29,8 @@ Figwheel has been popularly received by the ClojureScript community as evidenced
 #### [Devcards](https://github.com/bhauman/lein-figwheel)
 
 Devcards takes live programming even further by providing an
-environment to work on individual components and exercise them in many
-states.
+environment to work on front-end components apart from the application
+and exercise them in many states.
 
 Devcards is a new innovative tool and proposes a new way to think about
 the process of front end programming.
@@ -73,11 +73,12 @@ from easily obtainable materials.
 
 ## Other Interests
 
+* **Card Magic** - nothing says entertainment like a middle aged white guy with a deck of cards
 * **Long Distance Hiking** - Hiked the Appalachian trail (2000 miles) in 1993
 * **Lightweight Structure** - I designed, built and live in a unique dome structure in my friends back yard.
 * **Dancing** - Contra, Waltz, Tango, Salsa
 * **Singing** - Sang in a local choral group which focuses on traditional music from around the world.
-* **Comedy Improv** - Spent 7 weeks studying improv in Chicago during the summer of 2010. The final show is up here [theremedials.com](http://theremedials.com)
+* **Comedy Improv** - Spent 7 weeks studying improv in Chicago during the summer of 2010. The final show is up at [theremedials.com](http://theremedials.com)
 * **SnowBoarding** - My brother and I have an annual 8 day engagement with a mountain in Utah.
 
 
