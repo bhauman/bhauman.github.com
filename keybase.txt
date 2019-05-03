@@ -1,0 +1,56 @@
+==================================================================
+https://keybase.io/bhauman
+--------------------------------------------------------------------
+
+I hereby claim:
+
+  * I am an admin of https://rigsomelight.com
+  * I am bhauman (https://keybase.io/bhauman) on keybase.
+  * I have a public key ASBhQeHtmPegp3_31bd9Tlz33dt9MtLWXwjgGFugHrCAkwo
+
+To do so, I am signing this object:
+
+{
+  "body": {
+    "key": {
+      "eldest_kid": "01202c99186003c9081716d1cd51c41ef1bc49f3cb4210e4168bd4fc65c822c90bfa0a",
+      "host": "keybase.io",
+      "kid": "01206141e1ed98f7a0a77ff7d5b77d4e5cf7dddb7d32d2d65f08e0185ba01eb080930a",
+      "uid": "2635cb7877c6b0840c7d713c3c23c719",
+      "username": "bhauman"
+    },
+    "merkle_root": {
+      "ctime": 1556926799,
+      "hash": "a4e5818a65ef703f797498436d163bd0d625f1ad6a0b8f48c39aab3250b58ea75025fd2fb20817fb55a2487659d20f8fefe7944ad0068ccef7329523c9fe44dc",
+      "hash_meta": "3d5f8eaeb4823b294933c30ebcb92e5f626285610f474f7ab8754adc2e52b64d",
+      "seqno": 5293793
+    },
+    "service": {
+      "entropy": "P8DHl1vcWdQ2IhdgBEasfAix",
+      "hostname": "rigsomelight.com",
+      "protocol": "https:"
+    },
+    "type": "web_service_binding",
+    "version": 2
+  },
+  "client": {
+    "name": "keybase.io go client",
+    "version": "3.2.2"
+  },
+  "ctime": 1556926850,
+  "expire_in": 504576000,
+  "prev": "c8553a8df4ce8965d4b5724098e8cdb6f113f5fcc65e02e7298e30a614c8a285",
+  "seqno": 20,
+  "tag": "signature"
+}
+
+which yields the signature:
+
+hKRib2R5hqhkZXRhY2hlZMOpaGFzaF90eXBlCqNrZXnEIwEgYUHh7Zj3oKd/99W3fU5c993bfTLS1l8I4BhboB6wgJMKp3BheWxvYWTESpcCFMQgyFU6jfTOiWXUtXJAmOjNtvET9fzGXgLnKY4wphTIooXEIK1lA+r8yKF9kiEFq7DfLQXjpM3VM7QKiT+TxgQAoXTvAgHCo3NpZ8RAoeNQLVCen8ZXyf+NOy4RaSPsgEKkfo1/bhkSfPuhRYEgJ9M0ulbJubHcURVob0P63ddZ3uDy87hUX0d6MR8JCqhzaWdfdHlwZSCkaGFzaIKkdHlwZQildmFsdWXEIBDE5Ydab/dwmZTVpIbZL6F6P5DM/1zftgz7OudVzyJOo3RhZ80CAqd2ZXJzaW9uAQ==
+
+And finally, I am proving ownership of this host by posting or
+appending to this document.
+
+View my publicly-auditable identity here: https://keybase.io/bhauman
+
+==================================================================
