@@ -1,7 +1,7 @@
 --- 
 layout: post
 title: Suppression Software
-published: false
+published: true
 ---
 
 In our race to slow down the coronavirus, we are deploying
