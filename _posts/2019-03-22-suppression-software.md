@@ -13,8 +13,8 @@ handle this emergency.
 [**Suppression**](suppression) of the virus is a more pro-active
 stance where we test absolutely everyone and actively move to reduce
 the number of new infections as they did in China which just yesterday
-reported [0 new cases](zero-cases). It's important to note, we can trust
-that number is pretty accurate because of how China has actively
+reported [0 new cases](zero-cases). It's important to note, we can
+trust the accuracy of that number because of how China has pro-actively
 increased testing data-flow to create a very complete picture of how
 the virus is progressing.
 
