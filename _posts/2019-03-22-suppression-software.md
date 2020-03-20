@@ -13,7 +13,7 @@ handle this emergency.
 [**Suppression**](suppression) of the virus is a more pro-active
 stance where we test absolutely everyone and actively move to reduce
 the number of new infections as they did in China which just yesterday
-reported [0 new cases](0 cases). It's important to note, we can trust
+reported [0 new cases](zero-cases). It's important to note, we can trust
 that number is pretty accurate because of how China has actively
 increased testing data-flow to create a very complete picture of how
 the virus is progressing.
@@ -43,7 +43,7 @@ Simple temperature tracking software like this can possibly give
 communities a bit more room to keep functioning while staying
 vigilant.
 
-There is absolutely no reason to keep it this software simple, we live
+There is absolutely no reason to keep this software simple, we live
 in a world of technological and data abundance. We can combine body
 temperature, location, medical test results and social graph
 data-streams into a powerful weapon against COVID-19.
@@ -54,7 +54,7 @@ have been close to with over the last 24 hours to let them know that
 they have may been exposed and that they need to stay home and self-monitor
 or head to the nearest testing facility.
 
-There are compliance issues, where people will report a bogus
+There are compliance issues, where people will report false
 temperatures, but there are always compliance issues and we will have
 to bake this into our risk calculations.
 
@@ -69,7 +69,7 @@ endless:
 * A simple app on your phone could display your status as green yellow
 or red, allowing vendors to make informed decisions
 * A viral weather application to let you know the risk today in your location
-* complex data analysis that draws borders around communities and the
+* complex data analysis that draws borders around communities and takes the
   rate of movement between communities into consideration
 * gives you are a rating for the risk in the store you are about to enter
 * emergency order that everyone in any bar, restaurant, gym setting
@@ -94,5 +94,5 @@ making environment that might allow society to function well even in
 midst of such a tremendous global challenge.
 
 [suppression]: https://www.theatlantic.com/ideas/archive/2020/03/how-we-beat-coronavirus/608389/
-[0 cases]: https://www.theguardian.com/world/2020/mar/19/china-reports-no-domestic-cases-of-coronavirus-for-first-time-since-outbreak-began
+[zero-cases]: https://www.theguardian.com/world/2020/mar/19/china-reports-no-domestic-cases-of-coronavirus-for-first-time-since-outbreak-began
 
