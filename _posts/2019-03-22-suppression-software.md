@@ -40,20 +40,21 @@ guidelines or emergency orders based on a much more sophisticated view
 of the situation.
 
 Simple temperature tracking software like this can possibly give
-communities a bit more breathing room to keep functioning while
-staying vigilant.
+communities a bit more room to keep functioning while staying
+vigilant.
 
-There is absolutely no reason to keep it simple, we live in a world of
-technological and data abundance. We can combine body temperature,
-location, medical test results and social graph data-streams into a
-powerful weapon against COVID-19.
+There is absolutely no reason to keep it this software simple, we live
+in a world of technological and data abundance. We can combine body
+temperature, location, medical test results and social graph
+data-streams into a powerful weapon against COVID-19.
 
-As soon as someone shows symptoms, we can respond instantly and raise
-an alert on the phone of everyone they have come in contact with over
-the last 24 hours to let them know that they have been exposed and
-they need to stay home and self-monitor.
+In an ideal situation, as soon as someone shows symptoms, we can
+respond instantly and raise an alert on the phone of everyone they may
+have been close to with over the last 24 hours to let them know that
+they have may been exposed and that they need to stay home and self-monitor
+or head to the nearest testing facility.
 
-There are compliance issues, like reporting a bogus temperature, but
+There are compliance issues, like people report a bogus temperatures, but
 there are always compliance issues and we will have to bake this into
 our risk calculations. 
 
@@ -62,7 +63,7 @@ outweighs the cost by a large margin. These tracking measures would
 have to be dropped at the end of a pandemic when a vaccine has been
 distributed.
 
-The possibilities for an applications that consume this information are
+The possibilities for applications that consume this information are
 endless:
 
 * A simple app on your phone could display your status as green yellow
@@ -77,7 +78,7 @@ or red, allowing vendors to make informed decisions
   manufacture small inexpensive wrist band devices that track body
   temperature and location
 
-Big social tech (Facebook, Google, Twitter) can easily create
+Big tech (Facebook, Google, Twitter, Apple) can easily create
 solutions in this space in a very short timeline. (They can and should
 share data on an established protocol.)
 
@@ -88,9 +89,9 @@ that come out of the increased data-flow created by **suppression
 software** should be modeled and carefully deployed. This is no place
 for guesswork.
 
-I think it's very important to move toward an information rich
-decision making environment that might allow society to function well
-even in midst of such a tremendous global challenge.
+I think it's essential to move toward an information rich decision
+making environment that might allow society to function well even in
+midst of such a tremendous global challenge.
 
 [suppression]: https://www.theatlantic.com/ideas/archive/2020/03/how-we-beat-coronavirus/608389/
 [0 cases]: https://www.theguardian.com/world/2020/mar/19/china-reports-no-domestic-cases-of-coronavirus-for-first-time-since-outbreak-began
