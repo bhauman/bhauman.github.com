@@ -54,11 +54,11 @@ have been close to with over the last 24 hours to let them know that
 they have may been exposed and that they need to stay home and self-monitor
 or head to the nearest testing facility.
 
-There are compliance issues, like people report a bogus temperatures, but
-there are always compliance issues and we will have to bake this into
-our risk calculations. 
+There are compliance issues, where people will report a bogus
+temperatures, but there are always compliance issues and we will have
+to bake this into our risk calculations.
 
-Yes these data-streams are also extremely invasive but the benefit
+These data-streams would be extremely invasive but the benefit
 outweighs the cost by a large margin. These tracking measures would
 have to be dropped at the end of a pandemic when a vaccine has been
 distributed.
