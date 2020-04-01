@@ -15,6 +15,10 @@ These charts are inspired by the excellent COVID-19 charts created by the
 [Financial Times](https://www.ft.com/coronavirus-latest). To see
 Canada's relationship to other countries that is a good place to start.
 
+<canvas id="canada-confirmed-new-cases-week-window" width="770" height="577"></canvas>
+
+<br/>
+
 <canvas id="canada-confirmed" width="770" height="577"></canvas>
 
 <div class="row">
@@ -25,10 +29,10 @@ Canada's relationship to other countries that is a good place to start.
 			</label>
 		</div>
 	</div>
-	<div class="col-md-5">
+	<div class="col-md-7">
 		<div class="checkbox">
 			<label for="canada-confirmed_zero-button">
-				<input type="checkbox" id="canada-confirmed_zero-button" name="canada-confirmed_zero-button" checked="true"> start from first day with zero cases
+				<input type="checkbox" id="canada-confirmed_zero-button" name="canada-confirmed_zero-button" checked="true"> start from first day with confirmed cases
 			</label>
 		</div>
 	</div>
@@ -50,10 +54,10 @@ Canada's relationship to other countries that is a good place to start.
 			</label>
 		</div>
 	</div>
-	<div class="col-md-5">
+	<div class="col-md-7">
 		<div class="checkbox">
 			<label for="canada-confirmed-per-capita_zero-button">
-				<input type="checkbox" id="canada-confirmed-per-capita_zero-button" name="canada-confirmed-per-capita_zero-button" checked="true"> start from first day with zero cases
+				<input type="checkbox" id="canada-confirmed-per-capita_zero-button" name="canada-confirmed-per-capita_zero-button" checked="true"> start from first day with confirmed cases
 			</label>
 		</div>
 	</div>
