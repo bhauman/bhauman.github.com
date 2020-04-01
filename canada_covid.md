@@ -12,11 +12,12 @@ Systems Science and
 Engineering](https://github.com/CSSEGISandData/COVID-19).
 
 These charts are inspired by the excellent COVID-19 charts created by the
-[Financial Times](https://www.ft.com/coronavirus-latest). To see
-Canada's relationship to other countries that is a good place to start.
+[Financial Times](https://www.ft.com/coronavirus-latest). 
 
 <canvas id="canada-confirmed-new-cases-week-window" width="770" height="577"></canvas>
+<br/>
 
+<canvas id="country-confirmed-new-cases-week-window" width="770" height="577"></canvas>
 <br/>
 
 <canvas id="canada-confirmed" width="770" height="577"></canvas>
