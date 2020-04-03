@@ -23,16 +23,17 @@ Looking at 9 different countries to see how the US compares.
 In this *new cases per week graph* each point represents a sum of
 cases over the last seven days. Each succesive point moves this 7 day
 sum one day over droping the first day and adding the current
-day. This smooths out the curve and helps provide a better indicator
-as to wether the curve is flattening.
+day. This moving sum smooths out the curve and helps provide a better
+indicator as to wether the curve is flattening.
 
 <canvas id="usa-country-confirmed-new-cases-week-window" width="770" height="577"></canvas>
 <br/>
 
-The lines in the graph above will flatten and curve down as the new
-cases slow down and reduce for the given country. South Korea is a
-good example of this. Keep in mind that South Korea has had recent
-experience with epidemics and was extremely agressive with testing.
+The lines in the graph above will flatten and curve downward as the
+new cases slow down and reduce for the given country. Look to line for
+South Korea as a good example of this. Keep in mind that South Korea
+has had recent experience with epidemics and was extremely agressive
+with testing.
 
 We are using a logarithmic scale because it reveals the trajectory of
 the spread more clearly.  Take note that values on the Y axis increase
