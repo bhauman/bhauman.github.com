@@ -26,6 +26,14 @@ sum one day over droping the first day and adding the current
 day. This moving sum smooths out the curve and helps provide a better
 indicator as to wether the curve is flattening.
 
+> Important note about the charts below: the numbers reported on a
+> given day can be wrong depending on what time the researcher at John
+> Hopkins looks up and records the COVID-19 case data for a given day
+> and the time that a province reports the numbers for that day. While
+> the numbers for a given day may be innaccuate this is normally fixed
+> on the next reporting day and the overall trend of the graphs is not
+> adversely affected.
+
 <canvas id="country-confirmed-new-cases-week-window" width="770" height="577"></canvas>
 <br/>
 
