@@ -16,6 +16,14 @@ These charts are inspired by the excellent COVID-19 charts created by the
 
 You can look at the charts for [the US here](/usa_covid).
 
+> Important note about the charts below: the numbers reported on a
+> given day can be wrong depending on what time the researcher at John
+> Hopkins looks up and records the COVID-19 case data for a given day
+> and the time that a province reports the numbers for that day. While
+> the numbers for a given day may be innaccuate this is normally fixed
+> on the next reporting day and the overall trend of the graphs is not
+> adversely affected.
+
 ### Canada compared to other countries
 
 Looking at 9 different countries to see how the Canada compares.
@@ -25,14 +33,6 @@ cases over the last seven days. Each succesive point moves this 7 day
 sum one day over droping the first day and adding the current
 day. This moving sum smooths out the curve and helps provide a better
 indicator as to wether the curve is flattening.
-
-> Important note about the charts below: the numbers reported on a
-> given day can be wrong depending on what time the researcher at John
-> Hopkins looks up and records the COVID-19 case data for a given day
-> and the time that a province reports the numbers for that day. While
-> the numbers for a given day may be innaccuate this is normally fixed
-> on the next reporting day and the overall trend of the graphs is not
-> adversely affected.
 
 <canvas id="country-confirmed-new-cases-week-window" width="770" height="577"></canvas>
 <br/>
