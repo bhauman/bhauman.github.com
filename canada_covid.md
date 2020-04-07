@@ -54,6 +54,24 @@ South Korea.
 <canvas id="country-confirmed" width="770" height="577"></canvas>
 <br/>
 
+#### Deaths from COVID-19
+
+The following graphs are very similar to the graphs above but instead
+of tracking confirmed cases they track the number of deaths caused by
+COVID-19 per country.
+
+Keep in mind that deaths can occur three weeks after someone falls
+ill. So this is a late indicator of what is happening.
+
+<canvas id="country-deaths-week-window" width="770" height="577"></canvas>
+<br/>
+
+Below we see cumulative deaths for each country.
+
+<canvas id="country-deaths" width="770" height="577"></canvas>
+<br/>
+
+
 ### Canada by province
 
 The *new cases per week* graph below is much like the one at the top of this page
@@ -90,6 +108,14 @@ the total confirmed cases over time.
 <label for="canada-confirmed_zero-button">from zero</label><br>
 -->
 <br/>
+
+
+<canvas id="canada-deaths-week-window" width="770" height="577"></canvas>
+<br/>
+
+<canvas id="canada-deaths" width="770" height="577"></canvas>
+<br/>
+
 <canvas id="canada-confirmed-per-capita" width="770" height="577"></canvas>
 
 <div class="row">
