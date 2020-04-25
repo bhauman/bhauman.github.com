@@ -5,6 +5,8 @@ title: Canada COVID-19 by Province
 
 # Canada COVID-19 Charting
 
+<i>updated on <b><span id="current-date">waiting ...</span></b></i>
+
 These charts track the progress of COVID-19 in Canada by province and should be updated daily at 8pm EST.
 
 The data is sourced from the [Johns Hopkins University Center for

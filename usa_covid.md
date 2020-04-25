@@ -5,6 +5,8 @@ title: US COVID-19 by State
 
 # Charting COVID-19 in the United States
 
+<i>updated on <b><span id="current-date">waiting ...</span></b></i>
+
 These charts track the progress of COVID-19 in the United States by state and should be updated daily at 8pm EST.
 
 The data is sourced from the [Johns Hopkins University Center for
