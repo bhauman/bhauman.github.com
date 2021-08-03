@@ -56,7 +56,7 @@ the process of front end programming.
 I have designed a unique way to quickly construct affordable domes
 from easily obtainable materials.
 
-[Frameless Geodesic Dome](http://127.0.0.1:4000/2013/09/09/frameless-geodesic-dome.html)
+[Frameless Geodesic Dome](http://rigsomelight.com/2013/09/09/frameless-geodesic-dome.html)
 
 ## Blog posts that reached the top of Hacker News
 
