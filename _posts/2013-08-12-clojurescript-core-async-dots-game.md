@@ -467,9 +467,6 @@ even an automated player.
 Having a message queue also allows us to filter, repeat and otherwise
 morph the queue as we are above
 
-This is a powerful pattern that I am going to take with me when I
-write JavaScript from now on.
-
 ## Putting together a game loop
 
 Now that we've turned low level events into a high level game

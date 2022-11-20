@@ -6,6 +6,12 @@ category:
 tags: []
 ---
 
+> Edit: The following post is still a great way to learn about how
+> core.async works. However, it is not a good example of how to write
+> a web application unless you are just exploring and having
+> fun. There are many good times to be had playing with core.async and
+> I highly recommend giving the examples in this post a try.
+
 ClojureScript was already an incredible platform for experimenting
 with different approaches to writing browser based applications.
 However, things have changed dramatically for the better. The new
@@ -182,6 +188,12 @@ behave. Channels stack up the signals in a queue like buffer. Note
 that once we have received a value from the **new-todo-click** channel another one
 doesn't get pulled out of the channel until there is a value is
 received from the **cancel-new-form-click**.
+
+So what is happening is that because 5 or so *new-todo-click*s are
+stacked up when you click the cancel button the form closes and loop
+continues and pulls of another *new-todo-click* of the channel and
+thus the form is rendered open again, presenting the illusion that the form
+never closed.
 
 To me it is amazing that you can express this level of control over
 execution order and program state in such a straight forward
@@ -440,6 +452,13 @@ is simply icing on a pretty sweet cake.
 I have tried to pique your interest in ClojureScript, core.async and
 new ways of thinking about developing where you have much more
 certainty about the state of your program at any given moment.
+
+> Postscript Edit: Core.async is still and interesting way to wrangle
+> callback hell but you should only use it if your callback chains
+> have a significant depth and complexity. Personally, I curently use
+> Promises more often than core.async because I rarely have callback
+> chains complex enough to justify it.
+
 
 Resources:
 

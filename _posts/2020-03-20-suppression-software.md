@@ -4,6 +4,18 @@ title: Suppression Software
 published: true
 ---
 
+> Edit: This post didn't age well. While excellent covid tracking
+> software solutions that preserved privacy were developed. Their
+> adoption was absolutely dismal because of privacy concerns.
+> 
+> How ironic that folks happily used Facebook, Google and friends while
+> maligning the invasion of privacy that covid tracking solutions
+> represented.
+> 
+> Rereading this post during the 4 or 5th wave of the pandemic has me
+> wondering what would have happened if our culture was capable of a
+> more proactive approach.
+
 In our race to slow down the coronavirus, we are deploying
 **mitigation** strategies. Strategies that will slow down the rate of
 infection, not necessarily the total number of infections. This is

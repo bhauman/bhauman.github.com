@@ -4,6 +4,10 @@ title: Fast tests in Rails make programming fun again
 published: false
 ---
 
+```
+dataview TABLE file.name AS "Filename" FROM #book 
+```
+
 Corey Haines said just start with one test file.  He was right, once
 you take Rails out of the loop your tests will fly.  And your life
 will change.
