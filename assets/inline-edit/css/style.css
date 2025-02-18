@@ -1,0 +1,115 @@
+/* some style */
+/* body {
+    background-color: #0C1021;
+    color: rgb(204,204,204);
+
+    margin: 0;
+    padding: 20px;
+} */
+
+/* Container for the editor */
+.cljs-editor-container {
+    font-family: monospace;
+    position: relative;
+    max-width: 800px;
+    margin: 0 auto;
+    border: 1px solid #222;
+    background-color: #0C1021;
+    font-size: 14px;
+    line-height: 1.5;
+    height: 300px;
+    overflow: hidden;
+}
+/* The syntax-highlighted overlay appears on top */
+.cljs-editor-overlay {
+    font-family: monospace;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    padding: 0px;
+    overflow: auto;
+    white-space: pre-wrap;
+    word-wrap: break-word;
+    pointer-events: none;
+
+    z-index: 2;
+    color: rgb(204,204,204); 
+    margin: 5px;
+  
+}
+
+.cljs-editor-overlay .overlay {
+    background-color: rgb(26,26,26);
+    color: #F92672;
+    border: 1px solid black;
+}
+
+/* The textarea is behind the overlay.
+       Its text is transparent so that only the caret is visible. */
+textarea.cljs-editor-textarea {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border: none;
+    padding: 0px;
+    background-color: transparent;
+    color: transparent;
+    caret-color: rgb(53,254,70);
+    overflow: auto;
+    resize: none;
+    font-family: inherit;
+    font-size: inherit;
+    line-height: inherit;
+
+    white-space: pre-wrap;
+    word-wrap: break-word;
+    
+    outline:none;
+    margin: 5px;
+    
+    /* position: absolute; */
+   /*  padding: 5px; */
+   /*  margin: 0; */
+   /*  top: 0; */
+   /*  left: 0; */
+   /*  right: 0; */
+   /*  bottom: 0; */
+   /* /\* width: 100%; */
+   /*  height: 100%; *\/ */
+   /*  background: transparent; */
+   /*  color: transparent; */
+   /*  caret-color: #F8F8F2; */
+   /*  border: none; */
+   /*  resize: none; */
+   /*  outline: none; */
+   /*  font-family: inherit; */
+   /*  font-size: inherit; */
+   /*  line-height: inherit; */
+   /*  z-index: 1; */
+   /*  overflow:auto; */
+}
+/* Chord state and action feedback display */
+.cljs-chord-display {
+    max-width: 800px;
+    margin: 0px auto;
+    padding: 5px 10px;
+    background: #4D4D4D;
+    border: 1px solid #222;
+    color: #F92672;
+    font-family: monospace;
+    font-size: 14px;
+    min-height: 2em;
+}
+
+/* Syntax highlighting rules (colors inspired by deeper–blue) */
+.token-comment { color: rgb(127,127,127); }
+.token-string  { color: rgb(221,184,140); }
+/* .token-number  { color: #AE81FF; } */
+.token-keyword { color: rgb(163,202,102); }
+.token-special-form { color: rgb(35,190,251); }
+.token-paren   { color: rgb(100,100,100); }
+.token-symbol  { color: rgb(204,204,204); }

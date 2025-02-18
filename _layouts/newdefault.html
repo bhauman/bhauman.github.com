@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+        <title>{{ page.title }}</title>
+
+        <!-- syntax highlighting CSS -->
+        <link rel="stylesheet" href="/css/syntax.css">
+
+        <!-- Custom CSS -->
+        <!-- <link rel="stylesheet" href="/css/main.css"> -->
+        <!-- <script src="/assets/js/jquery.min.js"></script> 
+        <script src="/assets/js/jquery.browser.js"></script>
+        <script src="/assets/js/react.min.js"></script>
+        
+        <script src="//rigsomelight.com/devcards/devcards-assets/showdown.js"></script> -->
+
+        <!-- <link href="http://fonts.googleapis.com/css?family=Droid+Serif:400,700,400italic" rel="stylesheet" type="text/css"> -->
+        <link rel="stylesheet" href="/assets/bootstrap/css/bootstrap.css">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <!-- <link href="/assets/bootstrap2/css/bootstrap-responsive.css"
+        rel="stylesheet">        -->
+
+<!--        <link href="//rigsomelight.com/devcards/devcards-assets/devcards.css" rel="stylesheet" type="text/css">
+        <link href="//rigsomelight.com/devcards/devcards-assets/rendered_edn.css"rel="stylesheet" type="text/css"> -->
+
+        <link rel="alternate" type="application/rss+xml" title="Rig Some Light Feed" href="http://rigsomelight.com/feed.xml">
+        <!-- <link rel="stylesheet" href="/assets/css/fonts.css"> -->
+        <link rel="stylesheet" href="/assets/css/style.css">
+	{% if page.cssUrl %}
+	<link rel="stylesheet" href="{{page.cssUrl}}">
+	{% endif %}
+    </head>
+    <body>
+
+        <div class="container">
+          <div class="site">
+            
+            <ul class="breadcrumb">
+              <li class="active"><a href="/">Bruce Hauman</a></li>
+            </ul>
+
+                {{ content }}
+
+            <div class="footer">
+              <div class="contact">
+                <p>
+                  <a href="/bruce_hauman.html">Bruce Hauman</a><br />
+                  Programmer<br />
+                  bhauman@gmail.com
+                </p>
+              </div>
+	      <div class="contact">
+		<p>
+		  <a href="/bruce_hauman.html">About</a>
+		</p>  
+	      </div>
+              <div class="contact">
+                <p>
+                  <a href="http://github.com/bhauman/">github.com/bhauman</a><br />
+		  <a href="https://www.linkedin.com/in/bruce-hauman-bb6958129">linkedin</a><br />
+		  <a rel="me" href="https://functional.cafe/@bhauman">Mastodon</a>
+                  <a href="/feed.xml">blog feed</a>
+
+                </p>
+              </div>
+            </div>
+          </div>
+        </div> <!-- /container -->
+	
+	{% if page.javascriptUrl %}
+	 <script src="{{page.javascriptUrl}}"></script>
+	{% endif %}
+    </body>
+</html>

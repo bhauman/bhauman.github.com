@@ -1,0 +1,7 @@
+^{:watch-dirs ["src"]
+  :open-url false
+  ; :css-dirs ["resources/public/css"]
+   }
+{:main inline-e.post
+ :output-dir "../assets/inline-edit/out"
+ :asset-path "/assets/inline-edit/out"}
