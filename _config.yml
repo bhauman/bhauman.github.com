@@ -1,4 +1,5 @@
 name: Bruce Hauman's Blog
+title: Bruce Hauman's Blog
 description: Bruce Hauman's ramblings on web development and programming
 url: http://rigsomelight.com
 highlighter: rouge
@@ -6,3 +7,15 @@ markdown: kramdown
 kramdown:
   input: GFM
   hard_wrap: false
+theme: null  
+exclude:
+  - "*~"        # Emacs backup files (ends with ~)
+  - ".*~"       # Emacs backup files starting with . (hidden files)
+  - "#*#"       # Emacs autosave files (surrounded by #)
+  - ".#*"       # Emacs autosave files starting with .# (hidden files)
+  - "**/.*~"   # Emacs backups, any directory (recursive)
+  - "**/*~"    # Emacs backups, any directory (recursive)
+  - "**/#*#"     #Emacs autosave, any directory
+  - "**/.#*"      #Emacs autosave, any directory, hidden file
+  - vendor/bundle  # Example: Exclude your bundled gems (good practice)
+  - node_modules/ # Example: Exclude Node.js modules (if you use them)

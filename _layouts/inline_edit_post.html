@@ -1,0 +1,13 @@
+---
+layout: newdefault
+---
+<h2>{{ page.title }}</h2>
+{% if page.date %}
+<p class="meta">{{ page.date | date_to_string }}</p>
+{% endif %}
+<div class="post">
+{{ content }}
+</div>
+
+
+    
