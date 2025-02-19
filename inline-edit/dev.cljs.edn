@@ -4,4 +4,5 @@
    }
 {:main inline-e.post
  :output-dir "../assets/inline-edit/out"
+ :output-to  "../assets/inline-edit/main.js"
  :asset-path "/assets/inline-edit/out"}

@@ -12,5 +12,6 @@
                  :extra-paths ["target" "test"]}
            :build {:main-opts ["-m" "figwheel.main" "-b" "dev" "-r"]}
            :clean {:main-opts ["-m" "figwheel.main" "--clean" "dev"]}
-           :min   {:main-opts ["-m" "figwheel.main" "-O" "advanced" "-bo" "dev"]}
+           :simple {:main-opts ["-m" "figwheel.main" "-O" "simple" "-bo" "dev"]}
+           :min   {:main-opts ["-m" "figwheel.main" "-O" "advanced" "-bo" "dev"]}           
            :test  {:main-opts ["-m" "figwheel.main" "-co" "test.cljs.edn" "-m" "inline-editor.test-runner"]}}}
