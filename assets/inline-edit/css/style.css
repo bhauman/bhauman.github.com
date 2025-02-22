@@ -1,11 +1,59 @@
-/* some style */
-/* body {
-    background-color: #0C1021;
-    color: rgb(204,204,204);
+.cljs-html-display {
+    max-width: 800px;
+    margin: 0px auto 0px auto;
+    padding: 0px 10px;
+    background: #1c1c1c;
+    border: 0px solid #222;
+    color: #ccc;
+    font-family: monospace;
+    font-size: 14px;
+    overflow: hidden;
+    opacity: 0;
+    transition: all 0.3s ease;
+    max-height: 0;
+}
 
-    margin: 0;
-    padding: 20px;
-} */
+.cljs-html-display.active {
+    max-height: 500px;
+    border: 1px solid #222;
+    padding: 5px 10px;
+    opacity: 1;
+}
+
+.cljs-html-display.fade-out {
+    opacity: 0;
+}
+
+.cljs-inline-editor {
+    font-family: monospace;
+    position: relative;
+    max-width: 800px;
+    margin: 0 auto;
+    font-size: 14px;
+    line-height: 1.5;
+    background-color: #0C1021;
+}
+
+.cljs-inline-editor p {
+    font-family: monospace;
+    position: relative;
+    font-size: 14px;
+    line-height: 1.5;
+    margin-bottom: 0.5em;
+}
+
+.cljs-inline-editor h1,
+.cljs-inline-editor h2,
+.cljs-inline-editor h3,
+.cljs-inline-editor h4,
+.cljs-inline-editor h5 {
+    font-family: monospace;
+    position: relative;
+    color: #ccc;
+    margin-top: 0.5em;
+    margin-bottom: 0.5em;    
+}
+
 
 /* Container for the editor */
 .cljs-editor-container {
@@ -33,11 +81,8 @@
     white-space: pre-wrap;
     word-wrap: break-word;
     pointer-events: none;
-
-    z-index: 2;
     color: rgb(204,204,204); 
     margin: 5px;
-  
 }
 
 .cljs-editor-overlay .overlay {
@@ -67,31 +112,25 @@ textarea.cljs-editor-textarea {
 
     white-space: pre-wrap;
     word-wrap: break-word;
-    
+    scrollbar-width: none;
     outline:none;
     margin: 5px;
-    
-    /* position: absolute; */
-   /*  padding: 5px; */
-   /*  margin: 0; */
-   /*  top: 0; */
-   /*  left: 0; */
-   /*  right: 0; */
-   /*  bottom: 0; */
-   /* /\* width: 100%; */
-   /*  height: 100%; *\/ */
-   /*  background: transparent; */
-   /*  color: transparent; */
-   /*  caret-color: #F8F8F2; */
-   /*  border: none; */
-   /*  resize: none; */
-   /*  outline: none; */
-   /*  font-family: inherit; */
-   /*  font-size: inherit; */
-   /*  line-height: inherit; */
-   /*  z-index: 1; */
-   /*  overflow:auto; */
+   
 }
+
+.cljs-editor-error {
+    max-width: 800px;
+    margin: 0px auto;
+    padding: 5px 10px;
+    background: #1c1c1c;
+    border: 1px solid #222;
+    color: #FF6B6B;  /* Error red color */
+    font-family: monospace;
+    font-size: 14px;
+    min-height: 1.5em;
+    display: block;
+}
+
 /* Chord state and action feedback display */
 .cljs-chord-display {
     max-width: 800px;
