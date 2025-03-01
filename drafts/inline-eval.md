@@ -48,114 +48,68 @@ We will be using `^r` as shorthand for `Control-r` from now on.
 
  
 ;`-- Place cursor above this line and hit ^r
-</pre></div><br>When you pressed `^r`, the editor found the closest preceding complete
+</pre></div>
+
+When you pressed `^r`, the editor found the closest preceding complete
 expression and sent it it to a runtime session (REPL) for
-evaluation. The result than appeared right next to your code, exactly
-where you were already looking.
+evaluation. The result then appeared right next to your code, exactly
+where you were already looking. No ficus lost.
 
 You may have also noticed that you can evaluate smaller parts of an
-expression, like `(/ 8 2)`, just as easily as a full expression.
+expression, like `(/ 8 2)`, just as easily as a full expression. You
+can also evaluate expressions that span multiple lines as well.
 
-> Note how the parens here are a feature that allow the editor to
-> easily discern what code to pluck out and evaluate. More complicated
-> language syntax can make it hard to know what invoking inline-eval
-> would mean at a given position in the editor.
+Lisp languages make it simple to write editor tools that can do this.
+Detecting an expression delimited by parenthesis is trivial.
 
-Luckily, in LISP like languages many common programming forms,
-including: conditionals, binding local variables and loops are
-expressions that can be evaluated.
+Inline evaluation also serves as a way to interactively jog your
+memory. Rather than interrupting your workflow to check the docs, you
+can conduct quick experiments directly in your editor to verify a
+functions name and behavior.
 
-For example go ahead and hit `^r` after the final `)` of each of these
-examples:
+For instance, I frequently forget function names, and sometimes,
+instead of searching for them, I simply try evaluating them to see if
+they exist and if they work the way I expect them to.
 
-<div class="cljs-editor-new"><pre>
-;; ifs are expressions that evaluate to a result
-(if true 100 0)
-(if (= 0 5) :five :not-five)
-
-;; local bindings are expressions as well
-(let [x 100]
-  x)
-
-(let [x 100]
-  (* x x))
-
-;; loops as well
-(loop [x 100]
-  (if (<= x 0)
-     :done
-     (recur (- x 1))))
-
-(loop [x 100
-       accum 0]
-  (if (<= x 0)
-    accum         ;; return accum 
-    (recur        ;; re-enter the loop above with
-      (- x 1)     ;;   x bound to x - 1
-      (+ accum x) ;;   accum bound the accum + x
-    )))
-
-</pre></div><br>
-
-It's often the case that in other languages the forms above are not
-expressions, rather they are statements that don't evalute to produce
-values but rather they produce results by acting on the
-environment. Thus rendering inline-eval a less useful and much harder
-to implement editor feature.
-
-So we can see that inline-eval can be used for testing out code as you
-are developing it.
-
-It can also be used to help you remember how various functions work.
-
-For instance, when I need to use the `subs` (i.e. substring) I know
-that it takes a string and two numbers `(subs "4 items required!" 2 5)`
-and it extracts a substring. But I always forget meaning of the last 
-argument. Is it the length or the ending offset of the substring?
-
-<div class="cljs-editor-new"><pre>
-;; change the numbers below to pluck out the word "required"
-(subs "4 items required!" 8 8)
-
-</pre></div><br>
-
-So, instead of trapsing off the to docs we can just keep coding while
-doing little experiments in our editor to see if we are on track.
-
-Often, I even forget the specific names of functions and instead of
-searching for them I invoke them to see if they exist.
-
-For example, I have a function that expands and displays HTML in a div
-above the editor. But I don't rember if it's called `show-html` or
-`display-html`.
+For example, I know I created a function that renders HTML in a `div`
+above the editor, but I can't remember if it's called `show-html` or
+`display-html`. Let's evaluate both of the expressions below to see
+which one works:
 
 <div class="cljs-editor-new"><pre>
 ;; was it show-html or display-html??
-(show-html "&lt;h1&gt;Testing&lt;/h1&gt;")
+(show-html "&lt;h1&gt;Testing!&lt;/h1&gt;")
+;;                             `-- ^r eval here
 
-(display-html "&lt;h1&gt;Testing&lt;/h1&gt;")
-</pre></div><br>
+(display-html "&lt;h1&gt;Testing!&lt;/h1&gt;")
+;;                                `-- ^r eval here
+</pre></div>
 
-So now I know name of the function.
+With inline evaluation, I can quickly discover which function is
+defined **and** if does what I expect it to. This allows me to not
+leave the editor and continue coding without breaking my flow.
 
-The function below is part of a text adventure. Give it a try.
+Let's directly experience what the `look` and `move` functions below do.
+
+_From here onward, you can assume that each expression in the all of
+the examples below is intended to be evaluated with `^r`._
 
 <div class="cljs-editor-new"><pre>
-;; To see where you are in the text adventure
 (look)
 
+(move :east)
 
+</pre></div>
 
+We can see that the `look` function is returning data that is meant to
+describe where one is on their journey through a text adventure and
+that the `move` function can move you through that world.
 
+Evaling these functions in the editor could work as a spartan
+interface to the game, but it would definitely be better to display
+this data using our `display-html` function. Right?
 
-
-</pre></div><br>
-
-So yes it returns data and as an experience this could work for a bare
-bones text adventure.  But it might be nice to render the data to HTML
-and then display it?? Eh? Eh?
-
-So let's display the description of the room.
+Let's work on the displaying the description of the room.
 
 <div class="cljs-editor-new"><pre>
 ;; First lets see what data is returned
@@ -167,13 +121,13 @@ So let's display the description of the room.
 ;; OK we have a description let's put that into an HTML string
 (str "&lt;p&gt;" (get (look) :desc) "&lt;/p&gt;")
 
-;; Now let's display that string
+;; Now let's display that HTML
 (display-html (str "&lt;p&gt;" (get (look) :desc) "&lt;/p&gt;"))
-</pre></div><br>
+</pre></div>
 
 Actually, let' break out that paragraph tag into it's own function:
 
-<div class="cljs-editor-new"><pre>
+<div class="cljs-editor-new" data-sci-ctx="main-game"><pre>
 ;; Evalute this to define the paragraph function
 (defn p [content] 
   (str "&lt;p&gt;" content "&lt;/p&gt;"))
@@ -182,41 +136,125 @@ Actually, let' break out that paragraph tag into it's own function:
 (p "Hello")
 
 (display-html (p (get (look) :desc)))
-</pre></div><br>
-
-
-
+</pre></div>
 
 OK, now we are getting somewhere. But we also have to format the
-things that are seen in the room:
+things that are `:seen` in the room:
 
-<div class="cljs-editor-new"><pre>
+<div class="cljs-editor-new" data-sci-ctx="main-game"><pre>
 (look)
 
-;; I see a :desc key that holds a description 
+;; The seen key holds a description of what you see:
 (get (look) :seen)
 
-;; this is a list so we want to go through all the items
-;; and format each one
-(map 
-  (fn [item] (str "&lt;p&gt;" item "&lt;/p&gt;"))
-  (get (look) :seen)) 
+;; let's format it a little
+(str "You see: " (get (look) :seen))
 
+;; put it in a paragraph
+(p (str "You see: " (get (look) :seen)))
 
-</pre></div><br>
-
+;; let's format the :desc and the :seen together
+(str
+  (p (get (look) :desc))
+  (p (str "You see: " (get (look) :seen))))
  
+;; then let's display it
+(display-html
+  (str
+    (p (get (look) :desc))
+    (p (str "You see: " (get (look) :seen)))))
+		
+</pre></div>
 
+So we're building up some code to format the the data returned from the
+`look` function as HTML.
 
-Keep in mind that this session is stateful—each expression you
-evaluate builds on previous ones. That means you can modify the state
-by running commands, then inspect it by evaluating expressions.
+So let's put this code in a function and start working on the function
+instead of just composing expressions.
 
-Try evaluating some of the expressions below:
+<div class="cljs-editor-new" data-sci-ctx="main-game"><pre>
+;; so here's our initial format function
+(defn look-html [data]
+  (str
+    (p (get data :desc))
+    (p (str "You see: " (get data :seen)))))
+
+;; let's see if it's working
+(look-html (look))
+
+;; and finally
+(display-html (look-html (look)))
+
+</pre></div>
+
+OK now we have a function which we can re-use, but there is definitely
+room for improvement.  If we look at the data that's returned by the
+`look` function you can see that there is also an `:img-path`. Let's
+use that to add more visual interest to our game display.
+
+<div class="cljs-editor-new" data-sci-ctx="main-game"><pre>
+;; let's build up an expression to format the :image-path as 
+;; an img tag
+(get (look) :img-path)
+(str "&lt;img src='" (get (look) :img-path) "'/&gt;")
+
+;; let's insert the image tag into our look-html function
+(defn look-html [data]
+  (str
+    ;; vv added img here vv
+    (str "&lt;img src='" (get (look) :img-path) "'/&gt;") 
+    (p (get data :desc))
+    (p (str "You see: " (get data :seen)))))
+
+;; let's see if it's working
+(look-html (look))
+
+;; and let's take a look!
+(display-html (look-html (look)))
+
+</pre></div>
+
+Not bad at all. OK, now we only have one more piece of information
+left to add to our `look-html` function. When you evaluate the
+`(look)` function you will notice an `:exits` entry which gives the
+player clues about which directions they can move from their current
+location.
+
+I think we are at the point where you can add the `:exits` info to the
+`look-html` function.
+
+<div class="cljs-editor-new" data-sci-ctx="main-game"><pre>
+;; here's the :exits data
+(get (look) :exits)
+
+;; Add the exits data to the function below:
+(defn look-html [data]
+  (str
+    (str "&lt;img src='" (get (look) :img-path) "'/&gt;") 
+    (p (get data :desc))
+    (p (str "You see: " (get data :seen)))
+	(p (str "Exits: "    ))))
+
+;; test it out here to see if it's working
+(look-html (look))
+
+;; and finally take a look!
+(display-html (look-html (look)))
+
+</pre></div>
+
+### Do you want to play a game?
+
+Alright we've built our `look-html` function now let's play a game.
+
+You can now explore the text adventure using the functions below.
+There are a bunch of new functions that let you interact with the
+game. Luckily, you can simply evaluate them to discover what they do.
 
 <div class="cljs-editor-new"><pre>
 
-(look)
+(display-html (look-html (look)))
+
 (move :east)
 
 (stack)
@@ -227,81 +265,26 @@ Try evaluating some of the expressions below:
 ;; eventually??
 (unlock-function :_something?_)
 
-;; HELP
-;; (look) - see where you are
-;; (move :east) - move to next room :east, :west, :north, :south
-;;                actually (move :e) is the same as (move :east)
+</pre></div>
 
-;; You have a stack of items:
-;; (push :item) - push an :item onto your stack
-;; (peek)       - use/inspect the item on top of your stack
-;; (pop)        - drop the item on top of your stack
+### And end or a beginning
 
-</pre></div><br>
+Thanks for taking the time to experience inline evaluation.
 
-Are you getting used to this yet? You’ve been interacting with code in
-a way that’s completely different from the usual "write, then run"
-approach.
+The goal of this post was to bring you into a development experience
+and demonstrate some the instant feedback that inline evaluation
+provides. To me inline evaluation is an abosolutely incredible
+development feature that keeps you present in the problem you are
+trying to solve.
 
-Instead of executing a whole program at once, you’re working in a live
-stateful environment—each evaluation builds on the last. This lets you
-test small pieces of logic, inspect results instantly, and refine your
-approach interactively, all without leaving the editor.
+While the above examples are toy examples inside of a toy editor. This
+experience is very real. Many Clojure programmers experience this
+every day at real companies and get paid real salaries. We are talking
+about uses that range from intense data pipelines that power large big
+box store chains, to the delivery of data to video streaming UIs that
+you use every day, and the list of uses goes on and on from there.
 
-Now, let’s iteratively build a solution to the puzzle above.
-
-Below, you’ll see a `(do ...)` expression—a block that groups multiple
-expressions together. You can add commands like `move` and `push` inside
-this block, one at a time, to develop your solution step by
-step. After adding a new expression, place your cursor after the
-closing parenthesis of the do block and evaluate it to see your
-progress.
-
-> Remember, you can always evaluate `(look)` or `(stack)` to see the
-> current state of the text adventure.
-
-<div class="cljs-editor-new"><pre>
-(look)
-(stack)
-
-(do
-  (reset)
-  (move :e)
-  (move :n)
-  (move :w)
-  (push :open-paren)
-
-  ;; ad steps in here 
-  
-  )
-;; `-- place your cursor here after the ) to evaluate your progress
-;;    after each change
-
-</pre></div><br>
-
-You just interactively built up a solution to a problem. While also
-being allowed to eval `(look)` and `(stack)` in order to inspect the
-current state of the game. The text editor has now morphed into your
-own lab and game controller.
-
-The immediacy of feedback with *inline-eval* is vastly different than
-the common iterative process of composing code as whole and evaluating
-it a whole.
-
-> Hmmmm, now what is it? What is it that allows the editor to easily
-> parse out an expression to send off for evaluation? What feature of
-> LISP languages has made inline-eval, a persistent feature of LISP
-> editors for decades?
-
-
-
-
-
-
-
-
-
-
-
-
-
+My argument here is not that Clojure is superior, my argument is that
+inline-eval is an incredible feature, that has yet to really manifest
+itself as a ubiquitous reality for computer programmers. This
+begs the question: why?

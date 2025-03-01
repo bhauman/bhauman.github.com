@@ -12,7 +12,7 @@ exclude:
   - "*~"        # Emacs backup files (ends with ~)
   - ".*~"       # Emacs backup files starting with . (hidden files)
   - "#*#"       # Emacs autosave files (surrounded by #)
-  - ".#*"       # Emacs autosave files starting with .# (hidden files)
+  - .#*       # Emacs autosave files starting with .# (hidden files)
   - "**/.*~"   # Emacs backups, any directory (recursive)
   - "**/*~"    # Emacs backups, any directory (recursive)
   - "**/#*#"     #Emacs autosave, any directory

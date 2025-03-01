@@ -18,10 +18,18 @@
     border: 1px solid #222;
     padding: 5px 10px;
     opacity: 1;
+    animation: borderFlash 0.5s ease;
 }
 
 .cljs-html-display.fade-out {
     opacity: 0;
+    border: 1px solid white;
+}
+
+@keyframes borderFlash {
+    0% { border-color: transparent; }
+    50% { border-color: rgb(203,242,142); } /* Brighter version */
+    100% { border-color: #222 }
 }
 
 .cljs-inline-editor {
@@ -34,26 +42,32 @@
     background-color: #0C1021;
 }
 
-.cljs-inline-editor p {
+.cljs-html-display p {
     font-family: monospace;
     position: relative;
     font-size: 14px;
     line-height: 1.5;
-    margin-bottom: 0.5em;
+    margin-top: 0.85em;
+    margin-bottom: 0.85em;
 }
 
-.cljs-inline-editor h1,
-.cljs-inline-editor h2,
-.cljs-inline-editor h3,
-.cljs-inline-editor h4,
-.cljs-inline-editor h5 {
+.cljs-html-display h1,
+.cljs-html-display h2,
+.cljs-html-display h3,
+.cljs-html-display h4,
+.cljs-html-display h5 {
     font-family: monospace;
     position: relative;
     color: #ccc;
     margin-top: 0.5em;
-    margin-bottom: 0.5em;    
+    margin-bottom: 0.5em;
+    text-transform: none;
 }
 
+
+.cljs-editor-new {
+    margin-bottom: 1.75em;
+}
 
 /* Container for the editor */
 .cljs-editor-container {
