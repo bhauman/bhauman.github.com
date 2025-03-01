@@ -10,20 +10,18 @@ Inline evaluation has been around for a long time, but not every
 programmer has had the chance to use it. If you haven't, this is an
 opportunity to try it out.
 
-To this end I've coded up a simple editor with some examples so you
-can experience how it works.
 
-We will use `Control-r` to *RUN/EVALUATE* bits of code from inside the
-editor panes below.
- 
+To this end I've coded up a simple editor with examples that
+demonstrate this technique. You'll use `Control-r` to *RUN/EVALUATE*
+bits of code from inside the editor panes below.
+
 To see it in action, place your cursor immediately after the
 expression you want to evaluate in the editor below. Then, press
-`Control-r`−hold the `Control` key down while pressing the `r` key.
-
-For example, if you want to evaluate `(+ 1 2 3)`, position the cursor
-after the closing parenthesis `)` before pressing `Control-r`. 
-
-_We will be using `^r` as shorthand for `Control-r` from now on._
+`Control-r`−hold the `Control` key down while pressing the `r`
+key. For example, if you want to evaluate `(+ 1 2 3)`, position the
+cursor after the closing parenthesis `)` before pressing
+`Control-r`. For brevity, _we'll be using `^r` as shorthand for
+`Control-r` from now on._
 
 <div class="cljs-editor-new"><pre>1
 ;`-- Place cursor after 1 then hit ^r
@@ -55,17 +53,18 @@ evaluation. The result then appeared right next to your code, exactly
 where you were already looking. No context change needed to see the
 code run.
 
-You may have also noticed that you can evaluate smaller parts of an
+
+You may have noticed that you can evaluate smaller parts of an
 expression, like `(/ 8 2)`, just as easily as a full expression. You
-can also evaluate expressions that span multiple lines as well.
+can also evaluate expressions that span multiple lines.
 
 > Lisp languages make it simple to write editor tools that can do
-> this.  Detecting an expression delimited by parenthesis is trivial.
+> this. Detecting an expression delimited by parenthesis is trivial.
 
-I don't know about you, but I frequently forget function names, and
-sometimes, instead of searching for them, I simply try evaluating them
-inline to see if they exist and if they behave the way I expect them
-to.
+This flexibility of inline evaluation becomes particularly valuable in
+everyday coding. For instance, when I forget function names, and
+instead of searching for them, I simply try evaluating them inline to
+see if they exist and if they behave the way I expect them to.
 
 For example, I know I created a function that renders HTML into a
 `div` above the editor, but I can't remember if it's called
@@ -82,13 +81,14 @@ below to see which one works:
 </pre></div>
 
 With inline evaluation, I can quickly discover which function is
-defined **and** if does what I expect it to. This allows me to not
-leave the editor and continue coding without breaking my flow.
+defined **and** if it does what I expect, all without leaving the
+editor or breaking my flow.
 
-Let's directly experience what the `look` and `move` functions below do.
+Let's apply this same discovery approach to learn what the `look` and
+`move` functions below do.
 
-_From here onward, you can assume that each expression in the all of
-the examples below is intended to be evaluated with `^r`._
+_In all examples that follow, try evaluating each expression with `^r`
+to see the results._
 
 <div class="cljs-editor-new"><pre>
 (look)
@@ -100,9 +100,11 @@ the examples below is intended to be evaluated with `^r`._
 
 </pre></div>
 
-We can see that the `look` function is returning data that is meant to
-describe where one is on their journey through a text adventure and
-that the `move` function can move you through that world.
+Notice how the `look` function returns data describing your location
+in a text adventure game, while the `move` function lets you navigate
+through this virtual world. This provides a perfect opportunity to
+demonstrate how inline evaluation helps us build and refine code
+incrementally.
 
 Evaling these functions in the editor could work as a spartan
 interface to the game, but it would definitely be better to display
@@ -124,7 +126,8 @@ Let's work on formatting the data returned by `look` with HTML.
 (display-html (str "&lt;p&gt;" (get (look) :desc) "&lt;/p&gt;"))
 </pre></div>
 
-Actually, let' break out that paragraph tag into it's own function:
+Let's improve our code by breaking out that paragraph tag into its own
+function:
 
 <div class="cljs-editor-new" data-sci-ctx="main-game"><pre>
 ;; Evalute this to define the paragraph function
@@ -143,10 +146,10 @@ things that are `:seen` in the room:
 <div class="cljs-editor-new" data-sci-ctx="main-game"><pre>
 (look)
 
-;; The seen key holds a description of what you see:
+;; Let's extract the :seen items
 (get (look) :seen)
 
-;; let's format it a little
+;; Add some context to the raw data
 (str "You see: " (get (look) :seen))
 
 ;; put it in a paragraph
@@ -245,11 +248,13 @@ I think we are at the point where you can add the `:exits` info to the
 
 ### Do you want to play a game?
 
-Alright we've built our `look-html` function now let's play a game.
+Now that we've built our `look-html` function, let's use inline
+evaluation to explore the text adventure.
 
-You can now explore the text adventure using the functions below.
-There are a bunch of new functions that let you interact with the
-game. Luckily, you can simply evaluate them to discover what they do.
+Below are several game interaction functions. Using the inline
+evaluation, evaluate each one to discover its purpose and effect on
+the game state. This demonstrates how inline evaluation serves as both
+a development **and** exploration tool.
 
 <div class="cljs-editor-new" data-sci-ctx="main-game"><pre>
 
@@ -268,28 +273,25 @@ game. Luckily, you can simply evaluate them to discover what they do.
 (reset)
 </pre></div>
 
-Don't forget that you can change the UI above. 
-
-Some UI tweaks you can do:
-* create a `looki` function that calls `(display-html (look-html (look)))` 
-* a new `movi` function that calls `move` and then `looki`
-* add the stack to `look-html`
+Don't be afraid to enhance the UI. Here are som e suggestions:
+* Create a `looki` function that combines our `display` and `look-html` functions: `(display-html (look-html (look)))`
+* Develop a `movi` function that calls `move` and then `looki` to show the new location
+* Extend your `look-html` function to display the stack information
 
 ### And end or maybe a beginning
 
 Thanks for taking the time to experience inline evaluation.
 
 The goal of this post was to demonstrate the instant feedback that
-inline evaluation provides. This powerful development feature keeps
-you present in the problem you're trying to solve, maintaining your
-flow and concentration where it matters most - in your code.
+inline evaluation provides. This keeps you present in the problem
+you're trying to solve, maintaining your flow and concentration where
+it matters most - in your code.
 
-While these examples are simplified inside a toy editor, this
-experience is very real. Clojure programmers (and others who use
-similar evaluation capabilities) apply this technique daily in
-professional settings across diverse domains - from data pipelines
-powering major retail chains to video streaming services you likely
-use yourself.
+While these are toy examples inside of a toy editor, this experience
+is very real. Clojure programmers (and others who use similar
+evaluation capabilities) apply this technique daily in professional
+settings across diverse domains - from data pipelines powering major
+retail chains to video streaming services you likely use yourself.
 
 My argument isn't that Clojure is superior to other languages, but
 rather that inline evaluation is an incredibly valuable feature that
