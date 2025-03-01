@@ -14,7 +14,7 @@
 }
 
 .cljs-html-display.active {
-    max-height: 500px;
+    max-height: 1000px;
     border: 1px solid #222;
     padding: 5px 10px;
     opacity: 1;

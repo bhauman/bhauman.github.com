@@ -205,7 +205,7 @@ display.
 (defn look-html [data]
   (str
     ;; v-- added img here --v
-    (str "&lt;img src='" (get (look) :img-path) "'/&gt;") 
+    (str "&lt;img src='" (get data :img-path) "'/&gt;")
     (p (get data :desc))
     (p (str "You see: " (get data :seen)))))
 
@@ -233,7 +233,7 @@ I think we are at the point where you can add the `:exits` info to the
 ;; Add the exits data to the function below:
 (defn look-html [data]
   (str
-    (str "&lt;img src='" (get (look) :img-path) "'/&gt;")
+    (str "&lt;img src='" (get data :img-path) "'/&gt;")
     (p (get data :desc))
     (p (str "You see: " (get data :seen)))
     (p (str "Exits: "    ))))
