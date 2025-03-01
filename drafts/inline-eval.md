@@ -1,6 +1,6 @@
 --- 
 layout: inline_edit_post
-title: Inline eval
+title: Inline evaluation
 published: true
 cssUrl: "/assets/inline-edit/css/style.css"
 javascriptUrl: "/assets/inline-edit/main.js"
@@ -10,21 +10,20 @@ Inline evaluation has been around for a long time, but not every
 programmer has had the chance to use it. If you haven't, this is an
 opportunity to try it out.
 
-I've put together a simple editor with some example code so you can
-experience how it works.
+To this end I've coded up a simple editor with some examples so you
+can experience how it works.
 
-We will use `Control-r` to *RUN/EVALUATE* bits of code from inside the editor
-pane below.
+We will use `Control-r` to *RUN/EVALUATE* bits of code from inside the
+editor panes below.
  
 To see it in action, place your cursor immediately after the
 expression you want to evaluate in the editor below. Then, press
-`Control-r`−hold the `Control` key down while
-pressing the `r` key.
+`Control-r`−hold the `Control` key down while pressing the `r` key.
 
 For example, if you want to evaluate `(+ 1 2 3)`, position the cursor
 after the closing parenthesis `)` before pressing `Control-r`. 
 
-We will be using `^r` as shorthand for `Control-r` from now on.
+_We will be using `^r` as shorthand for `Control-r` from now on._
 
 <div class="cljs-editor-new"><pre>1
 ;`-- Place cursor after 1 then hit ^r
@@ -53,23 +52,20 @@ We will be using `^r` as shorthand for `Control-r` from now on.
 When you pressed `^r`, the editor found the closest preceding complete
 expression and sent it it to a runtime session (REPL) for
 evaluation. The result then appeared right next to your code, exactly
-where you were already looking. No ficus lost.
+where you were already looking. No context change needed to see the
+code run.
 
 You may have also noticed that you can evaluate smaller parts of an
 expression, like `(/ 8 2)`, just as easily as a full expression. You
 can also evaluate expressions that span multiple lines as well.
 
-Lisp languages make it simple to write editor tools that can do this.
-Detecting an expression delimited by parenthesis is trivial.
+> Lisp languages make it simple to write editor tools that can do
+> this.  Detecting an expression delimited by parenthesis is trivial.
 
-Inline evaluation also serves as a way to interactively jog your
-memory. Rather than interrupting your workflow to check the docs, you
-can conduct quick experiments directly in your editor to verify a
-functions name and behavior.
-
-For instance, I frequently forget function names, and sometimes,
-instead of searching for them, I simply try evaluating them to see if
-they exist and if they work the way I expect them to.
+I don't know about you but, I frequently forget function names, and
+sometimes, instead of searching the docs for them, I simply try
+evaluating them to see if they exist and if they work the way I expect
+them to.
 
 For example, I know I created a function that renders HTML in a `div`
 above the editor, but I can't remember if it's called `show-html` or
@@ -99,6 +95,9 @@ the examples below is intended to be evaluated with `^r`._
 
 (move :east)
 
+
+
+
 </pre></div>
 
 We can see that the `look` function is returning data that is meant to
@@ -109,7 +108,7 @@ Evaling these functions in the editor could work as a spartan
 interface to the game, but it would definitely be better to display
 this data using our `display-html` function. Right?
 
-Let's work on the displaying the description of the room.
+Let's work on formatting the data returned by `look` with HTML.
 
 <div class="cljs-editor-new"><pre>
 ;; First lets see what data is returned
@@ -153,12 +152,12 @@ things that are `:seen` in the room:
 ;; put it in a paragraph
 (p (str "You see: " (get (look) :seen)))
 
-;; let's format the :desc and the :seen together
+;; let's add the :desc and the :seen together
 (str
   (p (get (look) :desc))
   (p (str "You see: " (get (look) :seen))))
  
-;; then let's display it
+;; then display it
 (display-html
   (str
     (p (get (look) :desc))
@@ -187,10 +186,11 @@ instead of just composing expressions.
 
 </pre></div>
 
-OK now we have a function which we can re-use, but there is definitely
-room for improvement.  If we look at the data that's returned by the
-`look` function you can see that there is also an `:img-path`. Let's
-use that to add more visual interest to our game display.
+OK now we have a `look-html` function which we can re-use, but there
+is definitely room for improvement.  If we look at the data that's
+returned by the `look` function you can see that there is also an
+`:img-path`. Let's use that to add more visual interest to our game
+display.
 
 <div class="cljs-editor-new" data-sci-ctx="main-game"><pre>
 ;; let's build up an expression to format the :image-path as 
@@ -201,7 +201,7 @@ use that to add more visual interest to our game display.
 ;; let's insert the image tag into our look-html function
 (defn look-html [data]
   (str
-    ;; vv added img here vv
+    ;; v-- added img here --v
     (str "&lt;img src='" (get (look) :img-path) "'/&gt;") 
     (p (get data :desc))
     (p (str "You see: " (get data :seen)))))
@@ -267,12 +267,19 @@ game. Luckily, you can simply evaluate them to discover what they do.
 
 </pre></div>
 
-### And end or a beginning
+Don't forget that you can change the UI above. 
+
+Some UI tweaks you can do:
+* create a `looki` function that calls `(display-html (look-html (look)))` 
+* a new `movi` function that calls move and then `looki`
+* add the stack to `look-html`
+
+### And end or maybe a beginning
 
 Thanks for taking the time to experience inline evaluation.
 
 The goal of this post was to bring you into a development experience
-and demonstrate some the instant feedback that inline evaluation
+and demonstrate the instant feedback that inline evaluation
 provides. To me inline evaluation is an abosolutely incredible
 development feature that keeps you present in the problem you are
 trying to solve.
