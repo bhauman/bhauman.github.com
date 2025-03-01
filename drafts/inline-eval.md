@@ -62,15 +62,15 @@ can also evaluate expressions that span multiple lines as well.
 > Lisp languages make it simple to write editor tools that can do
 > this.  Detecting an expression delimited by parenthesis is trivial.
 
-I don't know about you but, I frequently forget function names, and
-sometimes, instead of searching the docs for them, I simply try
-evaluating them to see if they exist and if they work the way I expect
-them to.
+I don't know about you, but I frequently forget function names, and
+sometimes, instead of searching for them, I simply try evaluating them
+inline to see if they exist and if they behave the way I expect them
+to.
 
-For example, I know I created a function that renders HTML in a `div`
-above the editor, but I can't remember if it's called `show-html` or
-`display-html`. Let's evaluate both of the expressions below to see
-which one works:
+For example, I know I created a function that renders HTML into a
+`div` above the editor, but I can't remember if it's called
+`show-html` or `display-html`. Let's evaluate both of the expressions
+below to see which one works:
 
 <div class="cljs-editor-new"><pre>
 ;; was it show-html or display-html??
@@ -230,10 +230,10 @@ I think we are at the point where you can add the `:exits` info to the
 ;; Add the exits data to the function below:
 (defn look-html [data]
   (str
-    (str "&lt;img src='" (get (look) :img-path) "'/&gt;") 
+    (str "&lt;img src='" (get (look) :img-path) "'/&gt;")
     (p (get data :desc))
     (p (str "You see: " (get data :seen)))
-	(p (str "Exits: "    ))))
+    (p (str "Exits: "    ))))
 
 ;; test it out here to see if it's working
 (look-html (look))
@@ -251,7 +251,7 @@ You can now explore the text adventure using the functions below.
 There are a bunch of new functions that let you interact with the
 game. Luckily, you can simply evaluate them to discover what they do.
 
-<div class="cljs-editor-new"><pre>
+<div class="cljs-editor-new" data-sci-ctx="main-game"><pre>
 
 (display-html (look-html (look)))
 
