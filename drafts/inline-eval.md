@@ -254,7 +254,6 @@ game. Luckily, you can simply evaluate them to discover what they do.
 <div class="cljs-editor-new" data-sci-ctx="main-game"><pre>
 
 (display-html (look-html (look)))
-
 (move :east)
 
 (stack)
@@ -265,33 +264,39 @@ game. Luckily, you can simply evaluate them to discover what they do.
 ;; eventually??
 (unlock-function :_something?_)
 
+;; start over?
+(reset)
 </pre></div>
 
 Don't forget that you can change the UI above. 
 
 Some UI tweaks you can do:
 * create a `looki` function that calls `(display-html (look-html (look)))` 
-* a new `movi` function that calls move and then `looki`
+* a new `movi` function that calls `move` and then `looki`
 * add the stack to `look-html`
 
 ### And end or maybe a beginning
 
 Thanks for taking the time to experience inline evaluation.
 
-The goal of this post was to bring you into a development experience
-and demonstrate the instant feedback that inline evaluation
-provides. To me inline evaluation is an abosolutely incredible
-development feature that keeps you present in the problem you are
-trying to solve.
+The goal of this post was to demonstrate the instant feedback that
+inline evaluation provides. This powerful development feature keeps
+you present in the problem you're trying to solve, maintaining your
+flow and concentration where it matters most - in your code.
 
-While the above examples are toy examples inside of a toy editor. This
-experience is very real. Many Clojure programmers experience this
-every day at real companies and get paid real salaries. We are talking
-about uses that range from intense data pipelines that power large big
-box store chains, to the delivery of data to video streaming UIs that
-you use every day, and the list of uses goes on and on from there.
+While these examples are simplified inside a toy editor, this
+experience is very real. Clojure programmers (and others who use
+similar evaluation capabilities) apply this technique daily in
+professional settings across diverse domains - from data pipelines
+powering major retail chains to video streaming services you likely
+use yourself.
 
-My argument here is not that Clojure is superior, my argument is that
-inline-eval is an incredible feature, that has yet to really manifest
-itself as a ubiquitous reality for computer programmers. This
-begs the question: why?
+My argument isn't that Clojure is superior to other languages, but
+rather that inline evaluation is an incredibly valuable feature that
+deserves wider adoption across programming environments. It raises an
+interesting question: why hasn't this powerful technique become
+ubiquitous in modern programming?
+
+Perhaps by experiencing it firsthand, you'll be inspired to seek out
+or build tools that provide this kind of immediate feedback in your
+own development work.
