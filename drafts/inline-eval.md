@@ -53,13 +53,13 @@ evaluation. The result then appeared right next to your code, exactly
 where you were already looking. No context change needed to see the
 code run.
 
-
 You may have noticed that you can evaluate smaller parts of an
 expression, like `(/ 8 2)`, just as easily as a full expression. You
 can also evaluate expressions that span multiple lines.
 
 > Lisp languages make it simple to write editor tools that can do
-> this. Detecting an expression delimited by parenthesis is trivial.
+> this. It is trivial to write an editor plugin to detect an
+> expression delimited by parenthesis.
 
 This flexibility of inline evaluation becomes particularly valuable in
 everyday coding. For instance, when I forget function names, and
