@@ -105,11 +105,17 @@ through this virtual world. This provides a perfect opportunity to
 demonstrate how inline evaluation helps us build and refine code
 incrementally.
 
-Evaling these functions in the editor could work as a spartan
+Evaling these function calls in the editor could work as a spartan
 interface to the game, but it would definitely be better to display
-this data using our `display-html` function. Right?
+this data using our `display-html` function. Right? Right??
 
-Let's work on formatting the data returned by `look` with HTML.
+Now if we examine the data that the `look` function returns we can
+see that it's returning a **hash map** of some sort, with the keys
+`:desc`, `:seen`, `:exit` and so on. Each of these keys map to
+**string** descriptions of the state of the game.
+
+Let's work on formatting the data returned by `look` into some HTML
+that we can display.
 
 <div class="cljs-editor-new"><pre>
 ;; First lets see what data is returned
@@ -195,7 +201,7 @@ returned by the `look` function you can see that there is also an
 display.
 
 <div class="cljs-editor-new" data-sci-ctx="main-game"><pre>
-;; let's build up an expression to format the :image-path as 
+;; let's build up an expression to format the :img-path as 
 ;; an img tag
 (get (look) :img-path)
 (str "&lt;img src='" (get (look) :img-path) "'/&gt;")
@@ -256,7 +262,6 @@ the game state. This demonstrates how inline evaluation serves as both
 a development **and** exploration tool.
 
 <div class="cljs-editor-new" data-sci-ctx="main-game"><pre>
-
 (display-html (look-html (look)))
 (move :east)
 
@@ -265,39 +270,52 @@ a development **and** exploration tool.
 (peek)
 (pop)
 
-;; eventually??
 (unlock-function :_something?_)
-
-;; start over?
 (reset)
 </pre></div>
 
-Don't be afraid to enhance the UI. Here are som e suggestions:
-* Create a `looki` function that combines our `display` and `look-html` functions: `(display-html (look-html (look)))`
+Don't be afraid to enhance the UI. Here are some suggestions:
+* Create a `looki` function that combines our `display-html` and `look-html` functions: `(display-html (look-html (look)))`
 * Develop a `movi` function that calls `move` and then `looki` to show the new location
-* Extend your `look-html` function to display the stack information
+* Extend your `look-html` function to display the `(stack)` information
+* your own images, there's nothing stopping you from creating your own
+  images and using those in the game
 
 ### And end or maybe a beginning
 
-Thanks for taking the time to experience inline evaluation.
+Thanks for taking the time to expirience inline evaluation.
 
-The goal of this post was to demonstrate the instant feedback that
-inline evaluation provides. This keeps you present in the problem
-you're trying to solve, maintaining your flow and concentration where
-it matters most - in your code.
+A major goal of this post was to showcase the instant feedback it
+provides. By keeping you engaged in the problem at hand, inline
+evaluation helps maintain your flow and focus where it matters most—in
+your code.
 
-While these are toy examples inside of a toy editor, this experience
-is very real. Clojure programmers (and others who use similar
-evaluation capabilities) apply this technique daily in professional
-settings across diverse domains - from data pipelines powering major
-retail chains to video streaming services you likely use yourself.
+Another goal of this post is to inform programmers that this type of
+interactivity exists. As programmers, we often fall into cognitive
+ruts that deeply constrain our expectations of what the programming
+process can be. These mental ruts, in turn, limit the potential of
+what we create as programmers. I have observed decisions by language
+designers, programming architecture advocates, and tool builders that
+directly ignore or impede this type of interactivity—a situation I
+find genuinely unfortunate.
 
-My argument isn't that Clojure is superior to other languages, but
-rather that inline evaluation is an incredibly valuable feature that
-deserves wider adoption across programming environments. It raises an
-interesting question: why hasn't this powerful technique become
-ubiquitous in modern programming?
+It's hard to get people to try things outside their experience. It's
+natural to resist unfamiliar ideas and dismiss them. Many who read
+this will likely respond by arguing that this kind of interactivity
+isn't necessary or useful. However, in my experience, that simply
+isn't true. People who have never truly engaged with this workflow
+often underestimate its value.
 
-Perhaps by experiencing it firsthand, you'll be inspired to seek out
-or build tools that provide this kind of immediate feedback in your
-own development work.
+Yes, these may be toy examples inside a toy editor, but this level of
+interactivity is very real. Clojure programmers—and others who use
+similar evaluation capabilities—apply this technique daily in
+professional settings, from data pipelines powering major retailers to
+the video streaming services you likely use yourself.
+
+My argument isn't that Clojure or Lisp is inherently superior to other
+languages, but that inline evaluation is incredibly valuable and
+deserves wider adoption across programming environments.
+
+By experiencing it firsthand, you might be inspired to expect more
+from your programming languages and tools—or even create your own.
+
