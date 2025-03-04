@@ -18,18 +18,11 @@
     border: 1px solid #222;
     padding: 5px 10px;
     opacity: 1;
-    animation: borderFlash 0.5s ease;
 }
 
 .cljs-html-display.fade-out {
     opacity: 0;
     border: 1px solid white;
-}
-
-@keyframes borderFlash {
-    0% { border-color: transparent; }
-    50% { border-color: rgb(203,242,142); } /* Brighter version */
-    100% { border-color: #222 }
 }
 
 .cljs-inline-editor {
@@ -163,6 +156,17 @@ textarea.cljs-editor-textarea {
 .token-string  { color: rgb(221,184,140); }
 /* .token-number  { color: #AE81FF; } */
 .token-keyword { color: rgb(163,202,102); }
+
 .token-special-form { color: rgb(35,190,251); }
 .token-paren   { color: rgb(100,100,100); }
 .token-symbol  { color: rgb(204,204,204); }
+
+.token-paren.highlight {
+    background-color: rgb(35,190,251, 0.45);
+    color: rgb(210,210,210);
+}
+
+.token-paren.unbalanced {
+    background-color: rgb(157,38,233);
+    color: white;
+}

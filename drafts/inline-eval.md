@@ -8,18 +8,17 @@ javascriptUrl: "/assets/inline-edit/main.js"
 
 Inline evaluation has been around for a long time, but not every
 programmer has had the chance to use it. If you haven't, this is an
-opportunity to try it out.
+opportunity to try it.
 
-
-To this end I've coded up a simple editor with examples that
-demonstrate this technique. You'll use `Control-r` to *RUN/EVALUATE*
-bits of code from inside the editor panes below.
+To this end I've coded up a simple editor with some code
+examples. You'll use `Control-r` to *RUN/EVALUATE* bits of code from
+inside the editor panes below.
 
 To see it in action, place your cursor immediately after the
 expression you want to evaluate in the editor below. Then, press
-`Control-r`−hold the `Control` key down while pressing the `r`
-key. For example, if you want to evaluate `(+ 1 2 3)`, position the
-cursor after the closing parenthesis `)` before pressing
+`Control-r` (hold the `Control` key down while pressing the `r`
+key). For example, if you want to evaluate `(+ 1 2 3)`, position the
+cursor after the closing parenthesis `)` and then press
 `Control-r`. For brevity, _we'll be using `^r` as shorthand for
 `Control-r` from now on._
 
@@ -73,22 +72,22 @@ below to see which one works:
 
 <div class="cljs-editor-new"><pre>
 ;; was it show-html or display-html??
-(show-html "&lt;h1&gt;Testing!&lt;/h1&gt;")
-;;                             `-- ^r eval here
+(show-html "&lt;h1&gt;It's in a DIV!&lt;/h1&gt;")
+;;                                   `-- ^r eval here
 
-(display-html "&lt;h1&gt;Testing!&lt;/h1&gt;")
-;;                                `-- ^r eval here
+(display-html "&lt;h1&gt;It's in a DIV!&lt;/h1&gt;")
+;;                                      `-- ^r eval here
 </pre></div>
 
 With inline evaluation, I can quickly discover which function is
 defined **and** if it does what I expect, all without leaving the
 editor or breaking my flow.
 
-Let's apply this same discovery approach to learn what the `look` and
-`move` functions below do.
+In the next example, let's apply this same approach to discover what
+the `look` and `move` functions do.
 
-_In all examples that follow, try evaluating each expression with `^r`
-to see the results._
+> _In all examples that follow, try evaluating each expression with `^r`
+> to see the results._
 
 <div class="cljs-editor-new"><pre>
 (look)
