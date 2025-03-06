@@ -11,8 +11,10 @@ programmer has had the chance to use it. If you haven't, this is an
 opportunity to try it.
 
 To this end I've coded up a simple editor with some code
-examples. You'll use `Control-r` to *RUN/EVALUATE* bits of code from
-inside the editor panes below.
+examples. These examples are all editable and executable, however no
+**run** button exists to execute them. You'll use `Control-r` to
+*RUN/EVALUATE* pieces of code that you select from inside the editor
+panes below.
 
 To see it in action, place your cursor immediately after the
 expression you want to evaluate in the editor below. Then, press
@@ -84,7 +86,7 @@ defined **and** if it does what I expect, all without leaving the
 editor or breaking my flow.
 
 In the next example, let's apply this same approach to discover what
-the `look` and `move` functions do.
+the `look`, `move` and `reset` functions do.
 
 > _In all examples that follow, try evaluating each expression with `^r`
 > to see the results._
@@ -94,7 +96,7 @@ the `look` and `move` functions do.
 
 (move :east)
 
-
+(reset)
 
 
 </pre></div>
@@ -273,6 +275,8 @@ a development **and** exploration tool.
 (unlock-function :_something?_)
 (reset)
 </pre></div>
+
+<div id="secret-door"></div>
 
 Don't be afraid to enhance the UI. Here are some suggestions:
 * Create a `looki` function that combines our `display-html` and `look-html` functions: `(display-html (look-html (look)))`
