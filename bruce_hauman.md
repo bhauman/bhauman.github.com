@@ -3,26 +3,27 @@ layout: default
 title: Bruce Hauman
 ---
 
-[blog](http://rigsomelight.com) - [github](https://github.com/bhauman) - [twitter](https://twitter.com/bhauman) - [linkedin](https://www.linkedin.com/in/bruce-hauman-bb6958129)
+[blog](http://rigsomelight.com) - [github](https://github.com/bhauman) - [Mastodon](https://functional.cafe/@bhauman) - [linkedin](https://www.linkedin.com/in/bruce-hauman-bb6958129)
 
 ## Hey there!
 
-I'm Bruce Hauman. I'm a Software Developer with over 12 years
-experience in full stack web development. Currently, I'm having fun
-making front end development more fluid, productive and fun for
-ClojureScript developers.
+I'm Bruce Hauman. I'm a Software Developer with over 17 years
+experience in full stack web development. I enjoy making programming
+more fluid, productive and fun for ClojureScript developers.
 
-On this page I've provided links to my open source work, conference
-talks and other things that can give you a better idea of who I am and
-what I do.
+On this page I've provided links to some of my open-source work,
+conference talks and other things that can give you a better idea of
+who I am and what I do.
 
 ## Open Source Authorship
 
-#### [Figwheel](https://github.com/bhauman/lein-figwheel)
+#### [Figwheel](https://github.com/bhauman/figwheel-main)
 
-Figwheel makes the holy grail of live editing and hot loading running
-code a pragmatic reality for front end development. Figwheel currently sets
-the standard for a fluid front end programming experience.
+Figwheel broke new ground making the holy grail of live editing and
+hot loading running code a pragmatic reality for front end
+development. Several features, like heads-up displays announcing
+compiler errors, that many javascript developers experience everyday
+started here.
 
 Figwheel has been popularly received by the ClojureScript community as evidenced in the [State of Clojure 2015 Survey](http://blog.cognitect.com/blog/2016/1/28/state-of-clojure-2015-survey-results) and the outpouring of [thanks](https://twitter.com/search?f=tweets&vertical=default&q=figwheel%20thanks&src=typd) and [appreciation](https://twitter.com/search?f=tweets&vertical=default&q=figwheel%20awesome&src=typd).
 
@@ -32,7 +33,7 @@ Devcards takes live programming even further by providing an
 environment to work on front-end components apart from the application
 and exercise them in many states.
 
-Devcards is a new innovative tool and proposes a new way to think about
+Devcards is a innovative tool and proposes a new way to think about
 the process of front end programming.
 
 ## Open Source Contributions
@@ -73,11 +74,14 @@ from easily obtainable materials.
 
 ## Other Interests
 
-* **Card Magic** - nothing says entertainment like a middle aged white guy with a deck of cards
+* **Canoe Camping** - I love canoe camping. My favorite trip to date was 160km on the Churchill River in Saskatchewan.
 * **Long Distance Hiking** - Hiked the Appalachian trail (2000 miles) in 1993
-* **Lightweight Structure** - I designed, built and live in a unique dome structure in my friends back yard.
+* **Remodeling the old church we bought in Saskatchewan** - this is now our home
+* **Handtool woodworking**
+* **Lightweight Structure** - I designed, built and lived in a unique dome structure in my friends back yard.
 * **Dancing** - Contra, Waltz, Tango, Salsa
-* **Singing** - Sang in a local choral group which focuses on traditional music from around the world.
+* **Singing** - Sang in an Asheville choral group which focuses on traditional music from around the world.
 * **Comedy Improv** - Spent 7 weeks studying improv in Chicago during the summer of 2010. The final show is up at [theremedials.com](http://theremedials.com)
 * **SnowBoarding** - My brother and I have an annual 8 day engagement with a mountain in Utah.
+* **Card Magic** - nothing says entertainment like a middle aged white guy with a deck of cards
 
