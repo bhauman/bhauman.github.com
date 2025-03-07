@@ -287,7 +287,7 @@ Don't be afraid to enhance the UI. Here are some suggestions:
 
 ### And end or maybe a beginning
 
-Thanks for taking the time to expirience inline evaluation.
+Thanks for taking the time to experience inline evaluation.
 
 A major goal of this post was to showcase the instant feedback it
 provides. By keeping you engaged in the problem at hand, inline
@@ -306,7 +306,7 @@ find genuinely unfortunate.
 It's hard to get people to try things outside their experience. It's
 natural to resist unfamiliar ideas and dismiss them. Many who read
 this will likely respond by arguing that this kind of interactivity
-isn't necessary or useful. However, in my experience, that simply
+isn't necessary or useful. However, in my humble opinion, that simply
 isn't true. People who have never truly engaged with this workflow
 often underestimate its value.
 
