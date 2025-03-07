@@ -107,7 +107,7 @@ through this virtual world. This provides a perfect opportunity to
 demonstrate how inline evaluation helps us build and refine code
 incrementally.
 
-Evaling these function calls in the editor could work as a spartan
+Evaluating these function calls in the editor could work as a spartan
 interface to the game, but it would definitely be better to display
 this data using our `display-html` function. Right? Right??
 
