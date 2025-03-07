@@ -137,7 +137,7 @@ Let's improve our code by breaking out that paragraph tag into its own
 function:
 
 <div class="cljs-editor-new" data-sci-ctx="main-game"><pre>
-;; Evalute this to define the paragraph function
+;; Evaluate this to define the paragraph function
 (defn p [content] 
   (str "&lt;p&gt;" content "&lt;/p&gt;"))
 
