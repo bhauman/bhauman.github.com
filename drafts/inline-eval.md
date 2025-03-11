@@ -62,10 +62,9 @@ can also evaluate expressions that span multiple lines.
 > this. It is trivial to write an editor plugin to detect an
 > expression delimited by parenthesis.
 
-This flexibility of inline evaluation becomes particularly valuable in
-everyday coding. For instance, when I forget function names, and
-instead of searching for them, I simply try evaluating them inline to
-see if they exist and if they behave the way I expect them to.
+Sometimes, when I forget function names, instead of searching for
+them, I simply try evaluating them inline to see if they exist and if
+they behave the way I expect them to.
 
 For example, I know I created a function that renders HTML into a
 `div` above the editor, but I can't remember if it's called
@@ -285,31 +284,17 @@ Don't be afraid to enhance the UI. Here are some suggestions:
 * Extend your `look-html` function to display the `(stack)` information
 * your own images, there's nothing stopping you from creating your own
   images and using those in the game
-
-### The FLOW moment
-
-There's a moment in the coding process. Your cursor blinks in the
-editor while the shape of data and its necessary transformations hover
-in your mind. As you type out your solution, uncertainty arrives - do
-your assumptions actually hold? Is the data structured as you imagine?
-Are you remembering function names and arguments correctly?  This is
-where inline evaluation shines, sliding seamlessly into this moment
-with immediate feedback that confirms whether your mental model
-matches reality. It bridges the gap between thought and execution,
-letting you verify assumptions without breaking your flow.
-
+ 
 ### And end or maybe a beginning
 
 Thanks for taking the time to experience inline evaluation.
 
-A major goal of this post to get more programmers to experience
-this. As programmers, we often fall into cognitive ruts that deeply
-constrain our expectations of what the programming process can
-be. These mental ruts, in turn, limit the potential of what we
-create. I have observed decisions by language designers, programming
-architecture advocates, and tool builders that directly ignore or
-impede this type of interactivity—a situation I find genuinely
-unfortunate.
+As programmers, we often fall into cognitive ruts that constrain
+our expectations of what the programming process can be. These mental
+ruts, in turn, limit the potential of what we create. I have observed
+decisions by language designers, programming architecture advocates,
+and tool builders that directly ignore or impede this type of
+interactivity—a situation I find genuinely unfortunate.
 
 It's hard to get people to try things outside their experience. It's
 natural to resist unfamiliar ideas and dismiss them. Many who read
