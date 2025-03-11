@@ -1,6 +1,6 @@
 --- 
 layout: inline_edit_post
-title: Inline evaluation
+title: Inline evaluation adventure
 published: true
 cssUrl: "/assets/inline-edit/css/style.css"
 javascriptUrl: "/assets/inline-edit/main.js"
@@ -62,9 +62,9 @@ can also evaluate expressions that span multiple lines.
 > this. It is trivial to write an editor plugin to detect an
 > expression delimited by parenthesis.
 
-Sometimes, when I forget function names, instead of searching for
-them, I simply try evaluating them inline to see if they exist and if
-they behave the way I expect them to.
+Sometimes, when I'm uncertain about function names or behavior,
+instead of searching for them, I simply try evaluating them inline to
+see if they exist and if they behave the way I expect them to.
 
 For example, I know I created a function that renders HTML into a
 `div` above the editor, but I can't remember if it's called
