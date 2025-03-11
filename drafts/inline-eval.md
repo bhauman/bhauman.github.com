@@ -103,13 +103,14 @@ the `look`, `move` and `reset` functions do.
 
 Notice how the `look` function returns data describing your location
 in a text adventure game, while the `move` function lets you navigate
-through this virtual world. This provides a perfect opportunity to
-demonstrate how inline evaluation helps us build and refine code
-incrementally.
+through this virtual world.
 
-Evaluating these function calls in the editor could work as a spartan
-interface to the game, but it would definitely be better to display
-this data using our `display-html` function. Right? Right??
+This provides an opportunity to demonstrate how inline evaluation
+helps us build and refine code incrementally.
+
+Evaluating `(look)` and `(move :east)` could work as a spartan interface to the
+game, but it would definitely be better to display this data using our
+`display-html` function. Right? Right??
 
 Now if we examine the data that the `look` function returns we can
 see that it's returning a **hash map** of some sort, with the keys
@@ -285,23 +286,30 @@ Don't be afraid to enhance the UI. Here are some suggestions:
 * your own images, there's nothing stopping you from creating your own
   images and using those in the game
 
+### The FLOW moment
+
+There's a moment in the coding process. Your cursor blinks in the
+editor while the shape of data and its necessary transformations hover
+in your mind. As you type out your solution, uncertainty arrives - do
+your assumptions actually hold? Is the data structured as you imagine?
+Are you remembering function names and arguments correctly?  This is
+where inline evaluation shines, sliding seamlessly into this moment
+with immediate feedback that confirms whether your mental model
+matches reality. It bridges the gap between thought and execution,
+letting you verify assumptions without breaking your flow.
+
 ### And end or maybe a beginning
 
 Thanks for taking the time to experience inline evaluation.
 
-A major goal of this post was to showcase the instant feedback it
-provides. By keeping you engaged in the problem at hand, inline
-evaluation helps maintain your flow and focus where it matters most—in
-your code.
-
-Another goal of this post is to inform programmers that this type of
-interactivity exists. As programmers, we often fall into cognitive
-ruts that deeply constrain our expectations of what the programming
-process can be. These mental ruts, in turn, limit the potential of
-what we create as programmers. I have observed decisions by language
-designers, programming architecture advocates, and tool builders that
-directly ignore or impede this type of interactivity—a situation I
-find genuinely unfortunate.
+A major goal of this post to get more programmers to experience
+this. As programmers, we often fall into cognitive ruts that deeply
+constrain our expectations of what the programming process can
+be. These mental ruts, in turn, limit the potential of what we
+create. I have observed decisions by language designers, programming
+architecture advocates, and tool builders that directly ignore or
+impede this type of interactivity—a situation I find genuinely
+unfortunate.
 
 It's hard to get people to try things outside their experience. It's
 natural to resist unfamiliar ideas and dismiss them. Many who read
