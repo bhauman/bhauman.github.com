@@ -1,6 +1,6 @@
 --- 
 layout: inline_edit_post
-title: Inline evaluation adventure
+title: Inline Evaluation Adventure
 published: true
 cssUrl: "/assets/inline-edit/css/style.css"
 javascriptUrl: "/assets/inline-edit/main.js"
@@ -10,9 +10,9 @@ Inline evaluation has been around for a long time, but not every
 programmer has had the chance to use it. If you haven't, this is an
 opportunity to try it.
 
-To this end I've coded up a simple editor with some code
-examples. These examples are all editable and executable, however no
-**run** button exists to execute them. You'll use `Control-r` to
+To this end I've coded up a simple editor with some code examples. The
+following examples are all editable and executable, however no **run**
+button exists to execute them. You'll use `Control-r` to
 *RUN/EVALUATE* pieces of code that you select from inside the editor
 panes below.
 
@@ -263,7 +263,7 @@ evaluation, evaluate each one to discover its purpose and effect on
 the game state. This demonstrates how inline evaluation serves as both
 a development **and** exploration tool.
 
-<div class="cljs-editor-new" data-sci-ctx="main-game"><pre>
+<div class="cljs-editor-new" data-sci-ctx="main-game" data-cljs-editor-focus-hook="ensure-fns"><pre>
 (display-html (look-html (look)))
 (move :east)
 
@@ -276,8 +276,6 @@ a development **and** exploration tool.
 (reset)
 </pre></div>
 
-<div id="secret-door"></div>
-
 Don't be afraid to enhance the UI. Here are some suggestions:
 * Create a `looki` function that combines our `display-html` and `look-html` functions: `(display-html (look-html (look)))`
 * Develop a `movi` function that calls `move` and then `looki` to show the new location
@@ -285,7 +283,7 @@ Don't be afraid to enhance the UI. Here are some suggestions:
 * your own images, there's nothing stopping you from creating your own
   images and using those in the game
  
-### And end or maybe a beginning
+### And end?
 
 Thanks for taking the time to experience inline evaluation.
 
@@ -300,8 +298,7 @@ It's hard to get people to try things outside their experience. It's
 natural to resist unfamiliar ideas and dismiss them. Many who read
 this will likely respond by arguing that this kind of interactivity
 isn't necessary or useful. However, in my humble opinion, that simply
-isn't true. People who have never truly engaged with this workflow
-often underestimate its value.
+isn't true.
 
 Yes, these may be toy examples inside a toy editor, but this level of
 interactivity is very real. Clojure programmers—and others who use
@@ -315,4 +312,3 @@ deserves wider adoption across programming environments.
 
 By experiencing it firsthand, you might be inspired to expect more
 from your programming languages and tools—or even create your own.
-
