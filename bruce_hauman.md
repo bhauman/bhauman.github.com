@@ -7,13 +7,25 @@ title: Bruce Hauman
 
 ## Hey there!
 
-I'm Bruce Hauman. I'm a Software Developer with over 17 years
+I'm Bruce Hauman. I'm a Software Developer with over 20 years
 experience in full stack web development. I enjoy making programming
 more fluid, productive and fun for ClojureScript developers.
 
 On this page I've provided links to some of my open-source work,
 conference talks and other things that can give you a better idea of
 who I am and what I do.
+
+## Endorsements
+
+> Bruce Hauman pioneered modern hot-reloading workflows with Figwheel,
+> fundamentally changing how we think about development workflows. His
+> work directly influenced React Hot Loader and later tools. Every
+> JavaScript developer using hot-reloading today is benefiting from
+> patterns Bruce established in the ClojureScript ecosystem years ago. 
+> 
+> _- Dan Abramov_
+
+
 
 ## Open Source Authorship
 
