@@ -26,6 +26,12 @@ who I am and what I do.
 > _- Dan Abramov_
 
 
+## Advent of Code 2024 Answers
+
+I definitely enjoy the annual [Advent of Code](https://adventofcode.com/) challenge.
+
+Here are my answers to 2024 edition. [https://github.com/bhauman/adv2024/tree/main/src/adv2024](https://github.com/bhauman/adv2024/tree/main/src/adv2024)
+
 
 ## Open Source Authorship
 
@@ -59,12 +65,12 @@ the process of front end programming.
 * [Developing ClojureScript with Figwheel](https://www.youtube.com/watch?v=j-kj2qwJa_E) - (ClojureWest 2015)
 * [Literate interactive coding: Devcards](https://www.youtube.com/watch?v=G7Z_g2fnEDg) - (Strange Loop 2015)
 
-## Podcast
+## Podcast Appearances
 
 * [The Cognicast - Bruce Hauman](http://blog.cognitect.com/cognicast/102) - May 24, 2016
+* [Defn Podcast - Bruce Hauman](https://clojureverse.org/t/defn-podcast-episode-31-bruce-hauman/1585) - Feb 10, 2018
 
-
-## Dome design and living
+## Dome design
 
 I have designed a unique way to quickly construct affordable domes
 from easily obtainable materials.
@@ -81,6 +87,7 @@ from easily obtainable materials.
 
 ## Blog Posts that reached the front page of Hacker News
 
+* [Inline Evaluation Adventure](https://rigsomelight.com/2025/03/12/inline-eval-adventure.html)
 * [Good Configuration Feedback is Essential](http://rigsomelight.com/2016/05/17/good-configuration-feedback-is-essential.html)
 * [Straightforward (Live) Functional JavaScript: Building the Yome Widget](http://rigsomelight.com/2015/06/09/straightforward-live-functional-javascript-building-the-yome-widget.html)
 
