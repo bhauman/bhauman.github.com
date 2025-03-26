@@ -17,6 +17,19 @@ who I am and what I do.
 
 ## Endorsements
 
+> For well over a decade, Bruce Haumun has been an important contributor
+> and tooling visionary in the Clojure/ClojureScript community. Bruce's
+> Figwheel still represents a benchmark against which so many
+> "hot-reloading" tools fall short, and DevCards long foreshadowed
+> the power of the UI testing approach embraced by Storybook.js. Bruce has
+> that uncommon combination of compiler know-how, a profound respect for
+> users, and the belief that tooling could be so much better without
+> wandering off into the research weeds. Bruce is that truly rarest of
+> rare birds, a force multiplier for the people around him. He has my
+> highest recommendation.
+>
+> _- David Nolen_
+
 > Bruce Hauman pioneered modern hot-reloading workflows with Figwheel,
 > fundamentally changing how we think about development workflows. His
 > work directly influenced React Hot Loader and later tools. Every
@@ -32,7 +45,6 @@ I definitely enjoy the annual [Advent of Code](https://adventofcode.com/) challe
 
 Here are my answers to 2024 edition. [https://github.com/bhauman/adv2024/tree/main/src/adv2024](https://github.com/bhauman/adv2024/tree/main/src/adv2024)
 
-
 ## Open Source Authorship
 
 #### [Figwheel](https://github.com/bhauman/figwheel-main)
@@ -40,7 +52,7 @@ Here are my answers to 2024 edition. [https://github.com/bhauman/adv2024/tree/ma
 Figwheel broke new ground making the holy grail of live editing and
 hot loading running code a pragmatic reality for front end
 development. Several features, like heads-up displays announcing
-compiler errors, that many javascript developers experience everyday
+compiler errors, that many JavaScript developers experience everyday
 started here.
 
 Figwheel has been popularly received by the ClojureScript community as evidenced in the [State of Clojure 2015 Survey](http://blog.cognitect.com/blog/2016/1/28/state-of-clojure-2015-survey-results) and the outpouring of [thanks](https://twitter.com/search?f=tweets&vertical=default&q=figwheel%20thanks&src=typd) and [appreciation](https://twitter.com/search?f=tweets&vertical=default&q=figwheel%20awesome&src=typd).
