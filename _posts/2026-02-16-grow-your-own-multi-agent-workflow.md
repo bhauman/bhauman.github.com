@@ -47,6 +47,8 @@ claudet my-project
 
 At this point you effectively have a multi-agent setup. No framework. No orchestration layer. Just two instances of a tool you already know, connected by a shared to-do list.
 
+What I'm showing here is a simplified starting point—it's where I started, not what I'm actually using today. My setup has evolved, but the core principle is the same. This is intended to be adapted to what works for you.
+
 ---
 
 ## Let's Build Something
