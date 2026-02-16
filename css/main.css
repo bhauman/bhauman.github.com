@@ -63,7 +63,10 @@ ul.posts span {
 .site {
   font-size: 115%;
   text-align: justify;
-  width: 42em;
+  max-width: 42em;
+  width: 100%;
+  padding: 0 1em;
+  box-sizing: border-box;
   margin: 3em auto 2em;
   line-height: 1.5em;
 }
@@ -138,6 +141,7 @@ ul.posts span {
   border: 1px solid #ddd;
   background-color: #eef;
   padding: 0 .4em;
+  overflow-x: auto;
 }
 
 .post ul, .post ol {
