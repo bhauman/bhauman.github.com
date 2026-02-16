@@ -1,5 +1,8 @@
 .container {
-  width: 650px;
+  max-width: 650px;
+  width: 100%;
+  padding: 0 15px;
+  box-sizing: border-box;
 }
 
 body {
@@ -204,12 +207,12 @@ code {
   .clojure {
     font-size: 12px;
   }
-  .highlight pre {
+  .highlight pre, .post pre {
     word-break: normal;
     word-wrap: normal;
     overflow-x: scroll;
   }
-  .highlight pre code {
+  .highlight pre code, .post pre code {
     white-space: pre;
   }
 }
@@ -220,7 +223,7 @@ code {
     margin-right: -15px;
     border-radius: 0px;    
   }
-  .highlight pre {
+  .highlight pre, .post pre {
     border-left: 0px;
     border-right: 0px;
     border-radius: 0px;
