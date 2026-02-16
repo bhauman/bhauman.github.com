@@ -98,10 +98,11 @@ Now switch to Terminal 2 and say:
 
 ```
 Work through the task list. For each task, implement it
-in a subagent, verify it works, and commit.
+by calling the Task tool with subagent_type="general-purpose",
+verify it works, and commit.
 ```
 
-That's the entire instruction. The important part is *"in a subagent."* Make sure Claude is delegating each task to a child agent, not implementing it inline.
+That's the entire instruction. The important part is *"by calling the Task tool with subagent_type='general-purpose'."* Make sure Claude is delegating each task to a child agent, not implementing it inline.
 
 You'll know it's working when you see something like:
 
@@ -188,10 +189,10 @@ In the builder terminal, I codify the full loop directly in the prompt:
 ```
 Run this loop until all tasks are complete:
 1. Pick the highest priority unblocked task, mark it in_progress
-2. Launch a general_agent subagent Task to implement the selected task
+2. Call the Task tool with subagent_type="general-purpose" to implement the selected task
 3. Verify the change works, run tests
    - If something fails, send the errors back to the subagent to fix
-4. Launch a general_agent to Review the changes
+4. Call the Task tool with subagent_type="general-purpose" to review the changes
    - If changes needed, send them back to the subagent
 5. Commit with a descriptive message
 6. Mark the task completed, go to step 1
