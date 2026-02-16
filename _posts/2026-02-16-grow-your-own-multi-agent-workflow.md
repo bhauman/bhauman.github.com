@@ -61,7 +61,7 @@ Let's build a CLI tool called `quoth`—a quote manager for your terminal. You c
 
 This is where you think.
 
-Start by telling Claude what you want:
+Start by putting Claude in plan mode — press **Shift+Tab** to toggle it on. Then describe what you want:
 
 ```
 I want to build a CLI tool called "quoth" in Babashka.
@@ -72,13 +72,26 @@ It should:
 - Search quotes by text or tag
 - Display quotes nicely formatted in the terminal
 
-Design the core data model and CLI interface, then create tasks
-for each feature. Each task will be implemented by a separate agent
-with no prior context, so include all the relevant details. Start
+Design the core data model and CLI interface. Start
 with the simplest thing that works.
 ```
 
-Claude will explore the problem, think through the design, and create tasks:
+Claude will explore the problem and think through the design without making any changes. This is where you iterate — ask about tradeoffs, say you don't like the CLI flag names, ask why it chose one approach over another. Rework the design until it feels right.
+
+When you're happy with the direction, press **Shift+Tab** again to leave plan mode. Then ask Claude to break the design into tasks:
+
+```
+Break this design into atomic tasks and create them.
+Each task will be implemented by a separate agent that
+has no context from this conversation. Task descriptions
+need to stand alone — include relevant file paths, data
+formats, function signatures, and expected behavior so
+the implementing agent has everything it needs.
+```
+
+This prompt is a good candidate for a custom slash command — something like `/project:create-tasks`. You'll use it often enough that it's worth not retyping it.
+
+You'll see tasks like:
 
 ```
 Task #1: Set up project structure with CLI skeleton
@@ -88,9 +101,7 @@ Task #4: Implement search by text and tag
 Task #5: Add formatted terminal output with colors
 ```
 
-Each task gets a detailed description—the data format, CLI flags, and edge cases. This is the design work.
-
-You can review the tasks, adjust them, or ask Claude to rethink the approach. Ask about tradeoffs. Say you don't like the CLI flag names. Ask why it chose JSON over SQLite. Rework the task breakdown until it feels right. Nothing gets built until you're ready.
+Each one packed with enough detail that a cold-start agent can pick it up and run.
 
 ---
 
@@ -205,13 +216,6 @@ The loop provides structure. The agent provides judgment.
 ---
 
 ## Tips From a Week of This
-
-**Task descriptions need to stand alone.**
-The builder's subagent won't have any of the designer's conversation history. The task description is all it gets.
-
-The good news is you don't have to write these yourself. When you're done designing, tell the designer to create the tasks and remind it that each task will be handled by a separate agent with no prior context. Claude will front-load relevant file paths, expected behavior, and testing steps automatically.
-
----
 
 **Use the designer to verify.**
 Once a feature is implemented, switch back to the designer terminal and have it check the work. It has all the context from the original design conversation, so it knows what "correct" looks like. Read the code, run the tests, and confirm it matches your intent.
