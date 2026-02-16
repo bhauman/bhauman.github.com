@@ -152,10 +152,6 @@ A few things fall out of this naturally.
 **Code changes are serial—and that's fine.**
 You might think this would be slow compared to running agents in parallel. In practice, the bottleneck is never the builder; it's keeping the task list full. The builder chews through tasks faster than you can design them.
 
-"Serial" doesn't mean "waiting around." It means everything happens on one branch in one working directory.
-
-I tried the parallel approach—git worktrees, multiple branches, agents running simultaneously on different features. It sounds fast, but managing it divided my attention. I spent energy on git logistics instead of thinking about the actual problem. With this workflow, I'm able to keep my flow. When you're working on a contiguous set of features, the simplicity of serial changes on a single branch is hard to beat.
-
 ---
 
 **Fresh context per task.**
