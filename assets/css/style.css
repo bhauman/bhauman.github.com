@@ -218,10 +218,10 @@ code {
 }
 
 @media (max-width: 480px) {
-  .highlight, blockquote, .breadcrumb, .example {
+  div.highlight, blockquote, .breadcrumb, .example {
     margin-left: -15px;
     margin-right: -15px;
-    border-radius: 0px;    
+    border-radius: 0px;
   }
   .highlight pre, .post pre {
     border-left: 0px;
@@ -231,5 +231,7 @@ code {
   p code {
     white-space: normal !important;
   }
+  h1, h2, h3 { line-height: 1.3; }
+  body { overflow-wrap: break-word; word-wrap: break-word; }
 }
 
